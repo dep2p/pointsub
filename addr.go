@@ -1,7 +1,7 @@
 // Package PointSub 提供了基于 libp2p 的流式处理功能
 package pointsub
 
-import "github.com/libp2p/go-libp2p/core/peer"
+import "github.com/dep2p/libp2p/core/peer"
 
 // addr 结构体实现了 net.Addr 接口,用于保存 libp2p 的对等节点 ID
 // id: 对等节点的唯一标识符

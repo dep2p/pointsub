@@ -5,9 +5,9 @@ import (
 	"context"
 	"net"
 
-	"github.com/libp2p/go-libp2p/core/host"
-	"github.com/libp2p/go-libp2p/core/network"
-	"github.com/libp2p/go-libp2p/core/protocol"
+	"github.com/dep2p/libp2p/core/host"
+	"github.com/dep2p/libp2p/core/network"
+	"github.com/dep2p/libp2p/core/protocol"
 )
 
 // listener 结构体实现了 net.Listener 接口,用于处理来自 libp2p 连接的带标签流
