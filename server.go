@@ -11,9 +11,9 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/dep2p/libp2p/core/host"
+	"github.com/dep2p/libp2p/core/protocol"
 	pool "github.com/libp2p/go-buffer-pool"
-	"github.com/libp2p/go-libp2p/core/host"
-	"github.com/libp2p/go-libp2p/core/protocol"
 	"github.com/libp2p/go-msgio"
 )
 
@@ -264,8 +264,12 @@ func (s *Server) acceptConnections(protocolID protocol.ID, listener net.Listener
 //   - handler: 消息处理函数
 func (s *Server) handleConnection(conn net.Conn, handler StreamHandler) {
 	// 重置连接超时
-	defer conn.SetDeadline(time.Time{})
-
+	//defer conn.SetDeadline(time.Time{})
+	defer func() {
+		conn.Close()
+		s.activeConns.Delete(conn)
+		atomic.AddInt32(&s.connCount, -1)
+	}()
 	// 设置初始读取超时
 	if err := conn.SetDeadline(time.Now().Add(s.config.ReadTimeout)); err != nil {
 		logger.Errorf("设置连接超时失败: %v", err)
