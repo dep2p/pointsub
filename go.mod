@@ -3,7 +3,7 @@ module github.com/dep2p/pointsub
 go 1.22.5
 
 require (
-	github.com/dep2p/libp2p v0.0.3
+	github.com/dep2p/libp2p v0.0.4
 	github.com/dep2p/log v0.0.1
 	github.com/libp2p/go-buffer-pool v0.1.0
 	github.com/libp2p/go-msgio v0.3.0
