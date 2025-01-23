@@ -1,4 +1,4 @@
-// Package PointSub 提供了基于 libp2p 的流式处理功能
+// Package PointSub 提供了基于 dep2p 的流式处理功能
 package pointsub
 
 import (
@@ -9,24 +9,24 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dep2p/libp2p"
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/peerstore"
-	"github.com/dep2p/libp2p/core/protocol"
-	"github.com/multiformats/go-multiaddr"
+	"github.com/dep2p/go-dep2p"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/peerstore"
+	"github.com/dep2p/go-dep2p/core/protocol"
+	"github.com/dep2p/go-dep2p/multiformats/multiaddr"
 )
 
-// newHost 创建一个新的 libp2p 主机实例
+// newHost 创建一个新的 dep2p 主机实例
 // 参数:
 //   - t: 测试对象,用于报告测试失败
 //   - listen: 监听的多地址
 //
 // 返回值:
-//   - host.Host: 创建的 libp2p 主机实例
+//   - host.Host: 创建的 dep2p 主机实例
 func newHost(t *testing.T, listen multiaddr.Multiaddr) host.Host {
-	// 使用给定的监听地址创建新的 libp2p 主机
-	h, err := libp2p.New(
-		libp2p.ListenAddrs(listen),
+	// 使用给定的监听地址创建新的 dep2p 主机
+	h, err := dep2p.New(
+		dep2p.ListenAddrs(listen),
 	)
 	if err != nil {
 		t.Fatal(err)
@@ -34,9 +34,9 @@ func newHost(t *testing.T, listen multiaddr.Multiaddr) host.Host {
 	return h
 }
 
-// TestServerClient 测试 libp2p 的服务端和客户端通信功能
+// TestServerClient 测试 dep2p 的服务端和客户端通信功能
 // 该测试用例模拟了一个完整的客户端-服务端通信流程:
-// 1. 创建两个独立的 libp2p 主机(服务端和客户端)
+// 1. 创建两个独立的 dep2p 主机(服务端和客户端)
 // 2. 建立连接并交换消息
 // 3. 验证连接属性和消息内容
 // 参数:
@@ -47,7 +47,7 @@ func TestServerClient(t *testing.T) {
 	m1, _ := multiaddr.NewMultiaddr("/ip4/127.0.0.1/tcp/10000")
 	m2, _ := multiaddr.NewMultiaddr("/ip4/127.0.0.1/tcp/10001")
 
-	// 分别为服务端和客户端创建 libp2p 主机实例
+	// 分别为服务端和客户端创建 dep2p 主机实例
 	srvHost := newHost(t, m1)
 	clientHost := newHost(t, m2)
 	// 确保测试结束时关闭两个主机
@@ -71,7 +71,7 @@ func TestServerClient(t *testing.T) {
 	// 启动服务端处理 goroutine
 	go func() {
 		defer close(done)
-		// 创建基于 libp2p 的网络监听器
+		// 创建基于 dep2p 的网络监听器
 		listener, err := Listen(srvHost, tag)
 		if err != nil {
 			t.Error(err)
@@ -107,7 +107,7 @@ func TestServerClient(t *testing.T) {
 			}
 			fmt.Printf("请求: ===> %v", msg)
 			// 验证接收到的消息内容是否符合预期
-			if msg != "libp2p 很棒吗？\n" {
+			if msg != "dep2p 很棒吗？\n" {
 				t.Errorf("收到不良消息: %s", msg)
 				return
 			}
@@ -162,7 +162,7 @@ func TestServerClient(t *testing.T) {
 	}
 
 	// 向服务端发送测试消息
-	_, err = clientConn.Write([]byte("libp2p 很棒吗？\n"))
+	_, err = clientConn.Write([]byte("dep2p 很棒吗？\n"))
 	if err != nil {
 		t.Fatal(err)
 	}

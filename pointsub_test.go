@@ -1,4 +1,4 @@
-// Package pointsub 提供了基于 LibP2P 的网络通信功能的测试
+// Package pointsub 提供了基于 dep2p 的网络通信功能的测试
 package pointsub
 
 import (
@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dep2p/libp2p"
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/protocol"
+	"github.com/dep2p/go-dep2p"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/protocol"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -20,12 +20,12 @@ import (
 //   - t: 测试对象
 func TestLocalClientServerInteraction(t *testing.T) {
 	// 创建服务端 host
-	serverHost, err := libp2p.New()
+	serverHost, err := dep2p.New()
 	assert.NoError(t, err)
 	defer serverHost.Close()
 
 	// 创建客户端 host
-	clientHost, err := libp2p.New()
+	clientHost, err := dep2p.New()
 	assert.NoError(t, err)
 	defer clientHost.Close()
 
@@ -142,7 +142,7 @@ func TestLocalClientServerInteraction(t *testing.T) {
 //   - t: 测试对象
 func TestMultiClientServerInteractions(t *testing.T) {
 	// 创建服务端 host
-	serverHost, err := libp2p.New()
+	serverHost, err := dep2p.New()
 	assert.NoError(t, err)
 	defer serverHost.Close()
 
@@ -192,7 +192,7 @@ func TestMultiClientServerInteractions(t *testing.T) {
 	// 初始化所有客户端
 	for i := 0; i < clientCount; i++ {
 		// 创建客户端 host
-		clientHosts[i], err = libp2p.New()
+		clientHosts[i], err = dep2p.New()
 		assert.NoError(t, err)
 		defer clientHosts[i].Close()
 
@@ -314,7 +314,7 @@ func TestMultiNodeCommunication(t *testing.T) {
 	// 初始化所有节点
 	for i := 0; i < nodeCount; i++ {
 		// 创建节点的 host
-		h, err := libp2p.New()
+		h, err := dep2p.New()
 		assert.NoError(t, err)
 		defer h.Close()
 

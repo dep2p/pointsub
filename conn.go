@@ -1,4 +1,4 @@
-// Package PointSub 提供了基于 libp2p 的流式处理功能
+// Package PointSub 提供了基于 dep2p 的流式处理功能
 package pointsub
 
 import (
@@ -6,20 +6,20 @@ import (
 	"errors"
 	"net"
 
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/network"
-	"github.com/dep2p/libp2p/core/peer"
-	"github.com/dep2p/libp2p/core/protocol"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/network"
+	"github.com/dep2p/go-dep2p/core/peer"
+	"github.com/dep2p/go-dep2p/core/protocol"
 )
 
-// conn 结构体实现了 net.Conn 接口,封装了 libp2p 的流
+// conn 结构体实现了 net.Conn 接口,封装了 dep2p 的流
 type conn struct {
-	network.Stream // 内嵌 libp2p 的 Stream 接口
+	network.Stream // 内嵌 dep2p 的 Stream 接口
 }
 
 // newConn 创建一个新的 conn 对象
 // 参数:
-//   - s: libp2p 的流对象
+//   - s: dep2p 的流对象
 //
 // 返回值:
 //   - net.Conn: 标准网络连接接口
@@ -50,7 +50,7 @@ func (c *conn) RemoteAddr() net.Addr {
 // Dial 使用给定的主机打开到目标地址的流
 // 参数:
 //   - ctx: 上下文对象,用于控制操作的生命周期
-//   - h: libp2p 主机对象
+//   - h: dep2p 主机对象
 //   - pid: 目标对等节点的 ID
 //   - tag: 协议标识符
 //

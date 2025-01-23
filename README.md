@@ -1,10 +1,10 @@
 # PointSub
 
-PointSub 是一个基于 LibP2P 的网络通信库，提供了使用 LibP2P streams 替换 Go 标准网络栈的功能。
+PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p streams 替换 Go 标准网络栈的功能。
 
 ## 主要特性
 
-- 基于 LibP2P 的流式通信
+- 基于 dep2p 的流式通信
 - 提供标准的 net.Conn 和 net.Listener 接口实现 
 - 支持多路由、NAT 穿透和流复用
 - 使用 Peer ID 进行寻址，无需传统的 host:port 方式
@@ -16,7 +16,7 @@ PointSub 是一个基于 LibP2P 的网络通信库，提供了使用 LibP2P stre
 
 ## 使用限制
 
-- LibP2P hosts 不能自己连接自己
+- dep2p hosts 不能自己连接自己
 - 客户端不能向自己发送请求
 - 每个 Host 需要唯一的 Peer ID
 - 同一个 Host 上的不同协议需要使用不同的 Protocol ID
@@ -48,9 +48,9 @@ PointSub 是一个基于 LibP2P 的网络通信库，提供了使用 LibP2P stre
 
 ### 服务端使用
 
-1. 创建 LibP2P Host:
+1. 创建 dep2p Host:
 ```go
-    serverHost, err := libp2p.New()
+    serverHost, err := dep2p.New()
     if err != nil {
     // 处理错误
     }
@@ -88,10 +88,10 @@ PointSub 是一个基于 LibP2P 的网络通信库，提供了使用 LibP2P stre
 
 ### 客户端使用
 
-1. 创建 LibP2P Host:
+1. 创建 dep2p Host:
 
 ```go
-    clientHost, err := libp2p.New()
+    clientHost, err := dep2p.New()
     if err != nil {
     // 处理错误
     }

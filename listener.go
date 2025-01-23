@@ -1,19 +1,19 @@
-// Package PointSub 提供了基于 libp2p 的流式处理功能
+// Package PointSub 提供了基于 dep2p 的流式处理功能
 package pointsub
 
 import (
 	"context"
 	"net"
 
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/network"
-	"github.com/dep2p/libp2p/core/protocol"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/network"
+	"github.com/dep2p/go-dep2p/core/protocol"
 )
 
-// listener 结构体实现了 net.Listener 接口,用于处理来自 libp2p 连接的带标签流
+// listener 结构体实现了 net.Listener 接口,用于处理来自 dep2p 连接的带标签流
 // 可以通过 Listen() 函数创建一个监听器
 type listener struct {
-	host     host.Host           // libp2p 主机对象
+	host     host.Host           // dep2p 主机对象
 	ctx      context.Context     // 上下文对象,用于控制生命周期
 	tag      protocol.ID         // 协议标识符
 	cancel   func()              // 取消函数,用于终止监听器
@@ -22,7 +22,7 @@ type listener struct {
 
 // Accept 返回此监听器的下一个连接
 // 如果没有连接则会阻塞
-// 底层使用 libp2p 流作为连接
+// 底层使用 dep2p 流作为连接
 // 参数:
 //   - l: listener 结构体指针
 //
@@ -51,7 +51,7 @@ func (l *listener) Close() error {
 	return nil
 }
 
-// Addr 返回此监听器的地址(即其 libp2p 对等节点 ID)
+// Addr 返回此监听器的地址(即其 dep2p 对等节点 ID)
 // 参数:
 //   - l: listener 结构体指针
 //
@@ -62,9 +62,9 @@ func (l *listener) Addr() net.Addr {
 }
 
 // Listen 提供一个标准的 net.Listener 接口用于接受"连接"
-// 底层使用带有指定协议 ID 标签的 libp2p 流
+// 底层使用带有指定协议 ID 标签的 dep2p 流
 // 参数:
-//   - h: libp2p 主机对象
+//   - h: dep2p 主机对象
 //   - tag: 协议标识符
 //
 // 返回值:

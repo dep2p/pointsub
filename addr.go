@@ -1,13 +1,13 @@
-// Package PointSub 提供了基于 libp2p 的流式处理功能
+// Package PointSub 提供了基于 dep2p 的流式处理功能
 package pointsub
 
-import "github.com/dep2p/libp2p/core/peer"
+import "github.com/dep2p/go-dep2p/core/peer"
 
-// addr 结构体实现了 net.Addr 接口,用于保存 libp2p 的对等节点 ID
+// addr 结构体实现了 net.Addr 接口,用于保存 dep2p 的对等节点 ID
 // id: 对等节点的唯一标识符
 type addr struct{ id peer.ID }
 
-// Network 返回此地址所属的网络名称(libp2p)
+// Network 返回此地址所属的网络名称(dep2p)
 // 参数:
 //   - a: addr 结构体指针
 //

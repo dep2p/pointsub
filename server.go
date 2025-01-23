@@ -11,10 +11,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/protocol"
-	pool "github.com/libp2p/go-buffer-pool"
-	"github.com/libp2p/go-msgio"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/protocol"
+	pool "github.com/dep2p/go-dep2p/p2plib/buffer/pool"
+	"github.com/dep2p/go-dep2p/p2plib/msgio"
 )
 
 // ServerConfig 定义服务器配置
@@ -68,7 +68,7 @@ func DefaultServerConfig() *ServerConfig {
 // Server 定义服务结构
 // 包含服务器运行所需的各种组件
 type Server struct {
-	host          host.Host     // libp2p主机实例
+	host          host.Host     // dep2p主机实例
 	config        *ServerConfig // 服务器配置
 	handlers      sync.Map      // 处理器映射,key为protocol.ID,value为StreamHandler
 	listeners     sync.Map      // 监听器映射,key为protocol.ID,value为net.Listener
@@ -96,7 +96,7 @@ type StreamHandler func(request []byte) (response []byte, err error)
 
 // NewServer 创建新的服务器实例
 // 参数:
-//   - h: libp2p 主机实例
+//   - h: dep2p 主机实例
 //   - config: 服务器配置,如果为nil则使用默认配置
 //
 // 返回值:

@@ -1,5 +1,5 @@
 // Package pointsub 提供点对点订阅功能的实现
-// 该包实现了基于 LibP2P 的点对点通信功能,支持请求-响应模式的消息传递
+// 该包实现了基于 dep2p 的点对点通信功能,支持请求-响应模式的消息传递
 package pointsub
 
 import (
@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dep2p/libp2p/core/host"
-	"github.com/dep2p/libp2p/core/peer"
-	"github.com/dep2p/libp2p/core/protocol"
-	"github.com/libp2p/go-msgio"
+	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/peer"
+	"github.com/dep2p/go-dep2p/core/protocol"
+	"github.com/dep2p/go-dep2p/p2plib/msgio"
 )
 
 // ClientConfig 定义客户端配置参数
@@ -51,7 +51,7 @@ func DefaultClientConfig() *ClientConfig {
 // Client 定义客户端结构体
 // 该结构体封装了客户端的所有功能和状态
 type Client struct {
-	host        host.Host     // libp2p主机实例,用于网络通信
+	host        host.Host     // dep2p主机实例,用于网络通信
 	config      *ClientConfig // 客户端配置,存储所有配置参数
 	activeConns sync.Map      // 活跃连接映射,存储当前所有活跃的连接
 	done        chan struct{} // 关闭信号通道,用于通知清理协程退出
@@ -61,7 +61,7 @@ type Client struct {
 // NewClient 创建新的客户端实例
 // 该函数初始化一个新的客户端,并启动必要的后台任务
 // 参数:
-// - h: libp2p主机实例,用于网络通信
+// - h: dep2p主机实例,用于网络通信
 // - config: 客户端配置,如果为nil则使用默认配置
 // 返回值:
 // - *Client: 新创建的客户端实例
