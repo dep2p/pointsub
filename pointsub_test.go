@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"math/rand"
+	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -30,7 +31,11 @@ func TestLocalClientServerInteraction(t *testing.T) {
 	defer clientHost.Close()
 
 	// 创建服务端
-	server, err := NewServer(serverHost, DefaultServerConfig())
+	server, err := NewServer(serverHost,
+		WithMaxConcurrentConns(1000),
+		WithServerReadTimeout(30*time.Second),
+		WithServerWriteTimeout(30*time.Second),
+	)
 	assert.NoError(t, err)
 	defer server.Stop()
 
@@ -70,7 +75,11 @@ func TestLocalClientServerInteraction(t *testing.T) {
 	assert.NoError(t, err)
 
 	// 创建客户端
-	client, err := NewClient(clientHost, DefaultClientConfig())
+	client, err := NewClient(clientHost,
+		WithReadTimeout(30*time.Second),
+		WithWriteTimeout(30*time.Second),
+		WithMaxRetries(3),
+	)
 	assert.NoError(t, err)
 	defer client.Close()
 
@@ -147,7 +156,11 @@ func TestMultiClientServerInteractions(t *testing.T) {
 	defer serverHost.Close()
 
 	// 创建服务端
-	server, err := NewServer(serverHost, DefaultServerConfig())
+	server, err := NewServer(serverHost,
+		WithMaxConcurrentConns(1000),
+		WithServerReadTimeout(30*time.Second),
+		WithServerWriteTimeout(30*time.Second),
+	)
 	assert.NoError(t, err)
 	defer server.Stop()
 
@@ -197,7 +210,11 @@ func TestMultiClientServerInteractions(t *testing.T) {
 		defer clientHosts[i].Close()
 
 		// 创建客户端
-		clients[i], err = NewClient(clientHosts[i], DefaultClientConfig())
+		clients[i], err = NewClient(clientHosts[i],
+			WithReadTimeout(30*time.Second),
+			WithWriteTimeout(30*time.Second),
+			WithMaxRetries(3),
+		)
 		assert.NoError(t, err)
 		defer clients[i].Close()
 
@@ -319,12 +336,20 @@ func TestMultiNodeCommunication(t *testing.T) {
 		defer h.Close()
 
 		// 创建服务端
-		server, err := NewServer(h, DefaultServerConfig())
+		server, err := NewServer(h,
+			WithMaxConcurrentConns(1000),
+			WithServerReadTimeout(30*time.Second),
+			WithServerWriteTimeout(30*time.Second),
+		)
 		assert.NoError(t, err)
 		defer server.Stop()
 
 		// 创建客户端
-		client, err := NewClient(h, DefaultClientConfig())
+		client, err := NewClient(h,
+			WithReadTimeout(30*time.Second),
+			WithWriteTimeout(30*time.Second),
+			WithMaxRetries(3),
+		)
 		assert.NoError(t, err)
 		defer client.Close()
 
@@ -454,4 +479,168 @@ func TestMultiNodeCommunication(t *testing.T) {
 		}
 	}
 	t.Log("===================================")
+}
+
+// TestClientServer 测试客户端和服务端之间的通信
+func TestClientServer(t *testing.T) {
+	// 创建测试环境
+	ctx := context.Background()
+	serverHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer serverHost.Close()
+
+	server, err := NewServer(serverHost,
+		WithMaxConcurrentConns(100),          // 降低最大连接数
+		WithServerReadTimeout(5*time.Second), // 缩短超时时间
+		WithServerWriteTimeout(5*time.Second),
+	)
+	assert.NoError(t, err)
+	defer server.Stop()
+
+	// 创建客户端
+	clientHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer clientHost.Close()
+
+	client, err := NewClient(clientHost,
+		WithReadTimeout(5*time.Second),
+		WithWriteTimeout(5*time.Second),
+		WithConnectTimeout(2*time.Second),
+		WithMaxRetries(2),
+	)
+	assert.NoError(t, err)
+	defer client.Close()
+
+	// 连接到服务端
+	err = clientHost.Connect(ctx, serverHost.Peerstore().PeerInfo(serverHost.ID()))
+	assert.NoError(t, err)
+
+	// 1. 基本功能测试
+	t.Run("Basic functionality", func(t *testing.T) {
+		protocolID := protocol.ID("/test/basic/1.0.0")
+		err := server.Start(protocolID, func(req []byte) ([]byte, error) {
+			return append([]byte("response: "), req...), nil
+		})
+		assert.NoError(t, err)
+
+		resp, err := client.Send(ctx, serverHost.ID(), protocolID, []byte("hello"))
+		assert.NoError(t, err)
+		assert.Equal(t, "response: hello", string(resp))
+	})
+
+	// 2. 错误处理测试
+	t.Run("Error handling", func(t *testing.T) {
+		// 测试无效协议
+		invalidProtocol := protocol.ID("/invalid/1.0.0")
+		_, err := client.Send(ctx, serverHost.ID(), invalidProtocol, []byte("test"))
+		assert.Error(t, err)
+		t.Logf("Invalid protocol error: %v", err)
+		assert.True(t,
+			strings.Contains(err.Error(), "创建新的流") ||
+				strings.Contains(err.Error(), "protocols not supported"),
+			"错误消息应包含协议不支持相关信息")
+
+		// 测试超时
+		timeoutProtocol := protocol.ID("/test/timeout/1.0.0")
+		err = server.Start(timeoutProtocol, func(req []byte) ([]byte, error) {
+			time.Sleep(200 * time.Millisecond)
+			return []byte("delayed"), nil
+		})
+		assert.NoError(t, err)
+
+		ctxTimeout, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
+		defer cancel()
+		_, err = client.Send(ctxTimeout, serverHost.ID(), timeoutProtocol, []byte("test"))
+		assert.Error(t, err)
+		t.Logf("Timeout error: %v", err)
+		assert.True(t,
+			strings.Contains(err.Error(), "deadline exceeded") ||
+				strings.Contains(err.Error(), "context deadline exceeded"),
+			"错误消息应包含超时相关信息")
+	})
+
+	// 3. 并发测试（小规模）
+	t.Run("Concurrent requests", func(t *testing.T) {
+		protocolID := protocol.ID("/test/concurrent/1.0.0")
+		err := server.Start(protocolID, func(req []byte) ([]byte, error) {
+			return append([]byte("response: "), req...), nil
+		})
+		assert.NoError(t, err)
+
+		var wg sync.WaitGroup
+		errors := make(chan error, 5)
+
+		// 只发送5个并发请求
+		for i := 0; i < 5; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				msg := fmt.Sprintf("concurrent request %d", i)
+				resp, err := client.Send(ctx, serverHost.ID(), protocolID, []byte(msg))
+				if err != nil {
+					errors <- err
+					return
+				}
+				if !strings.Contains(string(resp), msg) {
+					errors <- fmt.Errorf("响应不匹配: %s", msg)
+				}
+			}(i)
+		}
+
+		wg.Wait()
+		close(errors)
+
+		for err := range errors {
+			assert.NoError(t, err)
+		}
+	})
+}
+
+// TestClientConfig 测试客户端配置
+func TestClientConfig(t *testing.T) {
+	// 测试默认配置
+	config := DefaultClientConfig()
+	assert.Equal(t, 30*time.Second, config.ReadTimeout)
+	assert.Equal(t, 30*time.Second, config.WriteTimeout)
+	assert.Equal(t, 5*time.Second, config.ConnectTimeout)
+	assert.Equal(t, 3, config.MaxRetries)
+	assert.True(t, config.EnableCompression)
+
+	// 测试自定义配置
+	clientHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer clientHost.Close()
+
+	client, err := NewClient(clientHost,
+		WithReadTimeout(10*time.Second),
+		WithWriteTimeout(15*time.Second),
+		WithConnectTimeout(3*time.Second),
+		WithMaxRetries(5),
+		WithCompression(false),
+	)
+	assert.NoError(t, err)
+	defer client.Close()
+
+	assert.Equal(t, 10*time.Second, client.config.ReadTimeout)
+	assert.Equal(t, 15*time.Second, client.config.WriteTimeout)
+	assert.Equal(t, 3*time.Second, client.config.ConnectTimeout)
+	assert.Equal(t, 5, client.config.MaxRetries)
+	assert.False(t, client.config.EnableCompression)
+}
+
+// 测试无效配置
+func TestInvalidClientConfig(t *testing.T) {
+	clientHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer clientHost.Close()
+
+	// 测试无效的读取超时
+	_, err = NewClient(clientHost, WithReadTimeout(-1*time.Second))
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "读取超时时间必须大于0")
+
+	// 测试无效的重试次数
+	_, err = NewClient(clientHost, WithMaxRetries(-1))
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "重试次数不能为负数")
 }

@@ -13,7 +13,9 @@ type addr struct{ id peer.ID }
 //
 // 返回值:
 //   - string: 网络名称,固定返回 Network 常量
-func (a *addr) Network() string { return Network }
+func (a *addr) Network() string {
+	return Network
+}
 
 // String 将此地址的对等节点 ID 转换为字符串形式(B58编码)
 // 参数:
@@ -21,4 +23,6 @@ func (a *addr) Network() string { return Network }
 //
 // 返回值:
 //   - string: B58编码的对等节点 ID 字符串
-func (a *addr) String() string { return a.id.String() }
+func (a *addr) String() string {
+	return a.id.String()
+}
