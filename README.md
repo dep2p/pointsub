@@ -1,6 +1,82 @@
 # PointSub
 
-PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p streams 替换 Go 标准网络栈的功能。
+![PointSub Logo](./docs/images/logo.png)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/dep2p/pointsub)](https://goreportcard.com/report/github.com/dep2p/pointsub)
+[![GoDoc](https://godoc.org/github.com/dep2p/pointsub?status.svg)](https://godoc.org/github.com/dep2p/pointsub)
+[![CI](https://github.com/dep2p/pointsub/actions/workflows/ci.yml/badge.svg)](https://github.com/dep2p/pointsub/actions/workflows/ci.yml)
+
+PointSub 是一个基于 dep2p 的点对点通信库，提供简单易用的 API 实现节点间的消息传递。
+
+## 架构
+
+```mermaid
+graph TD
+    A[Client] -->|Send Request| B[Server]
+    B -->|Process| C[Handler]
+    C -->|Response| B
+    B -->|Return| A
+```
+
+## 特性
+
+- 🚀 高性能：优化的连接池管理
+- 🔒 安全：支持加密传输
+- 🔄 可靠：自动重试机制
+- 📦 压缩：支持消息压缩
+- 🌐 扩展：灵活的协议支持
+
+## 快速开始
+
+### 安装
+
+```bash
+go get github.com/dep2p/pointsub
+```
+
+### 基本使用
+
+```go
+// 创建服务端
+server, err := pointsub.NewServer(host)
+if err != nil {
+    log.Fatal(err)
+}
+
+// 注册处理函数
+server.Start("/echo/1.0.0", func(req []byte) ([]byte, error) {
+    return req, nil
+})
+
+// 创建客户端
+client, err := pointsub.NewClient(host)
+if err != nil {
+    log.Fatal(err)
+}
+
+// 发送请求
+resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
+```
+
+## 性能指标
+
+| 指标 | 值 |
+|------|-----|
+| 最大并发连接 | 10000 |
+| 平均响应时间 | <10ms |
+| 吞吐量 | >5000 QPS |
+
+## 贡献指南
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'Add amazing feature'`)
+4. 推送分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
+
+## 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
 
 ## 主要特性
 
@@ -25,23 +101,18 @@ PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p stream
 ## 配置选项
 
 ### 服务端选项
-- WithServerReadTimeout(d time.Duration)：设置读取超时
-- WithServerWriteTimeout(d time.Duration)：设置写入超时
-- WithMaxConcurrentConns(n int)：设置最大并发连接数
-- WithMaxBlockSize(n int)：设置最大消息大小
-- WithBufferPoolSize(n int)：设置缓冲池大小
-- WithCleanupInterval(d time.Duration)：设置清理间隔
-- WithServerCompression(enable bool)：设置是否启用压缩
+- WithMaxConcurrentConns(n int)：设置最大并发连接数，默认1000
+- WithServerReadTimeout(d time.Duration)：设置读取超时，默认30秒
+- WithServerWriteTimeout(d time.Duration)：设置写入超时，默认30秒
+- WithServerBufferPoolSize(n int)：设置缓冲池大小，默认4KB
+- WithServerCleanupInterval(d time.Duration)：设置清理间隔，默认5分钟
 
 ### 客户端选项
-- WithReadTimeout(d time.Duration)：设置读取超时
-- WithWriteTimeout(d time.Duration)：设置写入超时
-- WithConnectTimeout(d time.Duration)：设置连接超时
-- WithMaxRetries(n int)：设置最大重试次数
-- WithRetryInterval(d time.Duration)：设置重试间隔
-- WithCompression(enable bool)：设置是否启用压缩
-- WithMaxIdleConns(n int)：设置最大空闲连接数
-- WithIdleConnTimeout(d time.Duration)：设置空闲连接超时
+- WithReadTimeout(d time.Duration)：设置读取超时，默认30秒
+- WithWriteTimeout(d time.Duration)：设置写入超时，默认30秒
+- WithConnectTimeout(d time.Duration)：设置连接超时，默认5秒
+- WithMaxRetries(n int)：设置最大重试次数，默认3次
+- WithCompression(enable bool)：设置是否启用压缩，默认true
 
 ### 服务端配置 (ServerConfig)
 - ReadTimeout：读取超时时间（默认30秒）
@@ -51,11 +122,6 @@ PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p stream
   - 最小值：100
   - 最大值：10000
   - 动态调整：根据负载自动增减
-    - 负载过高时减少10%
-    - 负载较低时增加10%
-- MaxBlockSize：最大消息块大小（默认32MB）
-- BufferPoolSize：缓冲池大小（默认4KB）
-- CleanupInterval：空闲连接清理间隔（默认5分钟）
 - EnableCompression：是否启用压缩（默认true）
 
 ### 客户端配置 (ClientConfig)
@@ -64,10 +130,11 @@ PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p stream
 - ConnectTimeout：连接超时时间（默认5秒）
 - MaxRetries：最大重试次数（默认3次）
 - RetryInterval：重试间隔时间（默认1秒）
-- MaxBlockSize：最大消息块大小（默认32MB）
-- MaxIdleConns：最大空闲连接数（默认100）
-- IdleConnTimeout：空闲连接超时时间（默认5分钟）
+- MaxBlockSize：最大数据块大小（默认32MB）
 - EnableCompression：是否启用压缩（默认true）
+- - MaxIdleConns：最大空闲连接数（默认100）
+- - IdleConnTimeout：空闲连接超时时间（默认5分钟）
+- - MaxTotalConns：总连接数限制（默认100）
 
 ### 连接管理
 - 动态连接数调整
@@ -166,218 +233,4 @@ PointSub 是一个基于 dep2p 的网络通信库，提供了使用 dep2p stream
     if err != nil {
     // 处理错误
     }
-```
-
-4. 发送请求:
-
-```go
-    response, err := client.Send(
-    context.Background(),
-    serverHost.ID(),
-    protocolID,
-    []byte("请求数据")
-    )
-    if err != nil {
-    // 处理错误
-    }
-
-    // 发送到最近节点
-    response, err = client.SendClosest(
-    context.Background(),
-    protocolID,
-    []byte("请求数据")
-    )
-    if err != nil {
-    // 处理错误
-    }
-```
-
-### 最近节点路由
-
-PointSub 提供了基于节点距离的智能路由功能：
-
-- SendClosest：自动选择最近的可用节点发送请求
-  - 基于节点距离计算
-  - 自动故障转移
-  - 支持重试机制
-
-#### 节点管理
-```go
-// 添加服务器节点
-client.AddServerNode(protocolID, serverID)
-
-// 移除服务器节点
-client.RemoveServerNode(protocolID, serverID)
-
-// 获取当前节点列表
-nodes := client.GetServerNodes(protocolID)
-
-// 清除所有节点
-client.ClearServerNodes(protocolID)
-```
-
-#### 使用场景
-- 多节点部署时自动选择最优节点
-- 故障转移和负载均衡
-- 就近接入提升性能
-
-#### 特性
-- 自动计算节点距离
-- 智能节点选择
-- 故障节点自动跳过
-- 支持自定义重试策略
-- 连接池复用
-
-## 高级特性
-
-### 多节点通信
-
-PointSub 支持多个节点之间的全双工通信：
-
-- 每个节点可以同时作为服务端和客户端
-- 支持多对多的通信模式
-- 自动处理连接管理和资源清理
-
-### 连接管理
-
-- 自动清理空闲连接
-- 连接池管理
-- 并发连接数限制
-- 自动重试机制
-
-### 性能优化
-
-- 内置缓冲池管理
-- 消息大小限制
-- 可配置的压缩选项
-- 高效的内存使用
-
-## 错误处理
-
-PointSub 提供了完善的错误处理机制：
-
-- 网络错误自动重试
-- 超时控制
-- 资源限制保护
-- 优雅的错误恢复
-
-## 监控和调试
-
-### 连接信息获取
-
-可以通过 Server 的 GetConnectionsInfo 方法获取当前活跃连接的详细信息：
-```go
-    connInfo := server.GetConnectionsInfo()
-    for , info := range connInfo {
-    fmt.Printf("远程地址: %s, 最后活跃: %v, 空闲时间: %v\n",
-    info.RemoteAddr, info.LastActive, info.IdleTime)
-    }
-```
-
-## 最佳实践
-
-1. 合理配置超时时间
-2. 根据实际需求调整并发连接数
-3. 适当设置消息大小限制
-4. 在高并发场景下使用连接池
-5. 启用压缩以节省带宽
-6. 定期监控连接状态
-7. 实现适当的错误重试策略
-
-## 协议与服务
-
-### 协议处理机制
-
-#### 服务端协议处理
-
-服务端可以注册并处理多个不同的协议：
-
-```go
-// Server结构
-type Server struct {
-    handlers sync.Map  // key为protocolID, value为StreamHandler
-    // ...
-}
-
-// 注册多个协议示例
-server, _ := NewServer(host, config)
-
-// 协议1: 文件传输
-server.Start("/file/1.0.0", fileHandler)
-
-// 协议2: 消息聊天
-server.Start("/chat/1.0.0", chatHandler)
-
-// 协议3: 数据同步 
-server.Start("/sync/1.0.0", syncHandler)
-```
-
-特点：
-- 一个Server实例可以处理多个协议
-- 每个协议对应一个独立的处理器(handler)
-- 使用sync.Map存储协议与处理器的映射
-
-#### 客户端使用
-
-客户端可以访问服务端的多个协议：
-
-```go
-// 单个Client实例可访问多个协议
-client, _ := NewClient(host, config)
-
-// 发送文件请求
-client.Send(ctx, peerID, "/file/1.0.0", fileData)
-
-// 发送聊天消息
-client.Send(ctx, peerID, "/chat/1.0.0", chatMsg)
-
-// 发送同步请求
-client.Send(ctx, peerID, "/sync/1.0.0", syncData)
-```
-
-特点：
-- 一个Client实例可以访问所有协议
-- 不需要为每个协议创建单独的客户端
-- 在Send时指定要使用的协议
-
-### 协议设计总结
-
-- **服务端架构**: 一个Server实例可以注册多个协议处理器
-- **客户端架构**: 一个Client实例可以访问多个协议
-- **连接复用**: 相同peer之间的连接会被复用，提高性能
-- **协议隔离**: 不同协议有独立的处理逻辑，互不影响
-- **灵活扩展**: 可以随时添加新的协议而不影响现有功能
-
-### 协议管理功能
-
-客户端支持基于协议的服务器节点管理：
-
-```go
-// 添加服务器节点
-client.AddServerNode("/chat/1.0.0", serverID)
-
-// 向最近的服务器节点发送请求
-response, err := client.SendClosest(ctx, "/chat/1.0.0", message)
-
-// 获取协议的服务器节点
-nodes := client.GetServerNodes("/chat/1.0.0")
-
-// 移除服务器节点
-client.RemoveServerNode("/chat/1.0.0", serverID)
-
-// 清除协议的所有节点
-client.ClearServerNodes("/chat/1.0.0")
-```
-
-这个功能允许客户端：
-- 管理每个协议的服务器节点列表
-- 自动选择合适的节点发送请求
-- 支持服务器节点的动态添加和移除
-
-## 版本信息
-
-```json
-{
-  "version": "v1.0.4"
-}
 ```

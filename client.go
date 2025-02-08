@@ -28,18 +28,14 @@ import (
 // 包含了客户端运行所需的各项配置选项
 // 通过这些配置可以调整客户端的性能和行为特征
 type ClientConfig struct {
-	ReadTimeout         time.Duration // 读取超时时间,控制单次读取操作的最大等待时间
-	WriteTimeout        time.Duration // 写入超时时间,控制单次写入操作的最大等待时间
-	ConnectTimeout      time.Duration // 连接超时时间,控制建立连接的最大等待时间
-	MaxRetries          int           // 最大重试次数,发送失败时的最大重试次数
-	RetryInterval       time.Duration // 重试间隔时间,两次重试之间的等待时间
-	MaxBlockSize        int           // 最大数据块大小,单次传输的最大字节数
-	EnableCompression   bool          // 是否启用压缩,控制是否对传输数据进行压缩
-	MaxIdleConns        int           // 最大空闲连接数,连接池中保持的最大空闲连接数
-	IdleConnTimeout     time.Duration // 空闲连接超时时间,空闲连接被清理前的最大存活时间
-	MaxIdleConnsPerPeer int           // 每个peer的最大空闲连接数,限制每个节点的最大空闲连接数
-	MaxTotalConns       int           // 总连接数限制,所有连接的最大数量限制
-	IdleTimeout         time.Duration // 空闲连接超时时间,连接空闲多久后被关闭
+	ReadTimeout       time.Duration // 读取超时时间
+	WriteTimeout      time.Duration // 写入超时时间
+	ConnectTimeout    time.Duration // 连接超时时间
+	MaxRetries        int           // 最大重试次数
+	RetryInterval     time.Duration // 重试间隔时间
+	MaxBlockSize      int           // 最大数据块大小
+	EnableCompression bool          // 是否启用压缩
+	IdleTimeout       time.Duration // 空闲连接超时时间
 }
 
 // DefaultClientConfig 返回默认的客户端配置
@@ -50,18 +46,14 @@ type ClientConfig struct {
 //   - *ClientConfig: 包含默认配置值的 ClientConfig 实例
 func DefaultClientConfig() *ClientConfig {
 	return &ClientConfig{
-		ReadTimeout:         30 * time.Second, // 默认读取超时30秒
-		WriteTimeout:        30 * time.Second, // 默认写入超时30秒
-		ConnectTimeout:      5 * time.Second,  // 默认连接超时5秒
-		MaxRetries:          3,                // 默认最大重试3次
-		RetryInterval:       time.Second,      // 默认重试间隔1秒
-		MaxBlockSize:        1 << 25,          // 默认最大块大小32MB
-		EnableCompression:   true,             // 默认启用压缩
-		MaxIdleConns:        100,              // 默认最大空闲连接100个
-		IdleConnTimeout:     5 * time.Minute,  // 默认空闲连接超时5分钟
-		MaxIdleConnsPerPeer: 10,
-		MaxTotalConns:       100,
-		IdleTimeout:         5 * time.Minute,
+		ReadTimeout:       30 * time.Second,
+		WriteTimeout:      30 * time.Second,
+		ConnectTimeout:    5 * time.Second,
+		MaxRetries:        3,
+		RetryInterval:     time.Second,
+		MaxBlockSize:      1 << 25,
+		EnableCompression: true,
+		IdleTimeout:       5 * time.Minute,
 	}
 }
 
@@ -80,16 +72,16 @@ type ClientMetrics struct {
 // 它封装了与服务端通信所需的所有功能
 // 包括连接管理、请求发送、指标统计等
 type Client struct {
-	host           host.Host                 // dep2p主机实例,用于网络通信
-	config         *ClientConfig             // 客户端配置,控制客户端行为
-	activeConns    sync.Map                  // 活跃连接映射,记录当前活跃的连接
-	done           chan struct{}             // 关闭信号通道,用于优雅关闭
-	closeOnce      sync.Once                 // 确保只关闭一次,避免重复关闭
-	serverProtocol map[protocol.ID][]peer.ID // 服务端协议映射,记录协议与节点的对应关系
-	metrics        *ClientMetrics            // 客户端指标,记录运行时统计数据
-	connPool       sync.Map                  // 连接池,缓存空闲连接
+	host           host.Host                 // dep2p主机实例
+	config         *ClientConfig             // 客户端配置
+	activeConns    sync.Map                  // 活跃连接映射
+	done           chan struct{}             // 关闭信号通道
+	closeOnce      sync.Once                 // 确保只关闭一次
+	serverProtocol map[protocol.ID][]peer.ID // 服务端协议映射
+	metrics        *ClientMetrics            // 客户端指标
+	connPool       sync.Map                  // 连接池
 	maxIdleConn    int                       // 每个peer的最大空闲连接数限制
-	mu             sync.Mutex                // 连接池操作锁,保护连接池操作
+	mu             sync.Mutex                // 连接池操作锁
 	backoff        *backoff                  // 退避管理器
 }
 
@@ -258,9 +250,9 @@ func NewClient(h host.Host, opts ...ClientOption) (*Client, error) {
 		done:           make(chan struct{}),
 		serverProtocol: make(map[protocol.ID][]peer.ID),
 		metrics:        &ClientMetrics{},
-		maxIdleConn:    DefaultClientConfig().MaxIdleConnsPerPeer,
 		connPool:       sync.Map{},
 		activeConns:    sync.Map{},
+		maxIdleConn:    10,
 		backoff:        newBackoff(context.Background(), 1000, BackoffCleanupInterval, MaxBackoffAttempts),
 	}
 

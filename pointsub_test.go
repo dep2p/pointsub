@@ -1,351 +1,252 @@
-// Package pointsub 提供了基于 dep2p 的网络通信功能的测试
 package pointsub
 
 import (
 	"context"
 	"fmt"
-	"math/rand"
-	"strings"
-	"sync"
 	"testing"
 	"time"
 
 	"github.com/dep2p/go-dep2p"
 	"github.com/dep2p/go-dep2p/core/host"
+	"github.com/dep2p/go-dep2p/core/peer"
 	"github.com/dep2p/go-dep2p/core/protocol"
 	"github.com/stretchr/testify/assert"
 )
 
-// TestLocalClientServerInteraction 测试本地客户端和服务端的交互
-// 参数:
-//   - t: 测试对象
-func TestLocalClientServerInteraction(t *testing.T) {
-	// 创建服务端 host
-	serverHost, err := dep2p.New()
+// TestNewPointSub 测试创建新的 PointSub 实例
+func TestNewPointSub(t *testing.T) {
+	// 测试 host 为 nil 的情况
+	ps, err := NewPointSub(nil, nil, nil, false)
+	assert.Error(t, err)
+	assert.Nil(t, ps)
+	assert.Contains(t, err.Error(), "host不能为nil")
+
+	// 创建有效的 host
+	testHost, err := dep2p.New()
 	assert.NoError(t, err)
-	defer serverHost.Close()
+	defer testHost.Close()
 
-	// 创建客户端 host
-	clientHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer clientHost.Close()
-
-	// 创建服务端
-	server, err := NewServer(serverHost,
-		WithMaxConcurrentConns(1000),
-		WithServerReadTimeout(30*time.Second),
-		WithServerWriteTimeout(30*time.Second),
-	)
-	assert.NoError(t, err)
-	defer server.Stop()
-
-	// handler 定义消息处理函数,将接收到的消息反转
-	// 参数:
-	//   - request: 请求消息字节切片
-	// 返回值:
-	//   - []byte: 响应消息字节切片
-	//   - error: 错误信息
-	handler := func(request []byte) ([]byte, error) {
-		// 先将字节切片转换为字符串
-		str := string(request)
-
-		// 如果是空字符串，直接返回
-		if len(str) == 0 {
-			return request, nil
+	// 测试基本配置
+	t.Run("Basic configuration", func(t *testing.T) {
+		clientOpts := []ClientOption{
+			WithReadTimeout(5 * time.Second), //
+			WithWriteTimeout(5 * time.Second),
+			WithConnectTimeout(2 * time.Second),
+			WithMaxRetries(3),
+			WithCompression(true),
 		}
 
-		// 将字符串转换为 rune 切片以正确处理 UTF-8 字符
-		runes := []rune(str)
-
-		// 反转 rune 切片
-		length := len(runes)
-		for i := 0; i < length/2; i++ {
-			runes[i], runes[length-1-i] = runes[length-1-i], runes[i]
+		serverOpts := []ServerOption{
+			WithMaxConcurrentConns(100),
+			WithServerReadTimeout(5 * time.Second),
+			WithServerWriteTimeout(5 * time.Second),
 		}
 
-		// 将反转后的 rune 切片转换回字节切片
-		return []byte(string(runes)), nil
-	}
+		ps, err := NewPointSub(testHost, clientOpts, serverOpts, true)
+		assert.NoError(t, err)
+		assert.NotNil(t, ps)
+		assert.True(t, ps.IsServerRunning())
+		assert.NotNil(t, ps.Server())
+		assert.NotNil(t, ps.Client())
+		ps.StopServer()
+	})
 
-	// 定义测试协议
-	testProtocol := protocol.ID("/test/1.0.0")
+	// 测试仅客户端模式
+	t.Run("Client only mode", func(t *testing.T) {
+		ps, err := NewPointSub(testHost, nil, nil, false)
+		assert.NoError(t, err)
+		assert.NotNil(t, ps)
+		assert.False(t, ps.IsServerRunning())
+		assert.Nil(t, ps.Server())
+		assert.NotNil(t, ps.Client())
+	})
 
-	// 启动服务端
-	err = server.Start(testProtocol, handler)
-	assert.NoError(t, err)
+	// 测试服务器启动和停止
+	t.Run("Server start/stop", func(t *testing.T) {
+		ps, err := NewPointSub(testHost, nil, nil, false)
+		assert.NoError(t, err)
 
-	// 创建客户端
-	client, err := NewClient(clientHost,
-		WithReadTimeout(30*time.Second),
-		WithWriteTimeout(30*time.Second),
-		WithMaxRetries(3),
-	)
-	assert.NoError(t, err)
-	defer client.Close()
-
-	// 连接到服务端
-	err = clientHost.Connect(context.Background(), serverHost.Peerstore().PeerInfo(serverHost.ID()))
-	assert.NoError(t, err)
-
-	// 定义测试用例
-	testCases := []struct {
-		name     string // 测试名称
-		input    string // 输入消息
-		expected string // 期望输出
-	}{
-		{"简单消息", "Hello", "olleH"},
-		{"空消息", "", ""},
-		{"中文消息", "你好世界", "界世好你"},
-		{"特殊字符", "!@#$%", "%$#@!"},
-		{"长消息", "The quick brown fox jumps over the lazy dog", "god yzal eht revo spmuj xof nworb kciuq ehT"},
-	}
-
-	// 执行测试用例
-	for _, tc := range testCases {
-		t.Run(tc.name, func(t *testing.T) {
-			// 发送请求
-			response, err := client.Send(
-				context.Background(),
-				serverHost.ID(),
-				testProtocol,
-				[]byte(tc.input),
-			)
-			assert.NoError(t, err)
-			assert.Equal(t, tc.expected, string(response))
+		// 启动服务器
+		err = ps.StartServer([]ServerOption{
+			WithMaxConcurrentConns(100),
+			WithServerReadTimeout(5 * time.Second),
 		})
+		assert.NoError(t, err)
+		assert.True(t, ps.IsServerRunning())
 
-		// 每次请求之间稍作延迟，模拟真实场景
-		time.Sleep(100 * time.Millisecond)
-	}
+		// 重复启动服务器
+		err = ps.StartServer(nil)
+		assert.NoError(t, err)
 
-	// 测试并发请求
-	t.Run("并发请求", func(t *testing.T) {
-		concurrentRequests := 10 // 并发请求数
-		done := make(chan bool)
+		// 停止服务器
+		err = ps.StopServer()
+		assert.NoError(t, err)
+		assert.False(t, ps.IsServerRunning())
 
-		// 启动多个并发请求
-		for i := 0; i < concurrentRequests; i++ {
-			go func(index int) {
-				msg := "Concurrent Message"
-				response, err := client.Send(
+		// 重复停止服务器
+		err = ps.StopServer()
+		assert.NoError(t, err)
+	})
+
+	// 测试完整的客户端-服务器通信
+	t.Run("Full client-server communication", func(t *testing.T) {
+		t.Log("\n=== 开始客户端-服务器通信测试 ===")
+		// 创建服务端 host
+		serverHost, err := dep2p.New()
+		assert.NoError(t, err)
+		defer serverHost.Close()
+
+		// 创建客户端 host
+		clientHost, err := dep2p.New()
+		assert.NoError(t, err)
+		defer clientHost.Close()
+
+		// 用于验证消息接收
+		receivedMessages := make(chan []byte, 1)
+
+		// 创建服务端 PointSub
+		serverPS, err := NewPointSub(serverHost, nil, nil, true)
+		assert.NoError(t, err)
+		defer serverPS.Stop()
+
+		// 创建客户端 PointSub
+		clientPS, err := NewPointSub(clientHost, nil, nil, false)
+		assert.NoError(t, err)
+
+		// 注册处理函数
+		protocolID := protocol.ID("/test/1.0.0")
+		err = serverPS.Start(protocolID, func(req []byte) ([]byte, error) {
+			receivedMessages <- req
+			t.Logf("【服务端】收到消息: %s", string(req))
+			return append([]byte("response: "), req...), nil
+		})
+		assert.NoError(t, err)
+
+		// 连接到服务端
+		err = clientHost.Connect(context.Background(), serverHost.Peerstore().PeerInfo(serverHost.ID()))
+		assert.NoError(t, err)
+
+		// 测试消息发送和接收
+		testMessage := []byte("[TEST-001] Initial test message")
+		t.Logf("【客户端】发送消息: %s", string(testMessage))
+		resp, err := clientPS.Send(
+			context.Background(),
+			serverHost.ID(),
+			protocolID,
+			testMessage,
+		)
+		assert.NoError(t, err)
+		t.Logf("【客户端】收到响应: %s", string(resp))
+		assert.Equal(t, "response: "+string(testMessage), string(resp))
+
+		// 验证服务端确实收到了消息
+		select {
+		case received := <-receivedMessages:
+			assert.Equal(t, testMessage, received, "服务端接收到的消息与发送的消息不匹配")
+		case <-time.After(time.Second):
+			t.Error("超时：服务端没有收到消息")
+		}
+
+		// 测试多条消息的发送和接收
+		t.Run("Multiple messages", func(t *testing.T) {
+			t.Log("\n=== 开始多消息测试 ===")
+			messages := []string{
+				"[TEST-002] Hello message",
+				"[TEST-003] 中文测试消息",
+				"[TEST-004] Special chars: !@#$%",
+				"[TEST-005] Long message with spaces and other content",
+			}
+
+			for i, msg := range messages {
+				t.Logf("\n--- 消息测试 %d/%d ---", i+1, len(messages))
+				t.Logf("【客户端】发送消息: %s", msg)
+				resp, err := clientPS.Send(
 					context.Background(),
 					serverHost.ID(),
-					testProtocol,
+					protocolID,
 					[]byte(msg),
 				)
 				assert.NoError(t, err)
-				assert.Equal(t, "egasseM tnerrucnoC", string(response))
-				done <- true
-			}(i)
-		}
+				t.Logf("【客户端】收到响应: %s", string(resp))
+				assert.Equal(t, "response: "+msg, string(resp))
 
-		// 等待所有并发请求完成
-		for i := 0; i < concurrentRequests; i++ {
-			<-done
-		}
+				// 验证接收
+				select {
+				case received := <-receivedMessages:
+					assert.Equal(t, msg, string(received))
+					t.Logf("【验证】消息匹配成功")
+				case <-time.After(time.Second):
+					t.Errorf("超时：服务端没有收到消息 '%s'", msg)
+				}
+			}
+			t.Log("=== 多消息测试完成 ===")
+		})
+		t.Log("=== 客户端-服务器通信测试完成 ===")
 	})
-}
 
-// TestMultiClientServerInteractions 测试多客户端与服务端的交互
-// 参数:
-//   - t: 测试对象
-func TestMultiClientServerInteractions(t *testing.T) {
-	// 创建服务端 host
-	serverHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer serverHost.Close()
+	// 测试无效的服务器配置
+	t.Run("Invalid server configuration", func(t *testing.T) {
+		ps, err := NewPointSub(testHost, nil, []ServerOption{
+			WithMaxConcurrentConns(-1), // 无效的连接数
+		}, true)
+		assert.Error(t, err)
+		assert.Nil(t, ps)
+	})
 
-	// 创建服务端
-	server, err := NewServer(serverHost,
-		WithMaxConcurrentConns(1000),
-		WithServerReadTimeout(30*time.Second),
-		WithServerWriteTimeout(30*time.Second),
-	)
-	assert.NoError(t, err)
-	defer server.Stop()
+	// 测试无效的客户端配置
+	t.Run("Invalid client configuration", func(t *testing.T) {
+		ps, err := NewPointSub(testHost, []ClientOption{
+			WithReadTimeout(-1 * time.Second), // 无效的超时时间
+		}, nil, false)
+		assert.Error(t, err)
+		assert.Nil(t, ps)
+	})
 
-	// handler 定义消息处理函数,实现简单的问答系统
-	// 参数:
-	//   - request: 请求消息字节切片
-	// 返回值:
-	//   - []byte: 响应消息字节切片
-	//   - error: 错误信息
-	handler := func(request []byte) ([]byte, error) {
-		question := string(request)
-		var response []byte
+	// 测试 SendClosest 功能
+	t.Run("SendClosest functionality", func(t *testing.T) {
+		t.Log("\n=== 开始 SendClosest 测试 ===")
 
-		// 根据问题返回不同的响应
-		switch question {
-		case "你是谁?":
-			response = []byte("我是服务器")
-		case "现在几点?":
-			response = []byte(time.Now().Format("15:04:05"))
-		case "ping":
-			response = []byte("pong")
-		default:
-			response = []byte("我不明白你的问题: " + question)
+		// 创建测试环境
+		ctx := context.Background()
+		protocolID := protocol.ID("/test/closest/1.0.0")
+		testMsg := []byte("[TEST-CLOSEST] Finding nearest node")
+
+		// 创建多个服务端节点
+		numNodes := 3
+		servers := make([]*Server, numNodes)
+		serverHosts := make([]host.Host, numNodes)
+
+		for i := 0; i < numNodes; i++ {
+			h, err := dep2p.New()
+			assert.NoError(t, err)
+			defer h.Close()
+
+			serverHosts[i] = h
+			server, err := NewServer(h,
+				WithMaxConcurrentConns(1000),
+				WithServerReadTimeout(30*time.Second),
+				WithServerWriteTimeout(30*time.Second),
+			)
+			assert.NoError(t, err)
+
+			nodeID := h.ID()
+			// 注册处理函数
+			err = server.Start(protocolID, func(req []byte) ([]byte, error) {
+				logger.Infof("节点 %s 收到请求: %s", nodeID.String()[:8], string(req))
+				resp := append([]byte(fmt.Sprintf("来自节点 %s 的响应: ", nodeID.String()[:8])), req...)
+				return resp, nil
+			})
+			assert.NoError(t, err)
+			servers[i] = server
+			logger.Infof("创建服务节点 %d: %s", i, nodeID.String()[:8])
 		}
-
-		t.Logf("【服务端】收到请求: %s ==> 响应: %s", question, string(response))
-		return response, nil
-	}
-
-	// 定义测试协议
-	testProtocol := protocol.ID("/chat/1.0.0")
-
-	// 启动服务端
-	err = server.Start(testProtocol, handler)
-	assert.NoError(t, err)
-
-	// 创建多个客户端
-	clientCount := 3
-	clients := make([]*Client, clientCount)
-	clientHosts := make([]host.Host, clientCount)
-
-	// 初始化所有客户端
-	for i := 0; i < clientCount; i++ {
-		// 创建客户端 host
-		clientHosts[i], err = dep2p.New()
-		assert.NoError(t, err)
-		defer clientHosts[i].Close()
 
 		// 创建客户端
-		clients[i], err = NewClient(clientHosts[i],
-			WithReadTimeout(30*time.Second),
-			WithWriteTimeout(30*time.Second),
-			WithMaxRetries(3),
-		)
+		clientHost, err := dep2p.New()
 		assert.NoError(t, err)
-		defer clients[i].Close()
+		defer clientHost.Close()
 
-		// 连接到服务端
-		err = clientHosts[i].Connect(context.Background(), serverHost.Peerstore().PeerInfo(serverHost.ID()))
-		assert.NoError(t, err)
-	}
-
-	// 使用 WaitGroup 等待所有测试完成
-	var wg sync.WaitGroup
-
-	// 客户端1: 频繁发送 ping
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		for i := 0; i < 5; i++ {
-			msg := "ping"
-			t.Logf("【客户端1】发送: %s", msg)
-			response, err := clients[0].Send(
-				context.Background(),
-				serverHost.ID(),
-				testProtocol,
-				[]byte(msg),
-			)
-			assert.NoError(t, err)
-			t.Logf("【客户端1】收到: %s", string(response))
-			assert.Equal(t, "pong", string(response))
-			time.Sleep(100 * time.Millisecond)
-		}
-	}()
-
-	// 客户端2: 每秒查询时间
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		for i := 0; i < 3; i++ {
-			msg := "现在几点?"
-			t.Logf("【客户端2】发送: %s", msg)
-			response, err := clients[1].Send(
-				context.Background(),
-				serverHost.ID(),
-				testProtocol,
-				[]byte(msg),
-			)
-			assert.NoError(t, err)
-			t.Logf("【客户端2】收到: %s", string(response))
-			// 验证返回的是有效的时间格式
-			_, err = time.Parse("15:04:05", string(response))
-			assert.NoError(t, err)
-			time.Sleep(time.Second)
-		}
-	}()
-
-	// 客户端3: 随机间隔发送身份询问
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		for i := 0; i < 4; i++ {
-			msg := "你是谁?"
-			t.Logf("【客户端3】发送: %s", msg)
-			response, err := clients[2].Send(
-				context.Background(),
-				serverHost.ID(),
-				testProtocol,
-				[]byte(msg),
-			)
-			assert.NoError(t, err)
-			t.Logf("【客户端3】收到: %s", string(response))
-			assert.Equal(t, "我是服务器", string(response))
-			// 随机等待 200-700ms
-			time.Sleep(time.Duration(200+rand.Intn(500)) * time.Millisecond)
-		}
-	}()
-
-	// 设置测试超时
-	done := make(chan struct{})
-	go func() {
-		wg.Wait()
-		close(done)
-	}()
-
-	// 等待所有测试完成或超时
-	select {
-	case <-done:
-		// 测试正常完成
-	case <-time.After(5 * time.Second):
-		t.Fatal("测试超时")
-	}
-
-	// 获取并打印服务器连接信息
-	connInfo := server.GetConnectionsInfo()
-	t.Logf("\n============= 服务器连接信息 =============")
-	t.Logf("活跃连接数: %d", len(connInfo))
-	for i, info := range connInfo {
-		t.Logf("连接 %d:\n  远程地址: %s\n  空闲时间: %v",
-			i+1, info.RemoteAddr, info.IdleTime)
-	}
-	t.Logf("=========================================")
-}
-
-// TestMultiNodeCommunication 测试多节点之间的通信
-// 参数:
-//   - t: 测试对象
-func TestMultiNodeCommunication(t *testing.T) {
-	// 创建多个节点
-	nodeCount := 5
-	nodes := make([]struct {
-		host    host.Host
-		server  *Server
-		client  *Client
-		msgChan chan string
-	}, nodeCount)
-
-	// 初始化所有节点
-	for i := 0; i < nodeCount; i++ {
-		// 创建节点的 host
-		h, err := dep2p.New()
-		assert.NoError(t, err)
-		defer h.Close()
-
-		// 创建服务端
-		server, err := NewServer(h,
-			WithMaxConcurrentConns(1000),
-			WithServerReadTimeout(30*time.Second),
-			WithServerWriteTimeout(30*time.Second),
-		)
-		assert.NoError(t, err)
-		defer server.Stop()
-
-		// 创建客户端
-		client, err := NewClient(h,
+		client, err := NewClient(clientHost,
 			WithReadTimeout(30*time.Second),
 			WithWriteTimeout(30*time.Second),
 			WithMaxRetries(3),
@@ -353,294 +254,73 @@ func TestMultiNodeCommunication(t *testing.T) {
 		assert.NoError(t, err)
 		defer client.Close()
 
-		// 为每个节点创建消息通道
-		nodes[i] = struct {
-			host    host.Host
-			server  *Server
-			client  *Client
-			msgChan chan string
-		}{
-			host:    h,
-			server:  server,
-			client:  client,
-			msgChan: make(chan string, 100),
-		}
+		logger.Infof("创建客户端节点: %s", clientHost.ID().String()[:8])
 
-		// handler 定义节点的消息处理函数
-		// 参数:
-		//   - i: 节点索引
-		// 返回值:
-		//   - StreamHandler: 消息处理函数
-		handler := func(i int) StreamHandler {
-			return func(request []byte) ([]byte, error) {
-				msg := string(request)
-				nodes[i].msgChan <- msg
-				response := fmt.Sprintf("节点%d已收到消息: %s", i, msg)
-				return []byte(response), nil
-			}
-		}
-
-		// 启动服务端
-		testProtocol := protocol.ID(fmt.Sprintf("/test/node/%d/1.0.0", i))
-		err = server.Start(testProtocol, handler(i))
-		assert.NoError(t, err)
-	}
-
-	// 所有节点相互连接
-	for i := 0; i < nodeCount; i++ {
-		for j := i + 1; j < nodeCount; j++ {
-			err := nodes[i].host.Connect(context.Background(), nodes[j].host.Peerstore().PeerInfo(nodes[j].host.ID()))
+		// 连接到所有服务端节点
+		for i, sh := range serverHosts {
+			err = clientHost.Connect(ctx, sh.Peerstore().PeerInfo(sh.ID()))
 			assert.NoError(t, err)
+
+			// 添加到协议的服务器节点列表
+			err = client.AddServerNode(protocolID, sh.ID())
+			assert.NoError(t, err)
+			logger.Infof("客户端连接到服务节点 %d: %s", i, sh.ID().String()[:8])
 		}
-	}
 
-	// 使用WaitGroup等待所有消息发送和接收完成
-	var wg sync.WaitGroup
+		// 测试1: 基本功能 - 发送到最近的节点
+		t.Run("Basic functionality", func(t *testing.T) {
+			logger.Info("开始测试发送到最近节点...")
+			resp, err := client.SendClosest(ctx, protocolID, testMsg)
+			assert.NoError(t, err)
+			logger.Infof("收到响应: %s", string(resp))
+			assert.Contains(t, string(resp), "来自节点")
+			assert.Contains(t, string(resp), string(testMsg))
+		})
 
-	// 每个节点向其他所有节点发送消息
-	for i := 0; i < nodeCount; i++ {
-		wg.Add(1)
-		go func(fromNode int) {
-			defer wg.Done()
-			for toNode := 0; toNode < nodeCount; toNode++ {
-				if fromNode == toNode {
-					continue
-				}
+		// 测试2: 节点下线后的行为
+		t.Run("Node offline behavior", func(t *testing.T) {
+			// 清除所有节点
+			client.ClearServerNodes(protocolID)
 
-				msg := fmt.Sprintf("来自节点%d的消息", fromNode)
-				protocol := protocol.ID(fmt.Sprintf("/test/node/%d/1.0.0", toNode))
-
-				// 发送消息
-				response, err := nodes[fromNode].client.Send(
-					context.Background(),
-					nodes[toNode].host.ID(),
-					protocol,
-					[]byte(msg),
-				)
+			// 添加一些不可用的节点
+			for i := 0; i < 3; i++ {
+				fakeID, err := peer.Decode("QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N")
 				assert.NoError(t, err)
-				t.Logf("节点%d -> 节点%d: %s, 响应: %s",
-					fromNode, toNode, msg, string(response))
-
-				// 随机延迟，模拟真实网络情况
-				time.Sleep(time.Duration(100+rand.Intn(200)) * time.Millisecond)
+				err = client.AddServerNode(protocolID, fakeID)
+				assert.NoError(t, err)
 			}
-		}(i)
-	}
 
-	// 监听每个节点接收到的消息
-	for i := 0; i < nodeCount; i++ {
-		wg.Add(1)
-		go func(nodeIndex int) {
-			defer wg.Done()
-			expectedMsgs := nodeCount - 1 // 期望收到其他所有节点的消息
-			receivedMsgs := 0
-			timeout := time.After(10 * time.Second)
-
-			for {
-				select {
-				case msg := <-nodes[nodeIndex].msgChan:
-					t.Logf("节点%d收到消息: %s", nodeIndex, msg)
-					receivedMsgs++
-					if receivedMsgs >= expectedMsgs {
-						return
-					}
-				case <-timeout:
-					t.Errorf("节点%d接收消息超时", nodeIndex)
-					return
-				}
-			}
-		}(i)
-	}
-
-	// 等待所有操作完成
-	done := make(chan struct{})
-	go func() {
-		wg.Wait()
-		close(done)
-	}()
-
-	// 设置测试超时
-	select {
-	case <-done:
-		// 测试成功完成
-		t.Log("所有节点通信测试完成")
-	case <-time.After(30 * time.Second):
-		t.Fatal("测试超时")
-	}
-
-	// 获取并打印每个节点的连接信息
-	t.Log("\n=========== 节点连接信息 ===========")
-	for i := 0; i < nodeCount; i++ {
-		connInfo := nodes[i].server.GetConnectionsInfo()
-		t.Logf("节点%d - 活跃连接数: %d", i, len(connInfo))
-		for j, info := range connInfo {
-			t.Logf("  连接%d: 远程地址=%s, 空闲时间=%v",
-				j+1, info.RemoteAddr, info.IdleTime)
-		}
-	}
-	t.Log("===================================")
-}
-
-// TestClientServer 测试客户端和服务端之间的通信
-func TestClientServer(t *testing.T) {
-	// 创建测试环境
-	ctx := context.Background()
-	serverHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer serverHost.Close()
-
-	server, err := NewServer(serverHost,
-		WithMaxConcurrentConns(100),          // 降低最大连接数
-		WithServerReadTimeout(5*time.Second), // 缩短超时时间
-		WithServerWriteTimeout(5*time.Second),
-	)
-	assert.NoError(t, err)
-	defer server.Stop()
-
-	// 创建客户端
-	clientHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer clientHost.Close()
-
-	client, err := NewClient(clientHost,
-		WithReadTimeout(5*time.Second),
-		WithWriteTimeout(5*time.Second),
-		WithConnectTimeout(2*time.Second),
-		WithMaxRetries(2),
-	)
-	assert.NoError(t, err)
-	defer client.Close()
-
-	// 连接到服务端
-	err = clientHost.Connect(ctx, serverHost.Peerstore().PeerInfo(serverHost.ID()))
-	assert.NoError(t, err)
-
-	// 1. 基本功能测试
-	t.Run("Basic functionality", func(t *testing.T) {
-		protocolID := protocol.ID("/test/basic/1.0.0")
-		err := server.Start(protocolID, func(req []byte) ([]byte, error) {
-			return append([]byte("response: "), req...), nil
-		})
-		assert.NoError(t, err)
-
-		resp, err := client.Send(ctx, serverHost.ID(), protocolID, []byte("hello"))
-		assert.NoError(t, err)
-		assert.Equal(t, "response: hello", string(resp))
-	})
-
-	// 2. 错误处理测试
-	t.Run("Error handling", func(t *testing.T) {
-		// 测试无效协议
-		invalidProtocol := protocol.ID("/invalid/1.0.0")
-		_, err := client.Send(ctx, serverHost.ID(), invalidProtocol, []byte("test"))
-		assert.Error(t, err)
-		t.Logf("Invalid protocol error: %v", err)
-		assert.True(t,
-			strings.Contains(err.Error(), "创建新的流") ||
-				strings.Contains(err.Error(), "protocols not supported"),
-			"错误消息应包含协议不支持相关信息")
-
-		// 测试超时
-		timeoutProtocol := protocol.ID("/test/timeout/1.0.0")
-		err = server.Start(timeoutProtocol, func(req []byte) ([]byte, error) {
-			time.Sleep(200 * time.Millisecond)
-			return []byte("delayed"), nil
-		})
-		assert.NoError(t, err)
-
-		ctxTimeout, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
-		defer cancel()
-		_, err = client.Send(ctxTimeout, serverHost.ID(), timeoutProtocol, []byte("test"))
-		assert.Error(t, err)
-		t.Logf("Timeout error: %v", err)
-		assert.True(t,
-			strings.Contains(err.Error(), "deadline exceeded") ||
-				strings.Contains(err.Error(), "context deadline exceeded"),
-			"错误消息应包含超时相关信息")
-	})
-
-	// 3. 并发测试（小规模）
-	t.Run("Concurrent requests", func(t *testing.T) {
-		protocolID := protocol.ID("/test/concurrent/1.0.0")
-		err := server.Start(protocolID, func(req []byte) ([]byte, error) {
-			return append([]byte("response: "), req...), nil
-		})
-		assert.NoError(t, err)
-
-		var wg sync.WaitGroup
-		errors := make(chan error, 5)
-
-		// 只发送5个并发请求
-		for i := 0; i < 5; i++ {
-			wg.Add(1)
-			go func(i int) {
-				defer wg.Done()
-				msg := fmt.Sprintf("concurrent request %d", i)
-				resp, err := client.Send(ctx, serverHost.ID(), protocolID, []byte(msg))
-				if err != nil {
-					errors <- err
-					return
-				}
-				if !strings.Contains(string(resp), msg) {
-					errors <- fmt.Errorf("响应不匹配: %s", msg)
-				}
-			}(i)
-		}
-
-		wg.Wait()
-		close(errors)
-
-		for err := range errors {
+			// 添加一个可用节点
+			err = client.AddServerNode(protocolID, serverHosts[1].ID())
 			assert.NoError(t, err)
-		}
+
+			// 关闭一个节点
+			servers[0].Stop()
+
+			resp, err := client.SendClosest(ctx, protocolID, []byte("[TEST-OFFLINE] Node down"))
+			assert.NoError(t, err)
+			assert.Contains(t, string(resp), "来自节点")
+			assert.Contains(t, string(resp), "[TEST-OFFLINE] Node down")
+		})
+
+		// 测试3: 无效协议
+		t.Run("Invalid protocol", func(t *testing.T) {
+			// 清除所有节点
+			client.ClearServerNodes(protocolID)
+
+			invalidProtocol := protocol.ID("/invalid/1.0.0")
+			_, err = client.SendClosest(ctx, invalidProtocol, []byte("test"))
+			assert.Error(t, err)
+			assert.Contains(t, err.Error(), "没有可用的服务器节点")
+		})
+
+		// 在函数末尾添加清理代码
+		defer func() {
+			for _, server := range servers {
+				server.Stop()
+			}
+		}()
+
+		t.Log("=== SendClosest 测试完成 ===")
 	})
-}
-
-// TestClientConfig 测试客户端配置
-func TestClientConfig(t *testing.T) {
-	// 测试默认配置
-	config := DefaultClientConfig()
-	assert.Equal(t, 30*time.Second, config.ReadTimeout)
-	assert.Equal(t, 30*time.Second, config.WriteTimeout)
-	assert.Equal(t, 5*time.Second, config.ConnectTimeout)
-	assert.Equal(t, 3, config.MaxRetries)
-	assert.True(t, config.EnableCompression)
-
-	// 测试自定义配置
-	clientHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer clientHost.Close()
-
-	client, err := NewClient(clientHost,
-		WithReadTimeout(10*time.Second),
-		WithWriteTimeout(15*time.Second),
-		WithConnectTimeout(3*time.Second),
-		WithMaxRetries(5),
-		WithCompression(false),
-	)
-	assert.NoError(t, err)
-	defer client.Close()
-
-	assert.Equal(t, 10*time.Second, client.config.ReadTimeout)
-	assert.Equal(t, 15*time.Second, client.config.WriteTimeout)
-	assert.Equal(t, 3*time.Second, client.config.ConnectTimeout)
-	assert.Equal(t, 5, client.config.MaxRetries)
-	assert.False(t, client.config.EnableCompression)
-}
-
-// 测试无效配置
-func TestInvalidClientConfig(t *testing.T) {
-	clientHost, err := dep2p.New()
-	assert.NoError(t, err)
-	defer clientHost.Close()
-
-	// 测试无效的读取超时
-	_, err = NewClient(clientHost, WithReadTimeout(-1*time.Second))
-	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "读取超时时间必须大于0")
-
-	// 测试无效的重试次数
-	_, err = NewClient(clientHost, WithMaxRetries(-1))
-	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "重试次数不能为负数")
 }
