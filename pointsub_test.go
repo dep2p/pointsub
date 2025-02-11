@@ -270,11 +270,11 @@ func TestNewPointSub(t *testing.T) {
 		// 测试1: 基本功能 - 发送到最近的节点
 		t.Run("Basic functionality", func(t *testing.T) {
 			logger.Info("开始测试发送到最近节点...")
-			resp, err := client.SendClosest(ctx, protocolID, testMsg)
+			result, err := client.SendClosest(ctx, protocolID, testMsg)
 			assert.NoError(t, err)
-			logger.Infof("收到响应: %s", string(resp))
-			assert.Contains(t, string(resp), "来自节点")
-			assert.Contains(t, string(resp), string(testMsg))
+			logger.Infof("收到响应: %s", string(result.Response))
+			assert.Contains(t, string(result.Response), "来自节点")
+			assert.Contains(t, string(result.Response), string(testMsg))
 		})
 
 		// 测试2: 节点下线后的行为
@@ -283,11 +283,13 @@ func TestNewPointSub(t *testing.T) {
 			client.ClearServerNodes(protocolID)
 
 			// 添加一些不可用的节点
+			var failedNodes []peer.ID
 			for i := 0; i < 3; i++ {
 				fakeID, err := peer.Decode("QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N")
 				assert.NoError(t, err)
 				err = client.AddServerNode(protocolID, fakeID)
 				assert.NoError(t, err)
+				failedNodes = append(failedNodes, fakeID)
 			}
 
 			// 添加一个可用节点
@@ -297,10 +299,10 @@ func TestNewPointSub(t *testing.T) {
 			// 关闭一个节点
 			servers[0].Stop()
 
-			resp, err := client.SendClosest(ctx, protocolID, []byte("[TEST-OFFLINE] Node down"))
+			result, err := client.SendClosest(ctx, protocolID, []byte("[TEST-OFFLINE] Node down"), failedNodes...)
 			assert.NoError(t, err)
-			assert.Contains(t, string(resp), "来自节点")
-			assert.Contains(t, string(resp), "[TEST-OFFLINE] Node down")
+			assert.Contains(t, string(result.Response), "来自节点")
+			assert.Contains(t, string(result.Response), "[TEST-OFFLINE] Node down")
 		})
 
 		// 测试3: 无效协议

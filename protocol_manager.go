@@ -10,6 +10,12 @@ import (
 	"github.com/dep2p/go-dep2p/core/protocol"
 )
 
+// SendResult 定义发送操作的结果
+type SendResult struct {
+	Response []byte  // 响应数据
+	Target   peer.ID // 成功发送到的目标节点
+}
+
 // AddServerNode 向指定协议添加服务器节点
 // 参数:
 //   - protocolID: 协议标识符
@@ -79,11 +85,12 @@ func (c *Client) RemoveServerNode(protocolID protocol.ID, peerID peer.ID) error 
 //   - ctx: 上下文对象
 //   - protocolID: 协议标识符
 //   - request: 请求数据
+//   - excludeNodes: 要排除的节点列表（可选，用于避开之前失败的节点）
 //
 // 返回值:
-//   - []byte: 响应数据
+//   - *SendResult: 发送结果，包含响应数据和目标节点
 //   - error: 错误信息
-func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, request []byte) ([]byte, error) {
+func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, request []byte, excludeNodes ...peer.ID) (*SendResult, error) {
 	// 检查消息大小
 	if len(request) > c.config.MaxBlockSize {
 		logger.Errorf("消息大小超过限制: %d > %d", len(request), c.config.MaxBlockSize)
@@ -96,8 +103,14 @@ func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, reques
 		return nil, errors.New("没有可用的服务器节点")
 	}
 
+	// 过滤掉要排除的节点
+	availableNodes := filterExcludeNodes(nodes, excludeNodes)
+	if len(availableNodes) == 0 {
+		return nil, errors.New("没有可用的未失败节点")
+	}
+
 	// 按距离排序所有节点
-	sortedNodes, err := SortNodesByDistance(request, nodes)
+	sortedNodes, err := SortNodesByDistance(request, availableNodes)
 	if err != nil {
 		logger.Errorf("节点排序失败: %v", err)
 		return nil, fmt.Errorf("节点排序失败: %w", err)
@@ -108,11 +121,9 @@ func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, reques
 	for i, node := range sortedNodes {
 		select {
 		case <-ctx.Done():
-			// 如果已经有成功的响应，返回它
 			if lastErr == nil {
 				return nil, ctx.Err()
 			}
-			// 否则返回最后一个错误，优先级高于超时错误
 			return nil, fmt.Errorf("所有节点都发送失败: %w", lastErr)
 		default:
 			logger.Infof("尝试发送到节点 %s (尝试次数: %d/%d)", node.String()[:8], i+1, len(sortedNodes))
@@ -122,7 +133,10 @@ func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, reques
 				logger.Warnf("发送到节点 %s 失败: %v", node.String()[:8], err)
 				continue
 			}
-			return response, nil
+			return &SendResult{
+				Response: response,
+				Target:   node,
+			}, nil
 		}
 	}
 
@@ -130,6 +144,28 @@ func (c *Client) SendClosest(ctx context.Context, protocolID protocol.ID, reques
 		return nil, fmt.Errorf("所有节点都发送失败: %w", lastErr)
 	}
 	return nil, ctx.Err()
+}
+
+// filterExcludeNodes 从节点列表中过滤掉要排除的节点
+func filterExcludeNodes(nodes []peer.ID, excludeNodes []peer.ID) []peer.ID {
+	if len(excludeNodes) == 0 {
+		return nodes
+	}
+
+	result := make([]peer.ID, 0, len(nodes))
+	for _, node := range nodes {
+		excluded := false
+		for _, excludeNode := range excludeNodes {
+			if node == excludeNode {
+				excluded = true
+				break
+			}
+		}
+		if !excluded {
+			result = append(result, node)
+		}
+	}
+	return result
 }
 
 // HasAvailableNodes 检查指定协议是否有可用节点

@@ -185,12 +185,13 @@ func (ps *PointSub) Send(ctx context.Context, peerID peer.ID, protocolID protoco
 //   - ctx: 上下文
 //   - protocolID: 协议ID
 //   - data: 要发送的数据
+//   - excludeNodes: 要排除的节点列表（可选）
 //
 // 返回值:
-//   - []byte: 响应数据
+//   - *SendResult: 发送结果，包含响应数据和目标节点
 //   - error: 如果发送失败则返回错误信息
-func (ps *PointSub) SendClosest(ctx context.Context, protocolID protocol.ID, data []byte) ([]byte, error) {
-	return ps.Client().SendClosest(ctx, protocolID, data)
+func (ps *PointSub) SendClosest(ctx context.Context, protocolID protocol.ID, data []byte, excludeNodes ...peer.ID) (*SendResult, error) {
+	return ps.Client().SendClosest(ctx, protocolID, data, excludeNodes...)
 }
 
 // Stop 停止所有服务

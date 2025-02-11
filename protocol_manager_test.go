@@ -79,11 +79,11 @@ func TestSendClosest(t *testing.T) {
 	// 测试 SendClosest
 	t.Run("SendClosest success", func(t *testing.T) {
 		logger.Info("开始测试发送到最近节点...")
-		resp, err := client.SendClosest(ctx, protocolID, testMsg)
+		result, err := client.SendClosest(ctx, protocolID, testMsg)
 		assert.NoError(t, err)
-		logger.Infof("收到响应: %s", string(resp))
-		assert.Contains(t, string(resp), "来自节点")
-		assert.Contains(t, string(resp), "test message")
+		logger.Infof("收到响应: %s", string(result.Response))
+		assert.Contains(t, string(result.Response), "来自节点")
+		assert.Contains(t, string(result.Response), "test message")
 	})
 
 	t.Run("SendClosest with no nodes", func(t *testing.T) {
@@ -165,29 +165,31 @@ func TestSendClosest(t *testing.T) {
 		}
 
 		// 发送请求
-		resp, err := client.SendClosest(ctx, protocolID, testMsg)
+		result, err := client.SendClosest(ctx, protocolID, testMsg)
 		assert.NoError(t, err)
-		assert.Contains(t, string(resp), "来自节点")
-		assert.Contains(t, string(resp), "test message")
+		assert.Contains(t, string(result.Response), "来自节点")
+		assert.Contains(t, string(result.Response), "test message")
 	})
 
 	t.Run("SendClosest with node failures", func(t *testing.T) {
 		// 创建一些不可用的节点
+		var failedNodes []peer.ID
 		for i := 0; i < 3; i++ {
 			fakeID, err := peer.Decode("QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N")
 			assert.NoError(t, err)
 			err = client.AddServerNode(protocolID, fakeID)
 			assert.NoError(t, err)
+			failedNodes = append(failedNodes, fakeID)
 		}
 
 		// 添加一个可用节点
 		err = client.AddServerNode(protocolID, serverHosts[0].ID())
 		assert.NoError(t, err)
 
-		// 发送请求应该成功路由到可用节点
-		resp, err := client.SendClosest(ctx, protocolID, testMsg)
+		// 发送请求应该成功路由到可用节点，同时排除失败的节点
+		result, err := client.SendClosest(ctx, protocolID, testMsg, failedNodes...)
 		assert.NoError(t, err)
-		assert.Contains(t, string(resp), "来自节点")
+		assert.Contains(t, string(result.Response), "来自节点")
 	})
 
 	t.Run("SendClosest with all nodes failing", func(t *testing.T) {
