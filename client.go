@@ -68,12 +68,10 @@ type ClientMetrics struct {
 	BytesWritten   atomic.Int64 // 写入字节数,已发送的总字节数
 }
 
-// Client 结构体定义了客户端的所有必要字段
-// 它封装了与服务端通信所需的所有功能
-// 包括连接管理、请求发送、指标统计等
+// Client 定义了点对点通信的客户端
 type Client struct {
-	host           host.Host                 // dep2p主机实例
-	config         *ClientConfig             // 客户端配置
+	host           host.Host
+	config         *ClientConfig
 	activeConns    sync.Map                  // 活跃连接映射
 	done           chan struct{}             // 关闭信号通道
 	closeOnce      sync.Once                 // 确保只关闭一次
@@ -84,6 +82,7 @@ type Client struct {
 	mu             sync.Mutex                // 连接池操作锁
 	backoff        *backoff                  // 退避管理器
 	peerStates     sync.Map                  // peer.ID -> *peerState
+	failedNodes    *failedNodeCache
 }
 
 // ClientOption 定义客户端选项函数类型
@@ -244,7 +243,6 @@ func WithServerProtocols(protocols map[protocol.ID][]peer.ID) ClientOption {
 //   - *Client: 新创建的客户端实例
 //   - error: 创建过程中的错误
 func NewClient(h host.Host, opts ...ClientOption) (*Client, error) {
-	// 创建使用默认配置的客户端
 	client := &Client{
 		host:           h,
 		config:         DefaultClientConfig(),
@@ -255,6 +253,7 @@ func NewClient(h host.Host, opts ...ClientOption) (*Client, error) {
 		activeConns:    sync.Map{},
 		maxIdleConn:    10,
 		backoff:        newBackoff(context.Background(), 1000, BackoffCleanupInterval, MaxBackoffAttempts),
+		failedNodes:    newFailedNodeCache(),
 	}
 
 	// 应用所有选项配置
