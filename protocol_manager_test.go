@@ -14,6 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// TestSendClosest 测试发送请求到最近的节点
 func TestSendClosest(t *testing.T) {
 	// 创建测试环境
 	ctx := context.Background()

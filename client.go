@@ -83,6 +83,7 @@ type Client struct {
 	maxIdleConn    int                       // 每个peer的最大空闲连接数限制
 	mu             sync.Mutex                // 连接池操作锁
 	backoff        *backoff                  // 退避管理器
+	peerStates     sync.Map                  // peer.ID -> *peerState
 }
 
 // ClientOption 定义客户端选项函数类型
@@ -283,61 +284,12 @@ func NewClient(h host.Host, opts ...ClientOption) (*Client, error) {
 //   - []byte: 响应数据,目标节点返回的响应内容
 //   - error: 发送过程中的错误,如果发生错误则返回对应的错误信息
 func (c *Client) Send(ctx context.Context, peerID peer.ID, protocolID protocol.ID, request []byte) ([]byte, error) {
-	// 检查并获取退避时间
-	if delay, err := c.backoff.updateAndGet(peerID); err != nil {
-		return nil, fmt.Errorf("节点 %s 已达到最大重试次数: %w", peerID, err)
-	} else if delay > 0 {
-		select {
-		case <-time.After(delay):
-		case <-ctx.Done():
-			return nil, ctx.Err()
-		}
+	// 添加可靠节点跳过逻辑
+	if c.isReliablePeer(peerID) {
+		return c.sendWithoutBackoff(ctx, peerID, protocolID, request)
 	}
-
-	// 检查消息大小
-	if len(request) > c.config.MaxBlockSize {
-		logger.Errorf("消息大小超过限制: %d > %d", len(request), c.config.MaxBlockSize)
-		return nil, ErrMessageTooLarge
-	}
-
-	// 不能发送请求给自己
-	if peerID == c.host.ID() {
-		return nil, errors.New("不能发送请求给自己")
-	}
-
-	// 重试机制
-	var lastErr error
-	// 重试次数
-	for i := 0; i <= c.config.MaxRetries; i++ {
-		// 执行单次发送操作
-		response, err := c.sendOnce(ctx, peerID, protocolID, request)
-		if err == nil {
-			return response, nil
-		}
-
-		// 保存最后一次错误
-		lastErr = err
-		// 如果重试次数未达到最大值，且错误是可重试的，则进行重试
-		if i < c.config.MaxRetries {
-			// 判断错误是否可重试
-			if !isRetryableError(err) {
-				logger.Errorf("请求失败(不可重试): %v", err)
-				return nil, err
-			}
-
-			logger.Warnf("请求失败，正在重试(%d/%d): %v", i+1, c.config.MaxRetries, err)
-			// 等待重试间隔时间
-			select {
-			case <-ctx.Done():
-				return nil, ctx.Err()
-			case <-time.After(c.config.RetryInterval):
-				continue
-			}
-		}
-	}
-
-	logger.Errorf("请求失败(重试耗尽): %v", lastErr)
-	return nil, lastErr
+	// 原有发送逻辑
+	return c.sendWithBackoff(ctx, peerID, protocolID, request)
 }
 
 // sendOnce 执行单次发送操作
@@ -707,6 +659,15 @@ type ConnectionInfo struct {
 }
 
 // writeMessage 使用统一的超时控制
+// 负责将消息写入连接
+// 包含超时控制和错误处理
+//
+// 参数:
+//   - conn: 网络连接
+//   - msg: 要写入的消息数据
+//
+// 返回值:
+//   - error: 写入过程中的错误
 func (c *Client) writeMessage(conn net.Conn, msg []byte) error {
 	if err := c.setConnDeadlines(conn, 0, c.config.WriteTimeout); err != nil {
 		return err
@@ -725,6 +686,16 @@ func (c *Client) writeMessage(conn net.Conn, msg []byte) error {
 }
 
 // setConnDeadlines 统一设置连接超时
+// 负责设置连接的读取和写入超时
+// 包含超时控制和错误处理
+//
+// 参数:
+//   - conn: 网络连接
+//   - readTimeout: 读取超时时间
+//   - writeTimeout: 写入超时时间
+//
+// 返回值:
+//   - error: 设置超时过程中的错误
 func (c *Client) setConnDeadlines(conn net.Conn, readTimeout, writeTimeout time.Duration) error {
 	if readTimeout > 0 {
 		if err := conn.SetReadDeadline(time.Now().Add(readTimeout)); err != nil {
@@ -738,4 +709,165 @@ func (c *Client) setConnDeadlines(conn net.Conn, readTimeout, writeTimeout time.
 		}
 	}
 	return nil
+}
+
+// isReliablePeer 判断节点是否为可靠节点
+// 根据节点的历史请求成功率判断节点是否可靠
+// 如果节点的请求成功率大于95%且请求次数大于100次,则认为节点是可靠的
+//
+// 参数:
+//   - peerID: 目标节点ID
+//
+// 返回值:
+//   - bool: 节点是否可靠
+func (c *Client) isReliablePeer(peerID peer.ID) bool {
+	// 检查节点的历史请求成功率
+	if state, ok := c.peerStates.Load(peerID); ok {
+		ps := state.(*peerState)
+		successRate := float64(ps.successCount) / float64(ps.totalCount)
+		return successRate > 0.95 && ps.totalCount > 100
+	}
+	return false
+}
+
+// sendWithoutBackoff 发送请求而不进行退避检查
+// 负责发送请求而不进行退避检查
+// 包含消息大小检查和节点限制检查
+//
+// 参数:
+//   - ctx: 上下文,用于控制请求的生命周期
+//   - peerID: 目标节点ID
+//   - protocolID: 协议ID,指定使用的通信协议
+//   - request: 要发送的消息数据
+//
+// 返回值:
+//   - []byte: 发送的消息数据
+//   - error: 发送过程中的错误
+func (c *Client) sendWithoutBackoff(ctx context.Context, peerID peer.ID, protocolID protocol.ID, request []byte) ([]byte, error) {
+	// 检查消息大小
+	if len(request) > c.config.MaxBlockSize {
+		logger.Errorf("消息大小超过限制: %d > %d", len(request), c.config.MaxBlockSize)
+		return nil, ErrMessageTooLarge
+	}
+
+	// 不能发送请求给自己
+	if peerID == c.host.ID() {
+		return nil, errors.New("不能发送请求给自己")
+	}
+
+	// 执行单次发送操作
+	response, err := c.sendOnce(ctx, peerID, protocolID, request)
+	if err != nil {
+		// 更新节点状态
+		c.updatePeerState(peerID, err == nil)
+		return nil, err
+	}
+
+	// 更新节点状态
+	c.updatePeerState(peerID, true)
+	return response, nil
+}
+
+// sendWithBackoff 发送请求并进行退避检查
+// 负责发送请求并进行退避检查
+// 包含退避检查和消息大小检查
+//
+// 参数:
+//   - ctx: 上下文,用于控制请求的生命周期
+//   - peerID: 目标节点ID
+//   - protocolID: 协议ID,指定使用的通信协议
+//   - request: 要发送的消息数据
+//
+// 返回值:
+//   - []byte: 发送的消息数据
+//   - error: 发送过程中的错误
+func (c *Client) sendWithBackoff(ctx context.Context, peerID peer.ID, protocolID protocol.ID, request []byte) ([]byte, error) {
+	// 检查并获取退避时间
+	if delay, err := c.backoff.updateAndGet(peerID); err != nil {
+		return nil, fmt.Errorf("节点 %s 已达到最大重试次数: %w", peerID, err)
+	} else if delay > 0 {
+		select {
+		case <-time.After(delay):
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		}
+	}
+
+	// 检查消息大小
+	if len(request) > c.config.MaxBlockSize {
+		logger.Errorf("消息大小超过限制: %d > %d", len(request), c.config.MaxBlockSize)
+		return nil, ErrMessageTooLarge
+	}
+
+	// 不能发送请求给自己
+	if peerID == c.host.ID() {
+		return nil, errors.New("不能发送请求给自己")
+	}
+
+	// 重试机制
+	var lastErr error
+	for i := 0; i <= c.config.MaxRetries; i++ {
+		// 执行单次发送操作
+		response, err := c.sendOnce(ctx, peerID, protocolID, request)
+		if err == nil {
+			// 更新节点状态
+			c.updatePeerState(peerID, true)
+			return response, nil
+		}
+
+		// 保存最后一次错误
+		lastErr = err
+		// 更新节点状态
+		c.updatePeerState(peerID, false)
+
+		// 如果重试次数未达到最大值，且错误是可重试的，则进行重试
+		if i < c.config.MaxRetries {
+			// 判断错误是否可重试
+			if !isRetryableError(err) {
+				logger.Errorf("请求失败(不可重试): %v", err)
+				return nil, err
+			}
+
+			logger.Warnf("请求失败，正在重试(%d/%d): %v", i+1, c.config.MaxRetries, err)
+			// 等待重试间隔时间
+			select {
+			case <-ctx.Done():
+				return nil, ctx.Err()
+			case <-time.After(c.config.RetryInterval):
+				continue
+			}
+		}
+	}
+
+	logger.Errorf("请求失败(重试耗尽): %v", lastErr)
+	return nil, lastErr
+}
+
+// 添加节点状态跟踪
+type peerState struct {
+	successCount int64
+	totalCount   int64
+	lastSuccess  time.Time
+	mu           sync.RWMutex
+}
+
+// updatePeerState 更新节点状态
+// 负责更新节点的请求成功率和请求次数
+// 包含请求成功和失败的情况
+//
+// 参数:
+//   - peerID: 目标节点ID
+//   - success: 请求是否成功
+func (c *Client) updatePeerState(peerID peer.ID, success bool) {
+	state, _ := c.peerStates.LoadOrStore(peerID, &peerState{})
+	ps := state.(*peerState)
+
+	ps.mu.Lock()
+	defer ps.mu.Unlock()
+
+	ps.totalCount++
+	if success {
+		ps.successCount++
+		ps.lastSuccess = time.Now()
+	}
 }
