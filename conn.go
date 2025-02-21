@@ -3,7 +3,6 @@ package pointsub
 
 import (
 	"context"
-	"errors"
 	"net"
 
 	"github.com/dep2p/go-dep2p/core/host"
@@ -62,7 +61,7 @@ func Dial(ctx context.Context, h host.Host, pid peer.ID, tag protocol.ID) (net.C
 	s, err := h.NewStream(ctx, pid, tag)
 	if err != nil {
 		logger.Errorf("创建新的流失败: %v", err)
-		return nil, errors.New("创建新的流") // 如果出错则返回错误
+		return nil, err // 如果出错则返回错误
 	}
 	return newConn(s), nil // 返回封装了流的连接对象
 }

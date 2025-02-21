@@ -628,6 +628,7 @@ func TestClientConfig(t *testing.T) {
 	assert.False(t, client.config.EnableCompression)
 }
 
+// go test -timeout 30m -run TestInvalidClientConfig
 // 测试无效配置
 func TestInvalidClientConfig(t *testing.T) {
 	clientHost, err := dep2p.New()
@@ -643,4 +644,173 @@ func TestInvalidClientConfig(t *testing.T) {
 	_, err = NewClient(clientHost, WithMaxRetries(-1))
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "重试次数不能为负数")
+}
+
+// go test -timeout 30m -run TestHighConcurrentSend
+// TestHighConcurrentSend 测试客户端发送方法在高并发情况下的表现
+func TestHighConcurrentSend(t *testing.T) {
+	// 创建服务端 host
+	serverHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer serverHost.Close()
+
+	// 创建服务端
+	server, err := NewServer(serverHost,
+		WithMaxConcurrentConns(5000),          // 设置较高的并发连接数
+		WithServerReadTimeout(30*time.Second), // 设置合理的超时时间
+		WithServerWriteTimeout(30*time.Second),
+	)
+	assert.NoError(t, err)
+	defer server.Stop()
+
+	// 创建客户端 host
+	clientHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer clientHost.Close()
+
+	// 创建客户端
+	client, err := NewClient(clientHost,
+		WithReadTimeout(30*time.Second),
+		WithWriteTimeout(30*time.Second),
+		WithMaxRetries(3),
+	)
+	assert.NoError(t, err)
+	defer client.Close()
+
+	// 连接到服务端
+	err = clientHost.Connect(context.Background(), serverHost.Peerstore().PeerInfo(serverHost.ID()))
+	assert.NoError(t, err)
+
+	// 定义测试协议
+	testProtocol := protocol.ID("/test/concurrent/1.0.0")
+
+	// 实现一个模拟延迟的处理函数
+	handler := func(request []byte) ([]byte, error) {
+		// 随机延迟 10-50ms，模拟真实处理时间
+		delay := time.Duration(10+rand.Intn(40)) * time.Millisecond
+		time.Sleep(delay)
+		return append([]byte("已处理: "), request...), nil
+	}
+
+	// 启动服务端
+	err = server.Start(testProtocol, handler)
+	assert.NoError(t, err)
+
+	// 测试参数
+	const (
+		totalRequests     = 10000 // 总请求数
+		concurrentWorkers = 50    // 并发工作协程数
+		requestsPerWorker = totalRequests / concurrentWorkers
+	)
+
+	// 准备测试数据
+	type result struct {
+		duration time.Duration
+		err      error
+	}
+
+	results := make(chan result, totalRequests)
+	var wg sync.WaitGroup
+
+	// 记录开始时间
+	startTime := time.Now()
+
+	// 启动并发工作协程
+	for i := 0; i < concurrentWorkers; i++ {
+		wg.Add(1)
+		go func(workerID int) {
+			defer wg.Done()
+
+			for j := 0; j < requestsPerWorker; j++ {
+				requestStart := time.Now()
+				msg := fmt.Sprintf("worker-%d-request-%d", workerID, j)
+
+				// 发送请求
+				resp, err := client.Send(
+					context.Background(),
+					serverHost.ID(),
+					testProtocol,
+					[]byte(msg),
+				)
+
+				duration := time.Since(requestStart)
+				if err != nil {
+					results <- result{duration, err}
+					continue
+				}
+
+				// 验证响应
+				expectedPrefix := "已处理: "
+				if !strings.HasPrefix(string(resp), expectedPrefix) {
+					results <- result{duration, fmt.Errorf("响应格式错误: %s", string(resp))}
+					continue
+				}
+
+				results <- result{duration, nil}
+			}
+		}(i)
+	}
+
+	// 等待所有请求完成
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+
+	// 统计结果
+	var (
+		successCount  int
+		failureCount  int
+		totalDuration time.Duration
+		maxDuration   time.Duration
+		minDuration   = time.Hour // 初始设置一个较大值
+		errorMessages = make(map[string]int)
+	)
+
+	for r := range results {
+		if r.err != nil {
+			failureCount++
+			errorMessages[r.err.Error()]++
+		} else {
+			successCount++
+			totalDuration += r.duration
+			if r.duration > maxDuration {
+				maxDuration = r.duration
+			}
+			if r.duration < minDuration {
+				minDuration = r.duration
+			}
+		}
+	}
+
+	// 计算统计指标
+	totalTime := time.Since(startTime)
+	avgDuration := totalDuration / time.Duration(successCount)
+	requestsPerSecond := float64(successCount) / totalTime.Seconds()
+
+	// 输出测试结果
+	t.Logf("\n============= 高并发测试结果 =============")
+	t.Logf("总请求数: %d", totalRequests)
+	t.Logf("并发工作协程数: %d", concurrentWorkers)
+	t.Logf("成功请求数: %d", successCount)
+	t.Logf("失败请求数: %d", failureCount)
+	t.Logf("总耗时: %v", totalTime)
+	t.Logf("平均请求耗时: %v", avgDuration)
+	t.Logf("最长请求耗时: %v", maxDuration)
+	t.Logf("最短请求耗时: %v", minDuration)
+	t.Logf("每秒处理请求数: %.2f", requestsPerSecond)
+
+	if len(errorMessages) > 0 {
+		t.Logf("\n错误统计:")
+		for errMsg, count := range errorMessages {
+			t.Logf("- %s: %d 次", errMsg, count)
+		}
+	}
+	t.Logf("=======================================")
+
+	// 验证测试结果
+	assert.Equal(t, totalRequests, successCount+failureCount, "总请求数应等于成功数+失败数")
+	assert.True(t, successCount > totalRequests*95/100, "成功率应大于95%")
+	assert.True(t, avgDuration < 200*time.Millisecond, "平均请求时间应小于200ms")
+	assert.True(t, requestsPerSecond > 100, "每秒处理请求数应大于100")
 }

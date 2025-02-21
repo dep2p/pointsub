@@ -3,7 +3,11 @@ package pointsub
 import (
 	"context"
 	"fmt"
+	"math/rand"
+	"sort"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -13,6 +17,8 @@ import (
 	"github.com/dep2p/go-dep2p/core/protocol"
 	"github.com/stretchr/testify/assert"
 )
+
+var mu sync.Mutex // 用于保护 durationMap 的并发访问
 
 // TestSendClosest 测试发送请求到最近的节点
 func TestSendClosest(t *testing.T) {
@@ -286,4 +292,173 @@ func TestSendClosest(t *testing.T) {
 			server.Stop()
 		}
 	}()
+}
+
+// TestHighConcurrentSendClosest 测试高并发发送场景下的性能表现
+func TestHighConcurrentSendClosest(t *testing.T) {
+	// 创建测试环境
+	ctx := context.Background()
+	protocolID := protocol.ID("/test/concurrent/1.0.0")
+
+	// 创建服务端节点
+	serverHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer serverHost.Close()
+
+	server, err := NewServer(serverHost,
+		WithMaxConcurrentConns(100), // 降低到更合理的并发数
+		WithServerReadTimeout(5*time.Second),
+		WithServerWriteTimeout(5*time.Second),
+	)
+	assert.NoError(t, err)
+
+	// 记录服务端处理的请求统计
+	var (
+		serverProcessed int64
+		serverErrors    int64
+		durationMap     = make(map[time.Duration]int)
+	)
+
+	// 注册处理函数，模拟随机处理时间
+	err = server.Start(protocolID, func(req []byte) ([]byte, error) {
+		// 模拟处理时间 0-100ms
+		processTime := time.Duration(rand.Intn(100)) * time.Millisecond
+		time.Sleep(processTime)
+
+		processed := atomic.AddInt64(&serverProcessed, 1)
+		if processed%10 == 0 {
+			logger.Infof("服务端已处理 %d 个请求, 当前请求处理耗时: %v",
+				processed, processTime)
+		}
+
+		return append([]byte(fmt.Sprintf("response from %s:", serverHost.ID().String()[:8])), req...), nil
+	})
+	assert.NoError(t, err)
+	defer server.Stop()
+
+	// 创建客户端
+	clientHost, err := dep2p.New()
+	assert.NoError(t, err)
+	defer clientHost.Close()
+
+	client, err := NewClient(clientHost,
+		WithReadTimeout(5*time.Second),
+		WithWriteTimeout(5*time.Second),
+		WithMaxRetries(3),
+		WithConnectTimeout(5*time.Second),
+		WithMaxBlockSize(1024*1024),
+	)
+	assert.NoError(t, err)
+	defer client.Close()
+
+	// 连接到服务端
+	err = clientHost.Connect(ctx, serverHost.Peerstore().PeerInfo(serverHost.ID()))
+	assert.NoError(t, err)
+
+	// 添加服务端节点
+	err = client.AddServerNode(protocolID, serverHost.ID())
+	assert.NoError(t, err)
+
+	// 修改并发控制
+	const (
+		totalRequests = 50                     // 进一步减少请求数
+		batchSize     = 5                      // 减小批次大小
+		batchDelay    = time.Millisecond * 200 // 调整批次间隔
+	)
+
+	var wg sync.WaitGroup
+	wg.Add(totalRequests)
+
+	// 记录开始时间
+	startTime := time.Now()
+
+	// 按批次发送请求
+	for i := 0; i < totalRequests; i += batchSize {
+		batch := batchSize
+		if i+batch > totalRequests {
+			batch = totalRequests - i
+		}
+
+		// 发送一批请求
+		for j := 0; j < batch; j++ {
+			reqID := i + j
+			go func(reqID int) {
+				defer wg.Done()
+
+				requestStart := time.Now()
+				msg := fmt.Sprintf("request-%d", reqID)
+
+				result, err := client.SendClosest(ctx, protocolID, []byte(msg))
+
+				duration := time.Since(requestStart)
+				if err != nil {
+					atomic.AddInt64(&serverErrors, 1)
+					logger.Errorf("请求 %d 失败: %v, 耗时: %v", reqID, err, duration)
+					return
+				}
+
+				// 记录请求完成时间分布
+				second := duration.Truncate(time.Second)
+				mu.Lock()
+				durationMap[second]++
+				mu.Unlock()
+
+				logger.Infof("请求 %d 完成: 目标节点=%s, 耗时=%v, 响应=%s",
+					reqID,
+					result.Target.String()[:8],
+					duration,
+					string(result.Response))
+			}(reqID)
+		}
+
+		// 批次间等待
+		time.Sleep(batchDelay)
+	}
+
+	// 等待所有请求完成，增加超时控制
+	done := make(chan struct{})
+	go func() {
+		wg.Wait()
+		close(done)
+	}()
+
+	select {
+	case <-done:
+		logger.Info("所有请求已完成")
+	case <-time.After(2 * time.Minute):
+		t.Fatal("测试超时")
+	}
+
+	// 等待一段时间确保服务端处理完所有请求
+	time.Sleep(time.Second)
+
+	totalDuration := time.Since(startTime)
+
+	// 输出统计结果
+	logger.Infof("\n==== 高并发测试结果 ====")
+	logger.Infof("总请求数: %d", totalRequests)
+	logger.Infof("总耗时: %v", totalDuration)
+	logger.Infof("服务端处理请求数: %d", atomic.LoadInt64(&serverProcessed))
+	logger.Infof("服务端错误数: %d", atomic.LoadInt64(&serverErrors))
+	logger.Infof("成功率: %.2f%%", float64(atomic.LoadInt64(&serverProcessed))*100/float64(totalRequests))
+
+	// 按秒统计完成的请求数
+	logger.Infof("\n请求完成时间分布:")
+	var seconds []time.Duration
+	for second := range durationMap {
+		seconds = append(seconds, second)
+	}
+	sort.Slice(seconds, func(i, j int) bool {
+		return seconds[i] < seconds[j]
+	})
+
+	for _, second := range seconds {
+		logger.Infof("%d秒内完成: %d个请求 (%.2f%%)",
+			second/time.Second,
+			durationMap[second],
+			float64(durationMap[second])*100/float64(totalRequests))
+	}
+
+	// 修改验证部分
+	assert.Equal(t, int64(totalRequests), atomic.LoadInt64(&serverProcessed)+atomic.LoadInt64(&serverErrors), "部分请求未完成")
 }

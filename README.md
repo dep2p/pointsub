@@ -101,6 +101,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 ## 配置选项
 
 ### 服务端选项
+
 - WithMaxConcurrentConns(n int)：设置最大并发连接数，默认1000
 - WithServerReadTimeout(d time.Duration)：设置读取超时，默认30秒
 - WithServerWriteTimeout(d time.Duration)：设置写入超时，默认30秒
@@ -108,6 +109,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 - WithServerCleanupInterval(d time.Duration)：设置清理间隔，默认5分钟
 
 ### 客户端选项
+
 - WithReadTimeout(d time.Duration)：设置读取超时，默认30秒
 - WithWriteTimeout(d time.Duration)：设置写入超时，默认30秒
 - WithConnectTimeout(d time.Duration)：设置连接超时，默认5秒
@@ -115,6 +117,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 - WithCompression(enable bool)：设置是否启用压缩，默认true
 
 ### 服务端配置 (ServerConfig)
+
 - ReadTimeout：读取超时时间（默认30秒）
 - WriteTimeout：写入超时时间（默认30秒）
 - MaxConcurrentConns：最大并发连接数
@@ -125,6 +128,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 - EnableCompression：是否启用压缩（默认true）
 
 ### 客户端配置 (ClientConfig)
+
 - ReadTimeout：读取超时时间（默认30秒）
 - WriteTimeout：写入超时时间（默认30秒）
 - ConnectTimeout：连接超时时间（默认5秒）
@@ -137,6 +141,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 - - MaxTotalConns：总连接数限制（默认100）
 
 ### 连接管理
+
 - 动态连接数调整
   - 自动根据系统负载调整并发连接数
   - 增长率：10%
@@ -158,6 +163,7 @@ resp, err := client.Send(ctx, peerID, "/echo/1.0.0", []byte("hello"))
 ### 服务端使用
 
 1. 创建 dep2p Host:
+
 ```go
     serverHost, err := dep2p.New()
     if err != nil {
