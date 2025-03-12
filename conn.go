@@ -58,7 +58,11 @@ func (c *conn) RemoteAddr() net.Addr {
 //   - error: 错误信息
 func Dial(ctx context.Context, h host.Host, pid peer.ID, tag protocol.ID) (net.Conn, error) {
 	// 创建新的流
-	s, err := h.NewStream(ctx, pid, tag)
+	s, err := h.NewStream(
+		network.WithNoDial(ctx, "should already have connection"), // 如果已经建立了连接，则不进行新的连接
+		pid, // 目标对等节点的 ID
+		tag, // 协议标识符
+	)
 	if err != nil {
 		logger.Errorf("创建新的流失败: %v", err)
 		return nil, err // 如果出错则返回错误
