@@ -28,25 +28,30 @@ func (t *testLogger) Fatalf(format string, args ...interface{}) {
 }
 
 func main() {
-	// 示例1：基础消息发送与接收
+	// 示例1：基本消息发送与接收
 	fmt.Println("=== 示例1: 基础消息发送与接收 ===")
 	fmt.Println("展示PointSub统一消息传输接口的基本用法")
 	basicExample()
 
-	// 示例2：流式传输
+	// 示例2：流式数据传输
 	fmt.Println("\n=== 示例2: 流式数据传输 ===")
 	fmt.Println("展示PointSub处理未知大小数据流的能力")
 	streamExample()
 
 	// 示例3：大文件传输与进度跟踪
-	fmt.Println("\n=== 示例3: 大文件传输与进度跟踪 ===")
-	fmt.Println("展示PointSub处理大文件时的进度反馈机制")
+	fmt.Println("\n=== 示例3: 大文件传输 ===")
+	fmt.Println("展示PointSub处理大文件时的进度跟踪机制")
 	largeFileExample()
 
 	// 示例4：错误处理
 	fmt.Println("\n=== 示例4: 错误处理 ===")
-	fmt.Println("展示PointSub的错误处理和恢复机制")
+	fmt.Println("展示PointSub的错误处理机制")
 	errorHandlingExample()
+
+	// 示例5：压缩传输
+	fmt.Println("\n=== 示例5: 压缩传输 ===")
+	fmt.Println("展示PointSub的压缩传输功能")
+	compressedExample()
 }
 
 // 基本消息收发示例
@@ -126,12 +131,14 @@ func streamExample() {
 
 	// 创建帧处理器，设置较长的超时和错误恢复
 	frameProcessor := pointsub.NewAdvancedFrameProcessor(
-		pointsub.WithFrameTimeout(30*time.Second), // 设置帧处理超时
+		pointsub.WithFrameTimeout(60*time.Second), // 设置帧处理超时为60秒
 		pointsub.WithErrorRecovery(true),          // 启用错误恢复
+		pointsub.WithCompression(false),           // 确保禁用压缩以排除压缩相关问题
 	)
 
 	// 使用net.Pipe创建连接对
 	clientConn, serverConn := net.Pipe()
+	fmt.Println("已创建连接对，准备创建消息传输器")
 
 	// 创建消息传输器
 	clientTransporter := pointsub.NewMessageTransporter(clientConn,
@@ -140,9 +147,10 @@ func streamExample() {
 	serverTransporter := pointsub.NewMessageTransporter(serverConn,
 		pointsub.WithFrameProcessor(frameProcessor),
 	)
+	fmt.Println("消息传输器创建完成")
 
-	// 创建测试数据 - 大约2800字节
-	testData := bytes.Repeat([]byte("流数据测试消息-"), 200)
+	// 创建测试数据 - 使用更小的数据来调试 (约500字节)
+	testData := bytes.Repeat([]byte("流数据测试消息-"), 25)
 	fmt.Printf("准备流传输测试数据，大小: %.2f KB\n", float64(len(testData))/1024)
 
 	// 用于同步的通道
@@ -151,6 +159,7 @@ func streamExample() {
 		data []byte
 		err  error
 	})
+	fmt.Println("同步通道已创建")
 
 	// 在另一个goroutine中接收数据
 	go func() {
@@ -159,16 +168,20 @@ func streamExample() {
 
 		// 准备接收缓冲区
 		var receivedBuffer bytes.Buffer
+		fmt.Println("接收方: 接收缓冲区已准备")
 
-		// 设置更长的超时
-		serverTransporter.SetReadDeadline(time.Now().Add(30 * time.Second))
+		// 设置更长的超时 - 确保足够时间接收数据
+		serverTransporter.SetReadDeadline(time.Now().Add(90 * time.Second))
+		fmt.Println("接收方: 设置读取超时为90秒")
 
 		// 接收流数据 - ReceiveStream方法处理未知大小的数据流
 		fmt.Println("接收方: 开始调用ReceiveStream()...")
 		err := serverTransporter.ReceiveStream(&receivedBuffer)
+		fmt.Println("接收方: ReceiveStream()调用已返回")
 
 		// 重置超时
 		serverTransporter.SetReadDeadline(time.Time{})
+		fmt.Println("接收方: 已重置读取超时")
 
 		if err != nil {
 			fmt.Printf("接收方: 接收出错: %v\n", err)
@@ -184,29 +197,42 @@ func streamExample() {
 			data: receivedBuffer.Bytes(),
 			err:  err,
 		}
+		fmt.Println("接收方: 已将结果发送到结果通道")
 	}()
 
-	// 等待接收方准备好
-	time.Sleep(2 * time.Second)
+	// 等待接收方准备好 - 增加等待时间以确保接收方准备就绪
+	time.Sleep(3 * time.Second)
+	fmt.Println("发送方: 接收方应该已准备就绪")
 
-	// 设置发送超时
-	clientTransporter.SetWriteDeadline(time.Now().Add(30 * time.Second))
+	// 设置发送超时 - 确保足够时间发送数据
+	clientTransporter.SetWriteDeadline(time.Now().Add(90 * time.Second))
+	fmt.Println("发送方: 设置写入超时为90秒")
+
+	// 创建定时器监控传输过程
+	watchdogTimer := time.AfterFunc(30*time.Second, func() {
+		fmt.Println("!!警告!! 传输监控：流传输似乎卡住了")
+	})
+	defer watchdogTimer.Stop()
 
 	// 发送流数据
 	fmt.Println("发送方: 开始发送流数据...")
 	err := clientTransporter.SendStream(bytes.NewReader(testData))
+	fmt.Println("发送方: SendStream()调用已返回")
 
 	// 重置超时
 	clientTransporter.SetWriteDeadline(time.Time{})
+	fmt.Println("发送方: 已重置写入超时")
 
 	if err != nil {
 		log.Fatalf("发送流数据失败: %v", err)
 	}
 	fmt.Println("发送方: 流数据发送完成")
 
-	// 设置超时等待接收结果
+	// 设置超时等待接收结果 - 使用更长的超时
+	fmt.Println("等待接收方处理完毕...")
 	select {
 	case result := <-resultCh:
+		fmt.Println("已从结果通道接收到数据")
 		if result.err != nil {
 			log.Fatalf("接收流数据失败: %v", result.err)
 		}
@@ -236,16 +262,19 @@ func streamExample() {
 				}
 			}
 		}
-	case <-time.After(40 * time.Second):
-		log.Fatalf("接收流数据超时")
+	case <-time.After(120 * time.Second): // 更长的超时
+		log.Fatalf("等待接收流数据结果超时")
 	}
 
 	// 等待接收goroutine完成
+	fmt.Println("等待接收goroutine完成...")
 	<-done
+	fmt.Println("接收goroutine已完成")
 
 	// 清理连接
 	clientTransporter.Close()
 	serverTransporter.Close()
+	fmt.Println("连接已关闭")
 }
 
 // 大文件传输与进度跟踪示例
@@ -256,11 +285,11 @@ func largeFileExample() {
 
 	// 创建帧处理器，设置较长的超时
 	frameProcessor := pointsub.NewAdvancedFrameProcessor(
-		pointsub.WithFrameTimeout(60*time.Second), // 设置更长的帧处理超时
-		pointsub.WithErrorRecovery(true),          // 启用错误恢复
+		pointsub.WithFrameTimeout(120*time.Second), // 设置更长的帧处理超时
+		pointsub.WithErrorRecovery(true),           // 启用错误恢复
 	)
 
-	// 使用net.Pipe创建连接对，以便更可靠地测试大文件传输
+	// 使用net.Pipe创建连接对
 	clientConn, serverConn := net.Pipe()
 
 	// 创建消息传输器
@@ -309,7 +338,7 @@ func largeFileExample() {
 		var receivedBuffer bytes.Buffer
 
 		// 设置较长的读取超时
-		serverTransporter.SetReadDeadline(time.Now().Add(90 * time.Second))
+		serverTransporter.SetReadDeadline(time.Now().Add(180 * time.Second))
 
 		// 接收文件数据
 		fmt.Println("接收方: 开始调用ReceiveStream()...")
@@ -339,10 +368,10 @@ func largeFileExample() {
 	progressTracker.StartTracking(transferID, int64(len(largeData)))
 
 	// 等待接收方准备好
-	time.Sleep(2 * time.Second)
+	time.Sleep(3 * time.Second)
 
 	// 设置较长的写入超时
-	clientTransporter.SetWriteDeadline(time.Now().Add(90 * time.Second))
+	clientTransporter.SetWriteDeadline(time.Now().Add(180 * time.Second))
 
 	// 发送文件数据
 	fmt.Println("发送方: 开始发送大文件数据...")
@@ -389,7 +418,7 @@ func largeFileExample() {
 				}
 			}
 		}
-	case <-time.After(100 * time.Second):
+	case <-time.After(200 * time.Second): // 更长的超时
 		log.Fatalf("接收文件数据超时")
 	}
 
@@ -534,4 +563,112 @@ func formatDuration(d time.Duration) string {
 		minutes := int(d.Minutes()) % 60
 		return fmt.Sprintf("%dh%dm", hours, minutes)
 	}
+}
+
+// 压缩传输示例
+// 展示了PointSub的压缩传输功能
+func compressedExample() {
+	fmt.Println("准备进行压缩传输测试...")
+
+	// 创建启用压缩的帧处理器
+	frameProcessor := pointsub.NewAdvancedFrameProcessor(
+		pointsub.WithFrameTimeout(10*time.Second),
+		pointsub.WithErrorRecovery(true),
+		pointsub.WithCompression(true),   // 启用压缩
+		pointsub.WithCompressionLevel(6), // 设置压缩级别
+	)
+
+	// 使用net.Pipe创建连接对
+	clientConn, serverConn := net.Pipe()
+
+	// 创建消息传输器
+	clientTransporter := pointsub.NewMessageTransporter(clientConn,
+		pointsub.WithFrameProcessor(frameProcessor),
+	)
+	serverTransporter := pointsub.NewMessageTransporter(serverConn,
+		pointsub.WithFrameProcessor(frameProcessor),
+	)
+
+	// 创建可压缩的测试数据 - 使用重复内容以便获得高压缩率
+	testData := bytes.Repeat([]byte("这是一个可以被高度压缩的重复内容样本，展示压缩功能的有效性和优势。"), 100)
+	fmt.Printf("准备压缩传输测试数据，原始大小: %.2f KB\n", float64(len(testData))/1024)
+
+	// 用于同步的通道
+	done := make(chan struct{})
+	resultCh := make(chan struct {
+		data []byte
+		err  error
+	})
+
+	// 在另一个goroutine中接收数据
+	go func() {
+		defer close(done)
+		fmt.Println("接收方: 准备接收压缩数据...")
+
+		// 准备接收缓冲区
+		var receivedBuffer bytes.Buffer
+
+		// 接收数据
+		data, err := serverTransporter.Receive()
+		if err != nil {
+			fmt.Printf("接收方: 接收出错: %v\n", err)
+		} else {
+			receivedBuffer.Write(data)
+			fmt.Printf("接收方: 成功接收 %d 字节\n", receivedBuffer.Len())
+		}
+
+		// 发送结果
+		resultCh <- struct {
+			data []byte
+			err  error
+		}{
+			data: receivedBuffer.Bytes(),
+			err:  err,
+		}
+	}()
+
+	// 等待接收方准备好
+	time.Sleep(1 * time.Second)
+
+	// 发送数据
+	fmt.Println("发送方: 开始发送压缩数据...")
+	startTime := time.Now()
+	err := clientTransporter.Send(testData)
+	duration := time.Since(startTime)
+
+	if err != nil {
+		log.Fatalf("发送数据失败: %v", err)
+	}
+	fmt.Printf("发送方: 数据发送完成，耗时: %v\n", duration)
+
+	// 等待接收结果
+	select {
+	case result := <-resultCh:
+		if result.err != nil {
+			log.Fatalf("接收数据失败: %v", result.err)
+		}
+
+		// 验证数据完整性
+		if bytes.Equal(result.data, testData) {
+			fmt.Println("数据接收成功，内容完全匹配")
+			fmt.Printf("接收到 %d 字节数据\n", len(result.data))
+			// 显示压缩效果
+			fmt.Printf("数据传输效率分析:\n")
+			fmt.Printf("- 原始大小: %.2f KB\n", float64(len(testData))/1024)
+			fmt.Printf("- 传输耗时: %v\n", duration)
+			fmt.Printf("- 传输速率: %.2f MB/s\n", float64(len(testData))/(1024*1024)/duration.Seconds())
+		} else {
+			fmt.Printf("数据内容不匹配: 期望 %d 字节，收到 %d 字节\n",
+				len(testData), len(result.data))
+		}
+	case <-time.After(20 * time.Second):
+		log.Fatalf("接收数据超时")
+	}
+
+	// 等待接收goroutine完成
+	<-done
+
+	// 清理连接
+	clientTransporter.Close()
+	serverTransporter.Close()
 }

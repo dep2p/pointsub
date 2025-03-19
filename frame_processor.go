@@ -10,21 +10,27 @@ import (
 
 // 帧头部常量
 const (
-	// 帧头部大小
+	// 帧头部大小 - 结构如下:
+	// 4字节: 数据大小 - 支持大型消息
+	// 4字节: 校验和 - 完整CRC32校验保证数据完整性
+	// 4字节: 标志 - 支持多种帧类型和扩展标记
 	DefaultHeaderSize = 12 // 大小(4字节) + 校验和(4字节) + 标志(4字节)
 
-	// 紧凑帧头部大小
+	// 紧凑帧头部大小 - 结构如下:
+	// 2字节: 数据大小 - 足够支持最大64KB的小型消息
+	// 1字节: 校验和 - 简化的校验和，仅取CRC32最低字节，降低带宽消耗
+	// 1字节: 标志 - 支持基本帧类型标记
 	CompactHeaderSize = 4 // 大小(2字节) + 校验和(1字节) + 标志(1字节)
 
-	// 帧标志
-	FlagNormal     = 0x00 // 普通帧
-	FlagFragmented = 0x01 // 分片帧
-	FlagLastFrame  = 0x02 // 最后一帧
-	FlagCompressed = 0x04 // 压缩帧
-	FlagError      = 0x08 // 错误帧
-	FlagControl    = 0x10 // 控制帧
-	FlagEmpty      = 0x20 // 空帧
-	FlagCompact    = 0x40 // 紧凑帧
+	// 帧标志 - 每个标志占用一个位，允许组合使用
+	FlagNormal     = 0x00 // 普通帧 - 单条完整消息
+	FlagFragmented = 0x01 // 分片帧 - 流式传输的开始
+	FlagLastFrame  = 0x02 // 最后一帧 - 流式传输的结束
+	FlagCompressed = 0x04 // 压缩帧 - 包含压缩数据
+	FlagError      = 0x08 // 错误帧 - 包含错误信息
+	FlagControl    = 0x10 // 控制帧 - 系统控制消息
+	FlagEmpty      = 0x20 // 空帧 - 无数据的帧（如心跳）
+	FlagCompact    = 0x40 // 紧凑帧 - 使用紧凑帧头
 )
 
 // 错误类型
@@ -40,40 +46,54 @@ type FrameHeader struct {
 	// 消息大小
 	Size int
 
-	// 校验和
+	// 校验和 - 使用CRC32校验保证数据完整性
+	// 对于紧凑帧，只使用最低8位
 	Checksum uint32
 
-	// 帧标志
+	// 帧标志 - 表示消息的类型和处理方式
 	Flags uint32
 
-	// 序列号
+	// 序列号 - 可用于跟踪消息顺序（扩展用）
 	Sequence uint16
 
-	// 协议版本
+	// 协议版本 - 支持协议演化（扩展用）
 	Version uint8
 }
 
 // FrameProcessor 处理消息帧的编码和解码
+// 本接口的设计支持以下特性:
+// 1. 统一的帧处理 - 通过标准接口处理不同类型的帧
+// 2. 自适应帧大小 - 根据消息大小自动选择紧凑帧或完整帧
+// 3. 数据完整性 - 使用校验和验证消息完整性
+// 4. 流式传输 - 通过分片帧和最后一帧标志支持流式数据
+// 5. 错误传递 - 支持传递错误信息
 type FrameProcessor interface {
-	// 编码消息帧头
+	// EncodeHeader 编码消息帧头
+	// 根据数据大小和标志自动选择紧凑帧或完整帧格式
 	EncodeHeader(size int, checksum uint32, flags uint32) ([]byte, error)
 
-	// 解码消息帧头
+	// DecodeHeader 解码消息帧头
+	// 支持解析紧凑帧和完整帧格式
 	DecodeHeader(header []byte) (FrameHeader, error)
 
-	// 计算校验和
+	// CalculateChecksum 计算校验和
+	// 使用CRC32算法计算数据的校验和
 	CalculateChecksum(data []byte) uint32
 
-	// 验证数据完整性
+	// VerifyData 验证数据完整性
+	// 通过比较计算的校验和与期望的校验和来验证数据完整性
 	VerifyData(data []byte, expectedChecksum uint32) bool
 
-	// 读取帧
+	// ReadFrame 从读取器读取一个完整的帧
+	// 会自动处理帧头解析、数据读取和校验
 	ReadFrame(reader io.Reader) ([]byte, error)
 
-	// 读取帧并返回帧标志
+	// ReadFrameWithFlags 读取帧并返回帧标志
+	// 与ReadFrame相似，但同时返回帧的标志信息
 	ReadFrameWithFlags(reader io.Reader) ([]byte, uint32, error)
 
-	// 写入帧
+	// WriteFrame 写入帧
+	// 处理帧头生成、校验和计算和数据写入
 	WriteFrame(writer io.Writer, data []byte, flags uint32) error
 }
 

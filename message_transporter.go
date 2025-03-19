@@ -1,6 +1,7 @@
 package pointsub
 
 import (
+	"fmt"
 	"io"
 	"net"
 	"time"
@@ -266,45 +267,60 @@ func (t *baseMessageTransporter) handleError(err error) error {
 }
 
 // SendStream 实现了MessageTransporter接口的SendStream方法
+// 流传输协议设计如下:
+// 1. 第一个数据块标记为分片帧(FlagFragmented)，表示开始流传输
+// 2. 最后一个数据块标记为最后一帧(FlagLastFrame)，表示流传输结束
+// 3. 中间数据块不带特殊标记
+// 4. 接收方通过检查这些标志来重建完整的数据流
 func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
-	// 估计总数据大小（如果可能）
-	var totalSize int64 = 0
-	var transferID string
-
-	// 尝试获取底层读取器的大小（如果是文件等可以提供大小的读取器）
+	// 估计总数据大小（用于进度跟踪）
+	var totalSize int64
 	if sizer, ok := reader.(interface{ Size() int64 }); ok {
 		totalSize = sizer.Size()
+	} else {
+		// 对于未知大小的流，使用默认大小估计
+		totalSize = LargeMessageSize
 	}
 
-	// 如果可以获取总大小并且需要跟踪进度
-	if t.progressTracker != nil && totalSize > LargeMessageThreshold {
+	fmt.Printf("SendStream: 开始发送流数据，估计大小: %d 字节\n", totalSize)
+
+	// 创建传输ID（用于进度跟踪）
+	var transferID string
+	if t.progressTracker != nil {
 		transferID = generateTransferID()
+		logger.Debugf("流传输: 创建传输ID %s，总大小 %d 字节", transferID, totalSize)
 		t.progressTracker.StartTracking(transferID, totalSize)
 		defer t.progressTracker.StopTracking(transferID)
 	}
 
-	// 初始化已传输数据计数
+	// 初始化已发送字节计数
 	var totalSent int64 = 0
 
-	// 选择适当的块大小
-	// 对于小文件使用较小的块，大文件使用较大的块
-	chunkSize := DefaultMediumChunkSize
-	if totalSize > 0 {
-		if totalSize < LargeMessageThreshold {
-			chunkSize = DefaultSmallChunkSize
-		} else {
-			chunkSize = DefaultLargeChunkSize
-		}
+	// 选择合适的块大小
+	// - 小消息: 使用较小的块大小 (4KB)
+	// - 中等消息: 使用中等块大小 (16KB)
+	// - 大消息: 使用较大的块大小 (64KB)
+	var chunkSize int
+	if totalSize < MediumMessageSize {
+		chunkSize = DefaultSmallChunkSize
+	} else if totalSize < LargeMessageSize {
+		chunkSize = DefaultMediumChunkSize
+	} else {
+		chunkSize = DefaultLargeChunkSize
 	}
 
 	// 创建读取缓冲区
 	buffer := make([]byte, chunkSize)
+
+	// 标记是否是第一个数据块
 	isFirstChunk := true
 
-	// 逐块读取并发送数据
+	fmt.Printf("SendStream: 设置块大小为 %d 字节\n", chunkSize)
+
 	for {
 		// 读取一块数据
 		n, err := reader.Read(buffer)
+		fmt.Printf("SendStream: 读取数据块返回 n=%d, err=%v\n", n, err)
 
 		// 处理读取到的数据
 		if n > 0 {
@@ -315,16 +331,24 @@ func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
 			if isFirstChunk {
 				flags |= FlagFragmented
 				isFirstChunk = false
+				fmt.Printf("SendStream: 发送第一个数据块（带分片标志），大小 %d 字节\n", n)
+				logger.Debugf("流传输: 发送第一个数据块（带分片标志），大小 %d 字节", n)
 			}
 
 			// 最后一个块标记为最后一帧
 			if err == io.EOF {
 				flags |= FlagLastFrame
+				fmt.Printf("SendStream: 发送最后一个数据块（带最后帧标志），大小 %d 字节，标志: 0x%X\n", n, flags)
+				logger.Debugf("流传输: 发送最后一个数据块（带最后帧标志），大小 %d 字节", n)
 			}
+
+			fmt.Printf("SendStream: 发送数据块，大小 %d 字节，标志: 0x%X\n", n, flags)
 
 			// 发送数据块
 			sendErr := t.frameProcessor.WriteFrame(t.conn, buffer[:n], flags)
 			if sendErr != nil {
+				fmt.Printf("SendStream: 发送数据块失败: %v\n", sendErr)
+				logger.Errorf("流传输: 发送数据块失败: %v", sendErr)
 				if t.progressTracker != nil && transferID != "" {
 					t.progressTracker.MarkFailed(transferID, sendErr)
 				}
@@ -333,6 +357,7 @@ func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
 
 			// 更新发送计数
 			totalSent += int64(n)
+			fmt.Printf("SendStream: 已发送 %d 字节，累计 %d 字节\n", n, totalSent)
 
 			// 更新进度
 			if t.progressTracker != nil && transferID != "" {
@@ -342,7 +367,23 @@ func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
 
 		// 处理读取结束或错误
 		if err == io.EOF {
+			// 如果最后一次读取返回0字节，需要发送一个空的最后一帧标记
+			if n == 0 {
+				fmt.Println("SendStream: 发送空的最后一帧标记")
+				sendErr := t.frameProcessor.WriteFrame(t.conn, []byte{}, FlagLastFrame)
+				if sendErr != nil {
+					fmt.Printf("SendStream: 发送空的最后一帧失败: %v\n", sendErr)
+					logger.Errorf("流传输: 发送最后一帧失败: %v", sendErr)
+					if t.progressTracker != nil && transferID != "" {
+						t.progressTracker.MarkFailed(transferID, sendErr)
+					}
+					return t.handleError(sendErr)
+				}
+			}
+
 			// 传输完成
+			fmt.Printf("SendStream: 完成，总共发送 %d 字节\n", totalSent)
+			logger.Debugf("流传输: 完成，总共发送 %d 字节", totalSent)
 			if t.progressTracker != nil && transferID != "" {
 				t.progressTracker.UpdateStatus(transferID, StatusCompleted)
 			}
@@ -350,6 +391,8 @@ func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
 		}
 
 		if err != nil {
+			fmt.Printf("SendStream: 读取数据错误: %v\n", err)
+			logger.Errorf("流传输: 读取数据错误: %v", err)
 			if t.progressTracker != nil && transferID != "" {
 				t.progressTracker.MarkFailed(transferID, err)
 			}
@@ -359,11 +402,16 @@ func (t *baseMessageTransporter) SendStream(reader io.Reader) error {
 }
 
 // ReceiveStream 实现了MessageTransporter接口的ReceiveStream方法
+// 接收流协议与SendStream对应:
+// 1. 等待接收带有分片标志(FlagFragmented)的首个数据块
+// 2. 继续接收数据块直到收到带有最后一帧标志(FlagLastFrame)的数据块
+// 3. 所有数据按顺序写入提供的writer
 func (t *baseMessageTransporter) ReceiveStream(writer io.Writer) error {
 	// 创建传输ID（用于进度跟踪）
 	var transferID string
 	if t.progressTracker != nil {
 		transferID = generateTransferID()
+		logger.Debugf("流接收: 创建传输ID %s，初始大小估计 %d 字节", transferID, LargeMessageSize)
 		t.progressTracker.StartTracking(transferID, LargeMessageSize)
 		defer t.progressTracker.StopTracking(transferID)
 	}
@@ -377,29 +425,42 @@ func (t *baseMessageTransporter) ReceiveStream(writer io.Writer) error {
 	// 标记是否收到了最后一帧
 	var receivedLastFrame bool = false
 
+	fmt.Println("ReceiveStream: 开始接收流数据块...")
+
 	// 接收数据帧直到收到标记为最后一帧的数据
 	for !receivedLastFrame {
 		// 读取下一个帧，包括帧标志
+		fmt.Println("ReceiveStream: 等待接收下一个数据块...")
 		data, flags, err := t.frameProcessor.ReadFrameWithFlags(t.conn)
 		if err != nil {
+			fmt.Printf("ReceiveStream: 读取数据块失败: %v\n", err)
+			logger.Errorf("流接收: 读取数据块失败: %v", err)
 			if t.progressTracker != nil && transferID != "" {
 				t.progressTracker.MarkFailed(transferID, err)
 			}
 			return t.handleError(err)
 		}
 
+		fmt.Printf("ReceiveStream: 收到数据块，大小: %d 字节，标志: 0x%X\n", len(data), flags)
+
 		// 检查是否是分片的开始
 		if (flags & FlagFragmented) != 0 {
 			receivedFragmentStart = true
+			fmt.Println("ReceiveStream: 收到分片开始帧")
+			logger.Debugf("流接收: 收到分片开始帧，大小 %d 字节", len(data))
 		}
 
 		// 检查是否是最后一帧
 		if (flags & FlagLastFrame) != 0 {
 			receivedLastFrame = true
+			fmt.Println("ReceiveStream: 收到最后一帧")
+			logger.Debugf("流接收: 收到最后一帧，大小 %d 字节", len(data))
 		}
 
 		// 确保收到了分片开始帧
 		if !receivedFragmentStart {
+			fmt.Println("ReceiveStream: 错误 - 收到非开始帧而未收到开始标记")
+			logger.Errorf("流接收: 协议错误，收到非开始帧而未收到开始标记")
 			return t.handleError(NewPointSubError(
 				"protocol violation: received non-first fragment without start marker",
 				"协议错误: 收到了不带开始标记的非首个分片",
@@ -410,6 +471,8 @@ func (t *baseMessageTransporter) ReceiveStream(writer io.Writer) error {
 		if len(data) > 0 {
 			n, err := writer.Write(data)
 			if err != nil {
+				fmt.Printf("ReceiveStream: 写入数据失败: %v\n", err)
+				logger.Errorf("流接收: 写入数据失败: %v", err)
 				if t.progressTracker != nil && transferID != "" {
 					t.progressTracker.MarkFailed(transferID, err)
 				}
@@ -418,12 +481,16 @@ func (t *baseMessageTransporter) ReceiveStream(writer io.Writer) error {
 
 			// 更新已接收字节计数
 			totalReceived += int64(n)
+			fmt.Printf("ReceiveStream: 已写入 %d 字节，累计 %d 字节\n", n, totalReceived)
+			logger.Debugf("流接收: 已写入 %d 字节，累计 %d 字节", n, totalReceived)
 
 			// 更新进度
 			if t.progressTracker != nil && transferID != "" {
 				// 调整总大小估计（如果实际接收超过了初始估计）
 				if totalReceived > LargeMessageSize {
-					t.progressTracker.UpdateTotalSize(transferID, totalReceived*2)
+					newEstimate := totalReceived * 2
+					logger.Debugf("流接收: 调整总大小估计为 %d 字节", newEstimate)
+					t.progressTracker.UpdateTotalSize(transferID, newEstimate)
 				}
 				t.progressTracker.UpdateProgress(transferID, totalReceived)
 			}
@@ -431,11 +498,18 @@ func (t *baseMessageTransporter) ReceiveStream(writer io.Writer) error {
 
 		// 如果是空的最后一帧，退出循环
 		if len(data) == 0 && receivedLastFrame {
+			fmt.Println("ReceiveStream: 收到空的最后一帧，结束接收")
+			logger.Debugf("流接收: 收到空的最后一帧，结束接收")
 			break
 		}
+
+		// 额外的日志，帮助诊断循环状态
+		fmt.Printf("ReceiveStream: 循环状态 - 分片开始: %v, 最后一帧: %v\n", receivedFragmentStart, receivedLastFrame)
 	}
 
 	// 更新状态为完成
+	fmt.Printf("ReceiveStream: 完成，总共接收 %d 字节\n", totalReceived)
+	logger.Debugf("流接收: 完成，总共接收 %d 字节", totalReceived)
 	if t.progressTracker != nil && transferID != "" {
 		t.progressTracker.UpdateStatus(transferID, StatusCompleted)
 	}
