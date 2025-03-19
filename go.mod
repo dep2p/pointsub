@@ -5,7 +5,6 @@ go 1.22.5
 require (
 	github.com/dep2p/go-dep2p v0.0.2
 	github.com/dep2p/log v0.0.1
-	github.com/stretchr/testify v1.10.0
 )
 
 require (
@@ -79,6 +78,7 @@ require (
 	github.com/quic-go/webtransport-go v0.8.1-0.20241018022711-4ac2c9250e66 // indirect
 	github.com/raulk/go-watchdog v1.3.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
+	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/wlynxg/anet v0.0.5 // indirect
 	go.uber.org/dig v1.18.0 // indirect
 	go.uber.org/fx v1.23.0 // indirect
