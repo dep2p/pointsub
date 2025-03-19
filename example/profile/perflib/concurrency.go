@@ -325,18 +325,35 @@ func runConcurrencyTest(testName string, config ConcurrencyTestConfig) TestResul
 						return
 					}
 
+<<<<<<< HEAD
 					// 清除之前的超时设置
 					receiver.SetReadDeadline(time.Time{})
 
 					// 设置超时
 					deadline := time.Now().Add(1 * time.Second)
 					receiver.SetReadDeadline(deadline)
+=======
+					// 重置读取超时之前先清除旧的超时设置
+					_ = receiver.SetReadDeadline(time.Time{})
+
+					// 设置较长的读取超时，以便在网络不稳定时有更多时间接收消息
+					deadline := time.Now().Add(5 * time.Second)
+					err := receiver.SetReadDeadline(deadline)
+					if err != nil {
+						log.Printf("设置读取截止时间失败 (connID=%d): %v", connID, err)
+					}
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 					// 接收消息
 					data, err := receiver.Receive()
 
+<<<<<<< HEAD
 					// 清除超时设置
 					receiver.SetReadDeadline(time.Time{})
+=======
+					// 清除读取超时
+					_ = receiver.SetReadDeadline(time.Time{})
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 					// 再次检查测试是否已经结束
 					if testsEnded.Load() {
@@ -432,17 +449,33 @@ func runConcurrencyTest(testName string, config ConcurrencyTestConfig) TestResul
 				sleep := time.Duration(rand.Intn(5)) * time.Millisecond
 				time.Sleep(sleep)
 
+<<<<<<< HEAD
 				// 清除之前的写入超时
 				sender.SetWriteDeadline(time.Time{})
 
 				// 设置新的写入超时
 				sender.SetWriteDeadline(time.Now().Add(10 * time.Second))
+=======
+				// 先清除旧的写入超时
+				_ = sender.SetWriteDeadline(time.Time{})
+
+				// 设置发送超时
+				err := sender.SetWriteDeadline(time.Now().Add(10 * time.Second))
+				if err != nil {
+					log.Printf("设置写入截止时间失败 (connID=%d): %v", connID, err)
+				}
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 				// 发送消息
 				err = sender.Send(testData)
 
+<<<<<<< HEAD
 				// 清除写入超时
 				sender.SetWriteDeadline(time.Time{})
+=======
+				// 清除发送超时设置
+				_ = sender.SetWriteDeadline(time.Time{})
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 				if err != nil {
 					// 记录发送错误

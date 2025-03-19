@@ -5,6 +5,10 @@ import (
 	"fmt"
 	"math/rand"
 	"net"
+<<<<<<< HEAD
+=======
+	"testing"
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	"time"
 
 	"github.com/dep2p/go-dep2p"
@@ -18,6 +22,7 @@ import (
 // testRnd 是测试专用的随机数生成器
 var testRnd = rand.New(rand.NewSource(time.Now().UnixNano()))
 
+<<<<<<< HEAD
 // TestingT 是testing.TB的子集，用于我们的测试函数和性能测试
 type TestingT interface {
 	Logf(format string, args ...interface{})
@@ -26,6 +31,12 @@ type TestingT interface {
 
 // CreateTestHost 创建一个用于测试的dep2p主机
 func CreateTestHost(t TestingT, port int) host.Host {
+=======
+// CreateTestHost 创建一个用于测试的dep2p主机
+func CreateTestHost(t testing.TB, port int) host.Host {
+	t.Helper()
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	// 创建本地主机的多地址
 	addr, err := multiaddr.NewMultiaddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d", port))
 	if err != nil {
@@ -48,7 +59,13 @@ func CreateTestHost(t TestingT, port int) host.Host {
 }
 
 // CreateHostPair 创建一对相互连接的dep2p主机
+<<<<<<< HEAD
 func CreateHostPair(t TestingT) (host.Host, host.Host, func()) {
+=======
+func CreateHostPair(t testing.TB) (host.Host, host.Host, func()) {
+	t.Helper()
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	// 随机选择端口，避免端口冲突
 	port1 := 10000 + testRnd.Intn(10000)
 	port2 := port1 + 1000 + testRnd.Intn(1000)
@@ -92,7 +109,13 @@ func CreateHostPair(t TestingT) (host.Host, host.Host, func()) {
 }
 
 // CreateConnectedPair 创建一对已连接的主机并返回连接
+<<<<<<< HEAD
 func CreateConnectedPair(t TestingT, protocolID protocol.ID) (host.Host, host.Host, net.Conn, net.Conn, func()) {
+=======
+func CreateConnectedPair(t testing.TB, protocolID protocol.ID) (host.Host, host.Host, net.Conn, net.Conn, func()) {
+	t.Helper()
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	// 创建主机对
 	h1, h2, hostCleanup := CreateHostPair(t)
 
@@ -256,6 +279,7 @@ func CreateConnectedPair(t TestingT, protocolID protocol.ID) (host.Host, host.Ho
 }
 
 // CreateMemoryConnPair 创建一对内存连接，用于不需要网络的测试
+<<<<<<< HEAD
 func CreateMemoryConnPair(t TestingT) (net.Conn, net.Conn) {
 	// 创建内存管道
 	client, server := net.Pipe()
@@ -282,6 +306,16 @@ func CreateMemoryTransporterPair(t TestingT) (MessageTransporter, MessageTranspo
 	return clientTransporter, serverTransporter
 }
 
+=======
+func CreateMemoryConnPair(t testing.TB) (net.Conn, net.Conn) {
+	t.Helper()
+
+	// 创建内存管道
+	client, server := net.Pipe()
+	return client, server
+}
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 // GenerateRandomData 生成指定大小的随机数据
 func GenerateRandomData(size int) []byte {
 	data := make([]byte, size)
@@ -290,7 +324,13 @@ func GenerateRandomData(size int) []byte {
 }
 
 // WaitForConnection 等待两个主机之间建立连接
+<<<<<<< HEAD
 func WaitForConnection(t TestingT, h1 host.Host, h2 host.Host, timeout time.Duration) bool {
+=======
+func WaitForConnection(t testing.TB, h1 host.Host, h2 host.Host, timeout time.Duration) bool {
+	t.Helper()
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 
@@ -311,7 +351,13 @@ func WaitForConnection(t TestingT, h1 host.Host, h2 host.Host, timeout time.Dura
 }
 
 // CheckDataTransfer 检查数据传输是否正确
+<<<<<<< HEAD
 func CheckDataTransfer(t TestingT, sender, receiver net.Conn, data []byte, timeout time.Duration) {
+=======
+func CheckDataTransfer(t testing.TB, sender, receiver net.Conn, data []byte, timeout time.Duration) {
+	t.Helper()
+
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	// 创建通道用于同步和错误处理
 	doneCh := make(chan struct{})
 	errCh := make(chan error, 2)
@@ -412,6 +458,7 @@ func CheckDataTransfer(t TestingT, sender, receiver net.Conn, data []byte, timeo
 		t.Fatalf("数据传输超时")
 	}
 }
+<<<<<<< HEAD
 
 // CreateDep2pTransporterPair 创建一对基于dep2p的连接，并直接返回包装好的MessageTransporter接口
 // 这是为示例和测试提供的便捷方法
@@ -437,3 +484,5 @@ func CreateDep2pTransporterPair(t TestingT) (MessageTransporter, MessageTranspor
 
 	return senderTransporter, receiverTransporter, enhancedCleanup
 }
+=======
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9

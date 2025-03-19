@@ -4,7 +4,10 @@ import (
 	"encoding/binary"
 	"io"
 	"net"
+<<<<<<< HEAD
 	"time"
+=======
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 )
 
 // 简化版的消息传输器，专门用于测试
@@ -99,6 +102,7 @@ func (t *testMessageTransporter) ReceiveStream(writer io.Writer) error {
 func (t *testMessageTransporter) Close() error {
 	return t.conn.Close()
 }
+<<<<<<< HEAD
 
 // SetDeadline 设置读写超时
 func (t *testMessageTransporter) SetDeadline(deadline time.Time) error {
@@ -114,3 +118,5 @@ func (t *testMessageTransporter) SetReadDeadline(deadline time.Time) error {
 func (t *testMessageTransporter) SetWriteDeadline(deadline time.Time) error {
 	return t.conn.SetWriteDeadline(deadline)
 }
+=======
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9

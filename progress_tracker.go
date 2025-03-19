@@ -69,7 +69,11 @@ type ProgressCallback interface {
 	OnComplete(transferID string, totalBytes int64, totalTime time.Duration)
 }
 
+<<<<<<< HEAD
 // ProgressTracker 接口，用于跟踪传输进度
+=======
+// ProgressTracker 接口定义了进度跟踪器的功能
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 type ProgressTracker interface {
 	// StartTracking 开始跟踪传输进度
 	StartTracking(transferID string, totalSize int64) error
@@ -89,8 +93,11 @@ type ProgressTracker interface {
 	MarkFailed(transferID string, err error) error
 	// GetActiveTransfers 获取活跃的传输ID列表
 	GetActiveTransfers() []string
+<<<<<<< HEAD
 	// UpdateTotalSize 更新传输总大小
 	UpdateTotalSize(transferID string, newTotalSize int64) error
+=======
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 	// 以下是为了支持仪表盘功能而添加的方法
 	// GetStatus 获取传输的当前状态
@@ -763,6 +770,7 @@ func (e *PointSubError) Error() string {
 func (e *PointSubError) LocalizedError() string {
 	return e.CnMsg
 }
+<<<<<<< HEAD
 
 // UpdateTotalSize 更新传输总大小
 func (t *defaultProgressTracker) UpdateTotalSize(transferID string, newTotalSize int64) error {
@@ -793,3 +801,5 @@ func (t *defaultProgressTracker) UpdateTotalSize(transferID string, newTotalSize
 
 	return nil
 }
+=======
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9

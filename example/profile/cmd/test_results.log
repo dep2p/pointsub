@@ -1,0 +1,3142 @@
+======= PointSub性能测试 =======
+测试类型: all
+输出目录: results
+详细模式: false
+===============================
+运行所有性能测试...
+
+================ 最小吞吐量测试 ================
+
+开始 小消息吞吐量测试 (256字节, 2并发)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJfr8msB64DqpqJvDNeotiZwXpaVfeaQBnyng9FtaESZR, 地址=[/ip4/127.0.0.1/tcp/13417]
+[DEBUG] 创建测试主机: ID=12D3KooWQUrUFtbYcNTXeomeDPToBoS8Q3eTq9yCertpaSwXg3q1, 地址=[/ip4/127.0.0.1/tcp/15052]
+[DEBUG] 创建测试主机: ID=12D3KooWCHwTwxgabmVkjwq3Fagrjob9VaGozHzFEK3A5vYuLuoD, 地址=[/ip4/127.0.0.1/tcp/15324]
+[DEBUG] 创建测试主机: ID=12D3KooWJtPEP4xanhaJKUdfYUfLawsJRw2Yaj2bEFtq7NAP63wx, 地址=[/ip4/127.0.0.1/tcp/17045]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/396)
+[DEBUG] 主机1: 12D3KooWQUrUFtbYcNTXeomeDPToBoS8Q3eTq9yCertpaSwXg3q1 主机2: 12D3KooWJtPEP4xanhaJKUdfYUfLawsJRw2Yaj2bEFtq7NAP63wx
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/582)
+[DEBUG] 主机1: 12D3KooWJfr8msB64DqpqJvDNeotiZwXpaVfeaQBnyng9FtaESZR 主机2: 12D3KooWCHwTwxgabmVkjwq3Fagrjob9VaGozHzFEK3A5vYuLuoD
+[DEBUG] 正在关闭连接对
+
+连接统计:
+成功连接数: 2/2
+失败连接数: 0/2
+
+---------- 测试结果: 小消息吞吐量测试 (256字节, 2并发) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 0.13 秒
+消息数量: 20
+传输数据: 5.00 KB
+吞吐量: 159.97 消息/秒
+数据率: 0.04 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 0.00 MB, 平均: 0.00 MB
+GC - 次数: 0, 总暂停时间: 0.00 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+
+================ 小消息吞吐量测试 ================
+
+开始 小消息吞吐量测试 (512字节, 5并发)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQ8oFsqYUhFTJ8CetSKkQnSYSzQ5NZrt1rvkRx1UXpsab, 地址=[/ip4/127.0.0.1/tcp/13288]
+[DEBUG] 创建测试主机: ID=12D3KooWGzsvJEMUoYXPLuT5riJQfLfLjz67P7tnYxCMec1T4vYz, 地址=[/ip4/127.0.0.1/tcp/14244]
+[DEBUG] 创建测试主机: ID=12D3KooWNzEqy19qSgoAkSomYcXjtEBiFpgNdCM25EZcE8zaPf2y, 地址=[/ip4/127.0.0.1/tcp/12539]
+[DEBUG] 创建测试主机: ID=12D3KooWAjecMoGHx3FGBnXXnDjtrnKZDYvVh4SrD6WR8HAxZbVG, 地址=[/ip4/127.0.0.1/tcp/14685]
+[DEBUG] 创建测试主机: ID=12D3KooWGJNf5sfTArz4SXmahZuJsr5NT76Bjp5UHvQnRjzZXdT9, 地址=[/ip4/127.0.0.1/tcp/18507]
+[DEBUG] 创建测试主机: ID=12D3KooWHNe8F9SEnVH3rSLmm555NpKdksJWf6EHEqWvgM6jVPBb, 地址=[/ip4/127.0.0.1/tcp/14382]
+[DEBUG] 创建测试主机: ID=12D3KooWJnetUHo5Tcg8MZk4Gv63pyMDrSD1ZfhkWSQ247Yzq7sa, 地址=[/ip4/127.0.0.1/tcp/16168]
+[DEBUG] 创建测试主机: ID=12D3KooWFXvE81VVGwrv5FWTb2rAAKyzpRSXU4bY6XYPfhfHQZcX, 地址=[/ip4/127.0.0.1/tcp/15286]
+[DEBUG] 创建测试主机: ID=12D3KooWBiJVz3BEs4vKaK2oxbsads6wqsSnCpmKpZpUpBowWF1G, 地址=[/ip4/127.0.0.1/tcp/15855]
+[DEBUG] 创建测试主机: ID=12D3KooWLLtLPFaLQABadfNhn4gUncuXXJkBCzErzqcU6uhk9Bs2, 地址=[/ip4/127.0.0.1/tcp/19682]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/74)
+[DEBUG] 主机1: 12D3KooWNzEqy19qSgoAkSomYcXjtEBiFpgNdCM25EZcE8zaPf2y 主机2: 12D3KooWHNe8F9SEnVH3rSLmm555NpKdksJWf6EHEqWvgM6jVPBb
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/839)
+[DEBUG] 主机1: 12D3KooWAjecMoGHx3FGBnXXnDjtrnKZDYvVh4SrD6WR8HAxZbVG 主机2: 12D3KooWBiJVz3BEs4vKaK2oxbsads6wqsSnCpmKpZpUpBowWF1G
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/614)
+[DEBUG] 主机1: 12D3KooWQ8oFsqYUhFTJ8CetSKkQnSYSzQ5NZrt1rvkRx1UXpsab 主机2: 12D3KooWFXvE81VVGwrv5FWTb2rAAKyzpRSXU4bY6XYPfhfHQZcX
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/533)
+[DEBUG] 主机1: 12D3KooWGzsvJEMUoYXPLuT5riJQfLfLjz67P7tnYxCMec1T4vYz 主机2: 12D3KooWJnetUHo5Tcg8MZk4Gv63pyMDrSD1ZfhkWSQ247Yzq7sa
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/845)
+[DEBUG] 主机1: 12D3KooWGJNf5sfTArz4SXmahZuJsr5NT76Bjp5UHvQnRjzZXdT9 主机2: 12D3KooWLLtLPFaLQABadfNhn4gUncuXXJkBCzErzqcU6uhk9Bs2
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+
+连接统计:
+成功连接数: 5/5
+失败连接数: 0/5
+
+---------- 测试结果: 小消息吞吐量测试 (512字节, 5并发) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 0.13 秒
+消息数量: 250
+传输数据: 125.00 KB
+吞吐量: 1985.56 消息/秒
+数据率: 0.97 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 0.00 MB, 平均: 0.00 MB
+GC - 次数: 0, 总暂停时间: 0.00 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+
+================ 中等消息吞吐量测试 ================
+
+开始 中等消息吞吐量测试 (50KB, 3并发)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWF3d9b97YXcq5uCKwsb97ihP99uPrfrNfsSJEuWkfhreo, 地址=[/ip4/127.0.0.1/tcp/13388]
+[DEBUG] 创建测试主机: ID=12D3KooW9yMxXcweJigm33qeQVWyUosYowf5HUAHToTdssHtM6JW, 地址=[/ip4/127.0.0.1/tcp/17693]
+[DEBUG] 创建测试主机: ID=12D3KooWJJiX4dpBrHseFsM9znzQW4x44rUkZJz2HLVhQR8cXkvB, 地址=[/ip4/127.0.0.1/tcp/12865]
+[DEBUG] 创建测试主机: ID=12D3KooWBahRtMiT3ahqhYg6e3awHK2ghwr1VZR1vRL1gevEZPRF, 地址=[/ip4/127.0.0.1/tcp/14074]
+[DEBUG] 创建测试主机: ID=12D3KooWNzfjM3Kw37sJcM12Xic2eRKbvz46MEYACJbgQqdFfiaS, 地址=[/ip4/127.0.0.1/tcp/19559]
+[DEBUG] 创建测试主机: ID=12D3KooWRxVznkwLjA7iNuU2JMRUXSynWS7NkNPjYEgAritxdUJ2, 地址=[/ip4/127.0.0.1/tcp/14416]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/702)
+[DEBUG] 主机1: 12D3KooWF3d9b97YXcq5uCKwsb97ihP99uPrfrNfsSJEuWkfhreo 主机2: 12D3KooWRxVznkwLjA7iNuU2JMRUXSynWS7NkNPjYEgAritxdUJ2
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/22)
+[DEBUG] 主机1: 12D3KooW9yMxXcweJigm33qeQVWyUosYowf5HUAHToTdssHtM6JW 主机2: 12D3KooWNzfjM3Kw37sJcM12Xic2eRKbvz46MEYACJbgQqdFfiaS
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/313)
+[DEBUG] 主机1: 12D3KooWJJiX4dpBrHseFsM9znzQW4x44rUkZJz2HLVhQR8cXkvB 主机2: 12D3KooWBahRtMiT3ahqhYg6e3awHK2ghwr1VZR1vRL1gevEZPRF
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+
+连接统计:
+成功连接数: 3/3
+失败连接数: 0/3
+
+---------- 测试结果: 中等消息吞吐量测试 (50KB, 3并发) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 0.12 秒
+消息数量: 60
+传输数据: 2.93 MB
+吞吐量: 504.31 消息/秒
+数据率: 24.62 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.02, 最大: 1.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 0.00 MB, 平均: 0.00 MB
+GC - 次数: 0, 总暂停时间: 0.00 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+
+================ 大消息吞吐量测试 ================
+
+开始 大消息吞吐量测试 (1MB, 2并发)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGoR2cwiqKfCQzyvVFNn7yW3MWeK6RNkfJvW5U8AGC7Bz, 地址=[/ip4/127.0.0.1/tcp/18461]
+[DEBUG] 创建测试主机: ID=12D3KooWSq2BsnT3mZAnd3TymPpCUVwBAcLczc7UMEYkBBfsK2xp, 地址=[/ip4/127.0.0.1/tcp/15812]
+[DEBUG] 创建测试主机: ID=12D3KooWLrsMdWxKfme68ncmKFvVX523V1V8hsrhrUY1XHUrQ3He, 地址=[/ip4/127.0.0.1/tcp/17138]
+[DEBUG] 创建测试主机: ID=12D3KooWCKcBU2yHFGESpTBX9nQ1bDQZRpvbgRpMr2Q1yDehQsYj, 地址=[/ip4/127.0.0.1/tcp/19472]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/839)
+[DEBUG] 主机1: 12D3KooWSq2BsnT3mZAnd3TymPpCUVwBAcLczc7UMEYkBBfsK2xp 主机2: 12D3KooWLrsMdWxKfme68ncmKFvVX523V1V8hsrhrUY1XHUrQ3He
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/612)
+[DEBUG] 主机1: 12D3KooWGoR2cwiqKfCQzyvVFNn7yW3MWeK6RNkfJvW5U8AGC7Bz 主机2: 12D3KooWCKcBU2yHFGESpTBX9nQ1bDQZRpvbgRpMr2Q1yDehQsYj
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+
+连接统计:
+成功连接数: 2/2
+失败连接数: 0/2
+
+---------- 测试结果: 大消息吞吐量测试 (1MB, 2并发) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 0.12 秒
+消息数量: 10
+传输数据: 10.00 MB
+吞吐量: 82.88 消息/秒
+数据率: 82.88 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 1.00, 最大: 2.00
+延迟百分位 (毫秒) - P50: 1.00, P90: 2.00, P99: 2.00
+内存使用 - 峰值: 0.00 MB, 平均: 0.00 MB
+GC - 次数: 0, 总暂停时间: 0.00 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+
+================ 超大消息吞吐量测试 ================
+
+开始 超大消息吞吐量测试 (5MB, 1并发)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNWfKY2ZW2dEC8LzbfwECdE5XSZccZ75jhdmYroZ6aSAP, 地址=[/ip4/127.0.0.1/tcp/10809]
+[DEBUG] 创建测试主机: ID=12D3KooWPUK7JDeBZax1c1wE4bDGiZaQpvo1ACeNL52kdE1Dj7Zx, 地址=[/ip4/127.0.0.1/tcp/12148]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/194)
+[DEBUG] 主机1: 12D3KooWNWfKY2ZW2dEC8LzbfwECdE5XSZccZ75jhdmYroZ6aSAP 主机2: 12D3KooWPUK7JDeBZax1c1wE4bDGiZaQpvo1ACeNL52kdE1Dj7Zx
+[DEBUG] 正在关闭连接对
+
+连接统计:
+成功连接数: 1/1
+失败连接数: 0/1
+
+---------- 测试结果: 超大消息吞吐量测试 (5MB, 1并发) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 0.13 秒
+消息数量: 2
+传输数据: 10.00 MB
+吞吐量: 15.95 消息/秒
+数据率: 79.73 MB/秒
+延迟 (毫秒) - 最小: 4.00, 平均: 4.50, 最大: 5.00
+延迟百分位 (毫秒) - P50: 4.00, P90: 4.00, P99: 4.00
+内存使用 - 峰值: 0.00 MB, 平均: 0.00 MB
+GC - 次数: 0, 总暂停时间: 0.00 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+
+开始 低负载延迟测试 (1KB, 100ms间隔)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMREfDzB6Thu4dgdyDYey1UVmbdZt1q2YeijyWpGBLnRw, 地址=[/ip4/127.0.0.1/tcp/15537]
+[DEBUG] 创建测试主机: ID=12D3KooWSkPaMftyH8Qwe8XKLoPetuk9AWVHwnzE5qEayKFFRNhv, 地址=[/ip4/127.0.0.1/tcp/16794]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/53)
+[DEBUG] 主机1: 12D3KooWMREfDzB6Thu4dgdyDYey1UVmbdZt1q2YeijyWpGBLnRw 主机2: 12D3KooWSkPaMftyH8Qwe8XKLoPetuk9AWVHwnzE5qEayKFFRNhv
+
+---------- 测试结果: 低负载延迟测试 (1KB, 100ms间隔) ----------
+开始时间: 2025-03-18T16:07:56+08:00
+测试时长: 32.11 秒
+消息数量: 298
+传输数据: 298.00 KB
+吞吐量: 9.28 消息/秒
+数据率: 0.01 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 1.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 8.72 MB, 平均: 7.15 MB
+GC - 次数: 31, 总暂停时间: 3.21 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+开始 中等负载延迟测试 (10KB, 50ms间隔)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRDFDMR7bAJ3HBHSrG9yW4WQt4Wgc8jiLX2gDaPvycyY5, 地址=[/ip4/127.0.0.1/tcp/11838]
+[DEBUG] 创建测试主机: ID=12D3KooWSnCHqczckpVRr24bonhJziYHS7WhLrh2jCimfPn2ciQt, 地址=[/ip4/127.0.0.1/tcp/13663]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/810)
+[DEBUG] 主机1: 12D3KooWRDFDMR7bAJ3HBHSrG9yW4WQt4Wgc8jiLX2gDaPvycyY5 主机2: 12D3KooWSnCHqczckpVRr24bonhJziYHS7WhLrh2jCimfPn2ciQt
+
+---------- 测试结果: 中等负载延迟测试 (10KB, 50ms间隔) ----------
+开始时间: 2025-03-18T16:08:28+08:00
+测试时长: 32.07 秒
+消息数量: 587
+传输数据: 5.73 MB
+吞吐量: 18.30 消息/秒
+数据率: 0.18 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 3.99 MB, 平均: 3.00 MB
+GC - 次数: 41, 总暂停时间: 4.17 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+开始 高负载延迟测试 (100KB, 10ms间隔)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWH9E8pD2GjeAMrL2d6A14d7u9z3FC9hcVJdRm2KF7Afck, 地址=[/ip4/127.0.0.1/tcp/13026]
+[DEBUG] 创建测试主机: ID=12D3KooWNV3KgZ8De9uBcKsiijXD7ht5mvSgygVj7QTbtUvHNAr7, 地址=[/ip4/127.0.0.1/tcp/14712]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/15)
+[DEBUG] 主机1: 12D3KooWH9E8pD2GjeAMrL2d6A14d7u9z3FC9hcVJdRm2KF7Afck 主机2: 12D3KooWNV3KgZ8De9uBcKsiijXD7ht5mvSgygVj7QTbtUvHNAr7
+
+---------- 测试结果: 高负载延迟测试 (100KB, 10ms间隔) ----------
+开始时间: 2025-03-18T16:09:00+08:00
+测试时长: 32.12 秒
+消息数量: 2725
+传输数据: 266.11 MB
+吞吐量: 84.84 消息/秒
+数据率: 8.29 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 5.37 MB, 平均: 4.00 MB
+GC - 次数: 159, 总暂停时间: 14.52 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+开始 大消息延迟测试 (1MB, 500ms间隔)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMhbFQzMTSWy2DiUebqHYFZiwAY18vf9JTf8y4X1h7Qh1, 地址=[/ip4/127.0.0.1/tcp/19208]
+[DEBUG] 创建测试主机: ID=12D3KooWANtmDTdm38oMonNSS19Vncmb6eRyghixuySbDQxd3Wx9, 地址=[/ip4/127.0.0.1/tcp/21171]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/50)
+[DEBUG] 主机1: 12D3KooWMhbFQzMTSWy2DiUebqHYFZiwAY18vf9JTf8y4X1h7Qh1 主机2: 12D3KooWANtmDTdm38oMonNSS19Vncmb6eRyghixuySbDQxd3Wx9
+
+---------- 测试结果: 大消息延迟测试 (1MB, 500ms间隔) ----------
+开始时间: 2025-03-18T16:09:33+08:00
+测试时长: 61.86 秒
+消息数量: 120
+传输数据: 120.00 MB
+吞吐量: 1.94 消息/秒
+数据率: 1.94 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.73, 最大: 5.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 2.00, P99: 4.00
+内存使用 - 峰值: 10.94 MB, 平均: 7.44 MB
+GC - 次数: 189, 总暂停时间: 18.28 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+开始 大消息延迟测试 (2MB, 500ms间隔)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAZ5AsxQroM9kow1Bg8kRNVc1ANRXgvqHoaS69dKyt8L2, 地址=[/ip4/127.0.0.1/tcp/14358]
+[DEBUG] 创建测试主机: ID=12D3KooWKdYdFqJ9BkphEjwZtgwPAL59D5emYS687X5eLzLijM22, 地址=[/ip4/127.0.0.1/tcp/16073]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/834)
+[DEBUG] 主机1: 12D3KooWAZ5AsxQroM9kow1Bg8kRNVc1ANRXgvqHoaS69dKyt8L2 主机2: 12D3KooWKdYdFqJ9BkphEjwZtgwPAL59D5emYS687X5eLzLijM22
+
+---------- 测试结果: 大消息延迟测试 (2MB, 500ms间隔) ----------
+开始时间: 2025-03-18T16:10:34+08:00
+测试时长: 62.08 秒
+消息数量: 120
+传输数据: 240.00 MB
+吞吐量: 1.93 消息/秒
+数据率: 3.87 MB/秒
+延迟 (毫秒) - 最小: 1.00, 平均: 2.38, 最大: 5.00
+延迟百分位 (毫秒) - P50: 2.00, P90: 3.00, P99: 5.00
+内存使用 - 峰值: 14.31 MB, 平均: 10.64 MB
+GC - 次数: 223, 总暂停时间: 22.42 ms
+错误: 0, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+=== 正在进行热身测试 ===
+
+开始 低并发测试 (2连接, 1KB消息)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDsqjFZiUkCvM6wcK8xjba43BpSytptqtzGtaG7ZYmq5w, 地址=[/ip4/127.0.0.1/tcp/12935]
+[DEBUG] 创建测试主机: ID=12D3KooWDv8hcRn8oTRxAAdjE52qBveSYuv24WMPaQ5q7mHXUu78, 地址=[/ip4/127.0.0.1/tcp/17378]
+[DEBUG] 创建测试主机: ID=12D3KooWNxxXygnz3ToVbioXutdKso3YLn58WM4Aaf5YVvJ8vXAT, 地址=[/ip4/127.0.0.1/tcp/18833]
+[DEBUG] 创建测试主机: ID=12D3KooWG5RGzAyqjDxjEWHqkVVbrB7LMcYgCxY91bKdaacbniWf, 地址=[/ip4/127.0.0.1/tcp/14011]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/377)
+[DEBUG] 主机1: 12D3KooWDv8hcRn8oTRxAAdjE52qBveSYuv24WMPaQ5q7mHXUu78 主机2: 12D3KooWNxxXygnz3ToVbioXutdKso3YLn58WM4Aaf5YVvJ8vXAT
+[DEBUG] 连接对创建成功 (connID=1)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/900)
+[DEBUG] 主机1: 12D3KooWDsqjFZiUkCvM6wcK8xjba43BpSytptqtzGtaG7ZYmq5w 主机2: 12D3KooWG5RGzAyqjDxjEWHqkVVbrB7LMcYgCxY91bKdaacbniWf
+[DEBUG] 连接对创建成功 (connID=0)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+所有测试协程正常退出
+测试完成: 共发送 5 消息, 接收 4 消息, 最终goroutine数量: 6
+热身测试完成: 处理了 9 条消息, 速率 0.07 MB/s
+
+=== 正在进行低并发测试 ===
+
+开始 低并发测试 (20连接, 4KB消息)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQxrjdqMsFDyR9f4Yz3LucKrUUPhYS5bjpVnE9kiD9MoX, 地址=[/ip4/127.0.0.1/tcp/10134]
+[DEBUG] 创建测试主机: ID=12D3KooWNyQ4EyphTCp9rTMzRjXSG5VU1CAHFYpL12wpFyPZEc7g, 地址=[/ip4/127.0.0.1/tcp/15722]
+[DEBUG] 创建测试主机: ID=12D3KooW9wM1sAdJHeky6Ju23GTYs4PYCxcNFMLT8abNmAiEX4k9, 地址=[/ip4/127.0.0.1/tcp/12164]
+[DEBUG] 创建测试主机: ID=12D3KooWE625sve2MVL3EZYFPXRPw8PcEgsbAN1ogviru9ovqqsA, 地址=[/ip4/127.0.0.1/tcp/14556]
+[DEBUG] 创建测试主机: ID=12D3KooWHneBLrTZr9kiZwVasSrNBywBab1Zwr5tSPbCaZ9KgJaU, 地址=[/ip4/127.0.0.1/tcp/18627]
+[DEBUG] 创建测试主机: ID=12D3KooWMLaTXBtCkrHGtAD9nd74fQyRWQpmk61kaWjLfZ46p5Cb, 地址=[/ip4/127.0.0.1/tcp/12400]
+[DEBUG] 创建测试主机: ID=12D3KooWFDKLBpdsDizxgwVDEDcJkVZ54pCwnTfsZQsr4jFkodhh, 地址=[/ip4/127.0.0.1/tcp/10768]
+[DEBUG] 创建测试主机: ID=12D3KooWSLCEnvCcCXHAZ7WdvVWvp4pR9eJhwz548W3D8jf9MJiK, 地址=[/ip4/127.0.0.1/tcp/14639]
+[DEBUG] 创建测试主机: ID=12D3KooWMhd2fmyw1KoiGRrisHtuoFfAoTJqorX3MRxUKBC1kjuF, 地址=[/ip4/127.0.0.1/tcp/17853]
+[DEBUG] 创建测试主机: ID=12D3KooWPRnYsXiSjVLjJCDwkwQL3DKNJkfymQoJqShtzE8qg1Dd, 地址=[/ip4/127.0.0.1/tcp/11327]
+[DEBUG] 创建测试主机: ID=12D3KooWM2ZGiYkPisKLFYPr2dTVW4q85MCfpVdLYgZZZw1caVDq, 地址=[/ip4/127.0.0.1/tcp/13244]
+[DEBUG] 创建测试主机: ID=12D3KooWBYoyuHc2wm4juudiTJbtFEjE6b633zuhWc8XXDKqLaPh, 地址=[/ip4/127.0.0.1/tcp/14224]
+[DEBUG] 创建测试主机: ID=12D3KooWB8QThJ8s61k7vQvjAuHpuxtmn791A4o9dorMNmoG9rBN, 地址=[/ip4/127.0.0.1/tcp/11308]
+[DEBUG] 创建测试主机: ID=12D3KooWSMZzssZt9QaoZHKzUVbTK7o5YLEwpHrcCKXDy8hC2Jxc, 地址=[/ip4/127.0.0.1/tcp/19194]
+[DEBUG] 创建测试主机: ID=12D3KooWG1vntnUhxCjGnSHMhWVu2M3txJHvX6oTE17DQbpdqyBX, 地址=[/ip4/127.0.0.1/tcp/13972]
+[DEBUG] 创建测试主机: ID=12D3KooWHdaJmJS4h5fyXMHg9vJRQSe75EPBsPFCGrgG9nmBc4Ee, 地址=[/ip4/127.0.0.1/tcp/12027]
+[DEBUG] 创建测试主机: ID=12D3KooWCFwyw1ZejmYNdcrxe9jqrYw96zUKAuEBk5RSJC3FE2i2, 地址=[/ip4/127.0.0.1/tcp/15065]
+[DEBUG] 创建测试主机: ID=12D3KooWJGbdKpBtkjZFZr5VGAddDHXThHBqH6g1x847qRPYu6qZ, 地址=[/ip4/127.0.0.1/tcp/11491]
+[DEBUG] 创建测试主机: ID=12D3KooWK6rFkFGJhzyBvRP9oi87yHTpd6jSp3nZGjr2ARbxUacy, 地址=[/ip4/127.0.0.1/tcp/17050]
+[DEBUG] 创建测试主机: ID=12D3KooWS1SEnwNDxMzm48uznV2tj45F5ksoMpzt9WqnNDGtHapB, 地址=[/ip4/127.0.0.1/tcp/16883]
+[DEBUG] 创建测试主机: ID=12D3KooWDGxxfbUinGzmuR8fecaoG4vkkXrxQYv5PLoz8iKFnS6w, 地址=[/ip4/127.0.0.1/tcp/10069]
+[DEBUG] 创建测试主机: ID=12D3KooWRxj99AGTC5UcYv48gHZyhSxxVt7qGXC18KdkAnUz75ME, 地址=[/ip4/127.0.0.1/tcp/11863]
+[DEBUG] 创建测试主机: ID=12D3KooWQN65agrVnMZsmEWKRGKYjPJqPze98TQJc2zHyBcnejYQ, 地址=[/ip4/127.0.0.1/tcp/13436]
+[DEBUG] 创建测试主机: ID=12D3KooWQSkvm1iHfXtLd2GYYYMvomFHq4yqnKE2bVGp8yJQfLkr, 地址=[/ip4/127.0.0.1/tcp/19466]
+[DEBUG] 创建测试主机: ID=12D3KooWMZKhaRC8fDbfsUMBr7CC62oP62SvTftj69WTpcr5oQuk, 地址=[/ip4/127.0.0.1/tcp/16512]
+[DEBUG] 创建测试主机: ID=12D3KooWNW1XRi1MmSSsngyNPejQzPYvUXhdcpnzaZNuQ3kDRLqi, 地址=[/ip4/127.0.0.1/tcp/10619]
+[DEBUG] 创建测试主机: ID=12D3KooWHA2UHESMucenNPNaQiasxCSaezxbtNdfobUE1MntqKxv, 地址=[/ip4/127.0.0.1/tcp/19846]
+[DEBUG] 创建测试主机: ID=12D3KooWPfFW2ZfoBQEWfrFyrHSajkFxJZUKU5uA4CFWhqj2RWTg, 地址=[/ip4/127.0.0.1/tcp/16337]
+[DEBUG] 创建测试主机: ID=12D3KooWEepJt8voVcovUHEdUgtAxwHtrb8NvTatJ3DyfygVieby, 地址=[/ip4/127.0.0.1/tcp/14371]
+[DEBUG] 创建测试主机: ID=12D3KooWLe3rg5v4gtc6Hp61eFBLppmU95kA5oVh2n6C8ByMR4gJ, 地址=[/ip4/127.0.0.1/tcp/20163]
+[DEBUG] 创建测试主机: ID=12D3KooWDcafY4tod6UyYkxFAoy4bB1inzhnNTsP171DWrMNnCfL, 地址=[/ip4/127.0.0.1/tcp/14009]
+[DEBUG] 创建测试主机: ID=12D3KooWMZqZqpWZnZh3kRpCLoub6tVHVbMX4qaQtzKAKmwxJTTf, 地址=[/ip4/127.0.0.1/tcp/20804]
+[DEBUG] 创建测试主机: ID=12D3KooWKCfcifZDKyohazXCk8GvVn12igJaQcetU5Lygry3m67s, 地址=[/ip4/127.0.0.1/tcp/12154]
+[DEBUG] 创建测试主机: ID=12D3KooWG2a1engXBx55W3tMFdkVzDx4aCoTx3tLSjbg1CGBnGtY, 地址=[/ip4/127.0.0.1/tcp/11325]
+[DEBUG] 创建测试主机: ID=12D3KooWH2CKzJKAKDyvT7CCCmU8BmZNU5LBeQQQxaMCNkbrC9dY, 地址=[/ip4/127.0.0.1/tcp/12860]
+[DEBUG] 创建测试主机: ID=12D3KooWMFCAYrZjUXq9bV759KqNbuBwZBfE1Zj1oLFuASs6v1yz, 地址=[/ip4/127.0.0.1/tcp/21316]
+[DEBUG] 创建测试主机: ID=12D3KooWEwEDH9yBiHF2kV4u3fJmVAuyB7Bfbf774zQMPgzk9eBM, 地址=[/ip4/127.0.0.1/tcp/11079]
+[DEBUG] 创建测试主机: ID=12D3KooWB85B5jneoWCY4kvGBjbk7XrCS2Sm9M5g88DUghdEXw4n, 地址=[/ip4/127.0.0.1/tcp/12627]
+[DEBUG] 创建测试主机: ID=12D3KooWA8hVGFH3g1XHm18DR1CFNabkhhDz8rbiAsZiwKCZgnfm, 地址=[/ip4/127.0.0.1/tcp/12639]
+[DEBUG] 创建测试主机: ID=12D3KooWCyUdwBWVTBCht24rpcqqq9K6uHKzC5vq2QizY6nMuCW5, 地址=[/ip4/127.0.0.1/tcp/15236]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/559)
+[DEBUG] 主机1: 12D3KooWMLaTXBtCkrHGtAD9nd74fQyRWQpmk61kaWjLfZ46p5Cb 主机2: 12D3KooWBYoyuHc2wm4juudiTJbtFEjE6b633zuhWc8XXDKqLaPh
+[DEBUG] 连接对创建成功 (connID=9)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/171)
+[DEBUG] 主机1: 12D3KooW9wM1sAdJHeky6Ju23GTYs4PYCxcNFMLT8abNmAiEX4k9 主机2: 12D3KooWG1vntnUhxCjGnSHMhWVu2M3txJHvX6oTE17DQbpdqyBX
+[DEBUG] 连接对创建成功 (connID=15)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/912)
+[DEBUG] 主机1: 12D3KooWCFwyw1ZejmYNdcrxe9jqrYw96zUKAuEBk5RSJC3FE2i2 主机2: 12D3KooWS1SEnwNDxMzm48uznV2tj45F5ksoMpzt9WqnNDGtHapB
+[DEBUG] 连接对创建成功 (connID=11)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/315)
+[DEBUG] 主机1: 12D3KooWFDKLBpdsDizxgwVDEDcJkVZ54pCwnTfsZQsr4jFkodhh 主机2: 12D3KooWRxj99AGTC5UcYv48gHZyhSxxVt7qGXC18KdkAnUz75ME
+[DEBUG] 连接对创建成功 (connID=2)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/547)
+[DEBUG] 主机1: 12D3KooWNyQ4EyphTCp9rTMzRjXSG5VU1CAHFYpL12wpFyPZEc7g 主机2: 12D3KooWK6rFkFGJhzyBvRP9oi87yHTpd6jSp3nZGjr2ARbxUacy
+[DEBUG] 连接对创建成功 (connID=4)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/661)
+[DEBUG] 主机1: 12D3KooWMhd2fmyw1KoiGRrisHtuoFfAoTJqorX3MRxUKBC1kjuF 主机2: 12D3KooWQSkvm1iHfXtLd2GYYYMvomFHq4yqnKE2bVGp8yJQfLkr
+[DEBUG] 连接对创建成功 (connID=6)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/981)
+[DEBUG] 主机1: 12D3KooWQxrjdqMsFDyR9f4Yz3LucKrUUPhYS5bjpVnE9kiD9MoX 主机2: 12D3KooWJGbdKpBtkjZFZr5VGAddDHXThHBqH6g1x847qRPYu6qZ
+[DEBUG] 连接对创建成功 (connID=17)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/143)
+[DEBUG] 主机1: 12D3KooWSLCEnvCcCXHAZ7WdvVWvp4pR9eJhwz548W3D8jf9MJiK 主机2: 12D3KooWMZKhaRC8fDbfsUMBr7CC62oP62SvTftj69WTpcr5oQuk
+[DEBUG] 连接对创建成功 (connID=0)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/174)
+[DEBUG] 主机1: 12D3KooWM2ZGiYkPisKLFYPr2dTVW4q85MCfpVdLYgZZZw1caVDq 主机2: 12D3KooWEepJt8voVcovUHEdUgtAxwHtrb8NvTatJ3DyfygVieby
+[DEBUG] 连接对创建成功 (connID=16)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/934)
+[DEBUG] 主机1: 12D3KooWE625sve2MVL3EZYFPXRPw8PcEgsbAN1ogviru9ovqqsA 主机2: 12D3KooWPfFW2ZfoBQEWfrFyrHSajkFxJZUKU5uA4CFWhqj2RWTg
+[DEBUG] 连接对创建成功 (connID=19)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/368)
+[DEBUG] 主机1: 12D3KooWHneBLrTZr9kiZwVasSrNBywBab1Zwr5tSPbCaZ9KgJaU 主机2: 12D3KooWLe3rg5v4gtc6Hp61eFBLppmU95kA5oVh2n6C8ByMR4gJ
+[DEBUG] 连接对创建成功 (connID=3)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/32)
+[DEBUG] 主机1: 12D3KooWSMZzssZt9QaoZHKzUVbTK7o5YLEwpHrcCKXDy8hC2Jxc 主机2: 12D3KooWMZqZqpWZnZh3kRpCLoub6tVHVbMX4qaQtzKAKmwxJTTf
+[DEBUG] 连接对创建成功 (connID=7)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/610)
+[DEBUG] 主机1: 12D3KooWDGxxfbUinGzmuR8fecaoG4vkkXrxQYv5PLoz8iKFnS6w 主机2: 12D3KooWG2a1engXBx55W3tMFdkVzDx4aCoTx3tLSjbg1CGBnGtY
+[DEBUG] 连接对创建成功 (connID=18)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/264)
+[DEBUG] 主机1: 12D3KooWPRnYsXiSjVLjJCDwkwQL3DKNJkfymQoJqShtzE8qg1Dd 主机2: 12D3KooWH2CKzJKAKDyvT7CCCmU8BmZNU5LBeQQQxaMCNkbrC9dY
+[DEBUG] 连接对创建成功 (connID=12)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/543)
+[DEBUG] 主机1: 12D3KooWNW1XRi1MmSSsngyNPejQzPYvUXhdcpnzaZNuQ3kDRLqi 主机2: 12D3KooWKCfcifZDKyohazXCk8GvVn12igJaQcetU5Lygry3m67s
+[DEBUG] 连接对创建成功 (connID=10)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/698)
+[DEBUG] 主机1: 12D3KooWHA2UHESMucenNPNaQiasxCSaezxbtNdfobUE1MntqKxv 主机2: 12D3KooWMFCAYrZjUXq9bV759KqNbuBwZBfE1Zj1oLFuASs6v1yz
+[DEBUG] 连接对创建成功 (connID=13)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/4)
+[DEBUG] 主机1: 12D3KooWHdaJmJS4h5fyXMHg9vJRQSe75EPBsPFCGrgG9nmBc4Ee 主机2: 12D3KooWDcafY4tod6UyYkxFAoy4bB1inzhnNTsP171DWrMNnCfL
+[DEBUG] 连接对创建成功 (connID=14)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/848)
+[DEBUG] 主机1: 12D3KooWB8QThJ8s61k7vQvjAuHpuxtmn791A4o9dorMNmoG9rBN 主机2: 12D3KooWB85B5jneoWCY4kvGBjbk7XrCS2Sm9M5g88DUghdEXw4n
+[DEBUG] 连接对创建成功 (connID=1)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/554)
+[DEBUG] 主机1: 12D3KooWQN65agrVnMZsmEWKRGKYjPJqPze98TQJc2zHyBcnejYQ 主机2: 12D3KooWCyUdwBWVTBCht24rpcqqq9K6uHKzC5vq2QizY6nMuCW5
+[DEBUG] 连接对创建成功 (connID=8)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/749)
+[DEBUG] 主机1: 12D3KooWEwEDH9yBiHF2kV4u3fJmVAuyB7Bfbf774zQMPgzk9eBM 主机2: 12D3KooWA8hVGFH3g1XHm18DR1CFNabkhhDz8rbiAsZiwKCZgnfm
+[DEBUG] 连接对创建成功 (connID=5)
+[DEBUG] 正在关闭连接对
+所有测试协程正常退出
+测试完成: 共发送 51 消息, 接收 40 消息, 最终goroutine数量: 81
+低并发测试完成: 处理了 91 条消息, 速率 1.84 MB/s
+
+=== 正在进行中等并发测试 ===
+
+开始 中等并发测试 (50连接, 4KB消息)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFsxv6nLzEqq3axTAJoNofQ6VLiKk5PNfDLeqH1119JQL, 地址=[/ip4/127.0.0.1/tcp/10936]
+[DEBUG] 创建测试主机: ID=12D3KooWDGiNdqYkGmQ8y23DXsUKR61PQR6jzh5HQztE87EnX5Ud, 地址=[/ip4/127.0.0.1/tcp/17616]
+[DEBUG] 创建测试主机: ID=12D3KooWHBbW7pNhGuKnxEd9aDqSReJyqoA8zC6LqFgNy8hpZ7xL, 地址=[/ip4/127.0.0.1/tcp/13159]
+[DEBUG] 创建测试主机: ID=12D3KooWSFv3nhhuJHs1j3o3Wd2BQ7HH7ws7XmfnM8npEjd8Rx9C, 地址=[/ip4/127.0.0.1/tcp/19125]
+[DEBUG] 创建测试主机: ID=12D3KooWJ4QHGG5H2Bk3qH7WETZUb3CJYFHe4nxqxxMcPBHJjmuA, 地址=[/ip4/127.0.0.1/tcp/19625]
+[DEBUG] 创建测试主机: ID=12D3KooWK3JoXUEXGbB9p5rqFKBxd197HvgrBFExEaubP6wMsLN1, 地址=[/ip4/127.0.0.1/tcp/16019]
+[DEBUG] 创建测试主机: ID=12D3KooWS73qmHMjHCiunBxKJfxigCKqBhG24DjY2g6ntRRKpCq2, 地址=[/ip4/127.0.0.1/tcp/11260]
+[DEBUG] 创建测试主机: ID=12D3KooWRoV6cE13cau6FVKj26ZkFN9cQ1pg3GU3uZ8BTrzYTHT2, 地址=[/ip4/127.0.0.1/tcp/12828]
+[DEBUG] 创建测试主机: ID=12D3KooWKu3FRkvBsXWj6m1okT2aYdJR9f4rRWpuQDt9BKqHaRAc, 地址=[/ip4/127.0.0.1/tcp/19326]
+[DEBUG] 创建测试主机: ID=12D3KooWR92XdnJDm2G1jZeRZRVZzsrJM5C8xws5iJQNGDBhNQ3Y, 地址=[/ip4/127.0.0.1/tcp/14526]
+[DEBUG] 创建测试主机: ID=12D3KooWNfqJ9NuggvgXWBsrdiYzRRCEMQSW1SiM9vWxStReNuZB, 地址=[/ip4/127.0.0.1/tcp/17712]
+[DEBUG] 创建测试主机: ID=12D3KooWDxncU2fnisSZsgNNsmAV267RoLzpsUAsraBYkYWdoFvG, 地址=[/ip4/127.0.0.1/tcp/16247]
+[DEBUG] 创建测试主机: ID=12D3KooWBy9EoSPHvgxeahWVaKmQRScALsgVPjR8c2FCVRv2AWFC, 地址=[/ip4/127.0.0.1/tcp/16510]
+[DEBUG] 创建测试主机: ID=12D3KooWD1tBM4x6gg4JVSZwXgydD8HQP16TBZzXAFuf57aW6f2q, 地址=[/ip4/127.0.0.1/tcp/12507]
+[DEBUG] 创建测试主机: ID=12D3KooWHmw5MGs4SZqkMtDGGSpRNA3PPvZaqbe3L6Mwma2cXebc, 地址=[/ip4/127.0.0.1/tcp/16272]
+[DEBUG] 创建测试主机: ID=12D3KooW9yFkeLRvUWwoP3grQod86BoKETC3DPvEEiEFjyjQiFEY, 地址=[/ip4/127.0.0.1/tcp/14678]
+[DEBUG] 创建测试主机: ID=12D3KooWQEQXG2vx1nT216aBhZTV5a7Y9naCSwi9Pad3HsWEjhzj, 地址=[/ip4/127.0.0.1/tcp/12780]
+[DEBUG] 创建测试主机: ID=12D3KooWMLY5u6PGo9mn4sjE5gYm9nDDVJCwCKgfZdEVPGQZq3xb, 地址=[/ip4/127.0.0.1/tcp/18396]
+[DEBUG] 创建测试主机: ID=12D3KooWNtQN8eWPbY6BW4e7tUNXBapXodcbBkgQB7u5CsLK8toX, 地址=[/ip4/127.0.0.1/tcp/19362]
+[DEBUG] 创建测试主机: ID=12D3KooWPMobFFqz92WMhopDbvNbqwCMArAi1Af62Ni8pqJV3GZ9, 地址=[/ip4/127.0.0.1/tcp/17649]
+[DEBUG] 创建测试主机: ID=12D3KooWERJsgLodYnUUAfgxiywziugTr4BuJWZRuLGN2itBiEZL, 地址=[/ip4/127.0.0.1/tcp/17660]
+[DEBUG] 创建测试主机: ID=12D3KooWCE6XyqwcPchJur7nsMuQvCYrZNiUr8zwTbcwFYt5XAyY, 地址=[/ip4/127.0.0.1/tcp/20666]
+[DEBUG] 创建测试主机: ID=12D3KooWBzbqJRDXJJKErdPvgr7nz2e1oNq9TrNQaS7GpTo1UY8g, 地址=[/ip4/127.0.0.1/tcp/15898]
+[DEBUG] 创建测试主机: ID=12D3KooWMkodW79pkPCrU6roSqnxbdqanGQSoSYJztu7TnAozsRh, 地址=[/ip4/127.0.0.1/tcp/11050]
+[DEBUG] 创建测试主机: ID=12D3KooWJEs2CXSHuyrKBWvQxrLUgZkk2c2JPTgfveHDNnBV7ACk, 地址=[/ip4/127.0.0.1/tcp/18865]
+[DEBUG] 创建测试主机: ID=12D3KooWMLF9DgSPBiCEmy8A1vmHBgmijGhuxhFVCearUdAfGX6C, 地址=[/ip4/127.0.0.1/tcp/14257]
+[DEBUG] 创建测试主机: ID=12D3KooWHvBm7ZUF9xwdxUC88CWG5iavBjkRcHqRX384xzoUfjd8, 地址=[/ip4/127.0.0.1/tcp/18680]
+[DEBUG] 创建测试主机: ID=12D3KooWKqwqVpTosQdzDT2pQXPhCoQLmUJY7HYpMVudx4eiusYE, 地址=[/ip4/127.0.0.1/tcp/12223]
+[DEBUG] 创建测试主机: ID=12D3KooWLdyyMKq8KZWG4raKeo7K87g6qD5LNRNudYZNi6hvc2zM, 地址=[/ip4/127.0.0.1/tcp/18201]
+[DEBUG] 创建测试主机: ID=12D3KooWQtR2BMq9vaTcYs5TzqvqxCiPzRrTVvVWfvQFQRXM5HW9, 地址=[/ip4/127.0.0.1/tcp/10170]
+[DEBUG] 创建测试主机: ID=12D3KooWG6KSE58uKBuhZXXanq2k4yMj69DzdzupYJjWrGoMueMU, 地址=[/ip4/127.0.0.1/tcp/18704]
+[DEBUG] 创建测试主机: ID=12D3KooWDLpPoRsWecH2Wb8pEaxK2kvj9QggfNVeLDCaaKWCz29h, 地址=[/ip4/127.0.0.1/tcp/12213]
+[DEBUG] 创建测试主机: ID=12D3KooWK7d84RpuhrVhoSKMfP82kUVbXznobzur8mHXjucrQyVx, 地址=[/ip4/127.0.0.1/tcp/20285]
+[DEBUG] 创建测试主机: ID=12D3KooWHiXV8zofjShKuWrNHjBh6zxyPhVKJbDTDKQ8Y9NVhpxq, 地址=[/ip4/127.0.0.1/tcp/15454]
+[DEBUG] 创建测试主机: ID=12D3KooWAuQeMKAn2866GgoDwEyw6VVKZgK7HQKeKXvYctQ4vHiH, 地址=[/ip4/127.0.0.1/tcp/13709]
+[DEBUG] 创建测试主机: ID=12D3KooWJuvmidXnFwWvuoZWR7Lo2jzPJWQwECUZNmH6dYvAvgQW, 地址=[/ip4/127.0.0.1/tcp/19259]
+[DEBUG] 创建测试主机: ID=12D3KooWPWQfJf1R6WWrdKzhzDxbcNPA6BAi2PPvxCWDetHFZruf, 地址=[/ip4/127.0.0.1/tcp/21616]
+[DEBUG] 创建测试主机: ID=12D3KooWPZ1TXBRpeyq4a7n1iEbyQr9Jyb8E9oa7pqpBwSi1UV16, 地址=[/ip4/127.0.0.1/tcp/20985]
+[DEBUG] 创建测试主机: ID=12D3KooWNkNSXK1NrJPqAPL2cBRFM5Mv1ZRSbew6Tq1gBUffpvFJ, 地址=[/ip4/127.0.0.1/tcp/17994]
+[DEBUG] 创建测试主机: ID=12D3KooWJeQFftCnm8jBCGAG6gmf5ABabxzVc9wtvhA98zNtdsd1, 地址=[/ip4/127.0.0.1/tcp/19612]
+[DEBUG] 创建测试主机: ID=12D3KooWCQiaihsfskJU4EhG6CGQS5xeWvB6cMK1LGWL3hhsZq5a, 地址=[/ip4/127.0.0.1/tcp/12638]
+[DEBUG] 创建测试主机: ID=12D3KooWNVrBqFvcJw1pDaD1o4DBANM53VtJwRcVh5DToKwyaBov, 地址=[/ip4/127.0.0.1/tcp/18101]
+[DEBUG] 创建测试主机: ID=12D3KooWPvmg1MM3ypfojYWs4j3PFDyDcZsqHSuXrpRBz34btWrs, 地址=[/ip4/127.0.0.1/tcp/15856]
+[DEBUG] 创建测试主机: ID=12D3KooWM9ZpjLxtxwU4TSmz7aVh1nXgPrbh6qTyovEU4c1FU12N, 地址=[/ip4/127.0.0.1/tcp/18350]
+[DEBUG] 创建测试主机: ID=12D3KooWEZAx7mFbwSJqPvAnobHiQHzRmYf1QxeYhVhxcyzhDmth, 地址=[/ip4/127.0.0.1/tcp/20565]
+[DEBUG] 创建测试主机: ID=12D3KooWGj5ABPW6QaBDKWopXU9Khf2yUDg6LTHnUe9bsARKMWhr, 地址=[/ip4/127.0.0.1/tcp/10261]
+[DEBUG] 创建测试主机: ID=12D3KooWGUjCiWcFAeiSMk8w6a3Q7YNMWNrtPDSYHhbPcjnCwJLg, 地址=[/ip4/127.0.0.1/tcp/17210]
+[DEBUG] 创建测试主机: ID=12D3KooWHFj4gPCFMVD32daGKgtRQ2gJD4g2wHJJc2ZFqznSSbki, 地址=[/ip4/127.0.0.1/tcp/19282]
+[DEBUG] 创建测试主机: ID=12D3KooWKN7L8wEeEEXiBVTGDagW4pT4cHd3g5F1EnHfN7j3faWg, 地址=[/ip4/127.0.0.1/tcp/11959]
+[DEBUG] 创建测试主机: ID=12D3KooWJ7LBZMbFU3DuaRNomBaB5Aw6xnsfPxHRboXMcJuanGcs, 地址=[/ip4/127.0.0.1/tcp/19852]
+[DEBUG] 创建测试主机: ID=12D3KooWS9A1ejjkqfD3uRGVZKZS7jebECi2AyFF3MPQqJWiTD4P, 地址=[/ip4/127.0.0.1/tcp/20631]
+[DEBUG] 创建测试主机: ID=12D3KooWBSStLng6WUEjXRXck9JNswAzX9hwBnWy2gpZND2LwQyM, 地址=[/ip4/127.0.0.1/tcp/12210]
+[DEBUG] 创建测试主机: ID=12D3KooWAd23w5TH4YzqC3cxJNzAY2Kzm73bph8YM8Ukob5qt4AJ, 地址=[/ip4/127.0.0.1/tcp/18205]
+[DEBUG] 创建测试主机: ID=12D3KooWCNVEQ1L1nUWB5owUsg87KzoLi5bJ6AHq9ZW8YPnq4vkA, 地址=[/ip4/127.0.0.1/tcp/19664]
+[DEBUG] 创建测试主机: ID=12D3KooWGcWE8bLfmpMKFJLUhdfYP3kizMY1gFEJFHVHwpwjweb4, 地址=[/ip4/127.0.0.1/tcp/17519]
+[DEBUG] 创建测试主机: ID=12D3KooWQtdRjwvGYWKNpbdkT5cgGxdjwabxHh92RPDVnPkpst2F, 地址=[/ip4/127.0.0.1/tcp/15826]
+[DEBUG] 创建测试主机: ID=12D3KooWQM81VT62HrYHJxooy2rpiobTvjYptb2YKrNAJgoAgy5X, 地址=[/ip4/127.0.0.1/tcp/21422]
+[DEBUG] 创建测试主机: ID=12D3KooWGmZtHNoEwanBKMNt2YHmAj9WjLyi4rkcsEdBpNgiFdeh, 地址=[/ip4/127.0.0.1/tcp/10844]
+[DEBUG] 创建测试主机: ID=12D3KooWDZ5obQcZGkPMKA6UA5FT9vPab8ZwDXAXtrEgjdk5U3kK, 地址=[/ip4/127.0.0.1/tcp/19830]
+[DEBUG] 创建测试主机: ID=12D3KooWBcG1zfe6ZWzuTsMsUEZZmhs573fFRf2yVavGhJfg5GTW, 地址=[/ip4/127.0.0.1/tcp/20425]
+[DEBUG] 创建测试主机: ID=12D3KooWH13GGhfzaKWXdZvD9BcxzL2y4Qm1WrsLidiR45oKTN3w, 地址=[/ip4/127.0.0.1/tcp/11652]
+[DEBUG] 创建测试主机: ID=12D3KooWHYVo9sXL7NXvEfjdEdzUuGUbYdPzm1sAokgRN44Ebqza, 地址=[/ip4/127.0.0.1/tcp/12032]
+[DEBUG] 创建测试主机: ID=12D3KooWBtrS95UBMWeB4RhvBMgto7ABjvHmykgix2JTmGnZtQFp, 地址=[/ip4/127.0.0.1/tcp/19377]
+[DEBUG] 创建测试主机: ID=12D3KooWEPdWLi541vunZdJhmtqicsoTRV9mMPjkCtTQnVkZ8Luk, 地址=[/ip4/127.0.0.1/tcp/13580]
+[DEBUG] 创建测试主机: ID=12D3KooWFFi8B24JYLyg9WGnA6Rx4zwR7jSqjAp8VNxDThHL8EeD, 地址=[/ip4/127.0.0.1/tcp/13857]
+[DEBUG] 创建测试主机: ID=12D3KooWDWXPxWBgJ4A2fdEuibxBebSy6Q7KaDJNh9d2cqFTwfAB, 地址=[/ip4/127.0.0.1/tcp/13112]
+[DEBUG] 创建测试主机: ID=12D3KooWAUe1RegTnrEMbcRp1AM5pUzGrPJ3rDzL7WWALdueQxp1, 地址=[/ip4/127.0.0.1/tcp/17507]
+[DEBUG] 创建测试主机: ID=12D3KooWEime6Zjp67wqBM42v8ELqchTNrUZsquB1twienKknQF1, 地址=[/ip4/127.0.0.1/tcp/17653]
+[DEBUG] 创建测试主机: ID=12D3KooWBetHHsLZh8wX26F5uB9DTUzcGiXvYLezf7DDoDodEGzu, 地址=[/ip4/127.0.0.1/tcp/14330]
+[DEBUG] 创建测试主机: ID=12D3KooWDwT2YppthDCcYasLa53Y6We9va6z8Q8zgsHUvP9GDH9x, 地址=[/ip4/127.0.0.1/tcp/17888]
+[DEBUG] 创建测试主机: ID=12D3KooWN7wcqmAFzxgatzo7hXpF664vQPEDz2igHJhoKYrYsWGH, 地址=[/ip4/127.0.0.1/tcp/11725]
+[DEBUG] 创建测试主机: ID=12D3KooWRnxxCKtHHiiX8cAAE9dt3gw246ct9pwgQBxuNGUJQgoS, 地址=[/ip4/127.0.0.1/tcp/13336]
+[DEBUG] 创建测试主机: ID=12D3KooWSpmUg29vwtpphWCTNFRgtGnGyuAUHKqooExojbj8ZNHZ, 地址=[/ip4/127.0.0.1/tcp/18533]
+[DEBUG] 创建测试主机: ID=12D3KooWPLEfvx5JZiFAk3WGPrh8jj2rAa3WNxJ6SF6GiKR4Gqmh, 地址=[/ip4/127.0.0.1/tcp/16766]
+[DEBUG] 创建测试主机: ID=12D3KooWBRAaz2riWipHae3MT7vruqeTzLCah3axf8parrXhUyKw, 地址=[/ip4/127.0.0.1/tcp/19081]
+[DEBUG] 创建测试主机: ID=12D3KooWF53uyd5TpDn1QtwdKHyrfc93okdXozky323X9NWpTkLj, 地址=[/ip4/127.0.0.1/tcp/14974]
+[DEBUG] 创建测试主机: ID=12D3KooWP7dDFVRN81qExnTTY1vxXVdqhYrHQXgp3omjd3uYqWBz, 地址=[/ip4/127.0.0.1/tcp/19237]
+[DEBUG] 创建测试主机: ID=12D3KooWQdAUepriAHDDP8cCY2hmcWv2SPiwSWRrtVTwyEGXdJ39, 地址=[/ip4/127.0.0.1/tcp/21491]
+[DEBUG] 创建测试主机: ID=12D3KooWMoAymqX5QcGXbwyS6p686knpfoGxn66jjLrMztTxPr3C, 地址=[/ip4/127.0.0.1/tcp/19168]
+[DEBUG] 创建测试主机: ID=12D3KooWNj5SqYMp1LCA6NTyswbLMDSGMJPSMWxrgeRubCNDaYD2, 地址=[/ip4/127.0.0.1/tcp/19664]
+[DEBUG] 创建测试主机: ID=12D3KooWJum8TJdU5doFgSxzAsND7izLgkD3BXCq4YiNuzumY6ox, 地址=[/ip4/127.0.0.1/tcp/20075]
+[DEBUG] 创建测试主机: ID=12D3KooWPChgPSMpovZnbwWg8gRMKDqtwiwz4rtgvj9nWJ3vrzFk, 地址=[/ip4/127.0.0.1/tcp/18147]
+[DEBUG] 创建测试主机: ID=12D3KooWDuVSdzpuXn5gJNH5dY44cyaG2rx8YxPXrkZVymQE8Yin, 地址=[/ip4/127.0.0.1/tcp/14957]
+[DEBUG] 创建测试主机: ID=12D3KooWBQNof9dbTTqYso2daVv9qtmYtdy2HAs6efrr4qCLQYVS, 地址=[/ip4/127.0.0.1/tcp/19673]
+[DEBUG] 创建测试主机: ID=12D3KooWD3CfxgbzbMnV6oRS1d5ESCU1YbiqLRJ9iTTu8aNocpBs, 地址=[/ip4/127.0.0.1/tcp/17807]
+[DEBUG] 创建测试主机: ID=12D3KooWHbQZERGiq97k6JDnKhSFwmyQdxqAyngw8T27cE9RucZg, 地址=[/ip4/127.0.0.1/tcp/18646]
+[DEBUG] 创建测试主机: ID=12D3KooWSJ7dsdx4pD4h9Xdx21or6xs1obYxQQPkv6oMeksWbgVw, 地址=[/ip4/127.0.0.1/tcp/19815]
+[DEBUG] 创建测试主机: ID=12D3KooWHwNLzHRMEUz69uxVhhmQGgTEkY3MWqVzJmVRtVS1ZTNb, 地址=[/ip4/127.0.0.1/tcp/16457]
+[DEBUG] 创建测试主机: ID=12D3KooWNvoMTatkppo48uG7LvV14bGLme86hhnzF1RHH1suoHKE, 地址=[/ip4/127.0.0.1/tcp/20607]
+[DEBUG] 创建测试主机: ID=12D3KooWRvuyGGcyD4Sd4rxo2bJo5DtxGsv2D4jxiQFerYyyFLHC, 地址=[/ip4/127.0.0.1/tcp/15456]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/306)
+[DEBUG] 主机1: 12D3KooWDGiNdqYkGmQ8y23DXsUKR61PQR6jzh5HQztE87EnX5Ud 主机2: 12D3KooWKu3FRkvBsXWj6m1okT2aYdJR9f4rRWpuQDt9BKqHaRAc
+[DEBUG] 连接对创建成功 (connID=22)
+[DEBUG] 创建测试主机: ID=12D3KooWQsArEo6cEbR7nxqkvYibJBXzGoaAxZ8RL4rnJJbDwPBE, 地址=[/ip4/127.0.0.1/tcp/14487]
+[DEBUG] 创建测试主机: ID=12D3KooWQ4mUk1LYazSZjuKeck15B8JEJ4chFCTVJRmxivSBpjj8, 地址=[/ip4/127.0.0.1/tcp/12311]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/429)
+[DEBUG] 主机1: 12D3KooWR92XdnJDm2G1jZeRZRVZzsrJM5C8xws5iJQNGDBhNQ3Y 主机2: 12D3KooWHmw5MGs4SZqkMtDGGSpRNA3PPvZaqbe3L6Mwma2cXebc
+[DEBUG] 连接对创建成功 (connID=9)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/470)
+[DEBUG] 主机1: 12D3KooWK3JoXUEXGbB9p5rqFKBxd197HvgrBFExEaubP6wMsLN1 主机2: 12D3KooWNfqJ9NuggvgXWBsrdiYzRRCEMQSW1SiM9vWxStReNuZB
+[DEBUG] 连接对创建成功 (connID=1)
+[DEBUG] 创建测试主机: ID=12D3KooWH1p2HdXccVgAyo5TWCWBguDcQtGRqSDsGv4PbV5WmENw, 地址=[/ip4/127.0.0.1/tcp/18091]
+[DEBUG] 创建测试主机: ID=12D3KooWCLpFFuvCsgNWzP2QvnttLAz1ETJRiq7W3nTnoE9sRVPS, 地址=[/ip4/127.0.0.1/tcp/18508]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/74)
+[DEBUG] 主机1: 12D3KooWFsxv6nLzEqq3axTAJoNofQ6VLiKk5PNfDLeqH1119JQL 主机2: 12D3KooWQEQXG2vx1nT216aBhZTV5a7Y9naCSwi9Pad3HsWEjhzj
+[DEBUG] 连接对创建成功 (connID=24)
+[DEBUG] 创建测试主机: ID=12D3KooWHpSZnfoa5XuxSLFuVrzrci9Sfty7BNuVqs9CGHbvN3jQ, 地址=[/ip4/127.0.0.1/tcp/20956]
+[DEBUG] 创建测试主机: ID=12D3KooWL8XJmEJ89ZWajyZTegGwjkkNkYkuwh6m4cidx6gK4YWg, 地址=[/ip4/127.0.0.1/tcp/16011]
+[DEBUG] 创建测试主机: ID=12D3KooWCwwG5dKmgcpAkBxsH4S9MsaZTF1TuwZpk7JRM6scL8FZ, 地址=[/ip4/127.0.0.1/tcp/13830]
+[DEBUG] 创建测试主机: ID=12D3KooWK1XD8ZMzG5fyd4GPdVDwiSCRuBFHMkQaoDAM5x1wQtF8, 地址=[/ip4/127.0.0.1/tcp/16005]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/833)
+[DEBUG] 主机1: 12D3KooWDxncU2fnisSZsgNNsmAV267RoLzpsUAsraBYkYWdoFvG 主机2: 12D3KooWPMobFFqz92WMhopDbvNbqwCMArAi1Af62Ni8pqJV3GZ9
+[DEBUG] 连接对创建成功 (connID=10)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/751)
+[DEBUG] 主机1: 12D3KooWHBbW7pNhGuKnxEd9aDqSReJyqoA8zC6LqFgNy8hpZ7xL 主机2: 12D3KooW9yFkeLRvUWwoP3grQod86BoKETC3DPvEEiEFjyjQiFEY
+[DEBUG] 连接对创建成功 (connID=37)
+[DEBUG] 创建测试主机: ID=12D3KooWNn7V76kEz8RuTyp91npCunjrhHbUrRgoRhLARJq1PJsW, 地址=[/ip4/127.0.0.1/tcp/19798]
+[DEBUG] 创建测试主机: ID=12D3KooWM38in8ngbppYLEp5691BAHb5Vo3Eu1sck5onem5HWKMb, 地址=[/ip4/127.0.0.1/tcp/18088]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/362)
+[DEBUG] 主机1: 12D3KooWSFv3nhhuJHs1j3o3Wd2BQ7HH7ws7XmfnM8npEjd8Rx9C 主机2: 12D3KooWCE6XyqwcPchJur7nsMuQvCYrZNiUr8zwTbcwFYt5XAyY
+[DEBUG] 连接对创建成功 (connID=15)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/79)
+[DEBUG] 主机1: 12D3KooWERJsgLodYnUUAfgxiywziugTr4BuJWZRuLGN2itBiEZL 主机2: 12D3KooWJEs2CXSHuyrKBWvQxrLUgZkk2c2JPTgfveHDNnBV7ACk
+[DEBUG] 连接对创建成功 (connID=0)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/882)
+[DEBUG] 主机1: 12D3KooWD1tBM4x6gg4JVSZwXgydD8HQP16TBZzXAFuf57aW6f2q 主机2: 12D3KooWMLF9DgSPBiCEmy8A1vmHBgmijGhuxhFVCearUdAfGX6C
+[DEBUG] 连接对创建成功 (connID=36)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/340)
+[DEBUG] 主机1: 12D3KooWMkodW79pkPCrU6roSqnxbdqanGQSoSYJztu7TnAozsRh 主机2: 12D3KooWKqwqVpTosQdzDT2pQXPhCoQLmUJY7HYpMVudx4eiusYE
+[DEBUG] 连接对创建成功 (connID=34)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/481)
+[DEBUG] 主机1: 12D3KooWMLY5u6PGo9mn4sjE5gYm9nDDVJCwCKgfZdEVPGQZq3xb 主机2: 12D3KooWK7d84RpuhrVhoSKMfP82kUVbXznobzur8mHXjucrQyVx
+[DEBUG] 连接对创建成功 (connID=46)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/698)
+[DEBUG] 主机1: 12D3KooWJuvmidXnFwWvuoZWR7Lo2jzPJWQwECUZNmH6dYvAvgQW 主机2: 12D3KooWPZ1TXBRpeyq4a7n1iEbyQr9Jyb8E9oa7pqpBwSi1UV16
+[DEBUG] 连接对创建成功 (connID=6)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/524)
+[DEBUG] 主机1: 12D3KooWJ4QHGG5H2Bk3qH7WETZUb3CJYFHe4nxqxxMcPBHJjmuA 主机2: 12D3KooWPWQfJf1R6WWrdKzhzDxbcNPA6BAi2PPvxCWDetHFZruf
+[DEBUG] 连接对创建成功 (connID=2)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/914)
+[DEBUG] 主机1: 12D3KooWS73qmHMjHCiunBxKJfxigCKqBhG24DjY2g6ntRRKpCq2 主机2: 12D3KooWCQiaihsfskJU4EhG6CGQS5xeWvB6cMK1LGWL3hhsZq5a
+[DEBUG] 连接对创建成功 (connID=4)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/366)
+[DEBUG] 主机1: 12D3KooWG6KSE58uKBuhZXXanq2k4yMj69DzdzupYJjWrGoMueMU 主机2: 12D3KooWEZAx7mFbwSJqPvAnobHiQHzRmYf1QxeYhVhxcyzhDmth
+[DEBUG] 连接对创建成功 (connID=11)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/616)
+[DEBUG] 主机1: 12D3KooWHFj4gPCFMVD32daGKgtRQ2gJD4g2wHJJc2ZFqznSSbki 主机2: 12D3KooWS9A1ejjkqfD3uRGVZKZS7jebECi2AyFF3MPQqJWiTD4P
+[DEBUG] 连接对创建成功 (connID=27)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/261)
+[DEBUG] 主机1: 12D3KooWPvmg1MM3ypfojYWs4j3PFDyDcZsqHSuXrpRBz34btWrs 主机2: 12D3KooWGcWE8bLfmpMKFJLUhdfYP3kizMY1gFEJFHVHwpwjweb4
+[DEBUG] 连接对创建成功 (connID=31)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/101)
+[DEBUG] 主机1: 12D3KooWJeQFftCnm8jBCGAG6gmf5ABabxzVc9wtvhA98zNtdsd1 主机2: 12D3KooWQM81VT62HrYHJxooy2rpiobTvjYptb2YKrNAJgoAgy5X
+[DEBUG] 连接对创建成功 (connID=7)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/630)
+[DEBUG] 主机1: 12D3KooWNtQN8eWPbY6BW4e7tUNXBapXodcbBkgQB7u5CsLK8toX 主机2: 12D3KooWBcG1zfe6ZWzuTsMsUEZZmhs573fFRf2yVavGhJfg5GTW
+[DEBUG] 连接对创建成功 (connID=45)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/261)
+[DEBUG] 主机1: 12D3KooWGmZtHNoEwanBKMNt2YHmAj9WjLyi4rkcsEdBpNgiFdeh 主机2: 12D3KooWHYVo9sXL7NXvEfjdEdzUuGUbYdPzm1sAokgRN44Ebqza
+[DEBUG] 连接对创建成功 (connID=40)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/902)
+[DEBUG] 主机1: 12D3KooWGj5ABPW6QaBDKWopXU9Khf2yUDg6LTHnUe9bsARKMWhr 主机2: 12D3KooWKN7L8wEeEEXiBVTGDagW4pT4cHd3g5F1EnHfN7j3faWg
+[DEBUG] 连接对创建成功 (connID=5)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/159)
+[DEBUG] 主机1: 12D3KooWM9ZpjLxtxwU4TSmz7aVh1nXgPrbh6qTyovEU4c1FU12N 主机2: 12D3KooWJ7LBZMbFU3DuaRNomBaB5Aw6xnsfPxHRboXMcJuanGcs
+[DEBUG] 连接对创建成功 (connID=49)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/934)
+[DEBUG] 主机1: 12D3KooWAd23w5TH4YzqC3cxJNzAY2Kzm73bph8YM8Ukob5qt4AJ 主机2: 12D3KooWBtrS95UBMWeB4RhvBMgto7ABjvHmykgix2JTmGnZtQFp
+[DEBUG] 连接对创建成功 (connID=43)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/861)
+[DEBUG] 主机1: 12D3KooWH13GGhfzaKWXdZvD9BcxzL2y4Qm1WrsLidiR45oKTN3w 主机2: 12D3KooWDWXPxWBgJ4A2fdEuibxBebSy6Q7KaDJNh9d2cqFTwfAB
+[DEBUG] 连接对创建成功 (connID=25)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/618)
+[DEBUG] 主机1: 12D3KooWBSStLng6WUEjXRXck9JNswAzX9hwBnWy2gpZND2LwQyM 主机2: 12D3KooWEPdWLi541vunZdJhmtqicsoTRV9mMPjkCtTQnVkZ8Luk
+[DEBUG] 连接对创建成功 (connID=19)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/169)
+[DEBUG] 主机1: 12D3KooWRoV6cE13cau6FVKj26ZkFN9cQ1pg3GU3uZ8BTrzYTHT2 主机2: 12D3KooWFFi8B24JYLyg9WGnA6Rx4zwR7jSqjAp8VNxDThHL8EeD
+[DEBUG] 连接对创建成功 (connID=47)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/134)
+[DEBUG] 主机1: 12D3KooWQtdRjwvGYWKNpbdkT5cgGxdjwabxHh92RPDVnPkpst2F 主机2: 12D3KooWEime6Zjp67wqBM42v8ELqchTNrUZsquB1twienKknQF1
+[DEBUG] 连接对创建成功 (connID=18)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/251)
+[DEBUG] 主机1: 12D3KooWAuQeMKAn2866GgoDwEyw6VVKZgK7HQKeKXvYctQ4vHiH 主机2: 12D3KooWF53uyd5TpDn1QtwdKHyrfc93okdXozky323X9NWpTkLj
+[DEBUG] 连接对创建成功 (connID=32)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/947)
+[DEBUG] 主机1: 12D3KooWDwT2YppthDCcYasLa53Y6We9va6z8Q8zgsHUvP9GDH9x 主机2: 12D3KooWP7dDFVRN81qExnTTY1vxXVdqhYrHQXgp3omjd3uYqWBz
+[DEBUG] 连接对创建成功 (connID=42)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/853)
+[DEBUG] 主机1: 12D3KooWQtR2BMq9vaTcYs5TzqvqxCiPzRrTVvVWfvQFQRXM5HW9 主机2: 12D3KooWN7wcqmAFzxgatzo7hXpF664vQPEDz2igHJhoKYrYsWGH
+[DEBUG] 连接对创建成功 (connID=12)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/326)
+[DEBUG] 主机1: 12D3KooWDLpPoRsWecH2Wb8pEaxK2kvj9QggfNVeLDCaaKWCz29h 主机2: 12D3KooWRnxxCKtHHiiX8cAAE9dt3gw246ct9pwgQBxuNGUJQgoS
+[DEBUG] 连接对创建成功 (connID=41)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/715)
+[DEBUG] 主机1: 12D3KooWLdyyMKq8KZWG4raKeo7K87g6qD5LNRNudYZNi6hvc2zM 主机2: 12D3KooWJum8TJdU5doFgSxzAsND7izLgkD3BXCq4YiNuzumY6ox
+[DEBUG] 连接对创建成功 (connID=16)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/885)
+[DEBUG] 主机1: 12D3KooWNVrBqFvcJw1pDaD1o4DBANM53VtJwRcVh5DToKwyaBov 主机2: 12D3KooWMoAymqX5QcGXbwyS6p686knpfoGxn66jjLrMztTxPr3C
+[DEBUG] 连接对创建成功 (connID=38)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/885)
+[DEBUG] 主机1: 12D3KooWCNVEQ1L1nUWB5owUsg87KzoLi5bJ6AHq9ZW8YPnq4vkA 主机2: 12D3KooWQdAUepriAHDDP8cCY2hmcWv2SPiwSWRrtVTwyEGXdJ39
+[DEBUG] 连接对创建成功 (connID=44)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/947)
+[DEBUG] 主机1: 12D3KooWSpmUg29vwtpphWCTNFRgtGnGyuAUHKqooExojbj8ZNHZ 主机2: 12D3KooWNj5SqYMp1LCA6NTyswbLMDSGMJPSMWxrgeRubCNDaYD2
+[DEBUG] 连接对创建成功 (connID=23)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/755)
+[DEBUG] 主机1: 12D3KooWBzbqJRDXJJKErdPvgr7nz2e1oNq9TrNQaS7GpTo1UY8g 主机2: 12D3KooWD3CfxgbzbMnV6oRS1d5ESCU1YbiqLRJ9iTTu8aNocpBs
+[DEBUG] 连接对创建成功 (connID=21)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/238)
+[DEBUG] 主机1: 12D3KooWBy9EoSPHvgxeahWVaKmQRScALsgVPjR8c2FCVRv2AWFC 主机2: 12D3KooWPChgPSMpovZnbwWg8gRMKDqtwiwz4rtgvj9nWJ3vrzFk
+[DEBUG] 连接对创建成功 (connID=30)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/864)
+[DEBUG] 主机1: 12D3KooWHvBm7ZUF9xwdxUC88CWG5iavBjkRcHqRX384xzoUfjd8 主机2: 12D3KooWSJ7dsdx4pD4h9Xdx21or6xs1obYxQQPkv6oMeksWbgVw
+[DEBUG] 连接对创建成功 (connID=26)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/918)
+[DEBUG] 主机1: 12D3KooWHiXV8zofjShKuWrNHjBh6zxyPhVKJbDTDKQ8Y9NVhpxq 主机2: 12D3KooWHwNLzHRMEUz69uxVhhmQGgTEkY3MWqVzJmVRtVS1ZTNb
+[DEBUG] 连接对创建成功 (connID=20)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/97)
+[DEBUG] 正在关闭连接对
+[DEBUG] 主机1: 12D3KooWAUe1RegTnrEMbcRp1AM5pUzGrPJ3rDzL7WWALdueQxp1 主机2: 12D3KooWHbQZERGiq97k6JDnKhSFwmyQdxqAyngw8T27cE9RucZg
+[DEBUG] 连接对创建成功 (connID=17)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/781)
+[DEBUG] 主机1: 12D3KooWBRAaz2riWipHae3MT7vruqeTzLCah3axf8parrXhUyKw 主机2: 12D3KooWNvoMTatkppo48uG7LvV14bGLme86hhnzF1RHH1suoHKE
+[DEBUG] 连接对创建成功 (connID=48)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/856)
+[DEBUG] 主机1: 12D3KooWBetHHsLZh8wX26F5uB9DTUzcGiXvYLezf7DDoDodEGzu 主机2: 12D3KooWRvuyGGcyD4Sd4rxo2bJo5DtxGsv2D4jxiQFerYyyFLHC
+[DEBUG] 连接对创建成功 (connID=13)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/901)
+[DEBUG] 主机1: 12D3KooWNkNSXK1NrJPqAPL2cBRFM5Mv1ZRSbew6Tq1gBUffpvFJ 主机2: 12D3KooWBQNof9dbTTqYso2daVv9qtmYtdy2HAs6efrr4qCLQYVS
+[DEBUG] 连接对创建成功 (connID=8)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/527)
+[DEBUG] 主机1: 12D3KooWGUjCiWcFAeiSMk8w6a3Q7YNMWNrtPDSYHhbPcjnCwJLg 主机2: 12D3KooWCLpFFuvCsgNWzP2QvnttLAz1ETJRiq7W3nTnoE9sRVPS
+[DEBUG] 连接对创建成功 (connID=33)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/980)
+[DEBUG] 主机1: 12D3KooWDZ5obQcZGkPMKA6UA5FT9vPab8ZwDXAXtrEgjdk5U3kK 主机2: 12D3KooWHpSZnfoa5XuxSLFuVrzrci9Sfty7BNuVqs9CGHbvN3jQ
+[DEBUG] 连接对创建成功 (connID=29)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/243)
+[DEBUG] 主机1: 12D3KooWQsArEo6cEbR7nxqkvYibJBXzGoaAxZ8RL4rnJJbDwPBE 主机2: 12D3KooWL8XJmEJ89ZWajyZTegGwjkkNkYkuwh6m4cidx6gK4YWg
+[DEBUG] 连接对创建成功 (connID=35)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/18)
+[DEBUG] 主机1: 12D3KooWQ4mUk1LYazSZjuKeck15B8JEJ4chFCTVJRmxivSBpjj8 主机2: 12D3KooWCwwG5dKmgcpAkBxsH4S9MsaZTF1TuwZpk7JRM6scL8FZ
+[DEBUG] 连接对创建成功 (connID=39)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/185)
+[DEBUG] 主机1: 12D3KooWH1p2HdXccVgAyo5TWCWBguDcQtGRqSDsGv4PbV5WmENw 主机2: 12D3KooWNn7V76kEz8RuTyp91npCunjrhHbUrRgoRhLARJq1PJsW
+[DEBUG] 连接对创建成功 (connID=14)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/206)
+[DEBUG] 主机1: 12D3KooWDuVSdzpuXn5gJNH5dY44cyaG2rx8YxPXrkZVymQE8Yin 主机2: 12D3KooWK1XD8ZMzG5fyd4GPdVDwiSCRuBFHMkQaoDAM5x1wQtF8
+[DEBUG] 连接对创建成功 (connID=3)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/784)
+[DEBUG] 主机1: 12D3KooWPLEfvx5JZiFAk3WGPrh8jj2rAa3WNxJ6SF6GiKR4Gqmh 主机2: 12D3KooWM38in8ngbppYLEp5691BAHb5Vo3Eu1sck5onem5HWKMb
+[DEBUG] 连接对创建成功 (connID=28)
+[DEBUG] 正在关闭连接对
+所有测试协程正常退出
+测试完成: 共发送 109 消息, 接收 100 消息, 最终goroutine数量: 281
+中等并发测试完成: 处理了 209 条消息, 速率 3.19 MB/s
+
+=== 正在进行高并发测试 ===
+
+开始 高并发测试 (100连接, 4KB消息)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFcMYwibD3mtBP1gnuLE363JwKfgs214rwAUuFUPRdZDb, 地址=[/ip4/127.0.0.1/tcp/18300]
+[DEBUG] 创建测试主机: ID=12D3KooWAjvaAxFs2NQ4S3f2WRFxafmzTGN5wN8EqmBqonieKYNp, 地址=[/ip4/127.0.0.1/tcp/11164]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFw3X394ZBimp7S654zxY5gVDmWcxJ5hHPbAHE7sg5r7C, 地址=[/ip4/127.0.0.1/tcp/19482]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMApBBG8ADPAdRRdV6nbpXWvgGSeF6c2yL5TzUzUXyPns, 地址=[/ip4/127.0.0.1/tcp/13023]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDp7h5LeYpXgMH6wPq1VwMP5EpH5Rxg7imGJNaGUzNF2q, 地址=[/ip4/127.0.0.1/tcp/16869]
+[DEBUG] 创建测试主机: ID=12D3KooWFKuabS8tWwRqF56G1p7NSVEHWvsAc5jhazxQoXAC4ByC, 地址=[/ip4/127.0.0.1/tcp/18737]
+[DEBUG] 创建测试主机: ID=12D3KooWPEH2vN4mLmomuabb5TrLz3SMjhHkMRrRkSsuQ4W5dH3k, 地址=[/ip4/127.0.0.1/tcp/11410]
+[DEBUG] 创建测试主机: ID=12D3KooWC1Vhi7DehLGRhGzbhMPyCo8yzCJCx9hRgY6bXrpzYR7A, 地址=[/ip4/127.0.0.1/tcp/19135]
+[DEBUG] 创建测试主机: ID=12D3KooWHKVepho3PBvF9bWdJDQkUb6gKfcFeVnNHT4UqNeFZDXB, 地址=[/ip4/127.0.0.1/tcp/16173]
+[DEBUG] 创建测试主机: ID=12D3KooWHfi8WR9fGRKF4apQg2LZ2UkY8AZcAQhs94tZsCqhtW9U, 地址=[/ip4/127.0.0.1/tcp/11382]
+[DEBUG] 创建测试主机: ID=12D3KooWD31BcUZ6CLeifVo7vLbXjDM9oYnDfdrBEyfGeTX1njZ2, 地址=[/ip4/127.0.0.1/tcp/20734]
+[DEBUG] 创建测试主机: ID=12D3KooWHtkDvx88jVt7eVEYezVKgDqmBqNH8k8TNk69r3zD6Mcp, 地址=[/ip4/127.0.0.1/tcp/16214]
+[DEBUG] 创建测试主机: ID=12D3KooWHKEbNQ97UD7aKXC37yJk9gCapqoZFgbS94Kredrghgyy, 地址=[/ip4/127.0.0.1/tcp/17197]
+[DEBUG] 创建测试主机: ID=12D3KooWJgDEuACzB4xDLk431NARfoYq7esMLsNvQxz15624Ebcr, 地址=[/ip4/127.0.0.1/tcp/11974]
+[DEBUG] 创建测试主机: ID=12D3KooWBnjDbejcUQgwhus5yg5iTfsEbc71SvQPZZ9KBLuvHXo5, 地址=[/ip4/127.0.0.1/tcp/19415]
+[DEBUG] 创建测试主机: ID=12D3KooWQay9BCMYx3rKembKxi6mD5XBqPovLkBUGgocZtufDQQ1, 地址=[/ip4/127.0.0.1/tcp/15717]
+[DEBUG] 创建测试主机: ID=12D3KooWFJLi9SCcHqkzuZc21Tb4QVoM4zL7fQSY3F5E7doF7TDQ, 地址=[/ip4/127.0.0.1/tcp/12148]
+[DEBUG] 创建测试主机: ID=12D3KooWKxkUd1tVXnFu9kmv5MSPEnah1TqifzjbtPGT5GReTsAd, 地址=[/ip4/127.0.0.1/tcp/13134]
+[DEBUG] 创建测试主机: ID=12D3KooWJvv2aVUovownJJM5MzghRUPZUb1AxLj7wtDXJkYkiZYs, 地址=[/ip4/127.0.0.1/tcp/16176]
+[DEBUG] 创建测试主机: ID=12D3KooWApsp73mJHuzgJUjRGMHs2P8kKANT6sq3sCva5SLBRQVF, 地址=[/ip4/127.0.0.1/tcp/17526]
+[DEBUG] 创建测试主机: ID=12D3KooWQAPxk7SvbKN8v5SNEDn87tViBFeCaBVu6NvDoi8gTXYF, 地址=[/ip4/127.0.0.1/tcp/19416]
+[DEBUG] 创建测试主机: ID=12D3KooWMm8kKCSAtW1vi1tLmf1QNz5NU8Ussnxsk72Z39mM7AKk, 地址=[/ip4/127.0.0.1/tcp/10748]
+[DEBUG] 创建测试主机: ID=12D3KooWDsJhikH94qet1q5TRih1X3Zy69nCCuq1aCCYbYF8UerM, 地址=[/ip4/127.0.0.1/tcp/10232]
+[DEBUG] 创建测试主机: ID=12D3KooWAFfMdz7bJvqi64gK7CLzDi9YKpoKWT8ioZywdxRFV3Uv, 地址=[/ip4/127.0.0.1/tcp/13138]
+[DEBUG] 创建测试主机: ID=12D3KooWEqUkLfCaz1TZffL9bgvLgnvxAyfADtDGub3wMTdMGRrx, 地址=[/ip4/127.0.0.1/tcp/10708]
+[DEBUG] 创建测试主机: ID=12D3KooWQQHmB2kaax4MXrJtdpH7aFvcw1ZQyrQc49NxkJwXnr4j, 地址=[/ip4/127.0.0.1/tcp/15791]
+[DEBUG] 创建测试主机: ID=12D3KooWLbgyGXzVfnZAUxfUxWsnHLKk35cFgAHVSme7YvEWGd66, 地址=[/ip4/127.0.0.1/tcp/19675]
+[DEBUG] 创建测试主机: ID=12D3KooWDUcK9CgHK3pcabsdBVHHcRUTiCA471CkL2TXdkkayZZc, 地址=[/ip4/127.0.0.1/tcp/15833]
+[DEBUG] 创建测试主机: ID=12D3KooWEKwChv2kDYo5Xo4REjxJ5B2oWmyKA5XjwU6gVgz6Xmcb, 地址=[/ip4/127.0.0.1/tcp/12795]
+[DEBUG] 创建测试主机: ID=12D3KooWJrh8TAgHmbiTNgdfDnRPgnMFsvpfFcumvUVgNupXhwmV, 地址=[/ip4/127.0.0.1/tcp/11922]
+[DEBUG] 创建测试主机: ID=12D3KooWN3BVufcfJmhMbtpQ2S9xcQGuHi9BiKFbPdu66etjYnfT, 地址=[/ip4/127.0.0.1/tcp/12715]
+[DEBUG] 创建测试主机: ID=12D3KooWEFjWSpoJj5tuKqJitDyaCKdxYisJSu913AbvtsWyKjsZ, 地址=[/ip4/127.0.0.1/tcp/17834]
+[DEBUG] 创建测试主机: ID=12D3KooWHFsyr4YGvJQv9tZCJADoGJG4vdGSXahGc1pFxtVZceVc, 地址=[/ip4/127.0.0.1/tcp/14405]
+[DEBUG] 创建测试主机: ID=12D3KooWK5WTn1oNHY47iEa2LpBt67R1LiCkFkGcJ5iuoqM1NuHG, 地址=[/ip4/127.0.0.1/tcp/14130]
+[DEBUG] 创建测试主机: ID=12D3KooWQh7AEoa2DkKfZGvTjVWontvZbvm7QT4DnTNW67NFmDiy, 地址=[/ip4/127.0.0.1/tcp/16936]
+[DEBUG] 创建测试主机: ID=12D3KooWNeDsdKuXdrNPyQWEDvWVXyp1E19i7KajXWH56zGGdURk, 地址=[/ip4/127.0.0.1/tcp/13059]
+[DEBUG] 创建测试主机: ID=12D3KooWFdZgPqSWPf1pbhAmEShpptwF7Pshgms7dU6X49McfeMm, 地址=[/ip4/127.0.0.1/tcp/13269]
+[DEBUG] 创建测试主机: ID=12D3KooWT1nEii77gFSCdAoYmSvWTgo17YXnWJyYwJwCt7VqB9oo, 地址=[/ip4/127.0.0.1/tcp/10862]
+[DEBUG] 创建测试主机: ID=12D3KooWBJqJrf8ibW3e2YZAwpyWVcvB5DySKdYUq6Mp8saK5U2V, 地址=[/ip4/127.0.0.1/tcp/14892]
+[DEBUG] 创建测试主机: ID=12D3KooWPNyumfmAfcFaF7GNCQWpKHS53iuEgBa7WtRWoCyjZ4cM, 地址=[/ip4/127.0.0.1/tcp/14217]
+[DEBUG] 创建测试主机: ID=12D3KooWS7tmEjnc2Mb5c2NJUPkyTC6Tenx8NDzEkHkePcrtB5zk, 地址=[/ip4/127.0.0.1/tcp/11750]
+[DEBUG] 创建测试主机: ID=12D3KooWJAheyoETqq2ScXrqhtCxbunX11bFvxmxdnk4hjyg8Bke, 地址=[/ip4/127.0.0.1/tcp/17911]
+[DEBUG] 创建测试主机: ID=12D3KooWMkKMuQenLV1LbZCwTezTqVgnQbvbNUWRJtKWNrjE4EoY, 地址=[/ip4/127.0.0.1/tcp/14861]
+[DEBUG] 创建测试主机: ID=12D3KooWQW34iWVJoatuexnNy1jzB5ZtqiGCYoYs6Hm3Nzh32BaD, 地址=[/ip4/127.0.0.1/tcp/19849]
+[DEBUG] 创建测试主机: ID=12D3KooWRyWY79s7Tj2DMw21FpuQ6qgTySmp9f9CFaq4zWjaPg49, 地址=[/ip4/127.0.0.1/tcp/11798]
+[DEBUG] 创建测试主机: ID=12D3KooWCEviJc28tDsSdxJRkUAaBRz9xRBqC5bY5pJYthyMd21S, 地址=[/ip4/127.0.0.1/tcp/10403]
+[DEBUG] 创建测试主机: ID=12D3KooWD22s2Y7zEzWrzPRV3tHfdxDmqaAMiPkcALTUdbMNAkBB, 地址=[/ip4/127.0.0.1/tcp/21259]
+[DEBUG] 创建测试主机: ID=12D3KooWCpd239mm1xLS5dJvD1jtn3dGXCLYu8zfQNKfSB2yhtJu, 地址=[/ip4/127.0.0.1/tcp/15918]
+[DEBUG] 创建测试主机: ID=12D3KooWM67Ez8HsmVYjNNzgzqq9ruCVPULMC2gC8ajUw4oHbpup, 地址=[/ip4/127.0.0.1/tcp/11981]
+[DEBUG] 创建测试主机: ID=12D3KooWMkac5bKbhdhN2yudmnMKix3LTWz7nY6cvJ2SHgLpvUVP, 地址=[/ip4/127.0.0.1/tcp/13100]
+[DEBUG] 创建测试主机: ID=12D3KooWDkWdqAosHKPBc4dCM8kkzdfe8R8c22T7PHfoRCA6ywcd, 地址=[/ip4/127.0.0.1/tcp/12128]
+[DEBUG] 创建测试主机: ID=12D3KooWRcBsaNQqYvft7RSBRxC7mP63hVd9PcSgQ46jzfvkmaWs, 地址=[/ip4/127.0.0.1/tcp/19333]
+[DEBUG] 创建测试主机: ID=12D3KooWApYYiaPR5iHnA3c59tCdkvYraP4sKxhn2vrggk3aTrSf, 地址=[/ip4/127.0.0.1/tcp/14271]
+[DEBUG] 创建测试主机: ID=12D3KooWLpZgBDiDcT5LXVu6hvbCXkXCAbKrnYMrfAebRKEFGdfs, 地址=[/ip4/127.0.0.1/tcp/11654]
+[DEBUG] 创建测试主机: ID=12D3KooWNoT4MuW59GeXzmU1BZ8UMTRGbwVfPpEK1yLMHHDj2j6i, 地址=[/ip4/127.0.0.1/tcp/14186]
+[DEBUG] 创建测试主机: ID=12D3KooWJb1WasaCfWAyQZkevUhxtShTXnhAEfZaGtQR6ebo7hkC, 地址=[/ip4/127.0.0.1/tcp/13659]
+[DEBUG] 创建测试主机: ID=12D3KooWFPE8n7zswFUefhJwT47MWhgbf9FawjEpih3ruCTNYzN5, 地址=[/ip4/127.0.0.1/tcp/18037]
+[DEBUG] 创建测试主机: ID=12D3KooWJZKeYtBYYiSqw7gAjLFVgWkuHAXk1qoCn1thascsfvEn, 地址=[/ip4/127.0.0.1/tcp/20800]
+[DEBUG] 创建测试主机: ID=12D3KooWDVUZeaZSQaTzDroyzxiJtkGz8DhWeDsx6aZdC1JeCUfC, 地址=[/ip4/127.0.0.1/tcp/13414]
+[DEBUG] 创建测试主机: ID=12D3KooWNawVGY6pfpS4MYDdu35x7JW6v3VP6yWWjswCbYGsUBdm, 地址=[/ip4/127.0.0.1/tcp/19026]
+[DEBUG] 创建测试主机: ID=12D3KooWHiHG7X7Bw9qZwdQx2WJejsqTHBQx9rpPijEcU3C2dY7z, 地址=[/ip4/127.0.0.1/tcp/18585]
+[DEBUG] 创建测试主机: ID=12D3KooWG8UKEvafNLJL9mihetw3CxPsdef88afgonnQBU4X5Crf, 地址=[/ip4/127.0.0.1/tcp/14512]
+[DEBUG] 创建测试主机: ID=12D3KooWFLm6UzFGVodcgMaiV8C1VHDkbv32KZqG1B2LHepuSyiq, 地址=[/ip4/127.0.0.1/tcp/10153]
+[DEBUG] 创建测试主机: ID=12D3KooWLjistRjEpfeknWYJtKmufdnrYhmaxCFY1KtCxtX4cCVG, 地址=[/ip4/127.0.0.1/tcp/20630]
+[DEBUG] 创建测试主机: ID=12D3KooWHHaX7LcTSPC1mP4d9Q59ZcmzR4wqzEgjRF9VJS9euYbU, 地址=[/ip4/127.0.0.1/tcp/12625]
+[DEBUG] 创建测试主机: ID=12D3KooWPrzpJAtdNXKJ5ovXQpn52VLEVvWJA377hte9thvjZYnn, 地址=[/ip4/127.0.0.1/tcp/14988]
+[DEBUG] 创建测试主机: ID=12D3KooWCzoAjryE8JkXoMHWsdFXancw8QGA2xHqqo1W4aM4BnkS, 地址=[/ip4/127.0.0.1/tcp/16479]
+[DEBUG] 创建测试主机: ID=12D3KooWA3FWdpFUrzj8UtGMSrWMGKfWLzmDYNTcWh3xWPajzqox, 地址=[/ip4/127.0.0.1/tcp/18907]
+[DEBUG] 创建测试主机: ID=12D3KooWE1jTa3ErkKKPnXWy7tqAvkgjwM1dgmhgZBPUwj2cCDkw, 地址=[/ip4/127.0.0.1/tcp/14052]
+[DEBUG] 创建测试主机: ID=12D3KooWMnSegtAxB67D13fNWM1g3tLhsXN7UvqpSoYacVWFLUFb, 地址=[/ip4/127.0.0.1/tcp/14651]
+[DEBUG] 创建测试主机: ID=12D3KooWBBzcotn4ykBdggYMEFGx4f9D5yNJRHHH9ayLt6FsMmBX, 地址=[/ip4/127.0.0.1/tcp/18659]
+[DEBUG] 创建测试主机: ID=12D3KooWMWVAggn1NMeh5T7umuFoRVYg4xxiuTDQECaXDEpST3mN, 地址=[/ip4/127.0.0.1/tcp/16650]
+[DEBUG] 创建测试主机: ID=12D3KooWED35CtMPnBoWaemeMo6E1326Z5y5tv2AuWa7hPKZvJiG, 地址=[/ip4/127.0.0.1/tcp/11654]
+[DEBUG] 创建测试主机: ID=12D3KooWNr8BgjK39AQkZ2DJM16VT9mEd8LSXESGan8rH8W2ATxz, 地址=[/ip4/127.0.0.1/tcp/16723]
+[DEBUG] 创建测试主机: ID=12D3KooWRKoiP8aHKd6EYTaWg5GhmwaygXrxvN3XLMxLgLVFZCUe, 地址=[/ip4/127.0.0.1/tcp/19069]
+[DEBUG] 创建测试主机: ID=12D3KooWLqWsLodBohQC24rf2AxX93HfZgYqsBEbKv7MXt9LBswp, 地址=[/ip4/127.0.0.1/tcp/12034]
+[DEBUG] 创建测试主机: ID=12D3KooWJmFcEjDo8eQivzQb4chWECJcccQCvZ1TwLEijSbjwybp, 地址=[/ip4/127.0.0.1/tcp/16133]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/632)
+[DEBUG] 主机1: 12D3KooWC1Vhi7DehLGRhGzbhMPyCo8yzCJCx9hRgY6bXrpzYR7A 主机2: 12D3KooWD31BcUZ6CLeifVo7vLbXjDM9oYnDfdrBEyfGeTX1njZ2
+[DEBUG] 连接对创建成功 (connID=70)
+[DEBUG] 创建测试主机: ID=12D3KooWNEQYzicNxxzfwoL4g4sXBn2kBtJAw8Fv2nLLQuvE8cw6, 地址=[/ip4/127.0.0.1/tcp/12904]
+[DEBUG] 创建测试主机: ID=12D3KooWLhb6JZ1yV1kgb6HNvKhBfYRroUNnsR6zz4KctxHbDMVy, 地址=[/ip4/127.0.0.1/tcp/15078]
+[DEBUG] 创建测试主机: ID=12D3KooWSfwhRxXGJw6aczWFqptASX9mL9Uz3VT644Lhi7R2hFkE, 地址=[/ip4/127.0.0.1/tcp/13304]
+[DEBUG] 创建测试主机: ID=12D3KooWKFbm3XSUf13ZXYUFAwMgKeif9cUrrjBUQRxMSEipH2fQ, 地址=[/ip4/127.0.0.1/tcp/19845]
+[DEBUG] 创建测试主机: ID=12D3KooWHnL8s6Zd3gYGPAfiEr4LWrLH4oevXiSiUxmHD1rbC9na, 地址=[/ip4/127.0.0.1/tcp/16782]
+[DEBUG] 创建测试主机: ID=12D3KooWG9yGDTHvcHFQeqAaqxZ7h1WkKujXCD4JxQCNmNfuqRSh, 地址=[/ip4/127.0.0.1/tcp/15260]
+[DEBUG] 创建测试主机: ID=12D3KooWNFQPYy9NE2PZJZpmgDRZs8jx3dtq2QyovXsz6Zpw7P4W, 地址=[/ip4/127.0.0.1/tcp/16610]
+[DEBUG] 创建测试主机: ID=12D3KooWKniLTdr1L2ovu9ejTRzsRvPKnbKifDRP6VQ6pAJ25R8q, 地址=[/ip4/127.0.0.1/tcp/18780]
+[DEBUG] 创建测试主机: ID=12D3KooWL536gy6mo9Y4gNFMGKY24NvWCxBwBfqJjg38NSsN3CiZ, 地址=[/ip4/127.0.0.1/tcp/21633]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/608)
+[DEBUG] 主机1: 12D3KooWJgDEuACzB4xDLk431NARfoYq7esMLsNvQxz15624Ebcr 主机2: 12D3KooWKxkUd1tVXnFu9kmv5MSPEnah1TqifzjbtPGT5GReTsAd
+[DEBUG] 连接对创建成功 (connID=12)
+[DEBUG] 创建测试主机: ID=12D3KooWKnZtbhYazGhoGUXF9x1FLijoM5f4L1K3yeGArdRdYwJz, 地址=[/ip4/127.0.0.1/tcp/17883]
+[DEBUG] 创建测试主机: ID=12D3KooWPdeD4A8sPWn4TTBsGDhTLT7h82Pdj444qQx3PWdzCnjt, 地址=[/ip4/127.0.0.1/tcp/13616]
+[DEBUG] 创建测试主机: ID=12D3KooWAo1ZQkusZydteXqv6f39TLmmzNYEyHMxbiEuubBBGSX5, 地址=[/ip4/127.0.0.1/tcp/14007]
+[DEBUG] 创建测试主机: ID=12D3KooWSdxLEDPmYPJw2F6ynG7C2kLJLXpiyvqF57b6Ko9n8Fmc, 地址=[/ip4/127.0.0.1/tcp/13018]
+[DEBUG] 创建测试主机: ID=12D3KooWQnJtanoLy8kyzoqzJsdyAifNJyT4Y88M4KazH6A5Koxc, 地址=[/ip4/127.0.0.1/tcp/19263]
+[DEBUG] 创建测试主机: ID=12D3KooWChRVXooM17V22qv1ppQH29RBv8bWq2NaCd2naWfF9hMs, 地址=[/ip4/127.0.0.1/tcp/20913]
+[DEBUG] 创建测试主机: ID=12D3KooWLaQs8J1Zy1TMwCAddHgxzyqsZ78DzFj4g2vtKpf3DaWr, 地址=[/ip4/127.0.0.1/tcp/18631]
+[DEBUG] 创建测试主机: ID=12D3KooWMUHXLRqoQ318LRLaJzn2ZLg2JjW2YDrDopTfLKmv4nrz, 地址=[/ip4/127.0.0.1/tcp/15536]
+[DEBUG] 创建测试主机: ID=12D3KooWMvg8tZ7R3evCFWEkQ642ELs38yUabRwu1NsXdHpLxhJo, 地址=[/ip4/127.0.0.1/tcp/11309]
+[DEBUG] 创建测试主机: ID=12D3KooWPpgcDdsn9PHMUiBt9kAesiwUQmUMqf32UmaLUXNsoE8X, 地址=[/ip4/127.0.0.1/tcp/11428]
+[DEBUG] 创建测试主机: ID=12D3KooWLD2RWHftXDheZkEid7kDHqfvpoyTLQVLGew1VtNW1x7f, 地址=[/ip4/127.0.0.1/tcp/17177]
+[DEBUG] 创建测试主机: ID=12D3KooWSNCokqDip8QiBg7u7ZGNoq3nQmzLLgKSNprTPh4NiGrh, 地址=[/ip4/127.0.0.1/tcp/13311]
+[DEBUG] 创建测试主机: ID=12D3KooWDuJiWv1G8YyzdG6626LMA9TxF8axhFxgHcmiwY1maxAL, 地址=[/ip4/127.0.0.1/tcp/12159]
+[DEBUG] 创建测试主机: ID=12D3KooWRWGxJoRNGRsoQacp2PrcgZQEnZ6m2VZ9CQoiurhr8Y9W, 地址=[/ip4/127.0.0.1/tcp/20835]
+[DEBUG] 创建测试主机: ID=12D3KooWD6TwXZe2dnBkqMzEpC6JrsAmszVExsLCFfXPPCpTn8wq, 地址=[/ip4/127.0.0.1/tcp/15817]
+[DEBUG] 创建测试主机: ID=12D3KooW9zFHYmUtTss41HjLtyYyj3WmBdpKQaHVCkzkMDk8HE2b, 地址=[/ip4/127.0.0.1/tcp/20728]
+[DEBUG] 创建测试主机: ID=12D3KooWCdTUcKgdiUPLMgiCdDWrg4sgPyVaWGdwG113HArk1S7k, 地址=[/ip4/127.0.0.1/tcp/18069]
+[DEBUG] 创建测试主机: ID=12D3KooWBp5Xs6CiUM1RGk2QZ81dW8QERHJFAqdRWDMFF85JsBhw, 地址=[/ip4/127.0.0.1/tcp/10260]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/177)
+[DEBUG] 主机1: 12D3KooWMm8kKCSAtW1vi1tLmf1QNz5NU8Ussnxsk72Z39mM7AKk 主机2: 12D3KooWN3BVufcfJmhMbtpQ2S9xcQGuHi9BiKFbPdu66etjYnfT
+[DEBUG] 连接对创建成功 (connID=63)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/197)
+[DEBUG] 主机1: 12D3KooWHtkDvx88jVt7eVEYezVKgDqmBqNH8k8TNk69r3zD6Mcp 主机2: 12D3KooWEFjWSpoJj5tuKqJitDyaCKdxYisJSu913AbvtsWyKjsZ
+[DEBUG] 连接对创建成功 (connID=87)
+[DEBUG] 创建测试主机: ID=12D3KooWKw8iDXWSLPbWLtwuiN5vUWh6iTAXUUtshkgDB5txpKTn, 地址=[/ip4/127.0.0.1/tcp/18027]
+[DEBUG] 创建测试主机: ID=12D3KooWLMbLan6FD8yWkd4fFD5rcXKP4guztsSNX4qRmzrPWtns, 地址=[/ip4/127.0.0.1/tcp/17193]
+[DEBUG] 创建测试主机: ID=12D3KooWFH6ba2CuwEu34uFe8bnvDwJjGEmPcNjLzj1TPs2VQu2y, 地址=[/ip4/127.0.0.1/tcp/17418]
+[DEBUG] 创建测试主机: ID=12D3KooWSSSrDPGM5c7Luew2keHC7WLQNhwbEoFTSrYneexqtx6L, 地址=[/ip4/127.0.0.1/tcp/15456]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/727)
+[DEBUG] 主机1: 12D3KooWPEH2vN4mLmomuabb5TrLz3SMjhHkMRrRkSsuQ4W5dH3k 主机2: 12D3KooWNeDsdKuXdrNPyQWEDvWVXyp1E19i7KajXWH56zGGdURk
+[DEBUG] 连接对创建成功 (connID=1)
+[DEBUG] 创建测试主机: ID=12D3KooWG4H7sp4xeZ5Lv4HwDbVLyhbWRSrNmYDKqC7TsK1MKbvq, 地址=[/ip4/127.0.0.1/tcp/10137]
+[DEBUG] 创建测试主机: ID=12D3KooWETENXaMHPy4XvngWa2yCASYnKryi65a6Y1NKkA13pdzu, 地址=[/ip4/127.0.0.1/tcp/14868]
+[DEBUG] 创建测试主机: ID=12D3KooWL53T1zSD8vBzznhCM5TfV6QyC5K5NtU4ASWWRMGGK5LP, 地址=[/ip4/127.0.0.1/tcp/15155]
+[DEBUG] 创建测试主机: ID=12D3KooWFEeTXd4dxPxBNCDYZSKNNRruZ6LW17rfBdriHk2gUgEC, 地址=[/ip4/127.0.0.1/tcp/11424]
+[DEBUG] 创建测试主机: ID=12D3KooWQb3FMBw99AiQ7UC1dZZmJxWeW7Bcd79tzCEBmwhCnM5S, 地址=[/ip4/127.0.0.1/tcp/12619]
+[DEBUG] 创建测试主机: ID=12D3KooWJsaGixH2T6uGNC5Zr5uUJKygcG9ugNuPfthbpJ1wBSvj, 地址=[/ip4/127.0.0.1/tcp/15370]
+[DEBUG] 创建测试主机: ID=12D3KooWRpDr8kM7uftZeyMcfMKWV8PAFT76RjuhbXA6kovmg83F, 地址=[/ip4/127.0.0.1/tcp/11675]
+[DEBUG] 创建测试主机: ID=12D3KooWLaWP6SZEdVu14RRn2rriFRtwinD8SRdytvkCeovZ468T, 地址=[/ip4/127.0.0.1/tcp/19374]
+[DEBUG] 创建测试主机: ID=12D3KooWS42Tv5Yf7H27bdU9EnF5eGEoKx8KK8Qd4As2AuxuN9cZ, 地址=[/ip4/127.0.0.1/tcp/13992]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/830)
+[DEBUG] 主机1: 12D3KooWMkKMuQenLV1LbZCwTezTqVgnQbvbNUWRJtKWNrjE4EoY 主机2: 12D3KooWCpd239mm1xLS5dJvD1jtn3dGXCLYu8zfQNKfSB2yhtJu
+[DEBUG] 连接对创建成功 (connID=27)
+[DEBUG] 创建测试主机: ID=12D3KooWAgxvWfhqDfbY5qyphNcPZmAedu5UkmBG4FfKR4GuRt92, 地址=[/ip4/127.0.0.1/tcp/14153]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/235)
+[DEBUG] 主机1: 12D3KooWQW34iWVJoatuexnNy1jzB5ZtqiGCYoYs6Hm3Nzh32BaD 主机2: 12D3KooWD22s2Y7zEzWrzPRV3tHfdxDmqaAMiPkcALTUdbMNAkBB
+[DEBUG] 连接对创建成功 (connID=76)
+[DEBUG] 创建测试主机: ID=12D3KooWEpK2jfBPMytGrLnTCdtMXoeyKaxnNFgNehriWWgrNT6m, 地址=[/ip4/127.0.0.1/tcp/15765]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/598)
+[DEBUG] 主机1: 12D3KooWFcMYwibD3mtBP1gnuLE363JwKfgs214rwAUuFUPRdZDb 主机2: 12D3KooWRcBsaNQqYvft7RSBRxC7mP63hVd9PcSgQ46jzfvkmaWs
+[DEBUG] 连接对创建成功 (connID=79)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/351)
+[DEBUG] 主机1: 12D3KooWEqUkLfCaz1TZffL9bgvLgnvxAyfADtDGub3wMTdMGRrx 主机2: 12D3KooWDkWdqAosHKPBc4dCM8kkzdfe8R8c22T7PHfoRCA6ywcd
+[DEBUG] 连接对创建成功 (connID=49)
+[DEBUG] 创建测试主机: ID=12D3KooWJCH4wN9XUmVGy97oRYnWD8mikxkV2DVSdz6DpPUQ12BS, 地址=[/ip4/127.0.0.1/tcp/10101]
+[DEBUG] 创建测试主机: ID=12D3KooWDrfA6ZMUpZyTirQcH4UtbiYgSX3iqbL2X1zCuYfLYKEK, 地址=[/ip4/127.0.0.1/tcp/18557]
+[DEBUG] 创建测试主机: ID=12D3KooWMEZURV4ZMdGdrVEXg9HnVaV4wK2s9HQDZcjuMzmgSHYq, 地址=[/ip4/127.0.0.1/tcp/20504]
+[DEBUG] 创建测试主机: ID=12D3KooWKFF5cBTX8AwFsYZRdNTw9wUkfufMvp836nfMJ8e7wggJ, 地址=[/ip4/127.0.0.1/tcp/18770]
+[DEBUG] 创建测试主机: ID=12D3KooWNBVYrKf3XecDL38VimJfq5vh4qGymYJaAw6AFPRBKJio, 地址=[/ip4/127.0.0.1/tcp/11688]
+[DEBUG] 创建测试主机: ID=12D3KooWRNoWwUC9g1DWvEmAe2hwcagFSMWzUcvZ3ZXPjbQPiYC8, 地址=[/ip4/127.0.0.1/tcp/17441]
+[DEBUG] 创建测试主机: ID=12D3KooWSkLLVqs7Afb2avwajAjxCCnwbwojEFxYysedU8mNgUaZ, 地址=[/ip4/127.0.0.1/tcp/16480]
+[DEBUG] 创建测试主机: ID=12D3KooWPsQGH9xSnigzKnWghj3WqQtr5T5F3s7PLQ17G9dwJBbi, 地址=[/ip4/127.0.0.1/tcp/12165]
+[DEBUG] 创建测试主机: ID=12D3KooWLVMR336qkB3zFidsabqhA1pubYFw2r5Ds858qWfBmPLz, 地址=[/ip4/127.0.0.1/tcp/10844]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/974)
+[DEBUG] 主机1: 12D3KooWLbgyGXzVfnZAUxfUxWsnHLKk35cFgAHVSme7YvEWGd66 主机2: 12D3KooWJZKeYtBYYiSqw7gAjLFVgWkuHAXk1qoCn1thascsfvEn
+[DEBUG] 连接对创建成功 (connID=69)
+[DEBUG] 创建测试主机: ID=12D3KooWGcRYJCmjKSBRoNSDhLpapsNMBQj7HU9gRd9cHwJ2nVbG, 地址=[/ip4/127.0.0.1/tcp/17764]
+[DEBUG] 创建测试主机: ID=12D3KooWES4A5Gxu3gwZQikNDFJMcKewcMUzHpChYyLKnjGdULun, 地址=[/ip4/127.0.0.1/tcp/13197]
+[DEBUG] 创建测试主机: ID=12D3KooWP3i3LT6bt9pzae8vSzk4jYQbReqRCwm3SpD5gfekghZY, 地址=[/ip4/127.0.0.1/tcp/11890]
+[DEBUG] 创建测试主机: ID=12D3KooWSE7Qj5rGXix5kZqXyusAbQiCehr9HXNjtRckzCBWt2FD, 地址=[/ip4/127.0.0.1/tcp/10382]
+[DEBUG] 创建测试主机: ID=12D3KooWMuUVkQcezaAEXWL95oBj18Suj38AubxgmpkUcda6VVfT, 地址=[/ip4/127.0.0.1/tcp/13347]
+[DEBUG] 创建测试主机: ID=12D3KooWAkBbnFDBDVWfgy6Drj9RfrG1gFLYvJ2X696CakgcyDi5, 地址=[/ip4/127.0.0.1/tcp/19340]
+[DEBUG] 创建测试主机: ID=12D3KooWCVpEQjauRYBSrVj4dzZzQuppzGm5oLDxgvgeBNvNijkV, 地址=[/ip4/127.0.0.1/tcp/11699]
+[DEBUG] 创建测试主机: ID=12D3KooWBtx7DP5DugBe6dC97VCs3QPi8rvcK5vQWU5h3CV7hKUg, 地址=[/ip4/127.0.0.1/tcp/14906]
+[DEBUG] 创建测试主机: ID=12D3KooWC3L7UpZyvBhQtZUreELReqKCRR9AjxVm57prpSGDoXXZ, 地址=[/ip4/127.0.0.1/tcp/16270]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/689)
+[DEBUG] 主机1: 12D3KooWQh7AEoa2DkKfZGvTjVWontvZbvm7QT4DnTNW67NFmDiy 主机2: 12D3KooWHiHG7X7Bw9qZwdQx2WJejsqTHBQx9rpPijEcU3C2dY7z
+[DEBUG] 连接对创建成功 (connID=62)
+[DEBUG] 创建测试主机: ID=12D3KooWP9B4iBza188zWVLVAivEZc3WhtNjvM8oM5NcSPLa44Qx, 地址=[/ip4/127.0.0.1/tcp/12415]
+[DEBUG] 创建测试主机: ID=12D3KooWKkYDknZtrmU5FkDM4qAudi18ZeqywFQUmpEZKxjJ7qJf, 地址=[/ip4/127.0.0.1/tcp/12942]
+[DEBUG] 创建测试主机: ID=12D3KooWL72NgF1xEkBsLHWs7aELS2NgYTn11p71pTfoLxsQDpLw, 地址=[/ip4/127.0.0.1/tcp/11505]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/120)
+[DEBUG] 主机1: 12D3KooWMApBBG8ADPAdRRdV6nbpXWvgGSeF6c2yL5TzUzUXyPns 主机2: 12D3KooWNoT4MuW59GeXzmU1BZ8UMTRGbwVfPpEK1yLMHHDj2j6i
+[DEBUG] 连接对创建成功 (connID=10)
+[DEBUG] 创建测试主机: ID=12D3KooWPiqnwiSNuD3W4TnGMHzcZiVs71nmJHrgPV42rTWuQrUt, 地址=[/ip4/127.0.0.1/tcp/17813]
+[DEBUG] 创建测试主机: ID=12D3KooWCspr452S4TJStLDqfyChnk7JEyguVRngxYArKK21i1ep, 地址=[/ip4/127.0.0.1/tcp/13537]
+[DEBUG] 创建测试主机: ID=12D3KooWAygWNkWoZiTSd2haHHxVE5Rex8k4tySnfsyhZkNFFRr8, 地址=[/ip4/127.0.0.1/tcp/10594]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/387)
+[DEBUG] 主机1: 12D3KooWBnjDbejcUQgwhus5yg5iTfsEbc71SvQPZZ9KBLuvHXo5 主机2: 12D3KooWLjistRjEpfeknWYJtKmufdnrYhmaxCFY1KtCxtX4cCVG
+[DEBUG] 连接对创建成功 (connID=58)
+[DEBUG] 创建测试主机: ID=12D3KooWKaVveLVpLG4boXpm8ezeroy5pv6v6WFdXjU1BxZ6tkwY, 地址=[/ip4/127.0.0.1/tcp/15924]
+[DEBUG] 创建测试主机: ID=12D3KooWLUWNKQ9x8893gp4cingGmmq9gz2UXSnMvEUsyC6JHtnH, 地址=[/ip4/127.0.0.1/tcp/17923]
+[DEBUG] 创建测试主机: ID=12D3KooWDRw23dX86hjKQmjVjtny3bLuvNQvXGTqzVkzyp5Tja6z, 地址=[/ip4/127.0.0.1/tcp/16019]
+[DEBUG] 创建测试主机: ID=12D3KooWH3KLArscqiH4CfRb9bnjrdoKCXvJQz35hLdZPNoSgf8G, 地址=[/ip4/127.0.0.1/tcp/13961]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/967)
+[DEBUG] 主机1: 12D3KooWAjvaAxFs2NQ4S3f2WRFxafmzTGN5wN8EqmBqonieKYNp 主机2: 12D3KooWHHaX7LcTSPC1mP4d9Q59ZcmzR4wqzEgjRF9VJS9euYbU
+[DEBUG] 连接对创建成功 (connID=52)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/449)
+[DEBUG] 主机1: 12D3KooWHKEbNQ97UD7aKXC37yJk9gCapqoZFgbS94Kredrghgyy 主机2: 12D3KooWA3FWdpFUrzj8UtGMSrWMGKfWLzmDYNTcWh3xWPajzqox
+[DEBUG] 连接对创建成功 (connID=95)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/652)
+[DEBUG] 主机1: 12D3KooWDVUZeaZSQaTzDroyzxiJtkGz8DhWeDsx6aZdC1JeCUfC 主机2: 12D3KooWMnSegtAxB67D13fNWM1g3tLhsXN7UvqpSoYacVWFLUFb
+[DEBUG] 连接对创建成功 (connID=83)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/452)
+[DEBUG] 主机1: 12D3KooWMkac5bKbhdhN2yudmnMKix3LTWz7nY6cvJ2SHgLpvUVP 主机2: 12D3KooWPrzpJAtdNXKJ5ovXQpn52VLEVvWJA377hte9thvjZYnn
+[DEBUG] 连接对创建成功 (connID=26)
+[DEBUG] 创建测试主机: ID=12D3KooWJVWqTnY6BgLydGasQseVxdhP7sh4v2eXtBRLop1t5aNr, 地址=[/ip4/127.0.0.1/tcp/17042]
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/937)
+[DEBUG] 主机1: 12D3KooWApsp73mJHuzgJUjRGMHs2P8kKANT6sq3sCva5SLBRQVF 主机2: 12D3KooWBBzcotn4ykBdggYMEFGx4f9D5yNJRHHH9ayLt6FsMmBX
+[DEBUG] 连接对创建成功 (connID=80)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooW9qv5StxUvaQBcjemw82i4brBufLvqp2g2KMtNDzi79WJ, 地址=[/ip4/127.0.0.1/tcp/16696]
+[DEBUG] 创建测试主机: ID=12D3KooWKB3quCW62akt8Qt148KhvaiyBM67eemkoKLPnAgvuJ7r, 地址=[/ip4/127.0.0.1/tcp/12685]
+[DEBUG] 创建测试主机: ID=12D3KooWBdymG3RWrxe88UYFLP6eW5CgaYae7ESNkL1dNAv4vA6g, 地址=[/ip4/127.0.0.1/tcp/13000]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/319)
+[DEBUG] 主机1: 12D3KooWBJqJrf8ibW3e2YZAwpyWVcvB5DySKdYUq6Mp8saK5U2V 主机2: 12D3KooWMWVAggn1NMeh5T7umuFoRVYg4xxiuTDQECaXDEpST3mN
+[DEBUG] 连接对创建成功 (connID=7)
+[DEBUG] 创建测试主机: ID=12D3KooWBRK9oWDnEMbYXD4R9bsYQj4PjcZ1C4W6H2fdEqGLp7Ev, 地址=[/ip4/127.0.0.1/tcp/17221]
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 主机连接尝试失败，但这可能不是问题: 拨号 12D3KooWLpZgBDiDcT5LXVu6hvbCXkXCAbKrnYMrfAebRKEFGdfs 失败: 所有拨号失败
+  * [/ip4/127.0.0.1/tcp/11654] 对等节点ID不匹配: 期望 12D3KooWLpZgBDiDcT5LXVu6hvbCXkXCAbKrnYMrfAebRKEFGdfs, 但远程密钥匹配 12D3KooWED35CtMPnBoWaemeMo6E1326Z5y5tv2AuWa7hPKZvJiG
+[DEBUG] 创建测试主机: ID=12D3KooWRb5dULDVpRbbPQGm42FfsK5WQ78LJN8mWSeoTwpF6R1r, 地址=[/ip4/127.0.0.1/tcp/15339]
+[DEBUG] 创建测试主机: ID=12D3KooWMT15BqBFDzzp1kjhPCitL7MuktTcth4FzR4APiZrxTrn, 地址=[/ip4/127.0.0.1/tcp/11806]
+[DEBUG] 创建测试主机: ID=12D3KooW9ukazz6xgF61vp9dLuznox2hiNs4oQZRbKmL3HjWqC9C, 地址=[/ip4/127.0.0.1/tcp/18724]
+[DEBUG] 创建测试主机: ID=12D3KooWBfykA2dZDDRGUy9EvWCuJ4Mw43362BW3Cx7zMKd5bUnV, 地址=[/ip4/127.0.0.1/tcp/10302]
+[DEBUG] 创建测试主机: ID=12D3KooW9vA3gubUkpj286nDPuourDBDSjbypcEFSk5qCHfQ23N1, 地址=[/ip4/127.0.0.1/tcp/15541]
+[DEBUG] 创建测试主机: ID=12D3KooWPkUgbXBeGYnHKPUHBXTbCiQLkyg7ubZW14xtV8gfCb6t, 地址=[/ip4/127.0.0.1/tcp/20671]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/247)
+[DEBUG] 主机1: 12D3KooWG8UKEvafNLJL9mihetw3CxPsdef88afgonnQBU4X5Crf 主机2: 12D3KooWJmFcEjDo8eQivzQb4chWECJcccQCvZ1TwLEijSbjwybp
+[DEBUG] 连接对创建成功 (connID=67)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNWtS4943WWm7LdSeMptUyp9hn7EtBXuejeyx6ECw7Xnn, 地址=[/ip4/127.0.0.1/tcp/15863]
+[DEBUG] 创建测试主机: ID=12D3KooWRxmF9aexULb64SLURj7qwUybqDRdSiZJYakhnK73RTxt, 地址=[/ip4/127.0.0.1/tcp/18710]
+[DEBUG] 创建测试主机: ID=12D3KooWHxg6tPrC9a1WjcrMRTgL1BHh8yQdAhSMSkmXprRfaa6y, 地址=[/ip4/127.0.0.1/tcp/11359]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/870)
+[DEBUG] 主机1: 12D3KooWSfwhRxXGJw6aczWFqptASX9mL9Uz3VT644Lhi7R2hFkE 主机2: 12D3KooWG9yGDTHvcHFQeqAaqxZ7h1WkKujXCD4JxQCNmNfuqRSh
+[DEBUG] 连接对创建成功 (connID=47)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGzFhtXg8yeAXTphd1Me6a8RrsrE7G4AyXV21mGNcNihf, 地址=[/ip4/127.0.0.1/tcp/13172]
+[DEBUG] 创建测试主机: ID=12D3KooWBGN1aRzFynyxEH8nfHyAmU8CGvavxpjpss3YpLtjAjPS, 地址=[/ip4/127.0.0.1/tcp/13624]
+[DEBUG] 创建测试主机: ID=12D3KooWQjr6DmhXsSaWMrKDnBwshFP7GT9Rg2vC9SP4yb6dEa7U, 地址=[/ip4/127.0.0.1/tcp/18145]
+[DEBUG] 创建测试主机: ID=12D3KooWJu28dSb8NJVzfmBHscoeDYXjLwoJqtc3xAtrNE9DHkqb, 地址=[/ip4/127.0.0.1/tcp/13329]
+[DEBUG] 创建测试主机: ID=12D3KooWEBsAa5zN9VMq5d1eHwz1knM5gTrWVuhMoUGPSHta6svc, 地址=[/ip4/127.0.0.1/tcp/17595]
+[DEBUG] 创建测试主机: ID=12D3KooWGTd43UvTTseZ3tsP65e5A8qx3U4h8TaUeBcRZwMKd5b4, 地址=[/ip4/127.0.0.1/tcp/13697]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/558)
+[DEBUG] 主机1: 12D3KooWKFbm3XSUf13ZXYUFAwMgKeif9cUrrjBUQRxMSEipH2fQ 主机2: 12D3KooWL536gy6mo9Y4gNFMGKY24NvWCxBwBfqJjg38NSsN3CiZ
+[DEBUG] 连接对创建成功 (connID=44)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKWwZ53gg6ooeUnKZtx1X3XEE7FLqK2VGqYyhJNsRx7RE, 地址=[/ip4/127.0.0.1/tcp/18855]
+[DEBUG] 创建测试主机: ID=12D3KooWFGtvJebFZtzbVJ999Xf5XaNJfpxSzNC71uBqnrRgZmEW, 地址=[/ip4/127.0.0.1/tcp/13242]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/700)
+[DEBUG] 主机1: 12D3KooWED35CtMPnBoWaemeMo6E1326Z5y5tv2AuWa7hPKZvJiG 主机2: 12D3KooWPdeD4A8sPWn4TTBsGDhTLT7h82Pdj444qQx3PWdzCnjt
+[DEBUG] 连接对创建成功 (connID=45)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/605)
+[DEBUG] 主机1: 12D3KooWS7tmEjnc2Mb5c2NJUPkyTC6Tenx8NDzEkHkePcrtB5zk 主机2: 12D3KooWSdxLEDPmYPJw2F6ynG7C2kLJLXpiyvqF57b6Ko9n8Fmc
+[DEBUG] 连接对创建成功 (connID=78)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/571)
+[DEBUG] 主机1: 12D3KooWJAheyoETqq2ScXrqhtCxbunX11bFvxmxdnk4hjyg8Bke 主机2: 12D3KooWQnJtanoLy8kyzoqzJsdyAifNJyT4Y88M4KazH6A5Koxc
+[DEBUG] 连接对创建成功 (connID=48)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/282)
+[DEBUG] 主机1: 12D3KooWQQHmB2kaax4MXrJtdpH7aFvcw1ZQyrQc49NxkJwXnr4j 主机2: 12D3KooWLD2RWHftXDheZkEid7kDHqfvpoyTLQVLGew1VtNW1x7f
+[DEBUG] 连接对创建成功 (connID=21)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/525)
+[DEBUG] 主机1: 12D3KooWRKoiP8aHKd6EYTaWg5GhmwaygXrxvN3XLMxLgLVFZCUe 主机2: 12D3KooWChRVXooM17V22qv1ppQH29RBv8bWq2NaCd2naWfF9hMs
+[DEBUG] 连接对创建成功 (connID=25)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/161)
+[DEBUG] 主机1: 12D3KooWDsJhikH94qet1q5TRih1X3Zy69nCCuq1aCCYbYF8UerM 主机2: 12D3KooWMvg8tZ7R3evCFWEkQ642ELs38yUabRwu1NsXdHpLxhJo
+[DEBUG] 连接对创建成功 (connID=57)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/972)
+[DEBUG] 主机1: 12D3KooWHnL8s6Zd3gYGPAfiEr4LWrLH4oevXiSiUxmHD1rbC9na 主机2: 12D3KooWLaQs8J1Zy1TMwCAddHgxzyqsZ78DzFj4g2vtKpf3DaWr
+[DEBUG] 连接对创建成功 (connID=31)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJPHwPVa7VDi7Q7GC6X4eQmWo2zRZoGgmo3derEXoZQCn, 地址=[/ip4/127.0.0.1/tcp/17532]
+[DEBUG] 创建测试主机: ID=12D3KooWPRJC4u1hpfAmVPhTre8cGdf9JRb4Q689Mhx16cDr4wsv, 地址=[/ip4/127.0.0.1/tcp/19946]
+[DEBUG] 创建测试主机: ID=12D3KooWKY8bNuh5Cx4qFmZFSGZpG1XM8XPx1fRbmA1ZkcpdxxaF, 地址=[/ip4/127.0.0.1/tcp/14615]
+[DEBUG] 创建测试主机: ID=12D3KooWNyeh9LPZgP5LUnCVwKLVyU4XiHd44tR9HfTaX9X3vJZv, 地址=[/ip4/127.0.0.1/tcp/15692]
+[DEBUG] 创建测试主机: ID=12D3KooWFkT8unt8gdrMBjyQpSExZUsUngBx3yt6rXY7wW7Ggb3J, 地址=[/ip4/127.0.0.1/tcp/11648]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/713)
+[DEBUG] 主机1: 12D3KooWFJLi9SCcHqkzuZc21Tb4QVoM4zL7fQSY3F5E7doF7TDQ 主机2: 12D3KooWSNCokqDip8QiBg7u7ZGNoq3nQmzLLgKSNprTPh4NiGrh
+[DEBUG] 连接对创建成功 (connID=8)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/415)
+[DEBUG] 主机1: 12D3KooWT1nEii77gFSCdAoYmSvWTgo17YXnWJyYwJwCt7VqB9oo 主机2: 12D3KooWDuJiWv1G8YyzdG6626LMA9TxF8axhFxgHcmiwY1maxAL
+[DEBUG] 连接对创建成功 (connID=16)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPpuAjiLShmCmoML8UeaiwuwootwEVyJWWmEYRgwCn93T, 地址=[/ip4/127.0.0.1/tcp/14878]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/298)
+[DEBUG] 主机1: 12D3KooWNawVGY6pfpS4MYDdu35x7JW6v3VP6yWWjswCbYGsUBdm 主机2: 12D3KooW9zFHYmUtTss41HjLtyYyj3WmBdpKQaHVCkzkMDk8HE2b
+[DEBUG] 连接对创建成功 (connID=56)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/72)
+[DEBUG] 主机1: 12D3KooWFw3X394ZBimp7S654zxY5gVDmWcxJ5hHPbAHE7sg5r7C 主机2: 12D3KooWRWGxJoRNGRsoQacp2PrcgZQEnZ6m2VZ9CQoiurhr8Y9W
+[DEBUG] 连接对创建成功 (connID=64)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGcepgwThKHWwKEwqrYtxMccWarv7nV3DHu1p4xwsrGTd, 地址=[/ip4/127.0.0.1/tcp/13153]
+[DEBUG] 创建测试主机: ID=12D3KooWBbJbCUWxT93vxqBGgFAMpgiGfjWZVDZB7fsDFQdZkRKX, 地址=[/ip4/127.0.0.1/tcp/13984]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/819)
+[DEBUG] 主机1: 12D3KooWHKVepho3PBvF9bWdJDQkUb6gKfcFeVnNHT4UqNeFZDXB 主机2: 12D3KooWKnZtbhYazGhoGUXF9x1FLijoM5f4L1K3yeGArdRdYwJz
+[DEBUG] 连接对创建成功 (connID=11)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAVHSMzjnk7cZyooPRNiWDgoDoPnRymLeooUSMQH3MD4o, 地址=[/ip4/127.0.0.1/tcp/12148]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/682)
+[DEBUG] 主机1: 12D3KooWJvv2aVUovownJJM5MzghRUPZUb1AxLj7wtDXJkYkiZYs 主机2: 12D3KooWLMbLan6FD8yWkd4fFD5rcXKP4guztsSNX4qRmzrPWtns
+[DEBUG] 连接对创建成功 (connID=55)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/851)
+[DEBUG] 主机1: 12D3KooWAFfMdz7bJvqi64gK7CLzDi9YKpoKWT8ioZywdxRFV3Uv 主机2: 12D3KooWETENXaMHPy4XvngWa2yCASYnKryi65a6Y1NKkA13pdzu
+[DEBUG] 连接对创建成功 (connID=46)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRLubFq6ouPE6kQPsTGb69Q3UZK5AJswcb8WpmhMTd67X, 地址=[/ip4/127.0.0.1/tcp/15018]
+[DEBUG] 创建测试主机: ID=12D3KooWGcvMaJoLprnCGHyZX3qtc6sdRjbxmVgTSjndrHXr66Q9, 地址=[/ip4/127.0.0.1/tcp/16808]
+[DEBUG] 创建测试主机: ID=12D3KooWDtywnT3GU2eiHYMyHpVgwTgLGCKNdpzQn4WG5rFHgGiq, 地址=[/ip4/127.0.0.1/tcp/13278]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/317)
+[DEBUG] 主机1: 12D3KooWJb1WasaCfWAyQZkevUhxtShTXnhAEfZaGtQR6ebo7hkC 主机2: 12D3KooWSSSrDPGM5c7Luew2keHC7WLQNhwbEoFTSrYneexqtx6L
+[DEBUG] 连接对创建成功 (connID=71)
+[DEBUG] 创建测试主机: ID=12D3KooWGBn1RZiETcnYJnvYCAzJcLKHtYR28E3sR8JJuUthBzUZ, 地址=[/ip4/127.0.0.1/tcp/18705]
+[DEBUG] 创建测试主机: ID=12D3KooWQ7TWT2CaCs28vqSGSf8F6rTRhhyB3PVjtpnHrpsMWzib, 地址=[/ip4/127.0.0.1/tcp/14367]
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGLcCuYKK7cdsgqTzkVSBHt8R9DRw2crq56K3XTBKLZFo, 地址=[/ip4/127.0.0.1/tcp/12365]
+[DEBUG] 创建测试主机: ID=12D3KooWNZQLaUsFgE4AW6f5skGmg5KFyGb6j3irKm3UV8nramqb, 地址=[/ip4/127.0.0.1/tcp/11232]
+[DEBUG] 创建测试主机: ID=12D3KooWEM9KgTvWgpvep3Y3G3VydQUJskQhU1bPrhVuExji3gjV, 地址=[/ip4/127.0.0.1/tcp/17431]
+[DEBUG] 创建测试主机: ID=12D3KooWCZ5atYevszxytVP2m3LueTLtUKfEgDP4HT5Ypdp6tX9e, 地址=[/ip4/127.0.0.1/tcp/20420]
+[DEBUG] 创建测试主机: ID=12D3KooWHZj55zm39CVE1A9eVVYNpzR9mMDcBfJhZBRAMsoAJ8GS, 地址=[/ip4/127.0.0.1/tcp/20281]
+[DEBUG] 创建测试主机: ID=12D3KooWQ38EDi5UaGkkvPr2zQ65hqGQUzUwVLQBDBkgbfxmwA81, 地址=[/ip4/127.0.0.1/tcp/18190]
+[DEBUG] 创建测试主机: ID=12D3KooWMdfvwtZUt4oW5de2FdPvkDZjVZ4eoQgof4oa6iur6Yae, 地址=[/ip4/127.0.0.1/tcp/16718]
+[DEBUG] 创建测试主机: ID=12D3KooWQEkE7DXZeY7tV86edXPiZMD4iqC7mpNaRyt644n99zTx, 地址=[/ip4/127.0.0.1/tcp/13115]
+[DEBUG] 创建测试主机: ID=12D3KooWDrbfRRaU7nEyc8kvFi2EjrgwdvGdeATQSFhvzqZ2T91E, 地址=[/ip4/127.0.0.1/tcp/12819]
+[DEBUG] 创建测试主机: ID=12D3KooWD4ynUo65LLGzVtajU9k7cF87aoawZSR8PvTiwaKyJcw8, 地址=[/ip4/127.0.0.1/tcp/12082]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/149)
+[DEBUG] 主机1: 12D3KooWPpgcDdsn9PHMUiBt9kAesiwUQmUMqf32UmaLUXNsoE8X 主机2: 12D3KooWQb3FMBw99AiQ7UC1dZZmJxWeW7Bcd79tzCEBmwhCnM5S
+[DEBUG] 连接对创建成功 (connID=35)
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQKtAR92ohfd2fWNshzoRgXvNMbuxN2DLUwDmK7oQeFUZ, 地址=[/ip4/127.0.0.1/tcp/15963]
+[DEBUG] 创建测试主机: ID=12D3KooWQNQhD8bhECZT9FywG1LyFLT4ViP9zbU1HemTEhJBog9G, 地址=[/ip4/127.0.0.1/tcp/19544]
+[DEBUG] 创建测试主机: ID=12D3KooWF7dZUmmSLXYVHVrHs7L1ndmGpbbBrtRpF1m8XcAwXdbU, 地址=[/ip4/127.0.0.1/tcp/13730]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/286)
+[DEBUG] 主机1: 12D3KooWApYYiaPR5iHnA3c59tCdkvYraP4sKxhn2vrggk3aTrSf 主机2: 12D3KooWJsaGixH2T6uGNC5Zr5uUJKygcG9ugNuPfthbpJ1wBSvj
+[DEBUG] 连接对创建成功 (connID=74)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/321)
+[DEBUG] 主机1: 12D3KooWFPE8n7zswFUefhJwT47MWhgbf9FawjEpih3ruCTNYzN5 主机2: 12D3KooWLaWP6SZEdVu14RRn2rriFRtwinD8SRdytvkCeovZ468T
+[DEBUG] 连接对创建成功 (connID=96)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/975)
+[DEBUG] 主机1: 12D3KooWFLm6UzFGVodcgMaiV8C1VHDkbv32KZqG1B2LHepuSyiq 主机2: 12D3KooWRpDr8kM7uftZeyMcfMKWV8PAFT76RjuhbXA6kovmg83F
+[DEBUG] 连接对创建成功 (connID=61)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/40)
+[DEBUG] 主机1: 12D3KooWEKwChv2kDYo5Xo4REjxJ5B2oWmyKA5XjwU6gVgz6Xmcb 主机2: 12D3KooWS42Tv5Yf7H27bdU9EnF5eGEoKx8KK8Qd4As2AuxuN9cZ
+[DEBUG] 连接对创建成功 (connID=9)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/965)
+[DEBUG] 主机1: 12D3KooWPNyumfmAfcFaF7GNCQWpKHS53iuEgBa7WtRWoCyjZ4cM 主机2: 12D3KooWEpK2jfBPMytGrLnTCdtMXoeyKaxnNFgNehriWWgrNT6m
+[DEBUG] 连接对创建成功 (connID=30)
+[DEBUG] 创建测试主机: ID=12D3KooWRVPPVGYc5W8UtrNk9RZ5UZCsGWCBNbKWxL8GFWXitHws, 地址=[/ip4/127.0.0.1/tcp/16553]
+[DEBUG] 创建测试主机: ID=12D3KooWJnE2j8vtcyPzzVuBowwUXnQAUaTWyZhRgPiLWYPFYJPs, 地址=[/ip4/127.0.0.1/tcp/19712]
+[DEBUG] 正在关闭连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGDPyj2xjv1wZGkwcssNnSRdVFhseXDBa7Y3NsJ39juTz, 地址=[/ip4/127.0.0.1/tcp/12213]
+[DEBUG] 创建测试主机: ID=12D3KooWH3J9tbbh7tFV8c4BceNHtRxoa3ZqQh8s7xEEYmvFdSwG, 地址=[/ip4/127.0.0.1/tcp/21168]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/423)
+[DEBUG] 主机1: 12D3KooWQay9BCMYx3rKembKxi6mD5XBqPovLkBUGgocZtufDQQ1 主机2: 12D3KooWRNoWwUC9g1DWvEmAe2hwcagFSMWzUcvZ3ZXPjbQPiYC8
+[DEBUG] 连接对创建成功 (connID=84)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/277)
+[DEBUG] 主机1: 12D3KooWQAPxk7SvbKN8v5SNEDn87tViBFeCaBVu6NvDoi8gTXYF 主机2: 12D3KooWMEZURV4ZMdGdrVEXg9HnVaV4wK2s9HQDZcjuMzmgSHYq
+[DEBUG] 连接对创建成功 (connID=77)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/516)
+[DEBUG] 主机1: 12D3KooWDp7h5LeYpXgMH6wPq1VwMP5EpH5Rxg7imGJNaGUzNF2q 主机2: 12D3KooWKFF5cBTX8AwFsYZRdNTw9wUkfufMvp836nfMJ8e7wggJ
+[DEBUG] 连接对创建成功 (connID=3)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/844)
+[DEBUG] 主机1: 12D3KooWCEviJc28tDsSdxJRkUAaBRz9xRBqC5bY5pJYthyMd21S 主机2: 12D3KooWPsQGH9xSnigzKnWghj3WqQtr5T5F3s7PLQ17G9dwJBbi
+[DEBUG] 连接对创建成功 (connID=5)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/201)
+[DEBUG] 主机1: 12D3KooWSkLLVqs7Afb2avwajAjxCCnwbwojEFxYysedU8mNgUaZ 主机2: 12D3KooWGcRYJCmjKSBRoNSDhLpapsNMBQj7HU9gRd9cHwJ2nVbG
+[DEBUG] 连接对创建成功 (connID=94)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/433)
+[DEBUG] 主机1: 12D3KooWM67Ez8HsmVYjNNzgzqq9ruCVPULMC2gC8ajUw4oHbpup 主机2: 12D3KooWES4A5Gxu3gwZQikNDFJMcKewcMUzHpChYyLKnjGdULun
+[DEBUG] 连接对创建成功 (connID=90)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/336)
+[DEBUG] 主机1: 12D3KooWCdTUcKgdiUPLMgiCdDWrg4sgPyVaWGdwG113HArk1S7k 主机2: 12D3KooWAkBbnFDBDVWfgy6Drj9RfrG1gFLYvJ2X696CakgcyDi5
+[DEBUG] 连接对创建成功 (connID=86)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/937)
+[DEBUG] 主机1: 12D3KooWG4H7sp4xeZ5Lv4HwDbVLyhbWRSrNmYDKqC7TsK1MKbvq 主机2: 12D3KooWCVpEQjauRYBSrVj4dzZzQuppzGm5oLDxgvgeBNvNijkV
+[DEBUG] 连接对创建成功 (connID=89)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/8)
+[DEBUG] 主机1: 12D3KooWSE7Qj5rGXix5kZqXyusAbQiCehr9HXNjtRckzCBWt2FD 主机2: 12D3KooWL72NgF1xEkBsLHWs7aELS2NgYTn11p71pTfoLxsQDpLw
+[DEBUG] 连接对创建成功 (connID=42)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/0)
+[DEBUG] 主机1: 12D3KooWD6TwXZe2dnBkqMzEpC6JrsAmszVExsLCFfXPPCpTn8wq 主机2: 12D3KooWPiqnwiSNuD3W4TnGMHzcZiVs71nmJHrgPV42rTWuQrUt
+[DEBUG] 连接对创建成功 (connID=73)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/967)
+[DEBUG] 主机1: 12D3KooWHfi8WR9fGRKF4apQg2LZ2UkY8AZcAQhs94tZsCqhtW9U 主机2: 12D3KooWP9B4iBza188zWVLVAivEZc3WhtNjvM8oM5NcSPLa44Qx
+[DEBUG] 连接对创建成功 (connID=15)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/667)
+[DEBUG] 主机1: 12D3KooWJrh8TAgHmbiTNgdfDnRPgnMFsvpfFcumvUVgNupXhwmV 主机2: 12D3KooWCspr452S4TJStLDqfyChnk7JEyguVRngxYArKK21i1ep
+[DEBUG] 连接对创建成功 (connID=20)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/734)
+[DEBUG] 主机1: 12D3KooWCzoAjryE8JkXoMHWsdFXancw8QGA2xHqqo1W4aM4BnkS 主机2: 12D3KooWLUWNKQ9x8893gp4cingGmmq9gz2UXSnMvEUsyC6JHtnH
+[DEBUG] 连接对创建成功 (connID=38)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/431)
+[DEBUG] 主机1: 12D3KooWKkYDknZtrmU5FkDM4qAudi18ZeqywFQUmpEZKxjJ7qJf 主机2: 12D3KooWH3KLArscqiH4CfRb9bnjrdoKCXvJQz35hLdZPNoSgf8G
+[DEBUG] 连接对创建成功 (connID=24)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/970)
+[DEBUG] 主机1: 12D3KooWAgxvWfhqDfbY5qyphNcPZmAedu5UkmBG4FfKR4GuRt92 主机2: 12D3KooWDRw23dX86hjKQmjVjtny3bLuvNQvXGTqzVkzyp5Tja6z
+[DEBUG] 连接对创建成功 (connID=97)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/756)
+[DEBUG] 主机1: 12D3KooWAo1ZQkusZydteXqv6f39TLmmzNYEyHMxbiEuubBBGSX5 主机2: 12D3KooW9vA3gubUkpj286nDPuourDBDSjbypcEFSk5qCHfQ23N1
+[DEBUG] 连接对创建成功 (connID=59)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/331)
+[DEBUG] 主机1: 12D3KooWE1jTa3ErkKKPnXWy7tqAvkgjwM1dgmhgZBPUwj2cCDkw 主机2: 12D3KooWRb5dULDVpRbbPQGm42FfsK5WQ78LJN8mWSeoTwpF6R1r
+[DEBUG] 连接对创建成功 (connID=81)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/248)
+[DEBUG] 主机1: 12D3KooWJVWqTnY6BgLydGasQseVxdhP7sh4v2eXtBRLop1t5aNr 主机2: 12D3KooW9ukazz6xgF61vp9dLuznox2hiNs4oQZRbKmL3HjWqC9C
+[DEBUG] 连接对创建成功 (connID=53)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/701)
+[DEBUG] 主机1: 12D3KooWK5WTn1oNHY47iEa2LpBt67R1LiCkFkGcJ5iuoqM1NuHG 主机2: 12D3KooWNWtS4943WWm7LdSeMptUyp9hn7EtBXuejeyx6ECw7Xnn
+[DEBUG] 连接对创建成功 (connID=68)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/540)
+[DEBUG] 主机1: 12D3KooWFKuabS8tWwRqF56G1p7NSVEHWvsAc5jhazxQoXAC4ByC 主机2: 12D3KooWPkUgbXBeGYnHKPUHBXTbCiQLkyg7ubZW14xtV8gfCb6t
+[DEBUG] 连接对创建成功 (connID=66)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/277)
+[DEBUG] 主机1: 12D3KooWNr8BgjK39AQkZ2DJM16VT9mEd8LSXESGan8rH8W2ATxz 主机2: 12D3KooWRxmF9aexULb64SLURj7qwUybqDRdSiZJYakhnK73RTxt
+[DEBUG] 连接对创建成功 (connID=93)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/695)
+[DEBUG] 主机1: 12D3KooWMUHXLRqoQ318LRLaJzn2ZLg2JjW2YDrDopTfLKmv4nrz 主机2: 12D3KooWBRK9oWDnEMbYXD4R9bsYQj4PjcZ1C4W6H2fdEqGLp7Ev
+[DEBUG] 连接对创建成功 (connID=4)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/183)
+[DEBUG] 主机1: 12D3KooWKaVveLVpLG4boXpm8ezeroy5pv6v6WFdXjU1BxZ6tkwY 主机2: 12D3KooWEBsAa5zN9VMq5d1eHwz1knM5gTrWVuhMoUGPSHta6svc
+[DEBUG] 连接对创建成功 (connID=75)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/502)
+[DEBUG] 主机1: 12D3KooWP3i3LT6bt9pzae8vSzk4jYQbReqRCwm3SpD5gfekghZY 主机2: 12D3KooWGzFhtXg8yeAXTphd1Me6a8RrsrE7G4AyXV21mGNcNihf
+[DEBUG] 连接对创建成功 (connID=54)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/349)
+[DEBUG] 主机1: 12D3KooWFH6ba2CuwEu34uFe8bnvDwJjGEmPcNjLzj1TPs2VQu2y 主机2: 12D3KooWKWwZ53gg6ooeUnKZtx1X3XEE7FLqK2VGqYyhJNsRx7RE
+[DEBUG] 连接对创建成功 (connID=65)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/509)
+[DEBUG] 主机1: 12D3KooWMT15BqBFDzzp1kjhPCitL7MuktTcth4FzR4APiZrxTrn 主机2: 12D3KooWBGN1aRzFynyxEH8nfHyAmU8CGvavxpjpss3YpLtjAjPS
+[DEBUG] 连接对创建成功 (connID=23)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/114)
+[DEBUG] 主机1: 12D3KooWNEQYzicNxxzfwoL4g4sXBn2kBtJAw8Fv2nLLQuvE8cw6 主机2: 12D3KooWKY8bNuh5Cx4qFmZFSGZpG1XM8XPx1fRbmA1ZkcpdxxaF
+[DEBUG] 连接对创建成功 (connID=51)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/921)
+[DEBUG] 主机1: 12D3KooWAygWNkWoZiTSd2haHHxVE5Rex8k4tySnfsyhZkNFFRr8 主机2: 12D3KooWFkT8unt8gdrMBjyQpSExZUsUngBx3yt6rXY7wW7Ggb3J
+[DEBUG] 连接对创建成功 (connID=92)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/63)
+[DEBUG] 主机1: 12D3KooWDrfA6ZMUpZyTirQcH4UtbiYgSX3iqbL2X1zCuYfLYKEK 主机2: 12D3KooWPRJC4u1hpfAmVPhTre8cGdf9JRb4Q689Mhx16cDr4wsv
+[DEBUG] 连接对创建成功 (connID=32)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/443)
+[DEBUG] 主机1: 12D3KooWC3L7UpZyvBhQtZUreELReqKCRR9AjxVm57prpSGDoXXZ 主机2: 12D3KooWJPHwPVa7VDi7Q7GC6X4eQmWo2zRZoGgmo3derEXoZQCn
+[DEBUG] 连接对创建成功 (connID=85)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/454)
+[DEBUG] 主机1: 12D3KooWGTd43UvTTseZ3tsP65e5A8qx3U4h8TaUeBcRZwMKd5b4 主机2: 12D3KooWNyeh9LPZgP5LUnCVwKLVyU4XiHd44tR9HfTaX9X3vJZv
+[DEBUG] 连接对创建成功 (connID=98)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/974)
+[DEBUG] 主机1: 12D3KooWFGtvJebFZtzbVJ999Xf5XaNJfpxSzNC71uBqnrRgZmEW 主机2: 12D3KooWPpuAjiLShmCmoML8UeaiwuwootwEVyJWWmEYRgwCn93T
+[DEBUG] 连接对创建成功 (connID=14)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/955)
+[DEBUG] 主机1: 12D3KooWLqWsLodBohQC24rf2AxX93HfZgYqsBEbKv7MXt9LBswp 主机2: 12D3KooWJu28dSb8NJVzfmBHscoeDYXjLwoJqtc3xAtrNE9DHkqb
+[DEBUG] 连接对创建成功 (connID=2)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/683)
+[DEBUG] 主机1: 12D3KooWNFQPYy9NE2PZJZpmgDRZs8jx3dtq2QyovXsz6Zpw7P4W 主机2: 12D3KooWQjr6DmhXsSaWMrKDnBwshFP7GT9Rg2vC9SP4yb6dEa7U
+[DEBUG] 连接对创建成功 (connID=88)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/680)
+[DEBUG] 主机1: 12D3KooWFEeTXd4dxPxBNCDYZSKNNRruZ6LW17rfBdriHk2gUgEC 主机2: 12D3KooWGcepgwThKHWwKEwqrYtxMccWarv7nV3DHu1p4xwsrGTd
+[DEBUG] 连接对创建成功 (connID=18)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/412)
+[DEBUG] 主机1: 12D3KooWKB3quCW62akt8Qt148KhvaiyBM67eemkoKLPnAgvuJ7r 主机2: 12D3KooWBbJbCUWxT93vxqBGgFAMpgiGfjWZVDZB7fsDFQdZkRKX
+[DEBUG] 连接对创建成功 (connID=39)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/565)
+[DEBUG] 主机1: 12D3KooWBp5Xs6CiUM1RGk2QZ81dW8QERHJFAqdRWDMFF85JsBhw 主机2: 12D3KooWAVHSMzjnk7cZyooPRNiWDgoDoPnRymLeooUSMQH3MD4o
+[DEBUG] 连接对创建成功 (connID=37)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/604)
+[DEBUG] 主机1: 12D3KooWFdZgPqSWPf1pbhAmEShpptwF7Pshgms7dU6X49McfeMm 主机2: 12D3KooWRLubFq6ouPE6kQPsTGb69Q3UZK5AJswcb8WpmhMTd67X
+[DEBUG] 连接对创建成功 (connID=43)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/117)
+[DEBUG] 主机1: 12D3KooWHxg6tPrC9a1WjcrMRTgL1BHh8yQdAhSMSkmXprRfaa6y 主机2: 12D3KooWDtywnT3GU2eiHYMyHpVgwTgLGCKNdpzQn4WG5rFHgGiq
+[DEBUG] 连接对创建成功 (connID=36)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/524)
+[DEBUG] 主机1: 12D3KooWL53T1zSD8vBzznhCM5TfV6QyC5K5NtU4ASWWRMGGK5LP 主机2: 12D3KooWGcvMaJoLprnCGHyZX3qtc6sdRjbxmVgTSjndrHXr66Q9
+[DEBUG] 连接对创建成功 (connID=6)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/828)
+[DEBUG] 主机1: 12D3KooWMuUVkQcezaAEXWL95oBj18Suj38AubxgmpkUcda6VVfT 主机2: 12D3KooWQ7TWT2CaCs28vqSGSf8F6rTRhhyB3PVjtpnHrpsMWzib
+[DEBUG] 连接对创建成功 (connID=33)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/446)
+[DEBUG] 主机1: 12D3KooWLVMR336qkB3zFidsabqhA1pubYFw2r5Ds858qWfBmPLz 主机2: 12D3KooWGLcCuYKK7cdsgqTzkVSBHt8R9DRw2crq56K3XTBKLZFo
+[DEBUG] 连接对创建成功 (connID=60)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/591)
+[DEBUG] 主机1: 12D3KooWDUcK9CgHK3pcabsdBVHHcRUTiCA471CkL2TXdkkayZZc 主机2: 12D3KooWEM9KgTvWgpvep3Y3G3VydQUJskQhU1bPrhVuExji3gjV
+[DEBUG] 连接对创建成功 (connID=0)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/604)
+[DEBUG] 主机1: 12D3KooWLhb6JZ1yV1kgb6HNvKhBfYRroUNnsR6zz4KctxHbDMVy 主机2: 12D3KooWMdfvwtZUt4oW5de2FdPvkDZjVZ4eoQgof4oa6iur6Yae
+[DEBUG] 连接对创建成功 (connID=82)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/282)
+[DEBUG] 主机1: 12D3KooWGBn1RZiETcnYJnvYCAzJcLKHtYR28E3sR8JJuUthBzUZ 主机2: 12D3KooWHZj55zm39CVE1A9eVVYNpzR9mMDcBfJhZBRAMsoAJ8GS
+[DEBUG] 连接对创建成功 (connID=13)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/159)
+[DEBUG] 主机1: 12D3KooW9qv5StxUvaQBcjemw82i4brBufLvqp2g2KMtNDzi79WJ 主机2: 12D3KooWQ38EDi5UaGkkvPr2zQ65hqGQUzUwVLQBDBkgbfxmwA81
+[DEBUG] 连接对创建成功 (connID=91)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/930)
+[DEBUG] 主机1: 12D3KooWNBVYrKf3XecDL38VimJfq5vh4qGymYJaAw6AFPRBKJio 主机2: 12D3KooWDrbfRRaU7nEyc8kvFi2EjrgwdvGdeATQSFhvzqZ2T91E
+[DEBUG] 连接对创建成功 (connID=40)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/260)
+[DEBUG] 主机1: 12D3KooWKniLTdr1L2ovu9ejTRzsRvPKnbKifDRP6VQ6pAJ25R8q 主机2: 12D3KooWCZ5atYevszxytVP2m3LueTLtUKfEgDP4HT5Ypdp6tX9e
+[DEBUG] 连接对创建成功 (connID=29)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/679)
+[DEBUG] 主机1: 12D3KooWNZQLaUsFgE4AW6f5skGmg5KFyGb6j3irKm3UV8nramqb 主机2: 12D3KooWQEkE7DXZeY7tV86edXPiZMD4iqC7mpNaRyt644n99zTx
+[DEBUG] 连接对创建成功 (connID=22)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/133)
+[DEBUG] 主机1: 12D3KooWJCH4wN9XUmVGy97oRYnWD8mikxkV2DVSdz6DpPUQ12BS 主机2: 12D3KooWD4ynUo65LLGzVtajU9k7cF87aoawZSR8PvTiwaKyJcw8
+[DEBUG] 连接对创建成功 (connID=34)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/750)
+[DEBUG] 主机1: 12D3KooWHFsyr4YGvJQv9tZCJADoGJG4vdGSXahGc1pFxtVZceVc 主机2: 12D3KooWQKtAR92ohfd2fWNshzoRgXvNMbuxN2DLUwDmK7oQeFUZ
+[DEBUG] 连接对创建成功 (connID=17)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/661)
+[DEBUG] 主机1: 12D3KooWRyWY79s7Tj2DMw21FpuQ6qgTySmp9f9CFaq4zWjaPg49 主机2: 12D3KooWF7dZUmmSLXYVHVrHs7L1ndmGpbbBrtRpF1m8XcAwXdbU
+[DEBUG] 连接对创建成功 (connID=28)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/536)
+[DEBUG] 主机1: 12D3KooWBfykA2dZDDRGUy9EvWCuJ4Mw43362BW3Cx7zMKd5bUnV 主机2: 12D3KooWGDPyj2xjv1wZGkwcssNnSRdVFhseXDBa7Y3NsJ39juTz
+[DEBUG] 连接对创建成功 (connID=72)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/408)
+[DEBUG] 主机1: 12D3KooWKw8iDXWSLPbWLtwuiN5vUWh6iTAXUUtshkgDB5txpKTn 主机2: 12D3KooWJnE2j8vtcyPzzVuBowwUXnQAUaTWyZhRgPiLWYPFYJPs
+[DEBUG] 连接对创建成功 (connID=50)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/425)
+[DEBUG] 主机1: 12D3KooWBtx7DP5DugBe6dC97VCs3QPi8rvcK5vQWU5h3CV7hKUg 主机2: 12D3KooWRVPPVGYc5W8UtrNk9RZ5UZCsGWCBNbKWxL8GFWXitHws
+[DEBUG] 连接对创建成功 (connID=19)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/342)
+[DEBUG] 主机1: 12D3KooWQNQhD8bhECZT9FywG1LyFLT4ViP9zbU1HemTEhJBog9G 主机2: 12D3KooWH3J9tbbh7tFV8c4BceNHtRxoa3ZqQh8s7xEEYmvFdSwG
+[DEBUG] 连接对创建成功 (connID=41)
+[DEBUG] 正在关闭连接对
+[DEBUG] 警告: 主机间连接未建立，尝试强制连接
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/26)
+[DEBUG] 主机1: 12D3KooWLpZgBDiDcT5LXVu6hvbCXkXCAbKrnYMrfAebRKEFGdfs 主机2: 12D3KooWBdymG3RWrxe88UYFLP6eW5CgaYae7ESNkL1dNAv4vA6g
+[DEBUG] 连接对创建成功 (connID=99)
+[DEBUG] 正在关闭连接对
+所有测试协程正常退出
+测试完成: 共发送 216 消息, 接收 202 消息, 最终goroutine数量: 331
+高并发测试完成: 处理了 418 条消息, 速率 0.30 MB/s
+
+=== 正在进行大消息并发测试 ===
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKPBSayShU5HcuSm4Xk7XcboJQE83aGuNSZtMugvevSWY, 地址=[/ip4/127.0.0.1/tcp/16369]
+[DEBUG] 创建测试主机: ID=12D3KooWJyDXJCTXra49nMi7r2QSWDJamHHqHiYabvTPcRVSsWkg, 地址=[/ip4/127.0.0.1/tcp/12405]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMNsPzoJYouKqBmMcUN18uPThnD1tXSpj4h7oz5CPQVpX, 地址=[/ip4/127.0.0.1/tcp/12484]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQEXycJsgA1rxGxqVdsVD3xux9hQUkh8EuejHjw9GZuRY, 地址=[/ip4/127.0.0.1/tcp/16860]
+[DEBUG] 创建测试主机: ID=12D3KooWJaxywW3G4xEa9NjYCaKesX9YLsEgsHcSgg9MUEmTNc57, 地址=[/ip4/127.0.0.1/tcp/17320]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQoMeRddARztxtyzmLx7S6xGx3wmHgt4FeujCDZTwvLc9, 地址=[/ip4/127.0.0.1/tcp/12548]
+[DEBUG] 创建测试主机: ID=12D3KooWRMNQj1JsF2pnHKEbeLFUfwFDuCNKdPHVKdwvGkjZjfeo, 地址=[/ip4/127.0.0.1/tcp/12925]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQYjM83QGJ9LHSi6HpvefxdMBSJSBu8Ma4Y3Xm7TMKcMV, 地址=[/ip4/127.0.0.1/tcp/18639]
+[DEBUG] 创建测试主机: ID=12D3KooWRiBwt7wNTp2XuqK5DTmD4mdFuYuFYtrzUCJDFcHV9gft, 地址=[/ip4/127.0.0.1/tcp/12572]
+[DEBUG] 创建测试主机: ID=12D3KooWPsfzrjJCCrJ2g6NQg9RGQ4sAQqXHTBfNzx4hKaAuvoWH, 地址=[/ip4/127.0.0.1/tcp/17954]
+[DEBUG] 创建测试主机: ID=12D3KooWBjW4AhUjWoTuj3dcPGsZo3pfqC1mZfavDzqUJuTyyDfj, 地址=[/ip4/127.0.0.1/tcp/10615]
+[DEBUG] 创建测试主机: ID=12D3KooWK3pX3EbWj8d9rm3jTAn8fSrJY7Mx3XWFgdzEPpQpu3Nd, 地址=[/ip4/127.0.0.1/tcp/10500]
+[DEBUG] 创建测试主机: ID=12D3KooWNqAwtooBzyCEB67ZXigoKSTB6AZwTi3mSffB3NSqRsi1, 地址=[/ip4/127.0.0.1/tcp/13764]
+[DEBUG] 创建测试主机: ID=12D3KooWCqoRHtYpZw1vMhe29JJmAWYWHFGHRxq4vZ2cKsK4u8XR, 地址=[/ip4/127.0.0.1/tcp/13550]
+[DEBUG] 创建测试主机: ID=12D3KooWK7MbyrhPTtAZQBpjNtZbMqRzFudbc3uC273FNZqqnaCA, 地址=[/ip4/127.0.0.1/tcp/18075]
+[DEBUG] 创建测试主机: ID=12D3KooWNbwzP1Xh1LKh4nzxwNJXprYpKureAG6aXB8jYWZ6wd67, 地址=[/ip4/127.0.0.1/tcp/11918]
+[DEBUG] 创建测试主机: ID=12D3KooWPHdWkNcF1EnhfNxRqoJCQADjuDULpWQxThbHb3WH5bA8, 地址=[/ip4/127.0.0.1/tcp/16872]
+[DEBUG] 创建测试主机: ID=12D3KooWHwrh2Pox4J4ztfpuPwjXxmjyu89dmZjLENJ68n8NbhqW, 地址=[/ip4/127.0.0.1/tcp/11484]
+[DEBUG] 创建测试主机: ID=12D3KooWBhhMwqhKiydzj8rtvHcGkjCCKvFq6Un1tCEx3eUJKXxk, 地址=[/ip4/127.0.0.1/tcp/11486]
+[DEBUG] 创建测试主机: ID=12D3KooWKE4m3rjPtW5eE21f3fgGgpyQneFV11DSm89vwuPB6SX6, 地址=[/ip4/127.0.0.1/tcp/12486]
+[DEBUG] 创建测试主机: ID=12D3KooWRaBchaGkg6swyLvnZA7m6uund8HJVVK6xdSKd1Z41XZQ, 地址=[/ip4/127.0.0.1/tcp/12698]
+[DEBUG] 创建测试主机: ID=12D3KooWA8xXc5j91hUFW769ibH5awABgDC8pK5qWPozhG5V2SKi, 地址=[/ip4/127.0.0.1/tcp/11838]
+[DEBUG] 创建测试主机: ID=12D3KooWSu3xnkJA6Wi3nKvn7xp4T2G71Mabg8uZdYfLY5sg8GaP, 地址=[/ip4/127.0.0.1/tcp/13267]
+[DEBUG] 创建测试主机: ID=12D3KooWE93UWiG9prBb9ZPjShj8zjVCFGnSVkjst1XeMgnZ8kei, 地址=[/ip4/127.0.0.1/tcp/14434]
+[DEBUG] 创建测试主机: ID=12D3KooWA6XpXLy6wkU73n9Thp3XYTNturFUCsqimrbrgEFr93VE, 地址=[/ip4/127.0.0.1/tcp/17342]
+[DEBUG] 创建测试主机: ID=12D3KooWEufYUxmAxKAVwm1gWXRy4hu7pj44GYxnY1hbGgiCEUWt, 地址=[/ip4/127.0.0.1/tcp/18291]
+[DEBUG] 创建测试主机: ID=12D3KooWSf2FiCPEfQNwXMEsC4pDZ3mvTACHHdMfjxgBtEt3YqXz, 地址=[/ip4/127.0.0.1/tcp/13795]
+[DEBUG] 创建测试主机: ID=12D3KooWCxtA7Ujzg2bLC8oSvnDPD7j8XK24nRpTvu7oMtzrbQ2q, 地址=[/ip4/127.0.0.1/tcp/14282]
+[DEBUG] 创建测试主机: ID=12D3KooWC6zfhuoWADwkKBqoZoGbvc6HY1wYEPA54ZSCji9HR3Ez, 地址=[/ip4/127.0.0.1/tcp/20351]
+[DEBUG] 创建测试主机: ID=12D3KooWGncCsWAhjMwmNd8m6H6myp4s4FPtm9jc5YXSA2ucJhGY, 地址=[/ip4/127.0.0.1/tcp/18654]
+[DEBUG] 创建测试主机: ID=12D3KooWQi53mxnwTYCvkkHzeUiL3EuEyDpoCq6tR5x8fbYyc61n, 地址=[/ip4/127.0.0.1/tcp/18379]
+[DEBUG] 创建测试主机: ID=12D3KooWJyboGt1wJnUVXN2Rtzjs4Si3WVQJFiA5YrrJRRNegMtk, 地址=[/ip4/127.0.0.1/tcp/13202]
+[DEBUG] 创建测试主机: ID=12D3KooWQxgikNqibi8c3NeGfL9ZTVN2jLyu9dnFXHKQ3CptZHh2, 地址=[/ip4/127.0.0.1/tcp/14160]
+[DEBUG] 创建测试主机: ID=12D3KooWGSSBgcxzEanBry9tfkcmvaQbytmdKczo3GJMwc8GbCNB, 地址=[/ip4/127.0.0.1/tcp/15489]
+[DEBUG] 创建测试主机: ID=12D3KooWRJorLrCZYevCnb3q3R8ynV1r44Vg3qXo1x7Lg3seFdLK, 地址=[/ip4/127.0.0.1/tcp/18621]
+[DEBUG] 创建测试主机: ID=12D3KooWAJvpTbdkRuSewk2u7dJxGbfnCJH5rFFQxJUt85a4i7j1, 地址=[/ip4/127.0.0.1/tcp/11269]
+[DEBUG] 创建测试主机: ID=12D3KooWPnDvSpNcyc2haG6MMyboA9w416AYZNAPrnNMBeUwzKDn, 地址=[/ip4/127.0.0.1/tcp/15246]
+[DEBUG] 创建测试主机: ID=12D3KooWDB21X7iZJqFtJgw5AMeLkDdcszPoRQY8Si4Kcuos2MN8, 地址=[/ip4/127.0.0.1/tcp/17104]
+[DEBUG] 创建测试主机: ID=12D3KooWMoeBcjyDZPPtktN1riANCtgGf2rucVGn3JnjCpMdoWts, 地址=[/ip4/127.0.0.1/tcp/19894]
+[DEBUG] 创建测试主机: ID=12D3KooWJ4F22qDFiieHB3uYTxWu8hurP7CFFmxPcyH7iASkuaSD, 地址=[/ip4/127.0.0.1/tcp/12872]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/567)
+[DEBUG] 主机1: 12D3KooWQEXycJsgA1rxGxqVdsVD3xux9hQUkh8EuejHjw9GZuRY 主机2: 12D3KooWPsfzrjJCCrJ2g6NQg9RGQ4sAQqXHTBfNzx4hKaAuvoWH
+[DEBUG] 连接对创建成功 (connID=13)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/228)
+[DEBUG] 主机1: 12D3KooWJyDXJCTXra49nMi7r2QSWDJamHHqHiYabvTPcRVSsWkg 主机2: 12D3KooWCqoRHtYpZw1vMhe29JJmAWYWHFGHRxq4vZ2cKsK4u8XR
+[DEBUG] 连接对创建成功 (connID=17)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/474)
+[DEBUG] 主机1: 12D3KooWRiBwt7wNTp2XuqK5DTmD4mdFuYuFYtrzUCJDFcHV9gft 主机2: 12D3KooWNqAwtooBzyCEB67ZXigoKSTB6AZwTi3mSffB3NSqRsi1
+[DEBUG] 连接对创建成功 (connID=14)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/808)
+[DEBUG] 主机1: 12D3KooWBjW4AhUjWoTuj3dcPGsZo3pfqC1mZfavDzqUJuTyyDfj 主机2: 12D3KooWNbwzP1Xh1LKh4nzxwNJXprYpKureAG6aXB8jYWZ6wd67
+[DEBUG] 连接对创建成功 (connID=3)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/987)
+[DEBUG] 主机1: 12D3KooWK3pX3EbWj8d9rm3jTAn8fSrJY7Mx3XWFgdzEPpQpu3Nd 主机2: 12D3KooWKE4m3rjPtW5eE21f3fgGgpyQneFV11DSm89vwuPB6SX6
+[DEBUG] 连接对创建成功 (connID=12)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/645)
+[DEBUG] 主机1: 12D3KooWMNsPzoJYouKqBmMcUN18uPThnD1tXSpj4h7oz5CPQVpX 主机2: 12D3KooWE93UWiG9prBb9ZPjShj8zjVCFGnSVkjst1XeMgnZ8kei
+[DEBUG] 连接对创建成功 (connID=19)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/968)
+[DEBUG] 主机1: 12D3KooWBhhMwqhKiydzj8rtvHcGkjCCKvFq6Un1tCEx3eUJKXxk 主机2: 12D3KooWSu3xnkJA6Wi3nKvn7xp4T2G71Mabg8uZdYfLY5sg8GaP
+[DEBUG] 连接对创建成功 (connID=9)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/571)
+[DEBUG] 主机1: 12D3KooWHwrh2Pox4J4ztfpuPwjXxmjyu89dmZjLENJ68n8NbhqW 主机2: 12D3KooWRaBchaGkg6swyLvnZA7m6uund8HJVVK6xdSKd1Z41XZQ
+[DEBUG] 连接对创建成功 (connID=7)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/191)
+[DEBUG] 主机1: 12D3KooWKPBSayShU5HcuSm4Xk7XcboJQE83aGuNSZtMugvevSWY 主机2: 12D3KooWEufYUxmAxKAVwm1gWXRy4hu7pj44GYxnY1hbGgiCEUWt
+[DEBUG] 连接对创建成功 (connID=16)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/958)
+[DEBUG] 主机1: 12D3KooWPHdWkNcF1EnhfNxRqoJCQADjuDULpWQxThbHb3WH5bA8 主机2: 12D3KooWGncCsWAhjMwmNd8m6H6myp4s4FPtm9jc5YXSA2ucJhGY
+[DEBUG] 连接对创建成功 (connID=4)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/109)
+[DEBUG] 主机1: 12D3KooWJaxywW3G4xEa9NjYCaKesX9YLsEgsHcSgg9MUEmTNc57 主机2: 12D3KooWQi53mxnwTYCvkkHzeUiL3EuEyDpoCq6tR5x8fbYyc61n
+[DEBUG] 连接对创建成功 (connID=5)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/560)
+[DEBUG] 主机1: 12D3KooWQYjM83QGJ9LHSi6HpvefxdMBSJSBu8Ma4Y3Xm7TMKcMV 主机2: 12D3KooWC6zfhuoWADwkKBqoZoGbvc6HY1wYEPA54ZSCji9HR3Ez
+[DEBUG] 连接对创建成功 (connID=11)
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/470)
+[DEBUG] 主机1: 12D3KooWQoMeRddARztxtyzmLx7S6xGx3wmHgt4FeujCDZTwvLc9 主机2: 12D3KooWCxtA7Ujzg2bLC8oSvnDPD7j8XK24nRpTvu7oMtzrbQ2q
+[DEBUG] 连接对创建成功 (connID=15)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/30)
+[DEBUG] 主机1: 12D3KooWRMNQj1JsF2pnHKEbeLFUfwFDuCNKdPHVKdwvGkjZjfeo 主机2: 12D3KooWQxgikNqibi8c3NeGfL9ZTVN2jLyu9dnFXHKQ3CptZHh2
+[DEBUG] 连接对创建成功 (connID=2)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/896)
+[DEBUG] 主机1: 12D3KooWA8xXc5j91hUFW769ibH5awABgDC8pK5qWPozhG5V2SKi 主机2: 12D3KooWJyboGt1wJnUVXN2Rtzjs4Si3WVQJFiA5YrrJRRNegMtk
+[DEBUG] 连接对创建成功 (connID=1)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/776)
+[DEBUG] 主机1: 12D3KooWA6XpXLy6wkU73n9Thp3XYTNturFUCsqimrbrgEFr93VE 主机2: 12D3KooWRJorLrCZYevCnb3q3R8ynV1r44Vg3qXo1x7Lg3seFdLK
+[DEBUG] 连接对创建成功 (connID=0)
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/994)
+[DEBUG] 主机1: 12D3KooWSf2FiCPEfQNwXMEsC4pDZ3mvTACHHdMfjxgBtEt3YqXz 主机2: 12D3KooWPnDvSpNcyc2haG6MMyboA9w416AYZNAPrnNMBeUwzKDn
+[DEBUG] 连接对创建成功 (connID=10)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/664)
+[DEBUG] 主机1: 12D3KooWGSSBgcxzEanBry9tfkcmvaQbytmdKczo3GJMwc8GbCNB 主机2: 12D3KooWDB21X7iZJqFtJgw5AMeLkDdcszPoRQY8Si4Kcuos2MN8
+[DEBUG] 连接对创建成功 (connID=8)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/803)
+[DEBUG] 主机1: 12D3KooWK7MbyrhPTtAZQBpjNtZbMqRzFudbc3uC273FNZqqnaCA 主机2: 12D3KooWMoeBcjyDZPPtktN1riANCtgGf2rucVGn3JnjCpMdoWts
+[DEBUG] 连接对创建成功 (connID=6)
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/111)
+[DEBUG] 主机1: 12D3KooWAJvpTbdkRuSewk2u7dJxGbfnCJH5rFFQxJUt85a4i7j1 主机2: 12D3KooWJ4F22qDFiieHB3uYTxWu8hurP7CFFmxPcyH7iASkuaSD
+[DEBUG] 连接对创建成功 (connID=18)
+[DEBUG] 正在关闭连接对
+所有测试协程正常退出
+测试完成: 共发送 52 消息, 接收 40 消息, 最终goroutine数量: 410
+大消息并发测试完成: 处理了 92 条消息, 速率 501.50 MB/s
+
+
+=== 性能测试综合结果 ===
+测试名称	消息数	传输速率(MB/s)	平均延迟(ms)	P99延迟(ms)	错误数
+------------------------------------------------------------------
+低并发测试 (20连接, 4KB消息)	91	1.84	0.00	0.00	0
+中等并发测试 (50连接, 4KB消息)	209	3.19	0.00	0.00	0
+高并发测试 (100连接, 4KB消息)	418	0.30	0.00	0.00	0
+大消息并发测试 (20连接, 1.00MB消息)	92	501.50	0.00	0.00	0
+------------------------------------------------------------------
+总计	810	15.80	-	-	0
+
+开始 长时间稳定性测试 (3m0s, 5连接)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSLqF9yhCDd7Tj1fxGgYrugxLoqhvJAYtxfT3U3xB4dJx, 地址=[/ip4/127.0.0.1/tcp/16057]
+[DEBUG] 创建测试主机: ID=12D3KooWP2DWxrCd8RcnYDC86xSeYWYMPze629LZsdhZcr3Upc16, 地址=[/ip4/127.0.0.1/tcp/17851]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/777)
+[DEBUG] 主机1: 12D3KooWSLqF9yhCDd7Tj1fxGgYrugxLoqhvJAYtxfT3U3xB4dJx 主机2: 12D3KooWP2DWxrCd8RcnYDC86xSeYWYMPze629LZsdhZcr3Upc16
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJt3S9qx7wiTwhaMXJqii7P92g81LNU7mEL3zSUgnGGNt, 地址=[/ip4/127.0.0.1/tcp/18186]
+[DEBUG] 创建测试主机: ID=12D3KooWQfbrcyDSsU9Fbn2x1ghLXKr3EN5kxfyEG9wNFK1wkNr3, 地址=[/ip4/127.0.0.1/tcp/19419]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/355)
+[DEBUG] 主机1: 12D3KooWJt3S9qx7wiTwhaMXJqii7P92g81LNU7mEL3zSUgnGGNt 主机2: 12D3KooWQfbrcyDSsU9Fbn2x1ghLXKr3EN5kxfyEG9wNFK1wkNr3
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGSS7RULtNFbWBTATuBamXA3TTb9kohZHv2sM2ZJ429pk, 地址=[/ip4/127.0.0.1/tcp/14206]
+[DEBUG] 创建测试主机: ID=12D3KooWQa6wqAv6ec9AdF7HkfXzpqR3c7dFBCvTAALBqwa11LEs, 地址=[/ip4/127.0.0.1/tcp/15230]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/778)
+[DEBUG] 主机1: 12D3KooWGSS7RULtNFbWBTATuBamXA3TTb9kohZHv2sM2ZJ429pk 主机2: 12D3KooWQa6wqAv6ec9AdF7HkfXzpqR3c7dFBCvTAALBqwa11LEs
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHtjmjpAxdepqG1drpFXJvfnqUWXf3Cr3XQHoNgJ2vAu8, 地址=[/ip4/127.0.0.1/tcp/14947]
+[DEBUG] 创建测试主机: ID=12D3KooWCHpoxmpEVQj3CUTjnawGfPEFUpPXvzoJmUefgm1BTpfv, 地址=[/ip4/127.0.0.1/tcp/16157]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/575)
+[DEBUG] 主机1: 12D3KooWHtjmjpAxdepqG1drpFXJvfnqUWXf3Cr3XQHoNgJ2vAu8 主机2: 12D3KooWCHpoxmpEVQj3CUTjnawGfPEFUpPXvzoJmUefgm1BTpfv
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWP9QGeWP2gu2pRPH9rhhqJfdpqobP6biY8y9x75zzSHK1, 地址=[/ip4/127.0.0.1/tcp/17689]
+[DEBUG] 创建测试主机: ID=12D3KooWN98Cfe3mzS3AbvUGCX4rM1NHnKbf7KztjgdDCWia9hiC, 地址=[/ip4/127.0.0.1/tcp/18990]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/238)
+[DEBUG] 主机1: 12D3KooWP9QGeWP2gu2pRPH9rhhqJfdpqobP6biY8y9x75zzSHK1 主机2: 12D3KooWN98Cfe3mzS3AbvUGCX4rM1NHnKbf7KztjgdDCWia9hiC
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAw7RJzQWwjvrtyerQzD6R4sLA4ZCcdQmB5FEdniuNoEy, 地址=[/ip4/127.0.0.1/tcp/17940]
+[DEBUG] 创建测试主机: ID=12D3KooWGBG7KV2cV8W7NcqQGqm3SFUa58rvvbbG4BSvUV8GuihV, 地址=[/ip4/127.0.0.1/tcp/18953]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/50)
+[DEBUG] 主机1: 12D3KooWAw7RJzQWwjvrtyerQzD6R4sLA4ZCcdQmB5FEdniuNoEy 主机2: 12D3KooWGBG7KV2cV8W7NcqQGqm3SFUa58rvvbbG4BSvUV8GuihV
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFU5VGertgxavDJhfTWqMYrJWJMrrBkW4e2vDi2v4zUQB, 地址=[/ip4/127.0.0.1/tcp/15948]
+[DEBUG] 创建测试主机: ID=12D3KooWQQQeDU65NvrE836igYpdfS2qQk9vQbVJH36as3iSV5ng, 地址=[/ip4/127.0.0.1/tcp/17059]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/811)
+[DEBUG] 主机1: 12D3KooWFU5VGertgxavDJhfTWqMYrJWJMrrBkW4e2vDi2v4zUQB 主机2: 12D3KooWQQQeDU65NvrE836igYpdfS2qQk9vQbVJH36as3iSV5ng
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSzHo2gHJ1JJ1mxa188Lx83PwnoztydxVjQq7JF2fskAD, 地址=[/ip4/127.0.0.1/tcp/16093]
+[DEBUG] 创建测试主机: ID=12D3KooWLegME5hsNTYyXqQ9X4wvAxHbFK9p4ui9AxNwJ4SfjFhB, 地址=[/ip4/127.0.0.1/tcp/18030]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/68)
+[DEBUG] 主机1: 12D3KooWSzHo2gHJ1JJ1mxa188Lx83PwnoztydxVjQq7JF2fskAD 主机2: 12D3KooWLegME5hsNTYyXqQ9X4wvAxHbFK9p4ui9AxNwJ4SfjFhB
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWA2ZaVrN4aUoeDqSRFzfU6eoQrAomfNgXCmkiMAh2dJsw, 地址=[/ip4/127.0.0.1/tcp/13071]
+[DEBUG] 创建测试主机: ID=12D3KooWFnDeetUx8T9MstM4ZzKgdCWuTNbTitvSioWv4Nk87a5m, 地址=[/ip4/127.0.0.1/tcp/14795]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/353)
+[DEBUG] 主机1: 12D3KooWA2ZaVrN4aUoeDqSRFzfU6eoQrAomfNgXCmkiMAh2dJsw 主机2: 12D3KooWFnDeetUx8T9MstM4ZzKgdCWuTNbTitvSioWv4Nk87a5m
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKBJXMA4e9wwNi8drEMydFkbUTSRGEE5d6kKB2Z7DTSvH, 地址=[/ip4/127.0.0.1/tcp/17709]
+[DEBUG] 创建测试主机: ID=12D3KooWFGXhcpFSELpWSzbo7wQpd6c2ByTp9L8owZfYVXeHGn9M, 地址=[/ip4/127.0.0.1/tcp/19372]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/103)
+[DEBUG] 主机1: 12D3KooWKBJXMA4e9wwNi8drEMydFkbUTSRGEE5d6kKB2Z7DTSvH 主机2: 12D3KooWFGXhcpFSELpWSzbo7wQpd6c2ByTp9L8owZfYVXeHGn9M
+测试进度 [30s]: 已发送 438 消息, 已接收 438 消息, 真实错误 5, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWK8kWNB24St7ThRp2q6pRYnaDrcBj5NteEkXrHWHqjBNj, 地址=[/ip4/127.0.0.1/tcp/14252]
+[DEBUG] 创建测试主机: ID=12D3KooWPD48Jjz1FgxTpevEVk8CGaa44nebinVU6wAmtcwyhW2c, 地址=[/ip4/127.0.0.1/tcp/15328]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/504)
+[DEBUG] 主机1: 12D3KooWK8kWNB24St7ThRp2q6pRYnaDrcBj5NteEkXrHWHqjBNj 主机2: 12D3KooWPD48Jjz1FgxTpevEVk8CGaa44nebinVU6wAmtcwyhW2c
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAB7Zwk5SRmiRq2rbqhv8BA8x6Rfr8cwuHggztvNZ1JwC, 地址=[/ip4/127.0.0.1/tcp/18198]
+[DEBUG] 创建测试主机: ID=12D3KooWBuZhxqCVXWXtiEcPZynq36z6vo2einoKrqjSCpVLvhSU, 地址=[/ip4/127.0.0.1/tcp/19605]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPeksaJtoLyzzSkiTwoqtUF62YrzJKNb4vZRMwJ3unFeU, 地址=[/ip4/127.0.0.1/tcp/13424]
+[DEBUG] 创建测试主机: ID=12D3KooWQ2uExw4s9ZpoZPB1XFdvH29cLsBBNynwdZgAUxLbBRZ6, 地址=[/ip4/127.0.0.1/tcp/15027]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWA53R7TKoDjKTwH92pkqWa9XdfHJcajwkhDSEuAVP1gzQ, 地址=[/ip4/127.0.0.1/tcp/19919]
+[DEBUG] 创建测试主机: ID=12D3KooWGjABf5YqxwgM7xPjEdMjBEH8mvcREpFUTkfR4njmPNUR, 地址=[/ip4/127.0.0.1/tcp/21366]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/966)
+[DEBUG] 主机1: 12D3KooWAB7Zwk5SRmiRq2rbqhv8BA8x6Rfr8cwuHggztvNZ1JwC 主机2: 12D3KooWBuZhxqCVXWXtiEcPZynq36z6vo2einoKrqjSCpVLvhSU
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/910)
+[DEBUG] 主机1: 12D3KooWPeksaJtoLyzzSkiTwoqtUF62YrzJKNb4vZRMwJ3unFeU 主机2: 12D3KooWQ2uExw4s9ZpoZPB1XFdvH29cLsBBNynwdZgAUxLbBRZ6
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/523)
+[DEBUG] 主机1: 12D3KooWA53R7TKoDjKTwH92pkqWa9XdfHJcajwkhDSEuAVP1gzQ 主机2: 12D3KooWGjABf5YqxwgM7xPjEdMjBEH8mvcREpFUTkfR4njmPNUR
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKRsuLeUE8eJGCnV4LE7Cf9h7HqL8aFQ82ekXL7eKszW7, 地址=[/ip4/127.0.0.1/tcp/11446]
+[DEBUG] 创建测试主机: ID=12D3KooWQAz8fCgSZ4NvpcbzDYfbtwx3VDsSTLdsYhjG928G9uR1, 地址=[/ip4/127.0.0.1/tcp/12503]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/941)
+[DEBUG] 主机1: 12D3KooWKRsuLeUE8eJGCnV4LE7Cf9h7HqL8aFQ82ekXL7eKszW7 主机2: 12D3KooWQAz8fCgSZ4NvpcbzDYfbtwx3VDsSTLdsYhjG928G9uR1
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCKess9pqxSimeJ1KcAk6GWi7JKRzWTiVhM6Atagwbo5b, 地址=[/ip4/127.0.0.1/tcp/19356]
+[DEBUG] 创建测试主机: ID=12D3KooWHKMHVEhEkAsnzrzchoMmuCRTEEQj7zVXPGhNAuHcsBzc, 地址=[/ip4/127.0.0.1/tcp/20505]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/229)
+[DEBUG] 主机1: 12D3KooWCKess9pqxSimeJ1KcAk6GWi7JKRzWTiVhM6Atagwbo5b 主机2: 12D3KooWHKMHVEhEkAsnzrzchoMmuCRTEEQj7zVXPGhNAuHcsBzc
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKQhGC978W1J5mGZS4zt13HAbpiJhBf9rHN68mD4XLRpe, 地址=[/ip4/127.0.0.1/tcp/15024]
+[DEBUG] 创建测试主机: ID=12D3KooWFFqLgu7Juy2GgNrw5oWiNiAnL6tZEan7qCseFxz6LcW2, 地址=[/ip4/127.0.0.1/tcp/16329]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDZ2MMjf3YazBtoyJYvU4uVm7YRHzt8KTwpRRZDayRkRV, 地址=[/ip4/127.0.0.1/tcp/16897]
+[DEBUG] 创建测试主机: ID=12D3KooWSY1kRTaVB2oCtVenZ36BKHeYnszPAEgLaoshNKf9kedg, 地址=[/ip4/127.0.0.1/tcp/18169]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/795)
+[DEBUG] 主机1: 12D3KooWKQhGC978W1J5mGZS4zt13HAbpiJhBf9rHN68mD4XLRpe 主机2: 12D3KooWFFqLgu7Juy2GgNrw5oWiNiAnL6tZEan7qCseFxz6LcW2
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/815)
+[DEBUG] 主机1: 12D3KooWDZ2MMjf3YazBtoyJYvU4uVm7YRHzt8KTwpRRZDayRkRV 主机2: 12D3KooWSY1kRTaVB2oCtVenZ36BKHeYnszPAEgLaoshNKf9kedg
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJ6yzDfbHMpSzUfXA9kJ1aKAKX3o6nvGkbSrYTPuhxYQd, 地址=[/ip4/127.0.0.1/tcp/15684]
+[DEBUG] 创建测试主机: ID=12D3KooWHTNcyvvDjfGVDe1MgeorxhrfW62bmm3d9KahQFD3dUpY, 地址=[/ip4/127.0.0.1/tcp/17329]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/935)
+[DEBUG] 主机1: 12D3KooWJ6yzDfbHMpSzUfXA9kJ1aKAKX3o6nvGkbSrYTPuhxYQd 主机2: 12D3KooWHTNcyvvDjfGVDe1MgeorxhrfW62bmm3d9KahQFD3dUpY
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKptDJqH1sCU7f6v9AyE3i2MjgTiMbqxrcDQEdy495VH4, 地址=[/ip4/127.0.0.1/tcp/16144]
+[DEBUG] 创建测试主机: ID=12D3KooWFJnc7zqfNncCmZLrUUXDJ2FryHrN3mELh5caUa5JPSNf, 地址=[/ip4/127.0.0.1/tcp/17235]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/634)
+[DEBUG] 主机1: 12D3KooWKptDJqH1sCU7f6v9AyE3i2MjgTiMbqxrcDQEdy495VH4 主机2: 12D3KooWFJnc7zqfNncCmZLrUUXDJ2FryHrN3mELh5caUa5JPSNf
+测试进度 [1m0s]: 已发送 929 消息, 已接收 929 消息, 真实错误 15, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJn5akmBGJCSp9zwNiHbrYnLEJm7ziPLn3jreB5PR1JqA, 地址=[/ip4/127.0.0.1/tcp/15902]
+[DEBUG] 创建测试主机: ID=12D3KooWFBCZLikEf2ee7em4XjwzAqSPQyVEZwXHHvgg6PeeGoMD, 地址=[/ip4/127.0.0.1/tcp/17709]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/465)
+[DEBUG] 主机1: 12D3KooWJn5akmBGJCSp9zwNiHbrYnLEJm7ziPLn3jreB5PR1JqA 主机2: 12D3KooWFBCZLikEf2ee7em4XjwzAqSPQyVEZwXHHvgg6PeeGoMD
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNBpvEZEm3QhowRouegBAsCTTnv7F57EFqWGKtt1JoZFN, 地址=[/ip4/127.0.0.1/tcp/13020]
+[DEBUG] 创建测试主机: ID=12D3KooWLDmP1GoLZTWJtA6YWcd3U43ssXte6rKcG1Pn2jaQbPku, 地址=[/ip4/127.0.0.1/tcp/14924]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/408)
+[DEBUG] 主机1: 12D3KooWNBpvEZEm3QhowRouegBAsCTTnv7F57EFqWGKtt1JoZFN 主机2: 12D3KooWLDmP1GoLZTWJtA6YWcd3U43ssXte6rKcG1Pn2jaQbPku
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWH2gXazTguZAdwEavjETPppCDLgMYPH43hCA6mk257y3w, 地址=[/ip4/127.0.0.1/tcp/16792]
+[DEBUG] 创建测试主机: ID=12D3KooWAD8AtYvPsvEY9cjj4GYSN7bBPy6PCzAjpuv5qdvoqjfs, 地址=[/ip4/127.0.0.1/tcp/18046]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/997)
+[DEBUG] 主机1: 12D3KooWH2gXazTguZAdwEavjETPppCDLgMYPH43hCA6mk257y3w 主机2: 12D3KooWAD8AtYvPsvEY9cjj4GYSN7bBPy6PCzAjpuv5qdvoqjfs
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFTXFUawQwUcgedXPP15quTM95CcUnYAU4zjoh7NCRbFB, 地址=[/ip4/127.0.0.1/tcp/12116]
+[DEBUG] 创建测试主机: ID=12D3KooW9tH6FAZYiPqAe5gd4bjfmK4VsfxuFz24R3vsmYUTfF4v, 地址=[/ip4/127.0.0.1/tcp/13216]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/605)
+[DEBUG] 主机1: 12D3KooWFTXFUawQwUcgedXPP15quTM95CcUnYAU4zjoh7NCRbFB 主机2: 12D3KooW9tH6FAZYiPqAe5gd4bjfmK4VsfxuFz24R3vsmYUTfF4v
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNAs3PtqRwissntKHdZcFKdGTa7HSZC8rtzbozs4pScyG, 地址=[/ip4/127.0.0.1/tcp/12972]
+[DEBUG] 创建测试主机: ID=12D3KooWQvUaSQYonpjV8DUejQE9TfRH2ADsENiQykvo3wrnXqxR, 地址=[/ip4/127.0.0.1/tcp/14667]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/173)
+[DEBUG] 主机1: 12D3KooWNAs3PtqRwissntKHdZcFKdGTa7HSZC8rtzbozs4pScyG 主机2: 12D3KooWQvUaSQYonpjV8DUejQE9TfRH2ADsENiQykvo3wrnXqxR
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLsJMRVtgKRc4x777ZeviPe99dDEqMc2JDVfpoczPy2Lk, 地址=[/ip4/127.0.0.1/tcp/18324]
+[DEBUG] 创建测试主机: ID=12D3KooWAbv6BGAtH39gZjhBCptNUBLttXzfsbTXTFqRwmHvFKAF, 地址=[/ip4/127.0.0.1/tcp/19333]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/461)
+[DEBUG] 主机1: 12D3KooWLsJMRVtgKRc4x777ZeviPe99dDEqMc2JDVfpoczPy2Lk 主机2: 12D3KooWAbv6BGAtH39gZjhBCptNUBLttXzfsbTXTFqRwmHvFKAF
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLypSgTQZRBGcfGWGRE8LybGgmqPR123YXxbc2w6BQR6C, 地址=[/ip4/127.0.0.1/tcp/15482]
+[DEBUG] 创建测试主机: ID=12D3KooWBVncDYo3AHu8SAS9HhbW8rhsSt5hxJ14oq7Qo255RMzy, 地址=[/ip4/127.0.0.1/tcp/16814]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPKnxiADtnGDSzNcwg4Q9VKPm6hW77aB875QxmQyQNHpk, 地址=[/ip4/127.0.0.1/tcp/11602]
+[DEBUG] 创建测试主机: ID=12D3KooWL9QxtqUodhZYs4TJzPd9vyGYKVnptmW94jNjHda3csY7, 地址=[/ip4/127.0.0.1/tcp/18056]
+[DEBUG] 创建测试主机: ID=12D3KooWR8m7JBTkom3pXSQR3V4RsPhtF3JCqZpecn11AXxRhPVf, 地址=[/ip4/127.0.0.1/tcp/13024]
+[DEBUG] 创建测试主机: ID=12D3KooWJZqUy5ssVupsU95LsxToaNRxRBSjUYFzGa7KxhYeRmjZ, 地址=[/ip4/127.0.0.1/tcp/19385]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/910)
+[DEBUG] 主机1: 12D3KooWLypSgTQZRBGcfGWGRE8LybGgmqPR123YXxbc2w6BQR6C 主机2: 12D3KooWBVncDYo3AHu8SAS9HhbW8rhsSt5hxJ14oq7Qo255RMzy
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/959)
+[DEBUG] 主机1: 12D3KooWPKnxiADtnGDSzNcwg4Q9VKPm6hW77aB875QxmQyQNHpk 主机2: 12D3KooWR8m7JBTkom3pXSQR3V4RsPhtF3JCqZpecn11AXxRhPVf
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/582)
+[DEBUG] 主机1: 12D3KooWL9QxtqUodhZYs4TJzPd9vyGYKVnptmW94jNjHda3csY7 主机2: 12D3KooWJZqUy5ssVupsU95LsxToaNRxRBSjUYFzGa7KxhYeRmjZ
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNP2jCtT4nWc5b2BXUvcV6qdQQtpnXwLRbUeViHZHSYYZ, 地址=[/ip4/127.0.0.1/tcp/18762]
+[DEBUG] 创建测试主机: ID=12D3KooWM1Ukng7bBpSsKf3TC9DGighkKmyE1xhzXJgtpTMQMbq3, 地址=[/ip4/127.0.0.1/tcp/20093]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/430)
+[DEBUG] 主机1: 12D3KooWNP2jCtT4nWc5b2BXUvcV6qdQQtpnXwLRbUeViHZHSYYZ 主机2: 12D3KooWM1Ukng7bBpSsKf3TC9DGighkKmyE1xhzXJgtpTMQMbq3
+[DEBUG] 正在关闭连接对
+测试进度 [1m30s]: 已发送 1437 消息, 已接收 1436 消息, 真实错误 26, 注入错误 0, 重试 0
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKCLRb7fmbyc55g7iGE6DuiHUGVubTzgHFjLo3YJyk2oU, 地址=[/ip4/127.0.0.1/tcp/18790]
+[DEBUG] 创建测试主机: ID=12D3KooWQ9r62tBwa1w9sBu4bRaz3i71UthE2HNRhKabufBvK3nJ, 地址=[/ip4/127.0.0.1/tcp/20750]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/874)
+[DEBUG] 主机1: 12D3KooWKCLRb7fmbyc55g7iGE6DuiHUGVubTzgHFjLo3YJyk2oU 主机2: 12D3KooWQ9r62tBwa1w9sBu4bRaz3i71UthE2HNRhKabufBvK3nJ
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKudxJji9dPFavQRf3qahVx9TxN9skPZpbTZJh5RnfVA3, 地址=[/ip4/127.0.0.1/tcp/17206]
+[DEBUG] 创建测试主机: ID=12D3KooWFEhPaG8PdoXyRejQTLZsxwiZGNmr6Ybxk5CAuZMmkEnH, 地址=[/ip4/127.0.0.1/tcp/18457]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/331)
+[DEBUG] 主机1: 12D3KooWKudxJji9dPFavQRf3qahVx9TxN9skPZpbTZJh5RnfVA3 主机2: 12D3KooWFEhPaG8PdoXyRejQTLZsxwiZGNmr6Ybxk5CAuZMmkEnH
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLY7MKQzVUGr4gn28aXEFPtcWzzNPxfkCsArLah8Nw1ma, 地址=[/ip4/127.0.0.1/tcp/17486]
+[DEBUG] 创建测试主机: ID=12D3KooWECX8K2PKzsXsnn1VLWP5Ei28Asp5DpfbELSmREWtLnn6, 地址=[/ip4/127.0.0.1/tcp/19411]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/270)
+[DEBUG] 主机1: 12D3KooWLY7MKQzVUGr4gn28aXEFPtcWzzNPxfkCsArLah8Nw1ma 主机2: 12D3KooWECX8K2PKzsXsnn1VLWP5Ei28Asp5DpfbELSmREWtLnn6
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQrTD98pyjUF5WhXjBo6X1SSkekbCEV6TCMLYAKdbHCXF, 地址=[/ip4/127.0.0.1/tcp/18586]
+[DEBUG] 创建测试主机: ID=12D3KooWDQbkWxx8ffJiYXBjdUynX9EZuTEwbvkPBuMiTCC5qoDg, 地址=[/ip4/127.0.0.1/tcp/19612]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/167)
+[DEBUG] 主机1: 12D3KooWQrTD98pyjUF5WhXjBo6X1SSkekbCEV6TCMLYAKdbHCXF 主机2: 12D3KooWDQbkWxx8ffJiYXBjdUynX9EZuTEwbvkPBuMiTCC5qoDg
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNxpP1A3NxbnkurHtSYebb8kJWRPJeTpFDJ46H7tei5iR, 地址=[/ip4/127.0.0.1/tcp/18436]
+[DEBUG] 创建测试主机: ID=12D3KooWQom5WB4sT1vZWe2pjWbpBmRgaJQVdEv4ZgWLaao4VtPF, 地址=[/ip4/127.0.0.1/tcp/19549]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/184)
+[DEBUG] 主机1: 12D3KooWNxpP1A3NxbnkurHtSYebb8kJWRPJeTpFDJ46H7tei5iR 主机2: 12D3KooWQom5WB4sT1vZWe2pjWbpBmRgaJQVdEv4ZgWLaao4VtPF
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMeCfffCPm1SonpNMw2kiRv4fhLmYdhJdPJ2dDz1jqW3n, 地址=[/ip4/127.0.0.1/tcp/12683]
+[DEBUG] 创建测试主机: ID=12D3KooWKDNY8JcEc9PqcUtqrA52YrLubq8qV5dRNPu2ncyjZpYg, 地址=[/ip4/127.0.0.1/tcp/14062]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/238)
+[DEBUG] 主机1: 12D3KooWMeCfffCPm1SonpNMw2kiRv4fhLmYdhJdPJ2dDz1jqW3n 主机2: 12D3KooWKDNY8JcEc9PqcUtqrA52YrLubq8qV5dRNPu2ncyjZpYg
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWG197BLk2fxvBTWqq9Ypm2JhjWWK3NY1ea3tNBwv5uCpk, 地址=[/ip4/127.0.0.1/tcp/12244]
+[DEBUG] 创建测试主机: ID=12D3KooWN5VmkCJnis1qaaharbXDLRr65a8rEf6mjVrry37yFpPs, 地址=[/ip4/127.0.0.1/tcp/14219]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/539)
+[DEBUG] 主机1: 12D3KooWG197BLk2fxvBTWqq9Ypm2JhjWWK3NY1ea3tNBwv5uCpk 主机2: 12D3KooWN5VmkCJnis1qaaharbXDLRr65a8rEf6mjVrry37yFpPs
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEsEHTvnKyRUGJoFoGHcJvkx9DSfU6QxJbj3BpU9ns1Xj, 地址=[/ip4/127.0.0.1/tcp/14527]
+[DEBUG] 创建测试主机: ID=12D3KooWPGmy2ZxNsLaLZJEQzqPUgappc18hKCgPd6NTn4okA444, 地址=[/ip4/127.0.0.1/tcp/15825]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/960)
+[DEBUG] 主机1: 12D3KooWEsEHTvnKyRUGJoFoGHcJvkx9DSfU6QxJbj3BpU9ns1Xj 主机2: 12D3KooWPGmy2ZxNsLaLZJEQzqPUgappc18hKCgPd6NTn4okA444
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMREYWZjR3de66MZhP97dagUaDK831tJ3ixFdX1GuZZxa, 地址=[/ip4/127.0.0.1/tcp/15894]
+[DEBUG] 创建测试主机: ID=12D3KooWC2Qyrr9RSyc8GD2QHv8k3v1SmTnEduK3pZMebqdKviz4, 地址=[/ip4/127.0.0.1/tcp/16903]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/792)
+[DEBUG] 主机1: 12D3KooWMREYWZjR3de66MZhP97dagUaDK831tJ3ixFdX1GuZZxa 主机2: 12D3KooWC2Qyrr9RSyc8GD2QHv8k3v1SmTnEduK3pZMebqdKviz4
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSMskL7smqLijcVwqo8swhBKw7oZv1DWZhbSebMZ6Yp9C, 地址=[/ip4/127.0.0.1/tcp/10143]
+[DEBUG] 创建测试主机: ID=12D3KooWLStP4ouaTDFcWATBWgzYCbUXYFEBbLngmQ4AJaR5yxxp, 地址=[/ip4/127.0.0.1/tcp/11954]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/329)
+[DEBUG] 主机1: 12D3KooWSMskL7smqLijcVwqo8swhBKw7oZv1DWZhbSebMZ6Yp9C 主机2: 12D3KooWLStP4ouaTDFcWATBWgzYCbUXYFEBbLngmQ4AJaR5yxxp
+测试进度 [2m0s]: 已发送 1933 消息, 已接收 1931 消息, 真实错误 35, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJYpB892B1oQFjrwLBUVxvVioySggFaZs4QjK5PNGKunL, 地址=[/ip4/127.0.0.1/tcp/10391]
+[DEBUG] 创建测试主机: ID=12D3KooWHd7sMJuYDWVNvz4zrG13FiN67JuwnqLguFzB2BQi3aeB, 地址=[/ip4/127.0.0.1/tcp/12047]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/278)
+[DEBUG] 主机1: 12D3KooWJYpB892B1oQFjrwLBUVxvVioySggFaZs4QjK5PNGKunL 主机2: 12D3KooWHd7sMJuYDWVNvz4zrG13FiN67JuwnqLguFzB2BQi3aeB
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJWJek8kUmt6vHYwAs2UvtjMaPszfRAYm25cDisL3BrXG, 地址=[/ip4/127.0.0.1/tcp/19069]
+[DEBUG] 创建测试主机: ID=12D3KooWGAsGdHmkhNL19YMjruB8byWAwMVDEaqT7ZCNNNSEWJQV, 地址=[/ip4/127.0.0.1/tcp/20184]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/269)
+[DEBUG] 主机1: 12D3KooWJWJek8kUmt6vHYwAs2UvtjMaPszfRAYm25cDisL3BrXG 主机2: 12D3KooWGAsGdHmkhNL19YMjruB8byWAwMVDEaqT7ZCNNNSEWJQV
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDzEQXTf7EJh1r1JschJPwMvZuBPFqNr2nV4Edub8yJZn, 地址=[/ip4/127.0.0.1/tcp/12290]
+[DEBUG] 创建测试主机: ID=12D3KooWEyf74baUB5AXgAQcoJFpjSgp9CGHRCThM8f3mG47D6jG, 地址=[/ip4/127.0.0.1/tcp/14273]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/194)
+[DEBUG] 主机1: 12D3KooWDzEQXTf7EJh1r1JschJPwMvZuBPFqNr2nV4Edub8yJZn 主机2: 12D3KooWEyf74baUB5AXgAQcoJFpjSgp9CGHRCThM8f3mG47D6jG
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDewnWXa8kJo6ocTKoYckdSZYf8SrSCRxnuN79ozVbjjy, 地址=[/ip4/127.0.0.1/tcp/14650]
+[DEBUG] 创建测试主机: ID=12D3KooWLwWrFcxzrJzsxNgR9v1sJhbiJ4YPRDk33L4P88zN6ChD, 地址=[/ip4/127.0.0.1/tcp/16160]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/305)
+[DEBUG] 主机1: 12D3KooWDewnWXa8kJo6ocTKoYckdSZYf8SrSCRxnuN79ozVbjjy 主机2: 12D3KooWLwWrFcxzrJzsxNgR9v1sJhbiJ4YPRDk33L4P88zN6ChD
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLVeyvBokffoMM7iPYfNb9tMw5CPkBynRmBhLkfAYsUru, 地址=[/ip4/127.0.0.1/tcp/10274]
+[DEBUG] 创建测试主机: ID=12D3KooWKRAE9Fb6mzijjZKyvP9gBYQ5cahRbiEZQFyeuCuSbKq5, 地址=[/ip4/127.0.0.1/tcp/11444]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/781)
+[DEBUG] 主机1: 12D3KooWLVeyvBokffoMM7iPYfNb9tMw5CPkBynRmBhLkfAYsUru 主机2: 12D3KooWKRAE9Fb6mzijjZKyvP9gBYQ5cahRbiEZQFyeuCuSbKq5
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGx88gkuGZhztT75CKwNAbsQPLiD4XYFruEm6s3c4zyZ3, 地址=[/ip4/127.0.0.1/tcp/12712]
+[DEBUG] 创建测试主机: ID=12D3KooWFAY6ve9AdQmjx4ZGfjgtWDW71C5fSTXJdWMunSabCyw3, 地址=[/ip4/127.0.0.1/tcp/13910]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/665)
+[DEBUG] 主机1: 12D3KooWGx88gkuGZhztT75CKwNAbsQPLiD4XYFruEm6s3c4zyZ3 主机2: 12D3KooWFAY6ve9AdQmjx4ZGfjgtWDW71C5fSTXJdWMunSabCyw3
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFUT7snyT9JkSrF3p4q3EqSVUBNELYwsPavfJdaMAdxn6, 地址=[/ip4/127.0.0.1/tcp/17638]
+[DEBUG] 创建测试主机: ID=12D3KooWFhpt8LZ9CUMt8P4b3sppGc32552cbFd8HYEqMEZRgc1y, 地址=[/ip4/127.0.0.1/tcp/18922]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/510)
+[DEBUG] 主机1: 12D3KooWFUT7snyT9JkSrF3p4q3EqSVUBNELYwsPavfJdaMAdxn6 主机2: 12D3KooWFhpt8LZ9CUMt8P4b3sppGc32552cbFd8HYEqMEZRgc1y
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWBCRAUqSCqEvAiEQD8DWRkeziUNNM35F25uc9PY2tAmCP, 地址=[/ip4/127.0.0.1/tcp/15998]
+[DEBUG] 创建测试主机: ID=12D3KooWHYyT6WqbF1H7ZpG8nanViiwNHjyQLKwF6A4XXfWJMJju, 地址=[/ip4/127.0.0.1/tcp/17632]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/625)
+[DEBUG] 主机1: 12D3KooWBCRAUqSCqEvAiEQD8DWRkeziUNNM35F25uc9PY2tAmCP 主机2: 12D3KooWHYyT6WqbF1H7ZpG8nanViiwNHjyQLKwF6A4XXfWJMJju
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWR7fEbCkt7Bw4swezoQTDPaavFuEFq3zmhRSYZ1fnjZcf, 地址=[/ip4/127.0.0.1/tcp/14364]
+[DEBUG] 创建测试主机: ID=12D3KooWGDq6fmGAjdZoPPD4jgwNw9YBF1fUG7mRrW7b5merVXAB, 地址=[/ip4/127.0.0.1/tcp/15814]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/486)
+[DEBUG] 主机1: 12D3KooWR7fEbCkt7Bw4swezoQTDPaavFuEFq3zmhRSYZ1fnjZcf 主机2: 12D3KooWGDq6fmGAjdZoPPD4jgwNw9YBF1fUG7mRrW7b5merVXAB
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKLF59ZxBUiyMj8kqvqvDB2BYqjXqdoWtJSrxTUjrw7QH, 地址=[/ip4/127.0.0.1/tcp/18989]
+[DEBUG] 创建测试主机: ID=12D3KooWEszj1STuLQ2kHG43hkzAok9vPCTTgpDSCXKEnWhANWj7, 地址=[/ip4/127.0.0.1/tcp/20126]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/766)
+[DEBUG] 主机1: 12D3KooWKLF59ZxBUiyMj8kqvqvDB2BYqjXqdoWtJSrxTUjrw7QH 主机2: 12D3KooWEszj1STuLQ2kHG43hkzAok9vPCTTgpDSCXKEnWhANWj7
+测试进度 [2m30s]: 已发送 2427 消息, 已接收 2425 消息, 真实错误 45, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDsP3RhTmsxy8jauhzr1D9XDyB8CpRM1mdTVSN8QzACW6, 地址=[/ip4/127.0.0.1/tcp/17829]
+[DEBUG] 创建测试主机: ID=12D3KooWJ9eoKXAxpkHQ8vVXs1AS6HbxTgtYAgJje49jhFmK9y6s, 地址=[/ip4/127.0.0.1/tcp/19117]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/792)
+[DEBUG] 主机1: 12D3KooWDsP3RhTmsxy8jauhzr1D9XDyB8CpRM1mdTVSN8QzACW6 主机2: 12D3KooWJ9eoKXAxpkHQ8vVXs1AS6HbxTgtYAgJje49jhFmK9y6s
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJLeFSFxkSH9SDdxwtqER4hw9KxJ3v8hEdw8vfLJQuHqZ, 地址=[/ip4/127.0.0.1/tcp/18534]
+[DEBUG] 创建测试主机: ID=12D3KooWMKZdnZkUSDkJhhmA6fAekGcG4wTXdsEeD9Cnk9u8XkTT, 地址=[/ip4/127.0.0.1/tcp/20251]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/474)
+[DEBUG] 主机1: 12D3KooWJLeFSFxkSH9SDdxwtqER4hw9KxJ3v8hEdw8vfLJQuHqZ 主机2: 12D3KooWMKZdnZkUSDkJhhmA6fAekGcG4wTXdsEeD9Cnk9u8XkTT
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHi6ZZAyWgeNfrHxrHorfJLGgnPVhDjmdi5RYNzLC2Q9v, 地址=[/ip4/127.0.0.1/tcp/10415]
+[DEBUG] 创建测试主机: ID=12D3KooWCZKFaca3MXXPGD96YKMSSpfy1cHDmjQQTk84udgiKt7T, 地址=[/ip4/127.0.0.1/tcp/12065]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/346)
+[DEBUG] 主机1: 12D3KooWHi6ZZAyWgeNfrHxrHorfJLGgnPVhDjmdi5RYNzLC2Q9v 主机2: 12D3KooWCZKFaca3MXXPGD96YKMSSpfy1cHDmjQQTk84udgiKt7T
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKPphiXTXR2C7gv3x7yk7vUmtmG5sdBKsrkYPpJtYsjmL, 地址=[/ip4/127.0.0.1/tcp/15222]
+[DEBUG] 创建测试主机: ID=12D3KooWQUj2A9k57wos4XskMXZRznoZy6NNdAAzEQSt6Zjg1gtw, 地址=[/ip4/127.0.0.1/tcp/16826]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/440)
+[DEBUG] 主机1: 12D3KooWKPphiXTXR2C7gv3x7yk7vUmtmG5sdBKsrkYPpJtYsjmL 主机2: 12D3KooWQUj2A9k57wos4XskMXZRznoZy6NNdAAzEQSt6Zjg1gtw
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMTzJYnsoif2BSnzCNLFo3YvdSkr3e7C7crUUx8YuUQjV, 地址=[/ip4/127.0.0.1/tcp/14543]
+[DEBUG] 创建测试主机: ID=12D3KooWFsK7qR8XoGHzR8CRVnfzDqzuYeNZGHxBaeJ7JJqeHZU1, 地址=[/ip4/127.0.0.1/tcp/15558]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/193)
+[DEBUG] 主机1: 12D3KooWMTzJYnsoif2BSnzCNLFo3YvdSkr3e7C7crUUx8YuUQjV 主机2: 12D3KooWFsK7qR8XoGHzR8CRVnfzDqzuYeNZGHxBaeJ7JJqeHZU1
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEkypXByXFtNX7iAi1FiLrR9d1w9uvui8ZsuKQNJNiQBV, 地址=[/ip4/127.0.0.1/tcp/15636]
+[DEBUG] 创建测试主机: ID=12D3KooWLYB915MeVu8RZasLxehXezRHTU2Z9cvWF5NZGjCgweud, 地址=[/ip4/127.0.0.1/tcp/17016]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/832)
+[DEBUG] 主机1: 12D3KooWEkypXByXFtNX7iAi1FiLrR9d1w9uvui8ZsuKQNJNiQBV 主机2: 12D3KooWLYB915MeVu8RZasLxehXezRHTU2Z9cvWF5NZGjCgweud
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFtZQdybfZTGfdLYGJ3AdSVEFsTrWj3ZxBcWLGa1y38Ek, 地址=[/ip4/127.0.0.1/tcp/10918]
+[DEBUG] 创建测试主机: ID=12D3KooWRCMjft5chJSKy1GAUVY7qfu5EcWQntFdEZb7sPVYr1fz, 地址=[/ip4/127.0.0.1/tcp/12373]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/784)
+[DEBUG] 主机1: 12D3KooWFtZQdybfZTGfdLYGJ3AdSVEFsTrWj3ZxBcWLGa1y38Ek 主机2: 12D3KooWRCMjft5chJSKy1GAUVY7qfu5EcWQntFdEZb7sPVYr1fz
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSPicjmGAsmCjPHqbwQVVMphVezdedc7VPnhMtXufaEks, 地址=[/ip4/127.0.0.1/tcp/18176]
+[DEBUG] 创建测试主机: ID=12D3KooWGmR4UDv6dbduKXtTj6YCWTj3rU3qc1mmraPhRL41Z685, 地址=[/ip4/127.0.0.1/tcp/19254]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/284)
+[DEBUG] 主机1: 12D3KooWSPicjmGAsmCjPHqbwQVVMphVezdedc7VPnhMtXufaEks 主机2: 12D3KooWGmR4UDv6dbduKXtTj6YCWTj3rU3qc1mmraPhRL41Z685
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGxt8AyMCUFnJNJhvkLFBGbkarvc7zpC5AZYsbkG4Jxsx, 地址=[/ip4/127.0.0.1/tcp/18778]
+[DEBUG] 创建测试主机: ID=12D3KooWFxDGZn7VmhggBQoVYQVG94yHXNKRLgc9E8G4m7nNYm6k, 地址=[/ip4/127.0.0.1/tcp/19992]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/868)
+[DEBUG] 主机1: 12D3KooWGxt8AyMCUFnJNJhvkLFBGbkarvc7zpC5AZYsbkG4Jxsx 主机2: 12D3KooWFxDGZn7VmhggBQoVYQVG94yHXNKRLgc9E8G4m7nNYm6k
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWREYBT1724C8LAQGfcfJFmS53E72yTHe9sFBjgpNfonaw, 地址=[/ip4/127.0.0.1/tcp/15558]
+[DEBUG] 创建测试主机: ID=12D3KooWHCmXF2GEuBLNb38HacpgWfqzHaEfv8vSzw6b41UWiuwc, 地址=[/ip4/127.0.0.1/tcp/17477]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/837)
+[DEBUG] 主机1: 12D3KooWREYBT1724C8LAQGfcfJFmS53E72yTHe9sFBjgpNfonaw 主机2: 12D3KooWHCmXF2GEuBLNb38HacpgWfqzHaEfv8vSzw6b41UWiuwc
+测试进度 [3m0s]: 已发送 2930 消息, 已接收 2927 消息, 真实错误 55, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+测试完成: 共发送 2935 消息, 接收 2932 消息, 真实错误 55, 注入错误 0, 重试 0
+
+---------- 测试结果: 长时间稳定性测试 (3m0s, 5连接) ----------
+开始时间: 2025-03-18T16:11:43+08:00
+测试时长: 180.37 秒
+消息数量: 5867
+传输数据: 290.59 MB
+吞吐量: 32.53 消息/秒
+数据率: 1.61 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 52.91 MB, 平均: 13.64 MB
+GC - 次数: 354, 总暂停时间: 38.45 ms
+错误: 55, 超时: 0, 重试: 0
+------------------------------------
+
+开始 错误恢复测试 (2m0s, 错误率:1/30)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRvDWd14XQ2QZw5WdHwe56Jewxz8dyRjjfX46yiFm7zaz, 地址=[/ip4/127.0.0.1/tcp/10854]
+[DEBUG] 创建测试主机: ID=12D3KooWCP2GTVMXz2sLcrnvqqPrvxymJ5ccKCTTu77FJNvaGfLp, 地址=[/ip4/127.0.0.1/tcp/12137]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLzm8C2Fk1bWpdTv47g88btRpVTzUReeiYwtVNLvqr28Q, 地址=[/ip4/127.0.0.1/tcp/13297]
+[DEBUG] 创建测试主机: ID=12D3KooWHACs9ZoUntAVzGVkuNCfXNjNCkAsDUxB3Cvre74ij2TN, 地址=[/ip4/127.0.0.1/tcp/14504]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/399)
+[DEBUG] 主机1: 12D3KooWRvDWd14XQ2QZw5WdHwe56Jewxz8dyRjjfX46yiFm7zaz 主机2: 12D3KooWCP2GTVMXz2sLcrnvqqPrvxymJ5ccKCTTu77FJNvaGfLp
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRwTGXQCgViYB34L8hzTArp3NnfTYLVLq1ecR51AWNnFx, 地址=[/ip4/127.0.0.1/tcp/16242]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/950)
+[DEBUG] 主机1: 12D3KooWLzm8C2Fk1bWpdTv47g88btRpVTzUReeiYwtVNLvqr28Q 主机2: 12D3KooWHACs9ZoUntAVzGVkuNCfXNjNCkAsDUxB3Cvre74ij2TN
+[DEBUG] 创建测试主机: ID=12D3KooWHEwnbwzuYmgWWXo7bQNezeuDQZdjbBmyio5AdRvoJvTH, 地址=[/ip4/127.0.0.1/tcp/17968]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/28)
+[DEBUG] 主机1: 12D3KooWRwTGXQCgViYB34L8hzTArp3NnfTYLVLq1ecR51AWNnFx 主机2: 12D3KooWHEwnbwzuYmgWWXo7bQNezeuDQZdjbBmyio5AdRvoJvTH
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMgVCsUv6EriEyeVLCKC8WfCoNJFDfE7CyR75CPWTdNUL, 地址=[/ip4/127.0.0.1/tcp/19047]
+[DEBUG] 创建测试主机: ID=12D3KooWQZJvcKXi87ypE9LnsjptKN2yEDtiCA9MieKGTznvbXQD, 地址=[/ip4/127.0.0.1/tcp/20246]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/732)
+[DEBUG] 主机1: 12D3KooWMgVCsUv6EriEyeVLCKC8WfCoNJFDfE7CyR75CPWTdNUL 主机2: 12D3KooWQZJvcKXi87ypE9LnsjptKN2yEDtiCA9MieKGTznvbXQD
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWS3duaQN7UYgPPMzBJGy6sYmJaUUcD6K3ziBPJAPcxQgP, 地址=[/ip4/127.0.0.1/tcp/10935]
+[DEBUG] 创建测试主机: ID=12D3KooWSNv9dUo5MKCMpSdvdm1NdYMdqWdbvZAcFvPfjE47q9Lk, 地址=[/ip4/127.0.0.1/tcp/12207]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJYxbZLewuL9ZZJHxz1f7XYCePEPiFVdwjtkZCg7Ld3uf, 地址=[/ip4/127.0.0.1/tcp/11741]
+[DEBUG] 创建测试主机: ID=12D3KooWBa8bK6831p71SEtm4pdkH39KUNzwiGBvU4KTCeD1GMKW, 地址=[/ip4/127.0.0.1/tcp/13215]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/763)
+[DEBUG] 主机1: 12D3KooWS3duaQN7UYgPPMzBJGy6sYmJaUUcD6K3ziBPJAPcxQgP 主机2: 12D3KooWSNv9dUo5MKCMpSdvdm1NdYMdqWdbvZAcFvPfjE47q9Lk
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/722)
+[DEBUG] 主机1: 12D3KooWJYxbZLewuL9ZZJHxz1f7XYCePEPiFVdwjtkZCg7Ld3uf 主机2: 12D3KooWBa8bK6831p71SEtm4pdkH39KUNzwiGBvU4KTCeD1GMKW
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQadT8KiVVsEyvUTFCiHBPi22XQ4B2E7YXUU2CQPSDL9H, 地址=[/ip4/127.0.0.1/tcp/17315]
+[DEBUG] 创建测试主机: ID=12D3KooWRQN1of4g1oyDjgmqcmFKdfEWNoPafjT5fsRo2ZRVEoEJ, 地址=[/ip4/127.0.0.1/tcp/19203]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAFTNxHrzroTPQqrdyhBzcLqe6pgvKiVVGnMbjQkQt4wz, 地址=[/ip4/127.0.0.1/tcp/18097]
+[DEBUG] 创建测试主机: ID=12D3KooWQZVSYmzLeaUfgAUr8YcqUhk4kUyS4N4qNVft7V5P5aUF, 地址=[/ip4/127.0.0.1/tcp/19900]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/26)
+[DEBUG] 主机1: 12D3KooWQadT8KiVVsEyvUTFCiHBPi22XQ4B2E7YXUU2CQPSDL9H 主机2: 12D3KooWRQN1of4g1oyDjgmqcmFKdfEWNoPafjT5fsRo2ZRVEoEJ
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/71)
+[DEBUG] 主机1: 12D3KooWAFTNxHrzroTPQqrdyhBzcLqe6pgvKiVVGnMbjQkQt4wz 主机2: 12D3KooWQZVSYmzLeaUfgAUr8YcqUhk4kUyS4N4qNVft7V5P5aUF
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWBoM8uEYWNUPtYiG6n5q4bSuEZauMWeXvGeb24DpMWrwB, 地址=[/ip4/127.0.0.1/tcp/12163]
+[DEBUG] 创建测试主机: ID=12D3KooWPNRWwGbP1ZYHZ1E6iGu1nEGYchMviwbTMz23qFBb8AQ5, 地址=[/ip4/127.0.0.1/tcp/13331]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWF2srTYkUV9Rkan9VznQS4x567vJFFSVgDsAyMPKhHQLP, 地址=[/ip4/127.0.0.1/tcp/19807]
+[DEBUG] 创建测试主机: ID=12D3KooWSFxgfBjQCrMRerzuxpFM5tWabXVqna4uZxKonWsAeHCf, 地址=[/ip4/127.0.0.1/tcp/20926]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/509)
+[DEBUG] 主机1: 12D3KooWBoM8uEYWNUPtYiG6n5q4bSuEZauMWeXvGeb24DpMWrwB 主机2: 12D3KooWPNRWwGbP1ZYHZ1E6iGu1nEGYchMviwbTMz23qFBb8AQ5
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJt9DDd9MvkDXvCsiKgBYLt2tzQ1dPseZEChQadka4hJD, 地址=[/ip4/127.0.0.1/tcp/13736]
+[DEBUG] 创建测试主机: ID=12D3KooWAD2RMJZAgCUWj2eZM5q9D8CWhAfDK4wScMuAB42zWhjh, 地址=[/ip4/127.0.0.1/tcp/15514]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/728)
+[DEBUG] 主机1: 12D3KooWF2srTYkUV9Rkan9VznQS4x567vJFFSVgDsAyMPKhHQLP 主机2: 12D3KooWSFxgfBjQCrMRerzuxpFM5tWabXVqna4uZxKonWsAeHCf
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/631)
+[DEBUG] 主机1: 12D3KooWJt9DDd9MvkDXvCsiKgBYLt2tzQ1dPseZEChQadka4hJD 主机2: 12D3KooWAD2RMJZAgCUWj2eZM5q9D8CWhAfDK4wScMuAB42zWhjh
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSUd979Pwwsks2yQ1Aa5vcdvJemwZafnU4mtww1yPYnDP, 地址=[/ip4/127.0.0.1/tcp/19672]
+[DEBUG] 创建测试主机: ID=12D3KooWBNWJ41RPWFfbfu9DMUDfHfrso2SbvoE6EkQWSCaBcXKt, 地址=[/ip4/127.0.0.1/tcp/20823]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMLPhGypncTyCBFRHQAdhEw8sBhmTpjyjotVwfWEpN8RY, 地址=[/ip4/127.0.0.1/tcp/19871]
+[DEBUG] 创建测试主机: ID=12D3KooWJCsRdgnnVPqZxwQjWUstukM5msUEwWDchKkDebbvU6Hv, 地址=[/ip4/127.0.0.1/tcp/21135]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/339)
+[DEBUG] 主机1: 12D3KooWSUd979Pwwsks2yQ1Aa5vcdvJemwZafnU4mtww1yPYnDP 主机2: 12D3KooWBNWJ41RPWFfbfu9DMUDfHfrso2SbvoE6EkQWSCaBcXKt
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/869)
+[DEBUG] 主机1: 12D3KooWMLPhGypncTyCBFRHQAdhEw8sBhmTpjyjotVwfWEpN8RY 主机2: 12D3KooWJCsRdgnnVPqZxwQjWUstukM5msUEwWDchKkDebbvU6Hv
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMS27MuhkEJNXn9bfoGLCNC4senQb7565EC2vrDqizYXd, 地址=[/ip4/127.0.0.1/tcp/12592]
+[DEBUG] 创建测试主机: ID=12D3KooWB4B2UmxbUL8G1tbkhDyzMDho1T4VeAcY59xjxhwJpU6b, 地址=[/ip4/127.0.0.1/tcp/14299]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/196)
+[DEBUG] 主机1: 12D3KooWMS27MuhkEJNXn9bfoGLCNC4senQb7565EC2vrDqizYXd 主机2: 12D3KooWB4B2UmxbUL8G1tbkhDyzMDho1T4VeAcY59xjxhwJpU6b
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSKR69Sr3EQmSwqTE8AjQUrCQhSF2CZwTBkxH7GWhkogz, 地址=[/ip4/127.0.0.1/tcp/14347]
+[DEBUG] 创建测试主机: ID=12D3KooWLFSb1HEab91PDA9NrTi9D1ziS5dSZj1c43dgo3R6g4mn, 地址=[/ip4/127.0.0.1/tcp/15970]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/864)
+[DEBUG] 主机1: 12D3KooWSKR69Sr3EQmSwqTE8AjQUrCQhSF2CZwTBkxH7GWhkogz 主机2: 12D3KooWLFSb1HEab91PDA9NrTi9D1ziS5dSZj1c43dgo3R6g4mn
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEenNiNzYckp7T9EDD2goKBay6TTvVPsS5nUvVrgoVHPi, 地址=[/ip4/127.0.0.1/tcp/17621]
+[DEBUG] 创建测试主机: ID=12D3KooWHBbhWynyyuJTnweQ58ESTqrdhQhyGYmPzuDGAcXM4WZK, 地址=[/ip4/127.0.0.1/tcp/18726]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/743)
+[DEBUG] 主机1: 12D3KooWEenNiNzYckp7T9EDD2goKBay6TTvVPsS5nUvVrgoVHPi 主机2: 12D3KooWHBbhWynyyuJTnweQ58ESTqrdhQhyGYmPzuDGAcXM4WZK
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSgStHCtL2A97iEdCG3oCniaSgybiVjuzzgBTbFdafXA4, 地址=[/ip4/127.0.0.1/tcp/19456]
+[DEBUG] 创建测试主机: ID=12D3KooWKzrUv23865oag6CHUh2jVuGm4FUgFwdMdWgHYAmCD9H8, 地址=[/ip4/127.0.0.1/tcp/20845]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/578)
+[DEBUG] 主机1: 12D3KooWSgStHCtL2A97iEdCG3oCniaSgybiVjuzzgBTbFdafXA4 主机2: 12D3KooWKzrUv23865oag6CHUh2jVuGm4FUgFwdMdWgHYAmCD9H8
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCWodQz1mY3sjKJ6nuFoxgXxPC4QGFmJwm4KyKSADfGAZ, 地址=[/ip4/127.0.0.1/tcp/18645]
+[DEBUG] 创建测试主机: ID=12D3KooWCwq9oD6M6d2NFjTK6LGMAxCfF7HNb8rN3QjGCNBir1FR, 地址=[/ip4/127.0.0.1/tcp/19758]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/956)
+[DEBUG] 主机1: 12D3KooWCWodQz1mY3sjKJ6nuFoxgXxPC4QGFmJwm4KyKSADfGAZ 主机2: 12D3KooWCwq9oD6M6d2NFjTK6LGMAxCfF7HNb8rN3QjGCNBir1FR
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQaCkfhioQupPTF3wpGDGvDYHeryfy8mcL9iQwHPoWa7H, 地址=[/ip4/127.0.0.1/tcp/12935]
+[DEBUG] 创建测试主机: ID=12D3KooWGpinDEe7hxyJzAFp9dWZt89QbCLWqmHfaZMMzKVrL8at, 地址=[/ip4/127.0.0.1/tcp/14530]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/374)
+[DEBUG] 主机1: 12D3KooWQaCkfhioQupPTF3wpGDGvDYHeryfy8mcL9iQwHPoWa7H 主机2: 12D3KooWGpinDEe7hxyJzAFp9dWZt89QbCLWqmHfaZMMzKVrL8at
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMgsdmPsMy3UdnZoQDx1NGAfojE4WFf9uVvUqo28KxEQx, 地址=[/ip4/127.0.0.1/tcp/18785]
+[DEBUG] 创建测试主机: ID=12D3KooWDNf94HwoA8K8KDL3Hzb9LgdCFpwR2PxWpnLZ7UZWu6gG, 地址=[/ip4/127.0.0.1/tcp/20783]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/150)
+[DEBUG] 主机1: 12D3KooWMgsdmPsMy3UdnZoQDx1NGAfojE4WFf9uVvUqo28KxEQx 主机2: 12D3KooWDNf94HwoA8K8KDL3Hzb9LgdCFpwR2PxWpnLZ7UZWu6gG
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWBxdbJvkGtVS9HFPaBCxVe7tn8GN9sADnymfBBBvhWzW7, 地址=[/ip4/127.0.0.1/tcp/18237]
+[DEBUG] 创建测试主机: ID=12D3KooWLV1MkQ9o5xbcbwGf3ivEj2b5Lnjs8xGyjcRR6VJNvoRV, 地址=[/ip4/127.0.0.1/tcp/19952]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/666)
+[DEBUG] 主机1: 12D3KooWBxdbJvkGtVS9HFPaBCxVe7tn8GN9sADnymfBBBvhWzW7 主机2: 12D3KooWLV1MkQ9o5xbcbwGf3ivEj2b5Lnjs8xGyjcRR6VJNvoRV
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCotwx1yamPjhkqk6vf1YT94zXsoMMaws9r5PyupGYpSX, 地址=[/ip4/127.0.0.1/tcp/18147]
+[DEBUG] 创建测试主机: ID=12D3KooWPs75Fwtn6Q11nrCeMT8Li3ga8LCtBXzcp5tGbPAd9h3M, 地址=[/ip4/127.0.0.1/tcp/19173]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWD1C2PjdeztZeWvbLi6r2cNRr66b9EoeRcTnhhmzA36N4, 地址=[/ip4/127.0.0.1/tcp/19841]
+[DEBUG] 创建测试主机: ID=12D3KooWKa89up3Nt7WMzWGZYWS9nDPbmuTMEtd5ejs7mRvFvyff, 地址=[/ip4/127.0.0.1/tcp/21269]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/673)
+[DEBUG] 主机1: 12D3KooWCotwx1yamPjhkqk6vf1YT94zXsoMMaws9r5PyupGYpSX 主机2: 12D3KooWPs75Fwtn6Q11nrCeMT8Li3ga8LCtBXzcp5tGbPAd9h3M
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/348)
+[DEBUG] 主机1: 12D3KooWD1C2PjdeztZeWvbLi6r2cNRr66b9EoeRcTnhhmzA36N4 主机2: 12D3KooWKa89up3Nt7WMzWGZYWS9nDPbmuTMEtd5ejs7mRvFvyff
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGXVjzvAg9KWrU63g9g5SH5svj1oBfN3B2Xx4j8HwvDhK, 地址=[/ip4/127.0.0.1/tcp/18483]
+[DEBUG] 创建测试主机: ID=12D3KooWJgsJYZ9eepicavKRcMGD2afS4eHktaiSXL2Z5cQUPjTF, 地址=[/ip4/127.0.0.1/tcp/19855]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/282)
+[DEBUG] 主机1: 12D3KooWGXVjzvAg9KWrU63g9g5SH5svj1oBfN3B2Xx4j8HwvDhK 主机2: 12D3KooWJgsJYZ9eepicavKRcMGD2afS4eHktaiSXL2Z5cQUPjTF
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLf84sWv1SBkGUQmn2b9ahS3sqhp15e5fPrdpmwUZ7krT, 地址=[/ip4/127.0.0.1/tcp/12806]
+[DEBUG] 创建测试主机: ID=12D3KooWJ3oMWyevAku3QRc5RTsov7o3EtAf7wDWiZS1mm1qmfbL, 地址=[/ip4/127.0.0.1/tcp/14366]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLKZNkpyozvGvQMPShpVkgheR3mWm5LfWSMLjGZRDtCSR, 地址=[/ip4/127.0.0.1/tcp/11438]
+[DEBUG] 创建测试主机: ID=12D3KooWKeqhgLAdc6HoyHHroqJAmtWeXXSMnp2s78WKY7ErQsKv, 地址=[/ip4/127.0.0.1/tcp/13208]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/914)
+[DEBUG] 主机1: 12D3KooWLf84sWv1SBkGUQmn2b9ahS3sqhp15e5fPrdpmwUZ7krT 主机2: 12D3KooWJ3oMWyevAku3QRc5RTsov7o3EtAf7wDWiZS1mm1qmfbL
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/90)
+[DEBUG] 主机1: 12D3KooWLKZNkpyozvGvQMPShpVkgheR3mWm5LfWSMLjGZRDtCSR 主机2: 12D3KooWKeqhgLAdc6HoyHHroqJAmtWeXXSMnp2s78WKY7ErQsKv
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLDMLRxoLxcWqn2ufas1ozUMX8djvhRj1RLtdNGPVqsBp, 地址=[/ip4/127.0.0.1/tcp/19302]
+[DEBUG] 创建测试主机: ID=12D3KooWAsvVpV8syD36TMgJ2Wk5WfnUCYXLYtpz2r2DoZWWcYFG, 地址=[/ip4/127.0.0.1/tcp/20625]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/988)
+[DEBUG] 主机1: 12D3KooWLDMLRxoLxcWqn2ufas1ozUMX8djvhRj1RLtdNGPVqsBp 主机2: 12D3KooWAsvVpV8syD36TMgJ2Wk5WfnUCYXLYtpz2r2DoZWWcYFG
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMW6Zd6bn3oN3EN2WFV8ZWjedqQZuW8XPUxpzKUsDyLHt, 地址=[/ip4/127.0.0.1/tcp/11026]
+[DEBUG] 创建测试主机: ID=12D3KooWDyAz1ApnencgHJMUZnCHYGgoTDMFcuMdyZQpQ4dDErbt, 地址=[/ip4/127.0.0.1/tcp/12457]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/5)
+[DEBUG] 主机1: 12D3KooWMW6Zd6bn3oN3EN2WFV8ZWjedqQZuW8XPUxpzKUsDyLHt 主机2: 12D3KooWDyAz1ApnencgHJMUZnCHYGgoTDMFcuMdyZQpQ4dDErbt
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWP2ZRdxUUPFmnx5eMSXpnfDxHGYdx9AkA9h3AuxBL3hA4, 地址=[/ip4/127.0.0.1/tcp/19298]
+[DEBUG] 创建测试主机: ID=12D3KooWQ4kHvSHwgUMMNqxqRtgGMwk9m5RhKP3NPp9yVE6JiQ7f, 地址=[/ip4/127.0.0.1/tcp/21046]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/253)
+[DEBUG] 主机1: 12D3KooWP2ZRdxUUPFmnx5eMSXpnfDxHGYdx9AkA9h3AuxBL3hA4 主机2: 12D3KooWQ4kHvSHwgUMMNqxqRtgGMwk9m5RhKP3NPp9yVE6JiQ7f
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJTvgyHsYigNemktjvQCduVFrDsFrf3WASjB4RpaixwEL, 地址=[/ip4/127.0.0.1/tcp/17738]
+[DEBUG] 创建测试主机: ID=12D3KooWJUb39ZQknrPjmq9ENCDZzJR3ZP3NHwsbRmjP8kFHaZ3P, 地址=[/ip4/127.0.0.1/tcp/18920]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/708)
+[DEBUG] 主机1: 12D3KooWJTvgyHsYigNemktjvQCduVFrDsFrf3WASjB4RpaixwEL 主机2: 12D3KooWJUb39ZQknrPjmq9ENCDZzJR3ZP3NHwsbRmjP8kFHaZ3P
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKcft6tSHjZNcQ4yVhchs127KiuyjKNYq78wTy9kUMQAF, 地址=[/ip4/127.0.0.1/tcp/11039]
+[DEBUG] 创建测试主机: ID=12D3KooWHoGqV8LRKnsyC8KkjggzpZsvHxFFsXcbHLiyKQnqXwcS, 地址=[/ip4/127.0.0.1/tcp/12107]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/553)
+[DEBUG] 主机1: 12D3KooWKcft6tSHjZNcQ4yVhchs127KiuyjKNYq78wTy9kUMQAF 主机2: 12D3KooWHoGqV8LRKnsyC8KkjggzpZsvHxFFsXcbHLiyKQnqXwcS
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDNnQ9kzwHUHs9Jsa6B4Jw2ZWBSSjJmLzdHeCyC73EX2R, 地址=[/ip4/127.0.0.1/tcp/17704]
+[DEBUG] 创建测试主机: ID=12D3KooWEEdkjzxN5X7aBjjB2kw8TY9o9T22m128ynzAW2aJ85YJ, 地址=[/ip4/127.0.0.1/tcp/19105]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/64)
+[DEBUG] 主机1: 12D3KooWDNnQ9kzwHUHs9Jsa6B4Jw2ZWBSSjJmLzdHeCyC73EX2R 主机2: 12D3KooWEEdkjzxN5X7aBjjB2kw8TY9o9T22m128ynzAW2aJ85YJ
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEseTwXQFw3Q5GDqh7whNGG6sp5dnPzDYZ93Xz149uF5J, 地址=[/ip4/127.0.0.1/tcp/14845]
+[DEBUG] 创建测试主机: ID=12D3KooW9xPEVNSnYiN67CoRWA1a4696H8FCceAWuVxPH38c8f37, 地址=[/ip4/127.0.0.1/tcp/16586]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/558)
+[DEBUG] 主机1: 12D3KooWEseTwXQFw3Q5GDqh7whNGG6sp5dnPzDYZ93Xz149uF5J 主机2: 12D3KooW9xPEVNSnYiN67CoRWA1a4696H8FCceAWuVxPH38c8f37
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEmyZGLbafeaDehZ9xgeJiJE6hKqb8eNci1SnwJKSecYk, 地址=[/ip4/127.0.0.1/tcp/16066]
+[DEBUG] 创建测试主机: ID=12D3KooWA9nYoHGxb8FpUhVMwQ69DKAyERmkx8bWvdSw3KNNgivm, 地址=[/ip4/127.0.0.1/tcp/17368]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/411)
+[DEBUG] 主机1: 12D3KooWEmyZGLbafeaDehZ9xgeJiJE6hKqb8eNci1SnwJKSecYk 主机2: 12D3KooWA9nYoHGxb8FpUhVMwQ69DKAyERmkx8bWvdSw3KNNgivm
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWBfHPNJJANKepWMBr7YH89KbGkAfPj7yRkY2Ua41HDbNA, 地址=[/ip4/127.0.0.1/tcp/11510]
+[DEBUG] 创建测试主机: ID=12D3KooWSUiD7EzzdD8e9Vg1ZwNRmzU2WwsWZAAn5AD5fgfeTT9N, 地址=[/ip4/127.0.0.1/tcp/12815]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/125)
+[DEBUG] 主机1: 12D3KooWBfHPNJJANKepWMBr7YH89KbGkAfPj7yRkY2Ua41HDbNA 主机2: 12D3KooWSUiD7EzzdD8e9Vg1ZwNRmzU2WwsWZAAn5AD5fgfeTT9N
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWL5QBrU6PFKe89X4cP7dMBBsczadMQQm9ombPazv8fg4X, 地址=[/ip4/127.0.0.1/tcp/17838]
+[DEBUG] 创建测试主机: ID=12D3KooWMSM1PwYe386RunHtA4bQ2AqfDYcEQNZrMfW8ePooAUTV, 地址=[/ip4/127.0.0.1/tcp/19118]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQmmFncSFFuuMs3NyuoE1RMr485A5JTAfQEYATNVS8pWx, 地址=[/ip4/127.0.0.1/tcp/12011]
+[DEBUG] 创建测试主机: ID=12D3KooWDrtNX7zG6zRoSbvTRJaAR2C38DpW3BRDnLUaANbEr7YG, 地址=[/ip4/127.0.0.1/tcp/13753]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/606)
+[DEBUG] 主机1: 12D3KooWL5QBrU6PFKe89X4cP7dMBBsczadMQQm9ombPazv8fg4X 主机2: 12D3KooWMSM1PwYe386RunHtA4bQ2AqfDYcEQNZrMfW8ePooAUTV
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/864)
+[DEBUG] 主机1: 12D3KooWQmmFncSFFuuMs3NyuoE1RMr485A5JTAfQEYATNVS8pWx 主机2: 12D3KooWDrtNX7zG6zRoSbvTRJaAR2C38DpW3BRDnLUaANbEr7YG
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEVMPVL4BJJhDtym1ciFHUV6k4AkncoJmfVrJJBqcu3Tn, 地址=[/ip4/127.0.0.1/tcp/12535]
+[DEBUG] 创建测试主机: ID=12D3KooWC9nZvkucRjPc8uL454KRsuokU1Dnor9o4iszL1f4tCHy, 地址=[/ip4/127.0.0.1/tcp/13798]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/211)
+[DEBUG] 主机1: 12D3KooWEVMPVL4BJJhDtym1ciFHUV6k4AkncoJmfVrJJBqcu3Tn 主机2: 12D3KooWC9nZvkucRjPc8uL454KRsuokU1Dnor9o4iszL1f4tCHy
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLTkcvWFt4gdTnbwstCLsbUvt1ri2B6sJqa4joaFm9KT6, 地址=[/ip4/127.0.0.1/tcp/17786]
+[DEBUG] 创建测试主机: ID=12D3KooWRECVBsBZ3FT6S7kZFGJoBMrcDFx4t4AqYxhB383PMuqk, 地址=[/ip4/127.0.0.1/tcp/19444]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSkWEgWPii3S7wcTH9HGARPKxrcDkxSzHtdwhjpNdoDhq, 地址=[/ip4/127.0.0.1/tcp/17264]
+[DEBUG] 创建测试主机: ID=12D3KooWEKftUpUimSW2VUMZbEfRF9FFVzgTCVJYMtzFRqCGRjag, 地址=[/ip4/127.0.0.1/tcp/18728]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/62)
+[DEBUG] 主机1: 12D3KooWLTkcvWFt4gdTnbwstCLsbUvt1ri2B6sJqa4joaFm9KT6 主机2: 12D3KooWRECVBsBZ3FT6S7kZFGJoBMrcDFx4t4AqYxhB383PMuqk
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/925)
+[DEBUG] 主机1: 12D3KooWSkWEgWPii3S7wcTH9HGARPKxrcDkxSzHtdwhjpNdoDhq 主机2: 12D3KooWEKftUpUimSW2VUMZbEfRF9FFVzgTCVJYMtzFRqCGRjag
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQoK1ksazZwRFwuD3T8bjwwbt1q5mywNC8RxSTDTHqshA, 地址=[/ip4/127.0.0.1/tcp/15895]
+[DEBUG] 创建测试主机: ID=12D3KooWNg3mTXtBgc21iPcZfnkrUJnWD5TByQUQbhiAVN2geELu, 地址=[/ip4/127.0.0.1/tcp/17465]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/230)
+[DEBUG] 主机1: 12D3KooWQoK1ksazZwRFwuD3T8bjwwbt1q5mywNC8RxSTDTHqshA 主机2: 12D3KooWNg3mTXtBgc21iPcZfnkrUJnWD5TByQUQbhiAVN2geELu
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRqx3cbG48ncxm2g9fTDVXMNhEpX2NauG1TDHMH4EkNu5, 地址=[/ip4/127.0.0.1/tcp/14123]
+[DEBUG] 创建测试主机: ID=12D3KooWLy6PmXDacKnTUZnVw6yuoNf93geZN9JYodL4TRZfeKxp, 地址=[/ip4/127.0.0.1/tcp/15968]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCyXo9Z938WmCtxboi2C93APNvQSZj9B5Dpro8YJfbDkx, 地址=[/ip4/127.0.0.1/tcp/14669]
+[DEBUG] 创建测试主机: ID=12D3KooWG2VC9CpU9mMq66PMQHHXwDZKHdcdyYfchKFtb2Avmj5P, 地址=[/ip4/127.0.0.1/tcp/16501]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/247)
+[DEBUG] 主机1: 12D3KooWRqx3cbG48ncxm2g9fTDVXMNhEpX2NauG1TDHMH4EkNu5 主机2: 12D3KooWLy6PmXDacKnTUZnVw6yuoNf93geZN9JYodL4TRZfeKxp
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/273)
+[DEBUG] 主机1: 12D3KooWCyXo9Z938WmCtxboi2C93APNvQSZj9B5Dpro8YJfbDkx 主机2: 12D3KooWG2VC9CpU9mMq66PMQHHXwDZKHdcdyYfchKFtb2Avmj5P
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMoJVizi4fnkJwXz4PKu1Qs8tYd2TejZdQvtERt9NoL1J, 地址=[/ip4/127.0.0.1/tcp/12193]
+[DEBUG] 创建测试主机: ID=12D3KooWRqwghLe4HNH1gAswYCH3qiYsDZFcRNbX6dSGeTYA5dAg, 地址=[/ip4/127.0.0.1/tcp/13272]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/667)
+[DEBUG] 主机1: 12D3KooWMoJVizi4fnkJwXz4PKu1Qs8tYd2TejZdQvtERt9NoL1J 主机2: 12D3KooWRqwghLe4HNH1gAswYCH3qiYsDZFcRNbX6dSGeTYA5dAg
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQ9vt17u82aP2d3B93u5G6E9kv9SwazKYNJM4Db9PSWGy, 地址=[/ip4/127.0.0.1/tcp/16306]
+[DEBUG] 创建测试主机: ID=12D3KooWBbtAT8ZG51kvjVgfd2a8wgcxffNj4BwvbgTKM8wZY1mh, 地址=[/ip4/127.0.0.1/tcp/17558]
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/484)
+[DEBUG] 主机1: 12D3KooWQ9vt17u82aP2d3B93u5G6E9kv9SwazKYNJM4Db9PSWGy 主机2: 12D3KooWBbtAT8ZG51kvjVgfd2a8wgcxffNj4BwvbgTKM8wZY1mh
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGcMNMGpC8wz8vSzq6zafasAeP8SauigYtk4GUcrNLqCE, 地址=[/ip4/127.0.0.1/tcp/10280]
+[DEBUG] 创建测试主机: ID=12D3KooWNKik2dDtpspbxVmvivNoU6Mopa2gXd3ubPf5uhMUS6F3, 地址=[/ip4/127.0.0.1/tcp/11648]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAgo8pzwCWx8P8exv5DMUJ8wiKsZ5ajJSUyfsZGCjVM8t, 地址=[/ip4/127.0.0.1/tcp/11719]
+[DEBUG] 创建测试主机: ID=12D3KooWFcni2cvXeQqdpeKFeJSSuPcJPB3zNuc5Rs8ds5hAoMzf, 地址=[/ip4/127.0.0.1/tcp/13499]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/344)
+[DEBUG] 主机1: 12D3KooWGcMNMGpC8wz8vSzq6zafasAeP8SauigYtk4GUcrNLqCE 主机2: 12D3KooWNKik2dDtpspbxVmvivNoU6Mopa2gXd3ubPf5uhMUS6F3
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/703)
+[DEBUG] 主机1: 12D3KooWAgo8pzwCWx8P8exv5DMUJ8wiKsZ5ajJSUyfsZGCjVM8t 主机2: 12D3KooWFcni2cvXeQqdpeKFeJSSuPcJPB3zNuc5Rs8ds5hAoMzf
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+测试进度 [30s]: 已发送 814 消息, 已接收 814 消息, 真实错误 39, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLNs5gjrcVU8RMRnJx96fdrRKbyodtz3nXaSDw43ohEn9, 地址=[/ip4/127.0.0.1/tcp/14763]
+[DEBUG] 创建测试主机: ID=12D3KooWBCoa1fc55fqb2tqPEMwcWc8wTC1ybR9UHBW9ZR52aghA, 地址=[/ip4/127.0.0.1/tcp/16115]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/705)
+[DEBUG] 主机1: 12D3KooWLNs5gjrcVU8RMRnJx96fdrRKbyodtz3nXaSDw43ohEn9 主机2: 12D3KooWBCoa1fc55fqb2tqPEMwcWc8wTC1ybR9UHBW9ZR52aghA
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDP8MWMAmFJA4mHxi8JhuvaoWJRpZz1B6afYwyEXP3bmx, 地址=[/ip4/127.0.0.1/tcp/10983]
+[DEBUG] 创建测试主机: ID=12D3KooWGE1PaUEe24qtt6P1rUgR2nvmqKGw3Rp4vmvwKc7K27T8, 地址=[/ip4/127.0.0.1/tcp/12241]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/415)
+[DEBUG] 主机1: 12D3KooWDP8MWMAmFJA4mHxi8JhuvaoWJRpZz1B6afYwyEXP3bmx 主机2: 12D3KooWGE1PaUEe24qtt6P1rUgR2nvmqKGw3Rp4vmvwKc7K27T8
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCUb75VsfuGucQCyGn22QqV6xLfFi4o8bupLXWrW3hAkx, 地址=[/ip4/127.0.0.1/tcp/11946]
+[DEBUG] 创建测试主机: ID=12D3KooWAA7B5q5zV6WKnSMm9ubAoTHesqppVGVp5QNhpxPYtqbn, 地址=[/ip4/127.0.0.1/tcp/13778]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/317)
+[DEBUG] 主机1: 12D3KooWCUb75VsfuGucQCyGn22QqV6xLfFi4o8bupLXWrW3hAkx 主机2: 12D3KooWAA7B5q5zV6WKnSMm9ubAoTHesqppVGVp5QNhpxPYtqbn
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNANtRiV24Gmuxr8jhLFWEhnjauwLpLm5a1G99R71fqM1, 地址=[/ip4/127.0.0.1/tcp/19247]
+[DEBUG] 创建测试主机: ID=12D3KooWBKfZB5a3sthUc7YegNqHnz6YR2T6BqRrfpgKEgKpnNRg, 地址=[/ip4/127.0.0.1/tcp/21162]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/903)
+[DEBUG] 主机1: 12D3KooWNANtRiV24Gmuxr8jhLFWEhnjauwLpLm5a1G99R71fqM1 主机2: 12D3KooWBKfZB5a3sthUc7YegNqHnz6YR2T6BqRrfpgKEgKpnNRg
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKixUdXuGdc25bESsmmRo5jUeKbYTAtDE7mSk7rPocrcr, 地址=[/ip4/127.0.0.1/tcp/14700]
+[DEBUG] 创建测试主机: ID=12D3KooWAtATukaZwiUNjf7DAhxr6QrEoba5qtZe4met6887kie7, 地址=[/ip4/127.0.0.1/tcp/15735]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/954)
+[DEBUG] 主机1: 12D3KooWKixUdXuGdc25bESsmmRo5jUeKbYTAtDE7mSk7rPocrcr 主机2: 12D3KooWAtATukaZwiUNjf7DAhxr6QrEoba5qtZe4met6887kie7
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFvoz7sn9yWxiqzwNfcHrNfCtnbKJqM5GE6tVa7PJkTZm, 地址=[/ip4/127.0.0.1/tcp/13600]
+[DEBUG] 创建测试主机: ID=12D3KooWSHhemFxnKuhP19vFTbUmmLAkQ9kJHpgDWZtejfA2m9pK, 地址=[/ip4/127.0.0.1/tcp/15156]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/87)
+[DEBUG] 主机1: 12D3KooWFvoz7sn9yWxiqzwNfcHrNfCtnbKJqM5GE6tVa7PJkTZm 主机2: 12D3KooWSHhemFxnKuhP19vFTbUmmLAkQ9kJHpgDWZtejfA2m9pK
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNLZ4y1DArcNQ2PcT7uLAnj3SkHfcKQJ7138UnnURKKsK, 地址=[/ip4/127.0.0.1/tcp/11506]
+[DEBUG] 创建测试主机: ID=12D3KooWQRtGJkRGeSpV1gcNAP6vftNL9sjhXuBgm1CbxRKMKiGW, 地址=[/ip4/127.0.0.1/tcp/12983]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/849)
+[DEBUG] 主机1: 12D3KooWNLZ4y1DArcNQ2PcT7uLAnj3SkHfcKQJ7138UnnURKKsK 主机2: 12D3KooWQRtGJkRGeSpV1gcNAP6vftNL9sjhXuBgm1CbxRKMKiGW
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRWvLjrQP1FHAi5D59HMhUwXGXSX8nptqeUnpXckkH233, 地址=[/ip4/127.0.0.1/tcp/12852]
+[DEBUG] 创建测试主机: ID=12D3KooWLkcEGB7jUGPJry7GHdym9BmDcLtpGXsTmxSBPkkcjq2E, 地址=[/ip4/127.0.0.1/tcp/14017]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/917)
+[DEBUG] 主机1: 12D3KooWRWvLjrQP1FHAi5D59HMhUwXGXSX8nptqeUnpXckkH233 主机2: 12D3KooWLkcEGB7jUGPJry7GHdym9BmDcLtpGXsTmxSBPkkcjq2E
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPmz18jjPsSamCsL6DMbHnKn47qHVZJDfhUjQjn4JLZJ3, 地址=[/ip4/127.0.0.1/tcp/15448]
+[DEBUG] 创建测试主机: ID=12D3KooWRJgtijMy4qrecBqdmCah8qhHjGjfVY67byjMxXsqrcr1, 地址=[/ip4/127.0.0.1/tcp/16519]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/805)
+[DEBUG] 主机1: 12D3KooWPmz18jjPsSamCsL6DMbHnKn47qHVZJDfhUjQjn4JLZJ3 主机2: 12D3KooWRJgtijMy4qrecBqdmCah8qhHjGjfVY67byjMxXsqrcr1
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNjNs3ihxLDgkTNfP8LwTfdcMpGGAGfR45JSvahmJfu4M, 地址=[/ip4/127.0.0.1/tcp/11711]
+[DEBUG] 创建测试主机: ID=12D3KooWJDDGsXBw1cDVwsGf3vLZCND11i9n9PF589vqvPoM1oZq, 地址=[/ip4/127.0.0.1/tcp/13423]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/450)
+[DEBUG] 主机1: 12D3KooWNjNs3ihxLDgkTNfP8LwTfdcMpGGAGfR45JSvahmJfu4M 主机2: 12D3KooWJDDGsXBw1cDVwsGf3vLZCND11i9n9PF589vqvPoM1oZq
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQjh1xMHWFsHmtHbb8tNXzARFc3CNR2S16idNUiaq3T1Y, 地址=[/ip4/127.0.0.1/tcp/19865]
+[DEBUG] 创建测试主机: ID=12D3KooWBbzCj6Xr7JCyYhHuRe5UpnWn3HSMu6vs1DMgWoSiiSwV, 地址=[/ip4/127.0.0.1/tcp/21429]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/647)
+[DEBUG] 主机1: 12D3KooWQjh1xMHWFsHmtHbb8tNXzARFc3CNR2S16idNUiaq3T1Y 主机2: 12D3KooWBbzCj6Xr7JCyYhHuRe5UpnWn3HSMu6vs1DMgWoSiiSwV
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWArwjAmesTDabWmj8hV4ccVYmudTkubQTaJvS95qbNU4P, 地址=[/ip4/127.0.0.1/tcp/15210]
+[DEBUG] 创建测试主机: ID=12D3KooWLXM5GpdKeaGG5ZbcrqdM6VbYGRpEaYdrN1h5WRo4yUGB, 地址=[/ip4/127.0.0.1/tcp/17147]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/281)
+[DEBUG] 主机1: 12D3KooWArwjAmesTDabWmj8hV4ccVYmudTkubQTaJvS95qbNU4P 主机2: 12D3KooWLXM5GpdKeaGG5ZbcrqdM6VbYGRpEaYdrN1h5WRo4yUGB
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHjkk4f89kBAxq2NNQP1LQcHZMj4nYgHzaYUu7LvyndE2, 地址=[/ip4/127.0.0.1/tcp/15805]
+[DEBUG] 创建测试主机: ID=12D3KooWCStoKDSToSyvMDQiV7W8Ljg5aTQfvvor1zHec9ihaMHk, 地址=[/ip4/127.0.0.1/tcp/17775]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWS6qTahDiUCi4yHtDymb1ut6uwdgm7qQKwUVQpTbwqpDo, 地址=[/ip4/127.0.0.1/tcp/10288]
+[DEBUG] 创建测试主机: ID=12D3KooWGm7SyxHyJXhzNF3UqKWeuD6gcqtdRQSvgeFSYPwzJDXE, 地址=[/ip4/127.0.0.1/tcp/12231]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/661)
+[DEBUG] 主机1: 12D3KooWHjkk4f89kBAxq2NNQP1LQcHZMj4nYgHzaYUu7LvyndE2 主机2: 12D3KooWCStoKDSToSyvMDQiV7W8Ljg5aTQfvvor1zHec9ihaMHk
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/135)
+[DEBUG] 主机1: 12D3KooWS6qTahDiUCi4yHtDymb1ut6uwdgm7qQKwUVQpTbwqpDo 主机2: 12D3KooWGm7SyxHyJXhzNF3UqKWeuD6gcqtdRQSvgeFSYPwzJDXE
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSYh4RzGPkHGhqKaZn3S4FaYSs1yFeuYTTkrW92FC17eR, 地址=[/ip4/127.0.0.1/tcp/12361]
+[DEBUG] 创建测试主机: ID=12D3KooWQhi9Y7uxHcVxBanAXzmYTQsBboEEdid3xttEabtXzgJ1, 地址=[/ip4/127.0.0.1/tcp/13537]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/0)
+[DEBUG] 主机1: 12D3KooWSYh4RzGPkHGhqKaZn3S4FaYSs1yFeuYTTkrW92FC17eR 主机2: 12D3KooWQhi9Y7uxHcVxBanAXzmYTQsBboEEdid3xttEabtXzgJ1
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNGaeye42U5Hj6Ksns5fMdrb1GZzEtVPdXd62iX6uE3Zo, 地址=[/ip4/127.0.0.1/tcp/14616]
+[DEBUG] 创建测试主机: ID=12D3KooWBxqWPAdD6GzZSGH7L2hjoTVoB6wvPHy2qbj1Z3ocyyrZ, 地址=[/ip4/127.0.0.1/tcp/16192]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/596)
+[DEBUG] 主机1: 12D3KooWNGaeye42U5Hj6Ksns5fMdrb1GZzEtVPdXd62iX6uE3Zo 主机2: 12D3KooWBxqWPAdD6GzZSGH7L2hjoTVoB6wvPHy2qbj1Z3ocyyrZ
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCouxE5MQiUc8ZRcB4psUDLz2buhBEHi1YnKrvkBr9Eaw, 地址=[/ip4/127.0.0.1/tcp/18691]
+[DEBUG] 创建测试主机: ID=12D3KooWEPSrTGKok7SmfspkPCa4Tw4YBN65jwKvVVT4dATmRQJY, 地址=[/ip4/127.0.0.1/tcp/20646]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/197)
+[DEBUG] 主机1: 12D3KooWCouxE5MQiUc8ZRcB4psUDLz2buhBEHi1YnKrvkBr9Eaw 主机2: 12D3KooWEPSrTGKok7SmfspkPCa4Tw4YBN65jwKvVVT4dATmRQJY
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMZ89YTav5zEB8S5DJNxiDcBx33LuA4dW2DfQezWz4485, 地址=[/ip4/127.0.0.1/tcp/15861]
+[DEBUG] 创建测试主机: ID=12D3KooWFu2cc4yGG6pZww4npsDsmduJaCMkBdufUcGbYjZHDbDh, 地址=[/ip4/127.0.0.1/tcp/17772]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/575)
+[DEBUG] 主机1: 12D3KooWMZ89YTav5zEB8S5DJNxiDcBx33LuA4dW2DfQezWz4485 主机2: 12D3KooWFu2cc4yGG6pZww4npsDsmduJaCMkBdufUcGbYjZHDbDh
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHuqrz6brLZXJmhCMRueuygtYE5FGLAhBU7SjsTq3bSTF, 地址=[/ip4/127.0.0.1/tcp/17942]
+[DEBUG] 创建测试主机: ID=12D3KooWRwzH28gMRFFNfaEXKxbrgVkdU7NSdzNBdoCRLREopa5e, 地址=[/ip4/127.0.0.1/tcp/19862]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/269)
+[DEBUG] 主机1: 12D3KooWHuqrz6brLZXJmhCMRueuygtYE5FGLAhBU7SjsTq3bSTF 主机2: 12D3KooWRwzH28gMRFFNfaEXKxbrgVkdU7NSdzNBdoCRLREopa5e
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWF5BTzNcUDJ6Nabr4omkziZgWEWUTmwFVN79UztbiHUYe, 地址=[/ip4/127.0.0.1/tcp/13717]
+[DEBUG] 创建测试主机: ID=12D3KooWNfDVAG781pdv2nGRHdZin7X7KArVK6mUiss1nTyHNb6A, 地址=[/ip4/127.0.0.1/tcp/15674]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/110)
+[DEBUG] 主机1: 12D3KooWF5BTzNcUDJ6Nabr4omkziZgWEWUTmwFVN79UztbiHUYe 主机2: 12D3KooWNfDVAG781pdv2nGRHdZin7X7KArVK6mUiss1nTyHNb6A
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHSf5R8ecpwz2h7jqLYZS3m8yoR1hsdQpQL4jzxm6fJCV, 地址=[/ip4/127.0.0.1/tcp/18709]
+[DEBUG] 创建测试主机: ID=12D3KooWH5pf4t8WkybPRayv66wz5RGJWJkxexmdFLnHTzodMeH8, 地址=[/ip4/127.0.0.1/tcp/20422]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLLAAoKipKSjiwJk1rENmfB6PLZwH6pc3kxpGDwGvMGBc, 地址=[/ip4/127.0.0.1/tcp/17958]
+[DEBUG] 创建测试主机: ID=12D3KooWGJcEddSLwZG2xmtj9Z6LFYSg9pqjxAJzDXE137UrZNmt, 地址=[/ip4/127.0.0.1/tcp/19403]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/705)
+[DEBUG] 主机1: 12D3KooWHSf5R8ecpwz2h7jqLYZS3m8yoR1hsdQpQL4jzxm6fJCV 主机2: 12D3KooWH5pf4t8WkybPRayv66wz5RGJWJkxexmdFLnHTzodMeH8
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/975)
+[DEBUG] 主机1: 12D3KooWLLAAoKipKSjiwJk1rENmfB6PLZwH6pc3kxpGDwGvMGBc 主机2: 12D3KooWGJcEddSLwZG2xmtj9Z6LFYSg9pqjxAJzDXE137UrZNmt
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDN6FR7LZz59bJSEDXgT4BiJLJrDwgswmJ9SyHfivGGJ8, 地址=[/ip4/127.0.0.1/tcp/13619]
+[DEBUG] 创建测试主机: ID=12D3KooWLo3vtR1ewaRwpmKTijaTT7B59WaBuj799GNaMd9gQbSr, 地址=[/ip4/127.0.0.1/tcp/15036]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/980)
+[DEBUG] 主机1: 12D3KooWDN6FR7LZz59bJSEDXgT4BiJLJrDwgswmJ9SyHfivGGJ8 主机2: 12D3KooWLo3vtR1ewaRwpmKTijaTT7B59WaBuj799GNaMd9gQbSr
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKSRC5XazQvVYhFYYW74hBfyNu5BFnFTK5TPv3oLJWPw7, 地址=[/ip4/127.0.0.1/tcp/11715]
+[DEBUG] 创建测试主机: ID=12D3KooWSzi7e7uMKF2CtsDepWW4c3J76PmqUo5gKrUpK7WVQwvR, 地址=[/ip4/127.0.0.1/tcp/13479]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/162)
+[DEBUG] 主机1: 12D3KooWKSRC5XazQvVYhFYYW74hBfyNu5BFnFTK5TPv3oLJWPw7 主机2: 12D3KooWSzi7e7uMKF2CtsDepWW4c3J76PmqUo5gKrUpK7WVQwvR
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJw7hgB99NBr1hSY7m2wjCGWXfw1FGdjih4yfgzZAeqqd, 地址=[/ip4/127.0.0.1/tcp/13402]
+[DEBUG] 创建测试主机: ID=12D3KooWLFcKkqF5Me8SJiCqUYvjzk2xs6RG7VgqJ3VLw6PYQ7mV, 地址=[/ip4/127.0.0.1/tcp/14886]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRc6RyyCdafM9QPRu6x17WEDx1c2SEkdQc86W1VPxwwG8, 地址=[/ip4/127.0.0.1/tcp/12842]
+[DEBUG] 创建测试主机: ID=12D3KooWLBH2FcRmwoW6K6Ka81oQBZa5eu5Tkt7qCw6gBwbagmSW, 地址=[/ip4/127.0.0.1/tcp/14374]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/984)
+[DEBUG] 主机1: 12D3KooWJw7hgB99NBr1hSY7m2wjCGWXfw1FGdjih4yfgzZAeqqd 主机2: 12D3KooWLFcKkqF5Me8SJiCqUYvjzk2xs6RG7VgqJ3VLw6PYQ7mV
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/630)
+[DEBUG] 主机1: 12D3KooWRc6RyyCdafM9QPRu6x17WEDx1c2SEkdQc86W1VPxwwG8 主机2: 12D3KooWLBH2FcRmwoW6K6Ka81oQBZa5eu5Tkt7qCw6gBwbagmSW
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEzzdUE8ahitYsMcEziYkKz9cGZAKVo72y2SGmQzBsbJd, 地址=[/ip4/127.0.0.1/tcp/16282]
+[DEBUG] 创建测试主机: ID=12D3KooWP32AT7o6xVefLv1RX7M3EMifN4EnUTHgWMGxZuU2gjqY, 地址=[/ip4/127.0.0.1/tcp/17293]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/978)
+[DEBUG] 主机1: 12D3KooWEzzdUE8ahitYsMcEziYkKz9cGZAKVo72y2SGmQzBsbJd 主机2: 12D3KooWP32AT7o6xVefLv1RX7M3EMifN4EnUTHgWMGxZuU2gjqY
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEG3GTjLLvJSEmyHBGwXdt6VJV4gHPzJw7Yq4BTRnGN4w, 地址=[/ip4/127.0.0.1/tcp/16271]
+[DEBUG] 创建测试主机: ID=12D3KooWEQ26s1orkgsstQCrJv7wze9pDfaZM9Vr1Ebzmo6WLBbb, 地址=[/ip4/127.0.0.1/tcp/17632]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRHPrjf8i4gc9KmLoPQ6gquPZvr7TVxekGwqzz9tkvQeH, 地址=[/ip4/127.0.0.1/tcp/18971]
+[DEBUG] 创建测试主机: ID=12D3KooWNRnfnhp4Hopf5kLLZ9fVqWtdujHN1JGxaLefBw3HbewM, 地址=[/ip4/127.0.0.1/tcp/20590]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/511)
+[DEBUG] 主机1: 12D3KooWEG3GTjLLvJSEmyHBGwXdt6VJV4gHPzJw7Yq4BTRnGN4w 主机2: 12D3KooWEQ26s1orkgsstQCrJv7wze9pDfaZM9Vr1Ebzmo6WLBbb
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/255)
+[DEBUG] 主机1: 12D3KooWRHPrjf8i4gc9KmLoPQ6gquPZvr7TVxekGwqzz9tkvQeH 主机2: 12D3KooWNRnfnhp4Hopf5kLLZ9fVqWtdujHN1JGxaLefBw3HbewM
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEk1JXESfzCkDCBEbAVzC426tgX7dSUXyJeNcHeAZ7UWT, 地址=[/ip4/127.0.0.1/tcp/13181]
+[DEBUG] 创建测试主机: ID=12D3KooWEVNt8udzVwFG7pBFuhRMc61snKLGyJ85z42Tt1Bmw1T5, 地址=[/ip4/127.0.0.1/tcp/14874]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/587)
+[DEBUG] 主机1: 12D3KooWEk1JXESfzCkDCBEbAVzC426tgX7dSUXyJeNcHeAZ7UWT 主机2: 12D3KooWEVNt8udzVwFG7pBFuhRMc61snKLGyJ85z42Tt1Bmw1T5
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGzfiELpZgm7kNuRL6voN1TdNYDq8NQwnePmff5b6bJxw, 地址=[/ip4/127.0.0.1/tcp/10476]
+[DEBUG] 创建测试主机: ID=12D3KooW9v7cPPndxZButwwNNaqfwxrSPxasgxDM82t4wHaD8un2, 地址=[/ip4/127.0.0.1/tcp/11688]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/704)
+[DEBUG] 主机1: 12D3KooWGzfiELpZgm7kNuRL6voN1TdNYDq8NQwnePmff5b6bJxw 主机2: 12D3KooW9v7cPPndxZButwwNNaqfwxrSPxasgxDM82t4wHaD8un2
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFUc6uwXpr6HkQ2a9Hvqk7umaCtHp9Dud6kz8UEaGf6Lb, 地址=[/ip4/127.0.0.1/tcp/10901]
+[DEBUG] 创建测试主机: ID=12D3KooWQjBMAfjk1EJL5tKxShhfrFqJamKdYzR3jDvwu9iEvjks, 地址=[/ip4/127.0.0.1/tcp/12365]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/820)
+[DEBUG] 主机1: 12D3KooWFUc6uwXpr6HkQ2a9Hvqk7umaCtHp9Dud6kz8UEaGf6Lb 主机2: 12D3KooWQjBMAfjk1EJL5tKxShhfrFqJamKdYzR3jDvwu9iEvjks
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWEWGBg2bgLdFvvjAP2HVMcHqENVQGma5v1kmt2hyYv8ak, 地址=[/ip4/127.0.0.1/tcp/10258]
+[DEBUG] 创建测试主机: ID=12D3KooWMsPWRYbzfSczrwahTNxZj6QX5ouNEuuKPxMCTRmF7qC9, 地址=[/ip4/127.0.0.1/tcp/11651]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/479)
+[DEBUG] 主机1: 12D3KooWEWGBg2bgLdFvvjAP2HVMcHqENVQGma5v1kmt2hyYv8ak 主机2: 12D3KooWMsPWRYbzfSczrwahTNxZj6QX5ouNEuuKPxMCTRmF7qC9
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWH1qFvFHgR9Kj5DiXoriW98t5s7JceqYo7WXP6WmUvhEa, 地址=[/ip4/127.0.0.1/tcp/19143]
+[DEBUG] 创建测试主机: ID=12D3KooWDAKmwM5LkYzg5mYxeQkDQytVhGAcmkDPNgd5YacpBfTs, 地址=[/ip4/127.0.0.1/tcp/21074]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/511)
+[DEBUG] 主机1: 12D3KooWH1qFvFHgR9Kj5DiXoriW98t5s7JceqYo7WXP6WmUvhEa 主机2: 12D3KooWDAKmwM5LkYzg5mYxeQkDQytVhGAcmkDPNgd5YacpBfTs
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFhbva9vruZupit5vdM9tL67rSiSrG816woUiUw3dBXEa, 地址=[/ip4/127.0.0.1/tcp/15406]
+[DEBUG] 创建测试主机: ID=12D3KooWRSocAFJv4gSijgmiczNvnZ24bWN4b8kQK1QjHVmJfuk6, 地址=[/ip4/127.0.0.1/tcp/16560]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKVsbBs8nMh6UiTCetRCvfST63eyiM9NiKA9zTsDJUKwW, 地址=[/ip4/127.0.0.1/tcp/16044]
+[DEBUG] 创建测试主机: ID=12D3KooWP39fehvqp5hEWkqu4pVSTg5PT7HQD6CHiiYhdvp84ip3, 地址=[/ip4/127.0.0.1/tcp/17244]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/613)
+[DEBUG] 主机1: 12D3KooWFhbva9vruZupit5vdM9tL67rSiSrG816woUiUw3dBXEa 主机2: 12D3KooWRSocAFJv4gSijgmiczNvnZ24bWN4b8kQK1QjHVmJfuk6
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/833)
+[DEBUG] 主机1: 12D3KooWKVsbBs8nMh6UiTCetRCvfST63eyiM9NiKA9zTsDJUKwW 主机2: 12D3KooWP39fehvqp5hEWkqu4pVSTg5PT7HQD6CHiiYhdvp84ip3
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHupLLF7H3MEM546i1U7gWYpLVhTDCCj5pdWDFAm5P69j, 地址=[/ip4/127.0.0.1/tcp/16277]
+[DEBUG] 创建测试主机: ID=12D3KooWPJMt4vxzGzkY6qKERzpgGFWH8H6XLTdisw4aEgfxLwry, 地址=[/ip4/127.0.0.1/tcp/17733]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/601)
+[DEBUG] 主机1: 12D3KooWHupLLF7H3MEM546i1U7gWYpLVhTDCCj5pdWDFAm5P69j 主机2: 12D3KooWPJMt4vxzGzkY6qKERzpgGFWH8H6XLTdisw4aEgfxLwry
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFa2qZcQe31gs5wxcDsgvuUAcq6CkudkVsHcmfV2FBYs2, 地址=[/ip4/127.0.0.1/tcp/10400]
+[DEBUG] 创建测试主机: ID=12D3KooWB9CtpQy4EtG2DkfeQszhjcNUovRRwvPmvE6H8fkoL5UN, 地址=[/ip4/127.0.0.1/tcp/12375]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/137)
+[DEBUG] 主机1: 12D3KooWFa2qZcQe31gs5wxcDsgvuUAcq6CkudkVsHcmfV2FBYs2 主机2: 12D3KooWB9CtpQy4EtG2DkfeQszhjcNUovRRwvPmvE6H8fkoL5UN
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAsFmuoKHuoxPf9majgrdtHuhYi6ZBMn5ZUYCUaAPsUue, 地址=[/ip4/127.0.0.1/tcp/11683]
+[DEBUG] 创建测试主机: ID=12D3KooWEpbm7ucpVMeCGcVG8S7VEzqp4fW1FBFSBRmf8QR229MZ, 地址=[/ip4/127.0.0.1/tcp/12850]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFeCJwSCZH5fm629tSd3C8VxjzEgq9FsCGY84JRVYav17, 地址=[/ip4/127.0.0.1/tcp/12315]
+[DEBUG] 创建测试主机: ID=12D3KooWG53zBtEA1Vr8yrHiLfyaVCzsx2EhUgRrWPzhtqe3NE2Q, 地址=[/ip4/127.0.0.1/tcp/13710]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/26)
+[DEBUG] 主机1: 12D3KooWAsFmuoKHuoxPf9majgrdtHuhYi6ZBMn5ZUYCUaAPsUue 主机2: 12D3KooWEpbm7ucpVMeCGcVG8S7VEzqp4fW1FBFSBRmf8QR229MZ
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/398)
+[DEBUG] 主机1: 12D3KooWFeCJwSCZH5fm629tSd3C8VxjzEgq9FsCGY84JRVYav17 主机2: 12D3KooWG53zBtEA1Vr8yrHiLfyaVCzsx2EhUgRrWPzhtqe3NE2Q
+[DEBUG] 正在关闭连接对
+测试进度 [1m0s]: 已发送 1660 消息, 已接收 1660 消息, 真实错误 78, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQiBezLDY6cFx8sBUa6mnG2QdDr2ZUj7KmYfdLurTq2DM, 地址=[/ip4/127.0.0.1/tcp/17797]
+[DEBUG] 创建测试主机: ID=12D3KooWADviHWEWqUoB4TG8EZVwLxtkwgGbmCkBtGi5nfSc9Q5J, 地址=[/ip4/127.0.0.1/tcp/19636]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/661)
+[DEBUG] 主机1: 12D3KooWQiBezLDY6cFx8sBUa6mnG2QdDr2ZUj7KmYfdLurTq2DM 主机2: 12D3KooWADviHWEWqUoB4TG8EZVwLxtkwgGbmCkBtGi5nfSc9Q5J
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJhLeqrJiwLPLaaDevhZnU3geCZQeF1bbNfB8HXZPxUbS, 地址=[/ip4/127.0.0.1/tcp/16391]
+[DEBUG] 创建测试主机: ID=12D3KooWLDhKLoC8tvz8pHiG9MdK7YMQ8EfsSQnwS7rAFH4AxEkc, 地址=[/ip4/127.0.0.1/tcp/18318]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/721)
+[DEBUG] 主机1: 12D3KooWJhLeqrJiwLPLaaDevhZnU3geCZQeF1bbNfB8HXZPxUbS 主机2: 12D3KooWLDhKLoC8tvz8pHiG9MdK7YMQ8EfsSQnwS7rAFH4AxEkc
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGJfVCnekMppHMKqg4VPnE5jF7zfYxZHS5xdAqGdT6DFE, 地址=[/ip4/127.0.0.1/tcp/14134]
+[DEBUG] 创建测试主机: ID=12D3KooWAEnLq1CwoxgcwLYwfS6LgzwLZUR4J6CWAnF6jUExKXwS, 地址=[/ip4/127.0.0.1/tcp/15208]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/534)
+[DEBUG] 主机1: 12D3KooWGJfVCnekMppHMKqg4VPnE5jF7zfYxZHS5xdAqGdT6DFE 主机2: 12D3KooWAEnLq1CwoxgcwLYwfS6LgzwLZUR4J6CWAnF6jUExKXwS
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNGtU2Xc5ygd7fBmJRpTzqgd3APSjt99ovtgQD2CCmRKi, 地址=[/ip4/127.0.0.1/tcp/17531]
+[DEBUG] 创建测试主机: ID=12D3KooWLvuq7HqWGd9XDXDogiEN3pCoq8v9GHg133rtXTzBMKoX, 地址=[/ip4/127.0.0.1/tcp/19041]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHi4Z9RGBBd67GeJJYrqA6MopFE8F2kYzNMczPDj45Yqj, 地址=[/ip4/127.0.0.1/tcp/18347]
+[DEBUG] 创建测试主机: ID=12D3KooWDBHQJaGYJMvm5kghxVNmE2PxkW5dvBRqCSacHBUstZka, 地址=[/ip4/127.0.0.1/tcp/20247]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/685)
+[DEBUG] 主机1: 12D3KooWNGtU2Xc5ygd7fBmJRpTzqgd3APSjt99ovtgQD2CCmRKi 主机2: 12D3KooWLvuq7HqWGd9XDXDogiEN3pCoq8v9GHg133rtXTzBMKoX
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/581)
+[DEBUG] 主机1: 12D3KooWHi4Z9RGBBd67GeJJYrqA6MopFE8F2kYzNMczPDj45Yqj 主机2: 12D3KooWDBHQJaGYJMvm5kghxVNmE2PxkW5dvBRqCSacHBUstZka
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLCVfK1fbLnnNc23TvZvaWedrjAQCn4v3FLkvVUJvFJCL, 地址=[/ip4/127.0.0.1/tcp/15413]
+[DEBUG] 创建测试主机: ID=12D3KooWDmLq7YFrUE68KL2pr53zRiJHDdEWikGZfkioSGAikufY, 地址=[/ip4/127.0.0.1/tcp/16424]
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMJFaAEQTsYuFbVTRYYW1nrHxKfN5d8BDZJD72Wrx3qvv, 地址=[/ip4/127.0.0.1/tcp/15090]
+[DEBUG] 创建测试主机: ID=12D3KooWKaULryyYZXJxdo2tBDrJ4pH3cEPD8WZzjkbuobmRRxdm, 地址=[/ip4/127.0.0.1/tcp/16136]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/749)
+[DEBUG] 主机1: 12D3KooWLCVfK1fbLnnNc23TvZvaWedrjAQCn4v3FLkvVUJvFJCL 主机2: 12D3KooWDmLq7YFrUE68KL2pr53zRiJHDdEWikGZfkioSGAikufY
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/270)
+[DEBUG] 主机1: 12D3KooWMJFaAEQTsYuFbVTRYYW1nrHxKfN5d8BDZJD72Wrx3qvv 主机2: 12D3KooWKaULryyYZXJxdo2tBDrJ4pH3cEPD8WZzjkbuobmRRxdm
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPLRoKA4CCNxQN3BQFYfbQX8wxpwtcZ4V6VNi5VhDKLyL, 地址=[/ip4/127.0.0.1/tcp/14368]
+[DEBUG] 创建测试主机: ID=12D3KooWKZxTdJ1LExs21bkeuwWf1fPmKeY6iLGn9hLc5nMk6hkp, 地址=[/ip4/127.0.0.1/tcp/16294]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/729)
+[DEBUG] 主机1: 12D3KooWPLRoKA4CCNxQN3BQFYfbQX8wxpwtcZ4V6VNi5VhDKLyL 主机2: 12D3KooWKZxTdJ1LExs21bkeuwWf1fPmKeY6iLGn9hLc5nMk6hkp
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWL4KECBxKzNJRrFA7imautRE7Awym5pUroFjCX5TjPfuA, 地址=[/ip4/127.0.0.1/tcp/10064]
+[DEBUG] 创建测试主机: ID=12D3KooWCS9zmsBXnNauoF9dWpcBfpfFsSKv9uUtv2A2Eh9P8HUo, 地址=[/ip4/127.0.0.1/tcp/11763]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/851)
+[DEBUG] 主机1: 12D3KooWL4KECBxKzNJRrFA7imautRE7Awym5pUroFjCX5TjPfuA 主机2: 12D3KooWCS9zmsBXnNauoF9dWpcBfpfFsSKv9uUtv2A2Eh9P8HUo
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHRnF3nQAKm7g2pG3ZGtchYwr5TaheMafY7C9arJHkEk5, 地址=[/ip4/127.0.0.1/tcp/12639]
+[DEBUG] 创建测试主机: ID=12D3KooWSDgmW9Zr2nZsLDVqt4hYQGEbr68uKHUX3r5rNQjsWAJu, 地址=[/ip4/127.0.0.1/tcp/13718]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/132)
+[DEBUG] 主机1: 12D3KooWHRnF3nQAKm7g2pG3ZGtchYwr5TaheMafY7C9arJHkEk5 主机2: 12D3KooWSDgmW9Zr2nZsLDVqt4hYQGEbr68uKHUX3r5rNQjsWAJu
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWK3B7FLXMmVjgD6hFD2J2UrLkTNFnqSmcd3maQTH4BoYM, 地址=[/ip4/127.0.0.1/tcp/16633]
+[DEBUG] 创建测试主机: ID=12D3KooWCtYYm2zAYSQLt5c6BUuSZATqirGcntUwTePvjN5tSVgu, 地址=[/ip4/127.0.0.1/tcp/17823]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/329)
+[DEBUG] 主机1: 12D3KooWK3B7FLXMmVjgD6hFD2J2UrLkTNFnqSmcd3maQTH4BoYM 主机2: 12D3KooWCtYYm2zAYSQLt5c6BUuSZATqirGcntUwTePvjN5tSVgu
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJ24STwCmr2rGnEj1PssKMNKDZ5sgcKGTjvR9VYM8NGSr, 地址=[/ip4/127.0.0.1/tcp/13534]
+[DEBUG] 创建测试主机: ID=12D3KooWHtsAZSpLDqfdnFJo3b9PqCWfhT9pqLv8dGMUaRMfQSzL, 地址=[/ip4/127.0.0.1/tcp/15168]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/899)
+[DEBUG] 主机1: 12D3KooWJ24STwCmr2rGnEj1PssKMNKDZ5sgcKGTjvR9VYM8NGSr 主机2: 12D3KooWHtsAZSpLDqfdnFJo3b9PqCWfhT9pqLv8dGMUaRMfQSzL
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDmyqyJCEHT615YwuVMj3FwLWQaLixWLGBLxH6dJbHMVU, 地址=[/ip4/127.0.0.1/tcp/13049]
+[DEBUG] 创建测试主机: ID=12D3KooWSaqbNCGWsnokciHCzL4b7JU1J2H23LwaxgtLKcnvJWcK, 地址=[/ip4/127.0.0.1/tcp/14748]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/561)
+[DEBUG] 主机1: 12D3KooWDmyqyJCEHT615YwuVMj3FwLWQaLixWLGBLxH6dJbHMVU 主机2: 12D3KooWSaqbNCGWsnokciHCzL4b7JU1J2H23LwaxgtLKcnvJWcK
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJAchB7pxSVWknV5FjzbnR5Tpg2SvuoYZnvV6hYVQsqob, 地址=[/ip4/127.0.0.1/tcp/17563]
+[DEBUG] 创建测试主机: ID=12D3KooWD36TE8P2ywRwx9MTfn9dcTqPRjBYQmyxzYFmrrEYeoYa, 地址=[/ip4/127.0.0.1/tcp/18569]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/552)
+[DEBUG] 主机1: 12D3KooWJAchB7pxSVWknV5FjzbnR5Tpg2SvuoYZnvV6hYVQsqob 主机2: 12D3KooWD36TE8P2ywRwx9MTfn9dcTqPRjBYQmyxzYFmrrEYeoYa
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCABZmuCdBmoUTzuomtsFELQSdE3QBs4Pe1ehsyvf2Dp1, 地址=[/ip4/127.0.0.1/tcp/13120]
+[DEBUG] 创建测试主机: ID=12D3KooWGPPKcfT39C5ynTHPHU1VjF1i2R39Pm2NgCpCcHCZ36oG, 地址=[/ip4/127.0.0.1/tcp/14441]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/399)
+[DEBUG] 主机1: 12D3KooWCABZmuCdBmoUTzuomtsFELQSdE3QBs4Pe1ehsyvf2Dp1 主机2: 12D3KooWGPPKcfT39C5ynTHPHU1VjF1i2R39Pm2NgCpCcHCZ36oG
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDp796jP5B4Y2erR4ZoZJGzevD81aP18C7kEVG72U14tJ, 地址=[/ip4/127.0.0.1/tcp/11624]
+[DEBUG] 创建测试主机: ID=12D3KooWRQiGt5oi2oM6rgmneAWinUzUPzqZ3qxELkPSDmTRMnGz, 地址=[/ip4/127.0.0.1/tcp/12802]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/958)
+[DEBUG] 主机1: 12D3KooWDp796jP5B4Y2erR4ZoZJGzevD81aP18C7kEVG72U14tJ 主机2: 12D3KooWRQiGt5oi2oM6rgmneAWinUzUPzqZ3qxELkPSDmTRMnGz
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFAVKNFgnvwkvELVi3acFPGJSu7wny2mAbka5ef6hS2kJ, 地址=[/ip4/127.0.0.1/tcp/15286]
+[DEBUG] 创建测试主机: ID=12D3KooWCTHQ3evs1E5nKgWxoX4okzuD4QmSzN683hbNCN3dKxo8, 地址=[/ip4/127.0.0.1/tcp/16809]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/14)
+[DEBUG] 主机1: 12D3KooWFAVKNFgnvwkvELVi3acFPGJSu7wny2mAbka5ef6hS2kJ 主机2: 12D3KooWCTHQ3evs1E5nKgWxoX4okzuD4QmSzN683hbNCN3dKxo8
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSd1hc1Xg8kk72mPTNCKddmmzRQucuNBKskk3niQYY8U3, 地址=[/ip4/127.0.0.1/tcp/17225]
+[DEBUG] 创建测试主机: ID=12D3KooWCG2ASmhZCtcxSbsafX73n4VP3iBmnYJGdXjBRDqVz3DP, 地址=[/ip4/127.0.0.1/tcp/18539]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/673)
+[DEBUG] 主机1: 12D3KooWSd1hc1Xg8kk72mPTNCKddmmzRQucuNBKskk3niQYY8U3 主机2: 12D3KooWCG2ASmhZCtcxSbsafX73n4VP3iBmnYJGdXjBRDqVz3DP
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMCq7cu5ueWfZ5T3EcL8M4azQPNmY8mU7EyU85HzNyMr5, 地址=[/ip4/127.0.0.1/tcp/13540]
+[DEBUG] 创建测试主机: ID=12D3KooWSn55hj1SvdqWUxVLkaT9c2mtCzZ6tDXgC8GSxTSAKWxf, 地址=[/ip4/127.0.0.1/tcp/14749]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/902)
+[DEBUG] 主机1: 12D3KooWMCq7cu5ueWfZ5T3EcL8M4azQPNmY8mU7EyU85HzNyMr5 主机2: 12D3KooWSn55hj1SvdqWUxVLkaT9c2mtCzZ6tDXgC8GSxTSAKWxf
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLrabQajUaa4zov8PmZ2myB1tKLKyLKomFvuBsUckaNiD, 地址=[/ip4/127.0.0.1/tcp/17571]
+[DEBUG] 创建测试主机: ID=12D3KooW9skY5YVNXbSZYauBLYcTGWfTkn3czYj3gsnF4qRwUXch, 地址=[/ip4/127.0.0.1/tcp/19027]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/796)
+[DEBUG] 主机1: 12D3KooWLrabQajUaa4zov8PmZ2myB1tKLKyLKomFvuBsUckaNiD 主机2: 12D3KooW9skY5YVNXbSZYauBLYcTGWfTkn3czYj3gsnF4qRwUXch
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLRR3iaBERLXddM1eHeGMjSvNM1yofcXYjZgDwsAvp8iW, 地址=[/ip4/127.0.0.1/tcp/15392]
+[DEBUG] 创建测试主机: ID=12D3KooWAJ9wVtS3MHRJT4XArFUZ21EXrSTQV6RsNTQMJoRJQFq6, 地址=[/ip4/127.0.0.1/tcp/16816]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMLEBeSrTnj1CAt9BEevTgHSrSHmXzyinKRi6Y6K4qR1u, 地址=[/ip4/127.0.0.1/tcp/17293]
+[DEBUG] 创建测试主机: ID=12D3KooWQhUFxKoc3zCn4hhWaRBuHya4G9bmPmENBf7EwTyNGCd4, 地址=[/ip4/127.0.0.1/tcp/18907]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/190)
+[DEBUG] 主机1: 12D3KooWLRR3iaBERLXddM1eHeGMjSvNM1yofcXYjZgDwsAvp8iW 主机2: 12D3KooWAJ9wVtS3MHRJT4XArFUZ21EXrSTQV6RsNTQMJoRJQFq6
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/968)
+[DEBUG] 主机1: 12D3KooWMLEBeSrTnj1CAt9BEevTgHSrSHmXzyinKRi6Y6K4qR1u 主机2: 12D3KooWQhUFxKoc3zCn4hhWaRBuHya4G9bmPmENBf7EwTyNGCd4
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWD6tpaWpgu6tRaaZxsnYxbybNLo2Fp5cvxeE5Fjg7cNwv, 地址=[/ip4/127.0.0.1/tcp/10858]
+[DEBUG] 创建测试主机: ID=12D3KooWQH8KTZMqdn3grLYJ6KKNficUUHjm9RJbtdXG16hMbk4n, 地址=[/ip4/127.0.0.1/tcp/12175]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/366)
+[DEBUG] 主机1: 12D3KooWD6tpaWpgu6tRaaZxsnYxbybNLo2Fp5cvxeE5Fjg7cNwv 主机2: 12D3KooWQH8KTZMqdn3grLYJ6KKNficUUHjm9RJbtdXG16hMbk4n
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDAd8wxaBRoKw7uctPUiN7GLF5GsyLi2XiguGKgDCw3Sf, 地址=[/ip4/127.0.0.1/tcp/13898]
+[DEBUG] 创建测试主机: ID=12D3KooWMMtkmnyyXhSM8pyLzs5UXBhixCTKGaepdMpKZuKUk282, 地址=[/ip4/127.0.0.1/tcp/15037]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/777)
+[DEBUG] 主机1: 12D3KooWDAd8wxaBRoKw7uctPUiN7GLF5GsyLi2XiguGKgDCw3Sf 主机2: 12D3KooWMMtkmnyyXhSM8pyLzs5UXBhixCTKGaepdMpKZuKUk282
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWP2vm8mhjyJLuF3fLQNggJvHR9ZzppGQXXA22zRJcaxeC, 地址=[/ip4/127.0.0.1/tcp/12620]
+[DEBUG] 创建测试主机: ID=12D3KooWJjRVFsmJ9iFhjkqrppLNKsbELdDQmHbtK1nbAv3BSxx7, 地址=[/ip4/127.0.0.1/tcp/13715]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/39)
+[DEBUG] 主机1: 12D3KooWP2vm8mhjyJLuF3fLQNggJvHR9ZzppGQXXA22zRJcaxeC 主机2: 12D3KooWJjRVFsmJ9iFhjkqrppLNKsbELdDQmHbtK1nbAv3BSxx7
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQRbSHezEeDnSwhCkPktV1sxUHkDEQsTJbcAzUad5bxR9, 地址=[/ip4/127.0.0.1/tcp/15323]
+[DEBUG] 创建测试主机: ID=12D3KooWN9CiLka4hsukfabWT8Mx9pGD9XiMmY81TNmjZ2eoZtiK, 地址=[/ip4/127.0.0.1/tcp/17300]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/796)
+[DEBUG] 主机1: 12D3KooWQRbSHezEeDnSwhCkPktV1sxUHkDEQsTJbcAzUad5bxR9 主机2: 12D3KooWN9CiLka4hsukfabWT8Mx9pGD9XiMmY81TNmjZ2eoZtiK
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMA12MhhiUfj5FWPKLYVi1LXBP5Nkq39cWMEtUEYuKkXB, 地址=[/ip4/127.0.0.1/tcp/18853]
+[DEBUG] 创建测试主机: ID=12D3KooWFDPCsVas3cKe64VwMvXExpwp1GtzKAExFRDk99Kr5H6j, 地址=[/ip4/127.0.0.1/tcp/20248]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/576)
+[DEBUG] 主机1: 12D3KooWMA12MhhiUfj5FWPKLYVi1LXBP5Nkq39cWMEtUEYuKkXB 主机2: 12D3KooWFDPCsVas3cKe64VwMvXExpwp1GtzKAExFRDk99Kr5H6j
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQP6TWaX3XKYxANcNNrjLkjDieeiTkG1XvZN2AsQZgM2F, 地址=[/ip4/127.0.0.1/tcp/12513]
+[DEBUG] 创建测试主机: ID=12D3KooWM5HveX4Aoz8BW1CapYbJ9R1mkzjuLYf5dT86Kbprq3NH, 地址=[/ip4/127.0.0.1/tcp/13835]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWL853oPzcNWSFowSJYs8c9mPPpvCLawFuurNSZTHTZWew, 地址=[/ip4/127.0.0.1/tcp/11150]
+[DEBUG] 创建测试主机: ID=12D3KooWNR2TVWaHX2gbsPLr3HVxQbwBtN2RqLRCYLfdMEftDMeu, 地址=[/ip4/127.0.0.1/tcp/12331]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/629)
+[DEBUG] 主机1: 12D3KooWQP6TWaX3XKYxANcNNrjLkjDieeiTkG1XvZN2AsQZgM2F 主机2: 12D3KooWM5HveX4Aoz8BW1CapYbJ9R1mkzjuLYf5dT86Kbprq3NH
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/202)
+[DEBUG] 主机1: 12D3KooWL853oPzcNWSFowSJYs8c9mPPpvCLawFuurNSZTHTZWew 主机2: 12D3KooWNR2TVWaHX2gbsPLr3HVxQbwBtN2RqLRCYLfdMEftDMeu
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHN1v1yA3EzqzwUpeGM5Ye5S6m5pgFm6v5FrfbwbVxonX, 地址=[/ip4/127.0.0.1/tcp/17241]
+[DEBUG] 创建测试主机: ID=12D3KooWMrkeYtpay3pFrmJn3H1MDYz4U5LpyYVMESpasbARpi5v, 地址=[/ip4/127.0.0.1/tcp/18850]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/469)
+[DEBUG] 主机1: 12D3KooWHN1v1yA3EzqzwUpeGM5Ye5S6m5pgFm6v5FrfbwbVxonX 主机2: 12D3KooWMrkeYtpay3pFrmJn3H1MDYz4U5LpyYVMESpasbARpi5v
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFPyobaXXziaYPoo5SkTdjmULYQ8nG597jhRfGJs51xUs, 地址=[/ip4/127.0.0.1/tcp/18245]
+[DEBUG] 创建测试主机: ID=12D3KooWPsbvrS5bPzeWrsv38p3t1ZZkkkGCP8DdXaQXS8GXfYrb, 地址=[/ip4/127.0.0.1/tcp/19601]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/237)
+[DEBUG] 主机1: 12D3KooWFPyobaXXziaYPoo5SkTdjmULYQ8nG597jhRfGJs51xUs 主机2: 12D3KooWPsbvrS5bPzeWrsv38p3t1ZZkkkGCP8DdXaQXS8GXfYrb
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAnxYiLJkRFcJiMdkeEFPQ71UBA9wFBGNsV1NaBmfh2uv, 地址=[/ip4/127.0.0.1/tcp/11448]
+[DEBUG] 创建测试主机: ID=12D3KooWAb1swQmZ2XHAgUoB3pTxk9ms7Tt4wKADTYcTKyoWbYCr, 地址=[/ip4/127.0.0.1/tcp/13237]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGLBQyaCQJrNoPD9xJkMAmF653EBW6KMKuaje7nmhkF9N, 地址=[/ip4/127.0.0.1/tcp/12892]
+[DEBUG] 创建测试主机: ID=12D3KooWFHNyxqyScGkA1UX5E35wjiz5jaJjjszArj578BFzRy98, 地址=[/ip4/127.0.0.1/tcp/14451]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/429)
+[DEBUG] 主机1: 12D3KooWAnxYiLJkRFcJiMdkeEFPQ71UBA9wFBGNsV1NaBmfh2uv 主机2: 12D3KooWAb1swQmZ2XHAgUoB3pTxk9ms7Tt4wKADTYcTKyoWbYCr
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/821)
+[DEBUG] 主机1: 12D3KooWGLBQyaCQJrNoPD9xJkMAmF653EBW6KMKuaje7nmhkF9N 主机2: 12D3KooWFHNyxqyScGkA1UX5E35wjiz5jaJjjszArj578BFzRy98
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQuDAEc6PyXnAjEbQwoYCBVcZDPZiDHfUoRDdva3uMSan, 地址=[/ip4/127.0.0.1/tcp/15935]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDnQadLCZCffkDQyEyM59fcppvoCPrEEj7Ee86RZr2Sm6, 地址=[/ip4/127.0.0.1/tcp/17807]
+[DEBUG] 创建测试主机: ID=12D3KooWMdRYarbfrAq5igHdxhLjAwgNYLFyAm9HVfTabumVPK39, 地址=[/ip4/127.0.0.1/tcp/12082]
+[DEBUG] 创建测试主机: ID=12D3KooWQ3gf5EzjeySYCRYzEKXnJQqwKEEGV5F2hEUKqgpQWayR, 地址=[/ip4/127.0.0.1/tcp/13456]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/194)
+[DEBUG] 主机1: 12D3KooWQuDAEc6PyXnAjEbQwoYCBVcZDPZiDHfUoRDdva3uMSan 主机2: 12D3KooWDnQadLCZCffkDQyEyM59fcppvoCPrEEj7Ee86RZr2Sm6
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/230)
+[DEBUG] 主机1: 12D3KooWMdRYarbfrAq5igHdxhLjAwgNYLFyAm9HVfTabumVPK39 主机2: 12D3KooWQ3gf5EzjeySYCRYzEKXnJQqwKEEGV5F2hEUKqgpQWayR
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQ47CXALghcKe9rhDtPopHWwqsN69QVBhfmgfZN1NZ6Ku, 地址=[/ip4/127.0.0.1/tcp/19592]
+[DEBUG] 创建测试主机: ID=12D3KooWMByQ2k2WbbXYayZyQcWVx3X3F1tgTPfjW2iiEhPauTPz, 地址=[/ip4/127.0.0.1/tcp/20637]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/512)
+[DEBUG] 主机1: 12D3KooWQ47CXALghcKe9rhDtPopHWwqsN69QVBhfmgfZN1NZ6Ku 主机2: 12D3KooWMByQ2k2WbbXYayZyQcWVx3X3F1tgTPfjW2iiEhPauTPz
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWLt9Nr4LpeMhqqS34xeL7o3FK9SYvW8cVS7jwgrgsEMt5, 地址=[/ip4/127.0.0.1/tcp/11016]
+[DEBUG] 创建测试主机: ID=12D3KooWBECgXozLCKQUTeZKJJLca31AMkGB2CfAzFkMUXEuAssh, 地址=[/ip4/127.0.0.1/tcp/12783]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFHjLCdzgvCJ7iDLfcLbsBdukxoo29MR6nqbNLrUoH42k, 地址=[/ip4/127.0.0.1/tcp/13134]
+[DEBUG] 创建测试主机: ID=12D3KooWBR93czekoSCdvLnmzd18uMn62MR56CCig1FixjHjQqcB, 地址=[/ip4/127.0.0.1/tcp/15125]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/879)
+[DEBUG] 主机1: 12D3KooWLt9Nr4LpeMhqqS34xeL7o3FK9SYvW8cVS7jwgrgsEMt5 主机2: 12D3KooWBECgXozLCKQUTeZKJJLca31AMkGB2CfAzFkMUXEuAssh
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/725)
+[DEBUG] 主机1: 12D3KooWFHjLCdzgvCJ7iDLfcLbsBdukxoo29MR6nqbNLrUoH42k 主机2: 12D3KooWBR93czekoSCdvLnmzd18uMn62MR56CCig1FixjHjQqcB
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMm5UWPqcEdicMXZBXSWt878eJNEpLnwPvQRhRdcRvr2v, 地址=[/ip4/127.0.0.1/tcp/12753]
+[DEBUG] 创建测试主机: ID=12D3KooWNzB6qZVCgXaUVpmWcKfqGNkFkcH81sg9gUH8DyzgLmR2, 地址=[/ip4/127.0.0.1/tcp/14593]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/310)
+[DEBUG] 主机1: 12D3KooWMm5UWPqcEdicMXZBXSWt878eJNEpLnwPvQRhRdcRvr2v 主机2: 12D3KooWNzB6qZVCgXaUVpmWcKfqGNkFkcH81sg9gUH8DyzgLmR2
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNvEHdHcw6JyN9S5g3FR3AtGCYBFy5FoBm6Cza7mWPjh5, 地址=[/ip4/127.0.0.1/tcp/10892]
+[DEBUG] 创建测试主机: ID=12D3KooWKPouVke6UtGUZnRLY8yJiQ41c4jxvWwkAdPQPdsRY39J, 地址=[/ip4/127.0.0.1/tcp/11908]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/358)
+[DEBUG] 主机1: 12D3KooWNvEHdHcw6JyN9S5g3FR3AtGCYBFy5FoBm6Cza7mWPjh5 主机2: 12D3KooWKPouVke6UtGUZnRLY8yJiQ41c4jxvWwkAdPQPdsRY39J
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWT1LqKPr6VndfFPoh37mtQ7EMJv3Dju8i9YMJ2K9PU3jK, 地址=[/ip4/127.0.0.1/tcp/13463]
+[DEBUG] 创建测试主机: ID=12D3KooWDijxwqiDE73HCY4bPa46j9n2FTnLts6ZjqfCYsjYDyJp, 地址=[/ip4/127.0.0.1/tcp/14830]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/741)
+[DEBUG] 主机1: 12D3KooWT1LqKPr6VndfFPoh37mtQ7EMJv3Dju8i9YMJ2K9PU3jK 主机2: 12D3KooWDijxwqiDE73HCY4bPa46j9n2FTnLts6ZjqfCYsjYDyJp
+测试进度 [1m30s]: 已发送 2503 消息, 已接收 2503 消息, 真实错误 118, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSEprKEN8okcJwV42M4G75qDAjZHGn8k4BYdPNDbYuH2v, 地址=[/ip4/127.0.0.1/tcp/12431]
+[DEBUG] 创建测试主机: ID=12D3KooWDErYJk3Z2SkbLc6Kev2xQwSiquC3GmfUdJ6dq93kEzqc, 地址=[/ip4/127.0.0.1/tcp/13908]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/584)
+[DEBUG] 主机1: 12D3KooWSEprKEN8okcJwV42M4G75qDAjZHGn8k4BYdPNDbYuH2v 主机2: 12D3KooWDErYJk3Z2SkbLc6Kev2xQwSiquC3GmfUdJ6dq93kEzqc
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNqWEGwMEcDRGQMZZNcBDFQPV2TTCQdtB7gWyeZDy2zf6, 地址=[/ip4/127.0.0.1/tcp/12818]
+[DEBUG] 创建测试主机: ID=12D3KooWS83GzsuikGmBAsqqeBA6QLjnYqyjtEu4YwxdczDrep27, 地址=[/ip4/127.0.0.1/tcp/14495]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/430)
+[DEBUG] 主机1: 12D3KooWNqWEGwMEcDRGQMZZNcBDFQPV2TTCQdtB7gWyeZDy2zf6 主机2: 12D3KooWS83GzsuikGmBAsqqeBA6QLjnYqyjtEu4YwxdczDrep27
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWPVdn8DUwLvB8ekivvyfaj6nxcmKZR7WfMdLbxYQwqNfs, 地址=[/ip4/127.0.0.1/tcp/16293]
+[DEBUG] 创建测试主机: ID=12D3KooWH3fhH3qtoaQ7bRLHWTTzznyXZx89pmCaKUEi9ZqBfVXa, 地址=[/ip4/127.0.0.1/tcp/18084]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/918)
+[DEBUG] 主机1: 12D3KooWPVdn8DUwLvB8ekivvyfaj6nxcmKZR7WfMdLbxYQwqNfs 主机2: 12D3KooWH3fhH3qtoaQ7bRLHWTTzznyXZx89pmCaKUEi9ZqBfVXa
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKDsPkmei8CpHsX79SPGgVje79weVXjuki4GPnk5g5tPf, 地址=[/ip4/127.0.0.1/tcp/13305]
+[DEBUG] 创建测试主机: ID=12D3KooWPbGEABXqBVmxXuNB5aEwydJ46EP63DmRW6Ew31H9MWF7, 地址=[/ip4/127.0.0.1/tcp/15292]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/62)
+[DEBUG] 主机1: 12D3KooWKDsPkmei8CpHsX79SPGgVje79weVXjuki4GPnk5g5tPf 主机2: 12D3KooWPbGEABXqBVmxXuNB5aEwydJ46EP63DmRW6Ew31H9MWF7
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWP19j1BydfjBgT9SSSm7EU6EQk6n8u4AoiWMtkbFXyZLh, 地址=[/ip4/127.0.0.1/tcp/19018]
+[DEBUG] 创建测试主机: ID=12D3KooWGmBswX4XLHpiW3d5GWr9n8Wop48rUFt6iPZFTiJzJDVQ, 地址=[/ip4/127.0.0.1/tcp/20037]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/521)
+[DEBUG] 主机1: 12D3KooWP19j1BydfjBgT9SSSm7EU6EQk6n8u4AoiWMtkbFXyZLh 主机2: 12D3KooWGmBswX4XLHpiW3d5GWr9n8Wop48rUFt6iPZFTiJzJDVQ
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWAxAPCyAEAeWAjs3yUzPzMLzU1wS3NXv9LaApEUFdqwL3, 地址=[/ip4/127.0.0.1/tcp/11908]
+[DEBUG] 创建测试主机: ID=12D3KooWRjC93nNc3FJxdwTcL4zbP8jLPr3t7c1xQ6HAkVUjCsSf, 地址=[/ip4/127.0.0.1/tcp/13575]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/528)
+[DEBUG] 主机1: 12D3KooWAxAPCyAEAeWAjs3yUzPzMLzU1wS3NXv9LaApEUFdqwL3 主机2: 12D3KooWRjC93nNc3FJxdwTcL4zbP8jLPr3t7c1xQ6HAkVUjCsSf
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDNq3XkBMF8BTyXoj99FB1NSKwp435J8mQLw5sSXVvZv5, 地址=[/ip4/127.0.0.1/tcp/18951]
+[DEBUG] 创建测试主机: ID=12D3KooWHd2RNTWmEjd9rJh2CZXSomUoMBX82KRfyukrQWRjv7uk, 地址=[/ip4/127.0.0.1/tcp/20334]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/114)
+[DEBUG] 主机1: 12D3KooWDNq3XkBMF8BTyXoj99FB1NSKwp435J8mQLw5sSXVvZv5 主机2: 12D3KooWHd2RNTWmEjd9rJh2CZXSomUoMBX82KRfyukrQWRjv7uk
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWG8CXa9ESz4uGqFUt1KSWSKyiBMVcWNBeq9nzaZ5QnHyN, 地址=[/ip4/127.0.0.1/tcp/14573]
+[DEBUG] 创建测试主机: ID=12D3KooWDmbpsr6EhLB7hW7yHwpX7kT9E2X4Ne6PQMcP6nMqTTNs, 地址=[/ip4/127.0.0.1/tcp/16235]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/426)
+[DEBUG] 主机1: 12D3KooWG8CXa9ESz4uGqFUt1KSWSKyiBMVcWNBeq9nzaZ5QnHyN 主机2: 12D3KooWDmbpsr6EhLB7hW7yHwpX7kT9E2X4Ne6PQMcP6nMqTTNs
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGyVzKNJUhkB7Kycrty7nuquUjCyisFFdKbjWqCadgTdY, 地址=[/ip4/127.0.0.1/tcp/12485]
+[DEBUG] 创建测试主机: ID=12D3KooWFZN6rCBYduncEL34ZV3nNDg4qZBESPT6Dc4nrvW7ZUTP, 地址=[/ip4/127.0.0.1/tcp/14150]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRDpYauJ6hWTEbF7eZfWMaQmYLNvrpCaLbXhV6DinbCwZ, 地址=[/ip4/127.0.0.1/tcp/18408]
+[DEBUG] 创建测试主机: ID=12D3KooWBXesriDMnrehFrmVmqpnNqFsPW1Tp8ETLaRgKr9r9w4a, 地址=[/ip4/127.0.0.1/tcp/19988]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/41)
+[DEBUG] 主机1: 12D3KooWGyVzKNJUhkB7Kycrty7nuquUjCyisFFdKbjWqCadgTdY 主机2: 12D3KooWFZN6rCBYduncEL34ZV3nNDg4qZBESPT6Dc4nrvW7ZUTP
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/125)
+[DEBUG] 主机1: 12D3KooWRDpYauJ6hWTEbF7eZfWMaQmYLNvrpCaLbXhV6DinbCwZ 主机2: 12D3KooWBXesriDMnrehFrmVmqpnNqFsPW1Tp8ETLaRgKr9r9w4a
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWFftpcdg2zA3ZPyxhD2V9H6xvXNccmt3x7ZhPa4yRvtcs, 地址=[/ip4/127.0.0.1/tcp/19011]
+[DEBUG] 创建测试主机: ID=12D3KooWRYdB5rKBX1rboxQULtTfeBcppapD5DiyvXg9Ju1gn1Li, 地址=[/ip4/127.0.0.1/tcp/20326]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/213)
+[DEBUG] 主机1: 12D3KooWFftpcdg2zA3ZPyxhD2V9H6xvXNccmt3x7ZhPa4yRvtcs 主机2: 12D3KooWRYdB5rKBX1rboxQULtTfeBcppapD5DiyvXg9Ju1gn1Li
+[DEBUG] 创建测试主机: ID=12D3KooWHGG8pRyHqwrVxBWFVvN5ae6pJibAsRFgsThkNSAWhZZt, 地址=[/ip4/127.0.0.1/tcp/14297]
+[DEBUG] 创建测试主机: ID=12D3KooWKwytFTsbiwBpSNdeVZQCVsSDPv11bEgtvpArNgE5c7uc, 地址=[/ip4/127.0.0.1/tcp/16123]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/560)
+[DEBUG] 主机1: 12D3KooWHGG8pRyHqwrVxBWFVvN5ae6pJibAsRFgsThkNSAWhZZt 主机2: 12D3KooWKwytFTsbiwBpSNdeVZQCVsSDPv11bEgtvpArNgE5c7uc
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRQpUJGBzCgxLkk37Ewv9wHw9c3NjWTRoUNhkwxMtVXLr, 地址=[/ip4/127.0.0.1/tcp/17585]
+[DEBUG] 创建测试主机: ID=12D3KooWEqqHbPQSFj4KeB8WKbK2jzQtpaikNsY2mjfmP6d6EaJb, 地址=[/ip4/127.0.0.1/tcp/18666]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/509)
+[DEBUG] 主机1: 12D3KooWRQpUJGBzCgxLkk37Ewv9wHw9c3NjWTRoUNhkwxMtVXLr 主机2: 12D3KooWEqqHbPQSFj4KeB8WKbK2jzQtpaikNsY2mjfmP6d6EaJb
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWBuT2Sf8hhN4E6rKpDTjk7yFQDreuxzL8DgWKYHd7KyxG, 地址=[/ip4/127.0.0.1/tcp/16349]
+[DEBUG] 创建测试主机: ID=12D3KooWQakw42xmHowBB7XzQnfjehQPwM1Wb2hSMBuWWPjPdh8d, 地址=[/ip4/127.0.0.1/tcp/17434]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/651)
+[DEBUG] 主机1: 12D3KooWBuT2Sf8hhN4E6rKpDTjk7yFQDreuxzL8DgWKYHd7KyxG 主机2: 12D3KooWQakw42xmHowBB7XzQnfjehQPwM1Wb2hSMBuWWPjPdh8d
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHF6dgD4GQocdX3qR31qYWXbb9mFnHvnZrVpx8NHHteDy, 地址=[/ip4/127.0.0.1/tcp/19829]
+[DEBUG] 创建测试主机: ID=12D3KooWDe1GmAYtPuXbL8cmaz3RtoiopNDwBU1FEQE5S3x7bdDh, 地址=[/ip4/127.0.0.1/tcp/21781]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/518)
+[DEBUG] 主机1: 12D3KooWHF6dgD4GQocdX3qR31qYWXbb9mFnHvnZrVpx8NHHteDy 主机2: 12D3KooWDe1GmAYtPuXbL8cmaz3RtoiopNDwBU1FEQE5S3x7bdDh
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWGruJd1Lj1ArjyQQstthciEw4GEg6NfvGFQMRhHvBcEAA, 地址=[/ip4/127.0.0.1/tcp/13049]
+[DEBUG] 创建测试主机: ID=12D3KooWFhJzRMBGrFVH8uHzwcpV22jVbwTGcqQYCbSpdDVuahjn, 地址=[/ip4/127.0.0.1/tcp/14333]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWC6XHcWi8Tahc7JRBumup2BgHaCqbXHtoCvBLF6RcZ9UH, 地址=[/ip4/127.0.0.1/tcp/14773]
+[DEBUG] 创建测试主机: ID=12D3KooWEKXMsUoHy88YV9DnGetganW2kBsj2cKi6s5MGGJdqHK2, 地址=[/ip4/127.0.0.1/tcp/16664]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/843)
+[DEBUG] 主机1: 12D3KooWGruJd1Lj1ArjyQQstthciEw4GEg6NfvGFQMRhHvBcEAA 主机2: 12D3KooWFhJzRMBGrFVH8uHzwcpV22jVbwTGcqQYCbSpdDVuahjn
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/585)
+[DEBUG] 主机1: 12D3KooWC6XHcWi8Tahc7JRBumup2BgHaCqbXHtoCvBLF6RcZ9UH 主机2: 12D3KooWEKXMsUoHy88YV9DnGetganW2kBsj2cKi6s5MGGJdqHK2
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJpnKxCeRBBCT5gj1kFfFMC9dbd5VDU9Ga4d31TuTCCzc, 地址=[/ip4/127.0.0.1/tcp/11953]
+[DEBUG] 创建测试主机: ID=12D3KooWRzkcDJ2wLfHNyQMBGx7kmExqsoHDoJXQjU3X9wPFUwkn, 地址=[/ip4/127.0.0.1/tcp/13689]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/56)
+[DEBUG] 主机1: 12D3KooWJpnKxCeRBBCT5gj1kFfFMC9dbd5VDU9Ga4d31TuTCCzc 主机2: 12D3KooWRzkcDJ2wLfHNyQMBGx7kmExqsoHDoJXQjU3X9wPFUwkn
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJrcwpd13jbn7zWvAeiXzWVNYHqTjN21Hxm7fyCBdoXMi, 地址=[/ip4/127.0.0.1/tcp/18914]
+[DEBUG] 创建测试主机: ID=12D3KooWPi7XtX636czhiBCsPAf4F9FruroW3MECupbc7mF2roEB, 地址=[/ip4/127.0.0.1/tcp/20084]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/636)
+[DEBUG] 主机1: 12D3KooWJrcwpd13jbn7zWvAeiXzWVNYHqTjN21Hxm7fyCBdoXMi 主机2: 12D3KooWPi7XtX636czhiBCsPAf4F9FruroW3MECupbc7mF2roEB
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWRnwXMhLdZqHm6wmxoRnWq2mJHswTAYcHaS4vBP3WTQL4, 地址=[/ip4/127.0.0.1/tcp/12934]
+[DEBUG] 创建测试主机: ID=12D3KooWCu3DLGsB8Pb9yravks2px3Mp9XsCDPB1v3GRxrEgRES1, 地址=[/ip4/127.0.0.1/tcp/14437]
+[DEBUG] 正在关闭连接对
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/445)
+[DEBUG] 主机1: 12D3KooWRnwXMhLdZqHm6wmxoRnWq2mJHswTAYcHaS4vBP3WTQL4 主机2: 12D3KooWCu3DLGsB8Pb9yravks2px3Mp9XsCDPB1v3GRxrEgRES1
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHsL7c1AquphQ94zL6QL6d7o3E81656XtuHh5rc36jq9Q, 地址=[/ip4/127.0.0.1/tcp/16731]
+[DEBUG] 创建测试主机: ID=12D3KooWCt5M2ydeFpgZ933WhcFVa84NPZjJw7RHoX9WZRS42UjW, 地址=[/ip4/127.0.0.1/tcp/17895]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/142)
+[DEBUG] 主机1: 12D3KooWHsL7c1AquphQ94zL6QL6d7o3E81656XtuHh5rc36jq9Q 主机2: 12D3KooWCt5M2ydeFpgZ933WhcFVa84NPZjJw7RHoX9WZRS42UjW
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWQqbDahX74k2KeS84ktzP3zd5Ltsvr2zr2YCKH4Gtgaxk, 地址=[/ip4/127.0.0.1/tcp/15917]
+[DEBUG] 创建测试主机: ID=12D3KooWFoddfdFsjueirZ85S8ycZzFVve39xsgh4G2xqGLy53Y9, 地址=[/ip4/127.0.0.1/tcp/17664]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/414)
+[DEBUG] 主机1: 12D3KooWQqbDahX74k2KeS84ktzP3zd5Ltsvr2zr2YCKH4Gtgaxk 主机2: 12D3KooWFoddfdFsjueirZ85S8ycZzFVve39xsgh4G2xqGLy53Y9
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNKW4RB4Ya6c1ef1fUxJ5LiR15D8PF6YiPuiFE6XF4TnV, 地址=[/ip4/127.0.0.1/tcp/14212]
+[DEBUG] 创建测试主机: ID=12D3KooWDhDsozgxHN1uN9ys4hNXU3pRaJvaAGEsMNgP1jdg1wEo, 地址=[/ip4/127.0.0.1/tcp/16175]
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWA5WHQ5AUt3FQy3ssKxjzbLT5g7hw6sn1SmkMxRYsviyi, 地址=[/ip4/127.0.0.1/tcp/17220]
+[DEBUG] 创建测试主机: ID=12D3KooWNvYwqJNurcVkQ9Q7wWrEq6SiMA1JKCPXcCuWtZA3Woxo, 地址=[/ip4/127.0.0.1/tcp/18420]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/286)
+[DEBUG] 主机1: 12D3KooWNKW4RB4Ya6c1ef1fUxJ5LiR15D8PF6YiPuiFE6XF4TnV 主机2: 12D3KooWDhDsozgxHN1uN9ys4hNXU3pRaJvaAGEsMNgP1jdg1wEo
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/584)
+[DEBUG] 主机1: 12D3KooWA5WHQ5AUt3FQy3ssKxjzbLT5g7hw6sn1SmkMxRYsviyi 主机2: 12D3KooWNvYwqJNurcVkQ9Q7wWrEq6SiMA1JKCPXcCuWtZA3Woxo
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWNbSFgJhrcbMyV5EZRk219A8eTi7jwgd7cuD9vyE3TEbq, 地址=[/ip4/127.0.0.1/tcp/16318]
+[DEBUG] 创建测试主机: ID=12D3KooWLECtVcZVW5GubTXS15a5LYRjy38L5wZXCDyT5Ub2n6HE, 地址=[/ip4/127.0.0.1/tcp/17644]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/72)
+[DEBUG] 主机1: 12D3KooWNbSFgJhrcbMyV5EZRk219A8eTi7jwgd7cuD9vyE3TEbq 主机2: 12D3KooWLECtVcZVW5GubTXS15a5LYRjy38L5wZXCDyT5Ub2n6HE
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJxNudwxEH91uG3ffGPxLaeFi4y8q2T6234yhRYku7SnJ, 地址=[/ip4/127.0.0.1/tcp/13419]
+[DEBUG] 创建测试主机: ID=12D3KooWFk2xVwQUk4wpjCZuNH2WmDhBWKKam4Yiqc12BSFsQfAj, 地址=[/ip4/127.0.0.1/tcp/15333]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/681)
+[DEBUG] 主机1: 12D3KooWJxNudwxEH91uG3ffGPxLaeFi4y8q2T6234yhRYku7SnJ 主机2: 12D3KooWFk2xVwQUk4wpjCZuNH2WmDhBWKKam4Yiqc12BSFsQfAj
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWJ48dVQh2asuJEyqYNRvjqfBszgU1TPRMPbpJ1FwF4mMj, 地址=[/ip4/127.0.0.1/tcp/14116]
+[DEBUG] 创建测试主机: ID=12D3KooWSXchK3UiKwKytRuQwfJKgBTBNpMBoYSycJ3Xr8oxPzo3, 地址=[/ip4/127.0.0.1/tcp/15924]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/329)
+[DEBUG] 主机1: 12D3KooWJ48dVQh2asuJEyqYNRvjqfBszgU1TPRMPbpJ1FwF4mMj 主机2: 12D3KooWSXchK3UiKwKytRuQwfJKgBTBNpMBoYSycJ3Xr8oxPzo3
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKUhhSWfRwDLwa2PTnKMUVMfVSP8LmF98fcfyziMTV5JG, 地址=[/ip4/127.0.0.1/tcp/18083]
+[DEBUG] 创建测试主机: ID=12D3KooWELcKdjYbdby3E4fvPxhdo6qsC5z1mvBTKz38GvbhkiKx, 地址=[/ip4/127.0.0.1/tcp/19208]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/899)
+[DEBUG] 主机1: 12D3KooWKUhhSWfRwDLwa2PTnKMUVMfVSP8LmF98fcfyziMTV5JG 主机2: 12D3KooWELcKdjYbdby3E4fvPxhdo6qsC5z1mvBTKz38GvbhkiKx
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWDfnfeo2UXGPFgpfRXgXcoApZLCX36jbUuwKV5ycvBzGV, 地址=[/ip4/127.0.0.1/tcp/10640]
+[DEBUG] 创建测试主机: ID=12D3KooWBgZYCV6WJTmeWGz9hpJLMeDegbJ3rHV4ZZMEtTd1fEAb, 地址=[/ip4/127.0.0.1/tcp/11701]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/675)
+[DEBUG] 主机1: 12D3KooWDfnfeo2UXGPFgpfRXgXcoApZLCX36jbUuwKV5ycvBzGV 主机2: 12D3KooWBgZYCV6WJTmeWGz9hpJLMeDegbJ3rHV4ZZMEtTd1fEAb
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKW7yzarmJ2NMfsmbXZ5u66noArp2tkuu6SySLSrjZ5YV, 地址=[/ip4/127.0.0.1/tcp/11734]
+[DEBUG] 创建测试主机: ID=12D3KooWPSmPG47nyuqb9R5dikkVgQ3Nf3DgkQeUEHaYkPnQygyf, 地址=[/ip4/127.0.0.1/tcp/13461]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/831)
+[DEBUG] 主机1: 12D3KooWKW7yzarmJ2NMfsmbXZ5u66noArp2tkuu6SySLSrjZ5YV 主机2: 12D3KooWPSmPG47nyuqb9R5dikkVgQ3Nf3DgkQeUEHaYkPnQygyf
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWD7KLwGYK8hzzAtSFAWgbpS736DP552m4AwTeeBWbkbSn, 地址=[/ip4/127.0.0.1/tcp/12596]
+[DEBUG] 创建测试主机: ID=12D3KooWLoZC7H2feoiWCCqA6jSREDvMC8EvBJhXF9XnDh7TJvkU, 地址=[/ip4/127.0.0.1/tcp/13813]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/228)
+[DEBUG] 主机1: 12D3KooWD7KLwGYK8hzzAtSFAWgbpS736DP552m4AwTeeBWbkbSn 主机2: 12D3KooWLoZC7H2feoiWCCqA6jSREDvMC8EvBJhXF9XnDh7TJvkU
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWSti4bR4SdNUqGU9CDfR7H9Z6sHus9VxFiNFbmsEtDTtH, 地址=[/ip4/127.0.0.1/tcp/16321]
+[DEBUG] 创建测试主机: ID=12D3KooWBnhxLHU6RbSZuTLcq3Ds8YH5MVPUgM1HM3pqX57RCmiv, 地址=[/ip4/127.0.0.1/tcp/17551]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/625)
+[DEBUG] 主机1: 12D3KooWSti4bR4SdNUqGU9CDfR7H9Z6sHus9VxFiNFbmsEtDTtH 主机2: 12D3KooWBnhxLHU6RbSZuTLcq3Ds8YH5MVPUgM1HM3pqX57RCmiv
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在关闭连接对
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHHyJ4F1fS1yCYDfub4SpB3fk95ZuiRm9zn9M92TmdwWs, 地址=[/ip4/127.0.0.1/tcp/18422]
+[DEBUG] 创建测试主机: ID=12D3KooW9tGZPnaAb8BHYJVNATewTXaZwyNYJE29Z6CA3LCbS8fa, 地址=[/ip4/127.0.0.1/tcp/19733]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/928)
+[DEBUG] 主机1: 12D3KooWHHyJ4F1fS1yCYDfub4SpB3fk95ZuiRm9zn9M92TmdwWs 主机2: 12D3KooW9tGZPnaAb8BHYJVNATewTXaZwyNYJE29Z6CA3LCbS8fa
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWHSEfJEAzuywQDSunYWdDoLdXRfTAZuphhTPaCyyxJzcT, 地址=[/ip4/127.0.0.1/tcp/16714]
+[DEBUG] 创建测试主机: ID=12D3KooWMcPjo9qbjbc55LrD462qBuRB6oZzotQoFvYbjWyiAHDd, 地址=[/ip4/127.0.0.1/tcp/17819]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/91)
+[DEBUG] 主机1: 12D3KooWHSEfJEAzuywQDSunYWdDoLdXRfTAZuphhTPaCyyxJzcT 主机2: 12D3KooWMcPjo9qbjbc55LrD462qBuRB6oZzotQoFvYbjWyiAHDd
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWMcpETpCzgT1mTe75huWxH6RktZp6gfC3aQMDfqWTmCJu, 地址=[/ip4/127.0.0.1/tcp/13843]
+[DEBUG] 创建测试主机: ID=12D3KooWH4gSrksxvjYzCrzvZqs6R1KjKrJAgZPye45iQ12kUnQX, 地址=[/ip4/127.0.0.1/tcp/15140]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/783)
+[DEBUG] 主机1: 12D3KooWMcpETpCzgT1mTe75huWxH6RktZp6gfC3aQMDfqWTmCJu 主机2: 12D3KooWH4gSrksxvjYzCrzvZqs6R1KjKrJAgZPye45iQ12kUnQX
+[DEBUG] 正在关闭连接对
+测试进度 [2m0s]: 已发送 3349 消息, 已接收 3349 消息, 真实错误 154, 注入错误 0, 重试 0
+[DEBUG] 正在关闭连接对
+测试完成: 共发送 3357 消息, 接收 3357 消息, 真实错误 155, 注入错误 0, 重试 0
+
+---------- 测试结果: 错误恢复测试 (2m0s, 错误率:1/30) ----------
+开始时间: 2025-03-18T16:14:43+08:00
+测试时长: 120.80 秒
+消息数量: 6714
+传输数据: 168.60 MB
+吞吐量: 55.58 消息/秒
+数据率: 1.40 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.00, 最大: 0.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 0.00, P99: 0.00
+内存使用 - 峰值: 27.97 MB, 平均: 20.71 MB
+GC - 次数: 444, 总暂停时间: 46.94 ms
+错误: 155, 超时: 0, 重试: 0
+------------------------------------
+
+===== 开始1MB消息大数据流测试 (10GB) =====
+
+开始 大数据流测试 (1MB消息, 10.00GB总量)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWKE466ifbirfMeJCrJ9S2VPmMJhFYskbzqLyBDJnWAE2U, 地址=[/ip4/127.0.0.1/tcp/18710]
+[DEBUG] 创建测试主机: ID=12D3KooWAguxCwSqvdgz9BJzDEAyB51Zaay5JRL3TNLn6hXsRBZL, 地址=[/ip4/127.0.0.1/tcp/20431]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/125)
+[DEBUG] 主机1: 12D3KooWKE466ifbirfMeJCrJ9S2VPmMJhFYskbzqLyBDJnWAE2U 主机2: 12D3KooWAguxCwSqvdgz9BJzDEAyB51Zaay5JRL3TNLn6hXsRBZL
+[16:16:49] 速率: 1656.92 MB/s, 平均: 1619.03 MB/s, 内存: 34.31 MB, GC: 438次
+达到目标数据量，测试完成
+已达到目标数据量，结束发送
+接收协程已结束
+
+测试完成: 总数据量: 10.00 GB, 平均速率: 898.11 MB/s, 总消息数: 10240
+最高速率: 1656.92 MB/s, 最低速率: 1656.92 MB/s
+内存峰值: 34.31 MB
+速率波动: 0.00%
+详细性能数据已保存至: dataflow_perf_20250318_161655.csv
+
+---------- 测试结果: 大数据流测试 (1MB消息, 10.00GB总量) ----------
+开始时间: 2025-03-18T16:16:44+08:00
+测试时长: 11.40 秒
+消息数量: 10240
+传输数据: 10.00 GB
+吞吐量: 898.37 消息/秒
+数据率: 898.37 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.32, 最大: 6.00
+延迟百分位 (毫秒) - P50: 0.00, P90: 2.00, P99: 3.00
+内存使用 - 峰值: 38.93 MB, 平均: 29.95 MB
+GC - 次数: 990, 总暂停时间: 86.41 ms
+错误: 1, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+===== 开始2MB消息大数据流测试 (10GB) =====
+
+开始 大数据流测试 (2MB消息, 10.00GB总量)...
+[DEBUG] 正在创建测试连接对
+[DEBUG] 创建测试主机: ID=12D3KooWCJ5NGEqitZit2zCnjx7ZFPLQvSXiaM3gGTB1N8ZBgy94, 地址=[/ip4/127.0.0.1/tcp/17701]
+[DEBUG] 创建测试主机: ID=12D3KooWN23Up5Sj6VHVmadswmJdqjh2sNUUsM5vJAaMJc6UVDdJ, 地址=[/ip4/127.0.0.1/tcp/18852]
+[DEBUG] 连接对创建成功 (协议: /pointsub/test/221)
+[DEBUG] 主机1: 12D3KooWCJ5NGEqitZit2zCnjx7ZFPLQvSXiaM3gGTB1N8ZBgy94 主机2: 12D3KooWN23Up5Sj6VHVmadswmJdqjh2sNUUsM5vJAaMJc6UVDdJ
+[16:17:00] 速率: 1584.12 MB/s, 平均: 1547.27 MB/s, 内存: 21.81 MB, GC: 434次
+达到目标数据量，测试完成
+接收协程已结束
+
+测试完成: 总数据量: 10.00 GB, 平均速率: 867.85 MB/s, 总消息数: 5120
+最高速率: 1584.12 MB/s, 最低速率: 1584.12 MB/s
+内存峰值: 21.81 MB
+速率波动: 0.00%
+详细性能数据已保存至: dataflow_perf_20250318_161707.csv
+
+---------- 测试结果: 大数据流测试 (2MB消息, 10.00GB总量) ----------
+开始时间: 2025-03-18T16:16:55+08:00
+测试时长: 11.80 秒
+消息数量: 5120
+传输数据: 10.00 GB
+吞吐量: 433.93 消息/秒
+数据率: 867.85 MB/秒
+延迟 (毫秒) - 最小: 0.00, 平均: 0.77, 最大: 4.00
+延迟百分位 (毫秒) - P50: 1.00, P90: 2.00, P99: 3.00
+内存使用 - 峰值: 40.45 MB, 平均: 25.85 MB
+GC - 次数: 1569, 总暂停时间: 121.75 ms
+错误: 1, 超时: 0, 重试: 0
+------------------------------------
+[DEBUG] 正在关闭连接对
+
+======= 测试完成 =======
+总测试时间: 9m11s
+测试数量: 18
+结果保存至: results/results_20250318_160756.csv
+
+最高吞吐量: 898.37 MB/s (大数据流测试 (1MB消息, 10.00GB总量))
+最高P99延迟: 5.00 ms (大消息延迟测试 (2MB, 500ms间隔))
+总传输数据: 21.18 GB
+总消息数: 32943
+总错误数: 212

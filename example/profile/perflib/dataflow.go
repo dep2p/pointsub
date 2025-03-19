@@ -177,7 +177,11 @@ func runDataFlowTest(testName string, config DataFlowTestConfig) TestResult {
 		for {
 			// 设置超时
 			deadline := time.Now().Add(10 * time.Second)
+<<<<<<< HEAD
 			receiver.SetReadDeadline(deadline)
+=======
+			_ = receiver.SetReadDeadline(deadline)
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 			// 接收消息
 			data, err := receiver.Receive()
@@ -324,7 +328,14 @@ func runDataFlowTest(testName string, config DataFlowTestConfig) TestResult {
 		// 发送消息
 		start := time.Now()
 		// 设置写超时
+<<<<<<< HEAD
 		sender.SetWriteDeadline(time.Now().Add(5 * time.Second))
+=======
+		err := sender.SetWriteDeadline(time.Now().Add(5 * time.Second))
+		if err != nil && config.Verbose {
+			log.Printf("设置写超时失败: %v", err)
+		}
+>>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 		err = sender.Send(testData)
 		latency := time.Since(start)
