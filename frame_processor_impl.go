@@ -56,7 +56,6 @@ type advancedFrameProcessor struct {
 	decompressorPool sync.Pool
 }
 
-<<<<<<< HEAD
 // frameProcessorStats 保存帧处理器的统计信息
 type frameProcessorStats struct {
 	mu                sync.Mutex
@@ -68,18 +67,6 @@ type frameProcessorStats struct {
 	compressedFrames  int64
 	compressionRatio  float64
 	avgProcessingTime time.Duration
-=======
-// 帧处理器统计
-type frameProcessorStats struct {
-	framesProcessed   int64
-	bytesProcessed    int64
-	compressedFrames  int64
-	compressionRatio  float64
-	processingErrors  int64
-	recoveredErrors   int64
-	avgProcessingTime time.Duration
-	mu                sync.RWMutex
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 }
 
 // AdvancedFrameProcessorOption 高级帧处理器选项
@@ -625,35 +612,22 @@ func (p *advancedFrameProcessor) ReadStream(reader io.Reader, writer io.Writer) 
 
 // GetStats 获取帧处理器统计信息
 func (p *advancedFrameProcessor) GetStats() *frameProcessorStats {
-<<<<<<< HEAD
 	p.stats.mu.Lock()
 	defer p.stats.mu.Unlock()
-=======
-	p.stats.mu.RLock()
-	defer p.stats.mu.RUnlock()
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 	// 返回一个副本，避免并发访问问题
 	statsCopy := &frameProcessorStats{
 		framesProcessed:   p.stats.framesProcessed,
 		bytesProcessed:    p.stats.bytesProcessed,
-<<<<<<< HEAD
 		processingErrors:  p.stats.processingErrors,
 		checksumErrors:    p.stats.checksumErrors,
 		recoveredErrors:   p.stats.recoveredErrors,
 		compressedFrames:  p.stats.compressedFrames,
 		compressionRatio:  p.stats.compressionRatio,
-=======
-		compressedFrames:  p.stats.compressedFrames,
-		compressionRatio:  p.stats.compressionRatio,
-		processingErrors:  p.stats.processingErrors,
-		recoveredErrors:   p.stats.recoveredErrors,
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 		avgProcessingTime: p.stats.avgProcessingTime,
 	}
 	return statsCopy
 }
-<<<<<<< HEAD
 
 // ReadFrameWithFlags 读取帧并返回帧标志
 func (p *advancedFrameProcessor) ReadFrameWithFlags(reader io.Reader) ([]byte, uint32, error) {
@@ -815,5 +789,3 @@ func (p *advancedFrameProcessor) ReadFrameWithFlags(reader io.Reader) ([]byte, u
 
 	return data, flags, nil
 }
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9

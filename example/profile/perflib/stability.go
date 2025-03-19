@@ -10,11 +10,8 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-<<<<<<< HEAD
 
 	"github.com/dep2p/pointsub"
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 )
 
 // 新增全局变量
@@ -212,11 +209,7 @@ func runStabilityTest(testName string, config StabilityTestConfig, injectErrors 
 
 						// 设置超时
 						deadline := time.Now().Add(2 * time.Second)
-<<<<<<< HEAD
 						receiverConn.SetReadDeadline(deadline)
-=======
-						_ = receiverConn.SetReadDeadline(deadline)
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 						// 接收消息
 						data, err := receiverConn.Receive()
@@ -362,21 +355,13 @@ func runStabilityTest(testName string, config StabilityTestConfig, injectErrors 
 
 // 错误注入网络连接包装器
 type errorInjectPipe struct {
-<<<<<<< HEAD
 	conn          pointsub.MessageTransporter // 使用标准MessageTransporter接口
-=======
-	conn          *PerfTestMessageTransporter // 改为使用*PerfTestMessageTransporter而不是net.Conn
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	injectionRate int                         // 注入错误的频率 (1/N的概率)
 	enabled       bool                        // 是否启用错误注入
 }
 
 // WrapConn 包装连接，应用错误注入
-<<<<<<< HEAD
 func (e *errorInjectPipe) WrapConn(conn pointsub.MessageTransporter) *errorInjectPipe {
-=======
-func (e *errorInjectPipe) WrapConn(conn *PerfTestMessageTransporter) *errorInjectPipe {
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	e.conn = conn
 	return e
 }
@@ -408,53 +393,7 @@ func (e *errorInjectPipe) Send(data []byte) error {
 	return e.conn.Send(data)
 }
 
-<<<<<<< HEAD
 // SetDeadline 设置读写超时
-=======
-// Read 实现io.Reader接口
-func (e *errorInjectPipe) Read(b []byte) (n int, err error) {
-	if e.enabled && rand.Intn(e.injectionRate) == 0 {
-		// 模拟随机错误
-		return 0, fmt.Errorf("injected error")
-	}
-	return e.conn.Read(b)
-}
-
-// Write 实现io.Writer接口
-func (e *errorInjectPipe) Write(b []byte) (n int, err error) {
-	if e.enabled && rand.Intn(e.injectionRate) == 0 {
-		// 模拟随机错误
-		return 0, fmt.Errorf("injected error")
-	}
-	return e.conn.Write(b)
-}
-
-// Close 实现io.Closer接口
-func (e *errorInjectPipe) Close() error {
-	if e.conn == nil {
-		return nil
-	}
-	return e.conn.Close()
-}
-
-// LocalAddr 实现net.Conn接口
-func (e *errorInjectPipe) LocalAddr() net.Addr {
-	if e.conn == nil {
-		return nil
-	}
-	return e.conn.LocalAddr()
-}
-
-// RemoteAddr 实现net.Conn接口
-func (e *errorInjectPipe) RemoteAddr() net.Addr {
-	if e.conn == nil {
-		return nil
-	}
-	return e.conn.RemoteAddr()
-}
-
-// SetDeadline 实现net.Conn接口
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 func (e *errorInjectPipe) SetDeadline(t time.Time) error {
 	if e.conn == nil {
 		return fmt.Errorf("connection is nil")
@@ -462,11 +401,7 @@ func (e *errorInjectPipe) SetDeadline(t time.Time) error {
 	return e.conn.SetDeadline(t)
 }
 
-<<<<<<< HEAD
 // SetReadDeadline 设置读取超时
-=======
-// SetReadDeadline 实现net.Conn接口
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 func (e *errorInjectPipe) SetReadDeadline(t time.Time) error {
 	if e.conn == nil {
 		return fmt.Errorf("connection is nil")
@@ -474,11 +409,7 @@ func (e *errorInjectPipe) SetReadDeadline(t time.Time) error {
 	return e.conn.SetReadDeadline(t)
 }
 
-<<<<<<< HEAD
 // SetWriteDeadline 设置写入超时
-=======
-// SetWriteDeadline 实现net.Conn接口
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 func (e *errorInjectPipe) SetWriteDeadline(t time.Time) error {
 	if e.conn == nil {
 		return fmt.Errorf("connection is nil")
@@ -486,7 +417,6 @@ func (e *errorInjectPipe) SetWriteDeadline(t time.Time) error {
 	return e.conn.SetWriteDeadline(t)
 }
 
-<<<<<<< HEAD
 // Close 关闭连接
 func (e *errorInjectPipe) Close() error {
 	if e.conn == nil {
@@ -495,8 +425,6 @@ func (e *errorInjectPipe) Close() error {
 	return e.conn.Close()
 }
 
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 // 运行所有稳定性测试
 func RunAllStabilityTests(verbose bool) []TestResult {
 	var results []TestResult

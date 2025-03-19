@@ -5,10 +5,7 @@ import (
 	"errors"
 	"hash/crc32"
 	"io"
-<<<<<<< HEAD
 	"time"
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 )
 
 // 帧头部常量
@@ -73,12 +70,9 @@ type FrameProcessor interface {
 	// 读取帧
 	ReadFrame(reader io.Reader) ([]byte, error)
 
-<<<<<<< HEAD
 	// 读取帧并返回帧标志
 	ReadFrameWithFlags(reader io.Reader) ([]byte, uint32, error)
 
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 	// 写入帧
 	WriteFrame(writer io.Writer, data []byte, flags uint32) error
 }
@@ -253,7 +247,6 @@ func (p *defaultFrameProcessor) ReadFrame(reader io.Reader) ([]byte, error) {
 	return data, nil
 }
 
-<<<<<<< HEAD
 // ReadFrameWithFlags 实现FrameProcessor接口，读取帧并返回内容与标志
 func (p *defaultFrameProcessor) ReadFrameWithFlags(reader io.Reader) ([]byte, uint32, error) {
 	// 为每次读取操作设置一个较为严格的超时上限（如果reader支持）
@@ -354,8 +347,6 @@ func (p *defaultFrameProcessor) ReadFrameWithFlags(reader io.Reader) ([]byte, ui
 	return data, flags, nil
 }
 
-=======
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 // WriteFrame 将数据写入帧
 func (p *defaultFrameProcessor) WriteFrame(writer io.Writer, data []byte, flags uint32) error {
 	// 计算校验和

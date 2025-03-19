@@ -152,11 +152,7 @@ func runLatencyTest(testName string, config LatencyTestConfig) TestResult {
 
 			// 设置接收超时
 			deadline := time.Now().Add(2 * time.Second)
-<<<<<<< HEAD
 			receiver.SetReadDeadline(deadline)
-=======
-			_ = receiver.SetReadDeadline(deadline)
->>>>>>> 6613f0351ad580eb6dda4edd3f91c53cbf4b91a9
 
 			_, err := receiver.Receive()
 			if err != nil {
