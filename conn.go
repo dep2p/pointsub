@@ -8,18 +8,18 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dep2p/go-dep2p/core/host"
-	"github.com/dep2p/go-dep2p/core/network"
-	"github.com/dep2p/go-dep2p/core/peer"
-	"github.com/dep2p/go-dep2p/core/protocol"
+	"github.com/libp2p/go-libp2p/core/host"
+	"github.com/libp2p/go-libp2p/core/network"
+	"github.com/libp2p/go-libp2p/core/peer"
+	"github.com/libp2p/go-libp2p/core/protocol"
 )
 
-// conn 是 net.Conn 的实现，它包装了 dep2p 流。
+// conn 是 net.Conn 的实现，它包装了 libp2p 流。
 type conn struct {
 	network.Stream
 }
 
-// newConn 根据给定的 dep2p 流创建一个 conn
+// newConn 根据给定的 libp2p 流创建一个 conn
 func newConn(s network.Stream) net.Conn {
 	return &conn{s}
 }

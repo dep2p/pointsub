@@ -280,7 +280,7 @@ func streamExample() {
 // 大文件传输与进度跟踪示例
 // 展示了PointSub处理大文件时的进度跟踪机制
 func largeFileExample() {
-	// 创建基于dep2p的连接对
+	// 创建基于libp2p的连接对
 	fmt.Println("准备进行大文件传输测试...")
 
 	// 创建帧处理器，设置较长的超时

@@ -13,6 +13,12 @@ import (
 	"time"
 )
 
+// 常量定义
+const (
+	// DefaultMaxBodySize 默认最大消息体大小为10MB
+	DefaultMaxBodySize = 10 * 1024 * 1024
+)
+
 // 消息优先级
 type MessagePriority int
 
@@ -117,7 +123,7 @@ type MessageHeader struct {
 	// 消息体长度
 	BodyLength uint32
 
-	// 消息时间戳
+	// 消息时间戳 (以纳秒为单位, time.Now().UnixNano())
 	Timestamp int64
 
 	// 消息TTL (以秒为单位)
@@ -126,8 +132,11 @@ type MessageHeader struct {
 	// 消息路由键
 	RoutingKeyLength uint8
 
-	// 检验和
+	// 头部检验和
 	Checksum uint32
+
+	// 消息体检验和
+	BodyChecksum uint32
 }
 
 // Message 完整消息
@@ -269,21 +278,17 @@ func WithMessageFilter(filter MessageFilter) MessageProcessorOption {
 	}
 }
 
-// 创建新的消息处理器
-func NewDefaultMessageProcessor(options ...MessageProcessorOption) MessageProcessor {
+// NewDefaultMessageProcessor 创建默认消息处理器
+func NewDefaultMessageProcessor(opts ...MessageProcessorOption) MessageProcessor {
+	// 创建默认处理器
 	proc := &defaultMessageProcessor{
-		maxBodySize:    10 * 1024 * 1024, // 默认10MB
-		headerSize:     24,               // 基本头部大小
+		maxBodySize:    DefaultMaxBodySize,
+		headerSize:     29, // 新的头部大小，包含BodyChecksum
 		filters:        make([]MessageFilter, 0),
 		processCounter: 0,
-		reuseRate:      0.0,
-		bufferHitRate:  0.0,
 		messagePool: &sync.Pool{
 			New: func() interface{} {
-				return &Message{
-					CreatedAt: time.Now(),
-					UpdatedAt: time.Now(),
-				}
+				return &Message{}
 			},
 		},
 		bufferPool: &sync.Pool{
@@ -294,7 +299,7 @@ func NewDefaultMessageProcessor(options ...MessageProcessorOption) MessageProces
 	}
 
 	// 应用选项
-	for _, opt := range options {
+	for _, opt := range opts {
 		opt(proc)
 	}
 
@@ -343,6 +348,13 @@ func (p *defaultMessageProcessor) EncodeMessage(msg *Message) ([]byte, error) {
 		msg.Header.Timestamp = time.Now().UnixNano()
 	}
 
+	// 计算消息体校验和
+	if msg.Header.BodyLength > 0 {
+		msg.Header.BodyChecksum = crc32.ChecksumIEEE(msg.Body)
+	} else {
+		msg.Header.BodyChecksum = 0
+	}
+
 	// 从对象池获取缓冲区
 	buffer := p.bufferPool.Get().(*bytes.Buffer)
 	buffer.Reset()
@@ -379,6 +391,11 @@ func (p *defaultMessageProcessor) EncodeMessage(msg *Message) ([]byte, error) {
 
 	// 路由键长度 (1字节)
 	buffer.WriteByte(msg.Header.RoutingKeyLength)
+
+	// 消息体校验和 (4字节)
+	bodyChecksumBytes := make([]byte, 4)
+	binary.BigEndian.PutUint32(bodyChecksumBytes, msg.Header.BodyChecksum)
+	buffer.Write(bodyChecksumBytes)
 
 	// 计算头部校验和并写入 (4字节)
 	headerData := buffer.Bytes()
@@ -458,11 +475,17 @@ func (p *defaultMessageProcessor) DecodeMessage(data []byte) (*Message, error) {
 	// 路由键长度
 	msg.Header.RoutingKeyLength = data[20]
 
-	// 校验和
-	expectedChecksum := binary.BigEndian.Uint32(data[21:25])
+	// 消息体校验和
+	msg.Header.BodyChecksum = binary.BigEndian.Uint32(data[21:25])
 
-	// 计算校验和
-	actualChecksum := crc32.ChecksumIEEE(data[:21])
+	// 头部校验和
+	expectedChecksum := binary.BigEndian.Uint32(data[25:29])
+
+	// 改变headerSize，因为我们增加了BodyChecksum字段
+	p.headerSize = 29
+
+	// 计算头部校验和
+	actualChecksum := crc32.ChecksumIEEE(data[:25])
 	if actualChecksum != expectedChecksum {
 		p.messagePool.Put(msg) // 回收对象
 		return nil, errors.New("消息头校验和不匹配")
@@ -495,6 +518,13 @@ func (p *defaultMessageProcessor) DecodeMessage(data []byte) (*Message, error) {
 		// 复制消息体
 		msg.Body = make([]byte, msg.Header.BodyLength)
 		copy(msg.Body, data[bodyStart:expectedEnd])
+
+		// 验证消息体校验和
+		actualBodyChecksum := crc32.ChecksumIEEE(msg.Body)
+		if actualBodyChecksum != msg.Header.BodyChecksum {
+			p.messagePool.Put(msg) // 回收对象
+			return nil, errors.New("消息体校验和不匹配")
+		}
 	} else {
 		msg.Body = nil
 	}
@@ -548,8 +578,10 @@ func (p *defaultMessageProcessor) ValidateMessage(msg *Message) error {
 
 	// 检查消息TTL
 	if msg.Header.TTL > 0 {
+		// 使用纳秒级时间戳创建时间对象
+		messageTime := time.Unix(0, msg.Header.Timestamp)
 		// 计算消息已存在时间（秒）
-		messageAge := time.Since(time.Unix(0, msg.Header.Timestamp)).Seconds()
+		messageAge := time.Since(messageTime).Seconds()
 		if messageAge > float64(msg.Header.TTL) {
 			return errors.New("消息已过期")
 		}
@@ -587,7 +619,7 @@ func (p *defaultMessageProcessor) ReadMessage(reader io.Reader) (*Message, error
 	}
 
 	// 解析基本头部信息以确定完整消息大小
-	if len(headerData) < 21 {
+	if len(headerData) < 25 { // 保持最小有效头部大小检查
 		return nil, errors.New("头部数据不完整")
 	}
 

@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dep2p/go-dep2p/core/host"
-	"github.com/dep2p/go-dep2p/core/network"
-	"github.com/dep2p/go-dep2p/core/protocol"
+	"github.com/libp2p/go-libp2p/core/host"
+	"github.com/libp2p/go-libp2p/core/network"
+	"github.com/libp2p/go-libp2p/core/protocol"
 )
 
 // ListenOption 定义监听器选项
@@ -93,7 +93,7 @@ func WithMaxConcurrentConnections(max int) ListenOption {
 	}
 }
 
-// listener 是 net.Listener 的实现，用于处理来自 dep2p 连接的标记流。
+// listener 是 net.Listener 的实现，用于处理来自 libp2p 连接的标记流。
 type listener struct {
 	host     host.Host
 	ctx      context.Context
@@ -116,7 +116,7 @@ type listenerStats struct {
 }
 
 // Accept 返回此监听器的下一个连接。
-// 如果没有连接，它会阻塞。在底层，连接是 dep2p 流。
+// 如果没有连接，它会阻塞。在底层，连接是 libp2p 流。
 func (l *listener) Accept() (net.Conn, error) {
 	l.closedMu.RLock()
 	if l.closed {
@@ -198,7 +198,7 @@ func (l *listener) Close() error {
 	return nil
 }
 
-// Addr 返回此监听器的地址，即其 dep2p Peer ID。
+// Addr 返回监听器的地址
 func (l *listener) Addr() net.Addr {
 	return &addr{l.host.ID()}
 }
@@ -208,21 +208,24 @@ func (l *listener) Stats() (accepted, dropped int64) {
 	if l.stats == nil {
 		return 0, 0
 	}
-
 	l.stats.mu.Lock()
-	defer l.stats.mu.Unlock()
-	return l.stats.accepted, l.stats.dropped
+	accepted = l.stats.accepted
+	dropped = l.stats.dropped
+	l.stats.mu.Unlock()
+	return
 }
 
-// Listen 提供一个标准的 net.Listener，准备接受"连接"。
+// Listen 创建一个新的监听器，将为给定的协议标签处理传入的流
 func Listen(h host.Host, tag protocol.ID) (net.Listener, error) {
 	return ListenWithOptions(h, tag)
 }
 
-// ListenWithOptions 使用选项创建监听器
+// ListenWithOptions 创建一个新的监听器，将为给定的协议标签处理传入的流，支持自定义选项
 func ListenWithOptions(h host.Host, tag protocol.ID, opts ...ListenOption) (net.Listener, error) {
-	lopts := &listenOptions{
-		bufferSize:             16, // 默认缓冲16个连接
+	// 处理选项
+	options := listenOptions{
+		bufferSize:             256,
+		idleTimeout:            60 * time.Second,
 		enableLargeMessageMode: false,
 		enableAdaptiveChunking: true,
 		chunkSize:              DefaultMediumChunkSize,
@@ -231,32 +234,7 @@ func ListenWithOptions(h host.Host, tag protocol.ID, opts ...ListenOption) (net.
 	}
 
 	for _, opt := range opts {
-		opt(lopts)
-	}
-
-	// 动态调整缓冲区大小，防止内存压力
-	if lopts.enableLargeMessageMode && lopts.maxConcurrentConnections <= 0 {
-		// 根据消息大小智能调整并发数
-		if lopts.largeMessageSize > LargeMessageThreshold {
-			// 大于1MB的消息限制并发连接数
-			lopts.maxConcurrentConnections = lopts.bufferSize / 4
-			if lopts.maxConcurrentConnections < 5 {
-				lopts.maxConcurrentConnections = 5
-			}
-		} else if lopts.largeMessageSize > MediumMessageThreshold {
-			lopts.maxConcurrentConnections = lopts.bufferSize / 2
-			if lopts.maxConcurrentConnections < 10 {
-				lopts.maxConcurrentConnections = 10
-			}
-		} else {
-			lopts.maxConcurrentConnections = lopts.bufferSize
-		}
-	}
-
-	// 如果设置了最大并发连接数，调整流通道大小
-	streamChSize := lopts.bufferSize
-	if lopts.maxConcurrentConnections > 0 && lopts.maxConcurrentConnections < streamChSize {
-		streamChSize = lopts.maxConcurrentConnections
+		opt(&options)
 	}
 
 	ctx, cancel := context.WithCancel(context.Background())
@@ -264,44 +242,20 @@ func ListenWithOptions(h host.Host, tag protocol.ID, opts ...ListenOption) (net.
 	l := &listener{
 		host:     h,
 		ctx:      ctx,
-		cancel:   cancel,
 		tag:      tag,
-		streamCh: make(chan network.Stream, streamChSize),
+		cancel:   cancel,
+		streamCh: make(chan network.Stream, options.bufferSize),
 		stats:    &listenerStats{},
-		opts:     *lopts,
+		opts:     options,
 	}
 
-	// 创建流处理器
 	h.SetStreamHandler(tag, func(s network.Stream) {
-		l.closedMu.RLock()
-		closed := l.closed
-		l.closedMu.RUnlock()
-
-		if closed {
-			s.Reset()
-			return
-		}
-
-		// 如果设置了最大并发连接且当前已接受连接数超过限制，拒绝连接
-		if lopts.maxConcurrentConnections > 0 {
-			l.stats.mu.Lock()
-			currentlyAccepted := l.stats.accepted - l.stats.dropped
-			l.stats.mu.Unlock()
-
-			if currentlyAccepted >= int64(lopts.maxConcurrentConnections) {
-				// 超过限制，重置流
-				s.Reset()
-				l.stats.mu.Lock()
-				l.stats.dropped++
-				l.stats.mu.Unlock()
-				return
-			}
-		}
-
 		select {
 		case l.streamCh <- s:
-			// 成功添加到队列
+			// 流被接受
 		case <-ctx.Done():
+			// 监听器已关闭
+			logger.Warnf("流被拒绝，监听器已关闭: %s", s.ID())
 			s.Reset()
 			if l.stats != nil {
 				l.stats.mu.Lock()
@@ -309,52 +263,44 @@ func ListenWithOptions(h host.Host, tag protocol.ID, opts ...ListenOption) (net.
 				l.stats.mu.Unlock()
 			}
 		default:
-			// 通道已满，尝试非阻塞发送
-			select {
-			case l.streamCh <- s:
-				// 第二次尝试成功
-			default:
-				// 通道仍然已满，重置流
-				s.Reset()
-				if l.stats != nil {
-					l.stats.mu.Lock()
-					l.stats.dropped++
-					l.stats.mu.Unlock()
-				}
+			if l.stats != nil {
+				l.stats.mu.Lock()
+				l.stats.dropped++
+				l.stats.mu.Unlock()
 			}
+			// 没有消费者就拒绝流
+			logger.Warnf("流被拒绝，缓冲区已满: %s", s.ID())
+			s.Reset()
 		}
 	})
 
-	// 如果设置了空闲超时，启动定时检查
-	if lopts.idleTimeout > 0 {
+	// 如果设置了空闲超时，启动超时检查协程
+	if options.idleTimeout > 0 {
 		go func() {
-			ticker := time.NewTicker(lopts.idleTimeout)
+			defer cancel()
+
+			ticker := time.NewTicker(10 * time.Second)
 			defer ticker.Stop()
+
+			var lastAccepted, lastDropped int64
+			lastActivity := time.Now()
 
 			for {
 				select {
 				case <-ticker.C:
-					// 检查监听器是否空闲
-					if l.stats != nil {
-						l.stats.mu.Lock()
-						lastAccepted := l.stats.accepted
-						l.stats.mu.Unlock()
+					// 检查是否有活动
+					accepted, dropped := l.Stats()
 
-						// 等待一个周期
-						select {
-						case <-time.After(lopts.idleTimeout):
-							l.stats.mu.Lock()
-							newAccepted := l.stats.accepted
-							l.stats.mu.Unlock()
-
-							// 如果在空闲超时内没有新连接，关闭监听器
-							if newAccepted == lastAccepted {
-								l.Close()
-								return
-							}
-						case <-ctx.Done():
-							return
-						}
+					// 如果有新的接受或丢弃，更新最后活动时间
+					if accepted > lastAccepted || dropped > lastDropped {
+						lastAccepted = accepted
+						lastDropped = dropped
+						lastActivity = time.Now()
+					} else if time.Since(lastActivity) > options.idleTimeout {
+						// 空闲超时，关闭监听器
+						logger.Infof("监听器空闲超时，关闭: %s", tag)
+						_ = l.Close()
+						return
 					}
 				case <-ctx.Done():
 					return
@@ -363,5 +309,6 @@ func ListenWithOptions(h host.Host, tag protocol.ID, opts ...ListenOption) (net.
 		}()
 	}
 
+	logger.Infof("监听器启动成功, 协议: %s, 缓冲区: %d", tag, options.bufferSize)
 	return l, nil
 }
